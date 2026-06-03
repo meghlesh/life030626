@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+  <title>Social Service</title>
+
+  <!-- GOOGLE FONT -->
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap"
+rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&display=swap"
+rel="stylesheet">
+
+  <!-- FONT AWESOME -->
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    rel="stylesheet">
+
+  <!-- CSS -->
+
+  <link rel="stylesheet"
+href="css/admin-socialservices.css">
+
+  <!-- ADDED: STYLE FOR LAYOUT (Same as Career Panel) -->
+  <style>
+    /* Wrapper ko flex column banao taaki content upar, footer niche */
+    .main-wrapper {
+      display: flex !important;
+      flex-direction: column !important;
+      min-height: 100vh !important; 
+      background: #f4f6f9;
+    }
+    
+    .copyright-section {
+      text-align: center;
+      padding: 15px 0;
+      width: 100%;
+      margin-top: auto; /* Pushes to bottom */
+      flex-shrink: 0;
+    }
+    
+    .copyright-text {
+      font-family: 'Lato', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      color: rgba(121, 121, 121, 1);
+    }
+
+    .copyright-text a.company-name {
+      color: rgba(9, 42, 73, 1); /* Darker color */
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .copyright-text a.company-name:hover {
+      color: #00bcd4 !important;
+      font-weight: 700; 
+      letter-spacing: 1px; 
+      margin-left: 4px; 
+    }
+  </style>
+
+</head>
+<body>
+
+<div class="dashboard-wrapper"> 
+
+  <!-- SIDEBAR (Independent) -->
+  <aside class="sidebar">
+    
+    <div class="logo">
+      <img src="assets/icons/Creative Web Logo.png" alt="logo">
+    </div>
+
+    <div class="close-btn">
+      <i class="fa-solid fa-xmark"></i>
+    </div>
+
+    <ul class="menu">
+      <!-- FIXED: Removed 'active' class from Dashboard -->
+      <li>
+        <a href="admin-dashboard.html">
+          <img src="assets/icons/dashboard.png" class="icon">
+          <span class="menu-text">Dashboard</span>
+        </a>
+      </li>
+      
+      <!-- COMMENTED: BLOGS -->
+      <!-- <li>
+        <a href="#">
+          <img src="assets/icons/BLOGS.png" class="icon">
+          <span class="menu-text">Blogs</span>
+        </a>
+      </li> -->
+      
+      <li>
+        <a href="admin-events.html">
+          <img src="assets/icons/EVENTS.png" class="icon">
+          <span class="menu-text">Events</span>
+        </a>
+      </li>
+      <li>
+        <a href="admin-gallery.html">
+          <img src="assets/icons/GALLERY.png" class="icon">
+          <span class="menu-text">Gallery</span>
+        </a>
+      </li>
+      <li class="active">
+        <a href="admin-socialservices.html">
+          <img src="assets/icons/SOCIAL SERVICE.png" class="icon">
+          <span class="menu-text">Social Service</span>
+        </a>
+      </li>
+      
+      <li>
+          <a href="career-panel.html">
+          <img src="assets/icons/CARRER.png" class="icon">
+          <span class="menu-text">Careers</span>
+        </a>
+      </li>
+      
+      <!-- COMMENTED: USERS & ROLES -->
+      <!-- <li>
+        <a href="#">
+          <img src="assets/icons/USER&ROLES.png" class="icon">
+          <span class="menu-text">Users & Roles</span>
+        </a>
+      </li> -->
+      
+      <!-- COMMENTED: ANALYTICS -->
+      <!-- <li>
+        <a href="#">
+          <img src="assets/icons/ANALYTICS.png" class="icon">
+          <span class="menu-text">Analytics</span>
+        </a>
+      </li> -->
+
+      <li>
+        <a href="admin-contact-us.html">
+          <i class="fa-regular fa-envelope sidebar-fa-icon"></i>
+          <span class="menu-text">Contact Us</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="admin-setting.html">
+          <img src="assets/icons/SETTING.png" class="icon">
+          <span class="menu-text">Setting</span>
+        </a>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <div class="main">
+    
+    <div class="main-wrapper">
+      
+      <header class="top-navbar">
+        
+        <div class="hamburger">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Search...">
+        </div>
+
+        <div class="nav-right">
+
+          <div class="notification-box">
+            <div class="notification">
+              <i class="fa-regular fa-bell"></i>
+            </div>
+            <span class="menu-text notification-text">Notification</span>
+          </div>
+
+          <!-- UPDATED: Profile with Dropdown -->
+          <div class="profile-dropdown-wrapper">
+            <div class="profile" id="profileBtn">AS</div>
+            
+            <div class="dropdown-menu" id="logoutDropdown">
+              <ul>
+                <!-- My Profile Container -->
+                <li class="menu-item">
+                  <a href="#">
+                    <i class="fa-regular fa-user"></i> 
+                    <span>My Profile</span>
+                  </a>
+                </li>
+                
+                <!-- Logout Container -->
+                <li class="menu-item">
+                  <a href="#" onclick="handleLogout(); return false;">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span>Logout</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </header>
+
+   <!-- BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+
+    <div class="breadcrumb-container">
+
+        <a href="admin-dashboard.html" class="breadcrumb-home">
+            Home
+        </a>
+
+        <span class="breadcrumb-separator">
+            >
+        </span>
+
+        <span class="breadcrumb-active">
+            Social Service
+        </span>
+
+    </div>
+
+</div>
+
+      <!-- PAGE HEADER -->
+
+<section class="gallery-section">
+
+    <div class="gallery-section-header">
+
+        <h2 class="gallery-section-title">
+            Gallery
+        </h2>
+
+        <div class="gallery-title-line"></div>
+
+    </div>
+    <div class="gallery-layout">
+
+        <!-- LEFT FORM -->
+
+        <div class="gallery-left">
+
+            <p class="gallery-col-label">
+                EDIT GALLERY
+            </p>
+
+            <div class="gallery-form-card">
+
+                <div class="gallery-form-group">
+
+                    <label class="gallery-label">
+                        Album Title
+                    </label>
+
+                    <input
+                        type="text"
+                        class="gallery-input"
+                        placeholder="e.g. Social Work">
+
+                </div>
+
+                <div class="gallery-form-group">
+
+                    <label class="gallery-label">
+                        Upload Images
+                    </label>
+
+                    <input type="file" id="galleryImage">
+                </div>
+
+                <div class="gallery-form-actions">
+
+                    <button
+                    type="button"
+                    class="gallery-btn gallery-btn-add"
+                    onclick="addGallery()">
+                    Add
+                    </button>
+
+                    <button
+                    class="gallery-btn gallery-btn-update"
+                    onclick="updateGallery()">
+                    Update
+                    </button>
+
+                    <button
+                    class="gallery-btn gallery-btn-delete"
+                    onclick="deleteGallery()">
+                    Delete
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT PREVIEW -->
+
+        <div class="gallery-right">
+
+            <p class="gallery-col-label">
+                GALLERY PREVIEW
+            </p>
+
+            <div class="gallery-preview-slider">
+
+                <div class="gallery-slider-track">
+
+                    <div class="gallery-item">
+                        <img src="assets/images/2 (1).png">
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="assets/images/2 (2).png">
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="assets/images/2 (3).png">
+                    </div>
+
+                </div>
+
+                <div class="gallery-nav-btns">
+
+    <button
+    class="gallery-nav-btn"
+    onclick="prevGallery()">
+
+        <i class="fa-solid fa-chevron-left"></i>
+
+    </button>
+
+    <button
+    class="gallery-nav-btn"
+    onclick="nextGallery()">
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+    </button>
+
+</div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+        
+<section class="sc-section">
+
+    <div class="sc-section-header">
+
+        <h2 class="sc-section-title">
+            Social Contribution
+        </h2>
+
+        <div class="sc-title-line"></div>
+
+    </div>
+    <div class="sc-layout">
+
+        <!-- LEFT FORM -->
+        <div class="sc-left">
+
+            <p class="sc-col-label">
+                EDIT CONTRIBUTION
+            </p>
+
+            <div class="sc-form-card">
+
+                <div class="sc-form-group">
+                    <label class="sc-label">
+                        Contribution Title
+                    </label>
+
+                    <input
+                        type="text"
+                        class="sc-input"
+                        placeholder="Enter Title"
+                        id="contributionTitle">
+                </div>
+
+                <div class="sc-form-group">
+                    <label class="sc-label">
+                        Description
+                    </label>
+
+                    <textarea
+                        class="sc-input sc-textarea"
+                        placeholder="Write Description"
+                        id="contributionDesc"></textarea>
+                </div>
+
+                <div class="sc-form-group">
+                    <label class="sc-label">
+                        Upload Image
+                    </label>
+
+                    <input
+                        type="file"
+                        id="contributionImage">
+                </div>
+
+                <div class="sc-form-actions">
+
+                    <button class="sc-btn sc-btn-add" onclick="addContribution()">
+                        Add
+                    </button>
+
+                    <button class="sc-btn sc-btn-update"
+                        onclick="updateContribution()">
+                        Update
+                    </button>
+
+                    <button class="sc-btn sc-btn-delete"
+                        onclick="deleteContribution()">
+                        Delete
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT  CARD -->
+<div class="sc-right">
+
+    <p class="sc-col-label">
+        CONTRIBUTION PREVIEW
+    </p>
+
+    <div class="sc-preview-slider">
+
+        <div class="sc-slider-track">
+
+            <!-- CARD 1 -->
+
+            <div class="sc-card">
+
+                <img
+                src="assets/images/1 (2).png">
+
+                <div class="sc-card-content">
+
+                    <h3>
+                        Karma foundation
+                    </h3>
+
+                    <p>
+                        Our animal welfare initiatives focus on
+                        supporting stray animals, promoting
+                        awareness about animal care, and
+                        responsible treatment of animals.
+                    </p>
+
+                    <button class="read-more-btn">
+                        Read more
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- CARD 2 -->
+
+            <div class="sc-card">
+
+                <img
+                src="assets/images/2 (1).png">
+
+                <div class="sc-card-content">
+
+                    <h3>
+                        Environmental cleanup
+                    </h3>
+
+                    <p>
+                        We organized local park cleanup to
+                        support environmental sustainability
+                        and awareness.
+                    </p>
+
+                    <button class="read-more-btn">
+                        Read more
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ARROWS -->
+
+       <div class="sc-nav-btns">
+
+    <button
+    class="sc-nav-btn"
+    onclick="prevSC()">
+
+        <i class="fa-solid fa-chevron-left"></i>
+
+    </button>
+
+    <button
+    class="sc-nav-btn"
+    onclick="nextSC()">
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+    </button>
+
+</div>
+
+    </div>
+
+</div>
+
+</section>
+
+      <!-- ============================================================ -->
+      <!-- ADDED: COPYRIGHT SECTION (SAME AS CAREER PANEL)               -->
+      <!-- ============================================================ -->
+      <div class="copyright-section">
+            <p class="copyright-text">Copyright &copy; 2025 - 2026 <a href="https://www.creativewebsolution.in/" target="_blank" class="company-name"> Creative Web
+                    Solution</a>. ALL RIGHTS RESERVED</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+
+/* ==========================
+GALLERY 
+========================== */
+
+let galleryIndex = 0;
+
+function nextGallery(){
+
+    const track =
+    document.querySelector(
+    ".gallery-slider-track"
+    );
+
+    const cards =
+    document.querySelectorAll(
+    ".gallery-item"
+    );
+
+    const visibleCards = 2;
+
+    if(
+        galleryIndex <
+        cards.length - visibleCards
+    ){
+        galleryIndex++;
+    }
+
+    moveGallery();
+}
+
+function prevGallery(){
+
+    if(galleryIndex > 0){
+        galleryIndex--;
+    }
+
+    moveGallery();
+}
+
+function moveGallery(){
+
+    const track =
+    document.querySelector(
+    ".gallery-slider-track"
+    );
+
+    const card =
+    document.querySelector(
+    ".gallery-item"
+    );
+
+    const gap = 24;
+
+    const move =
+    card.offsetWidth + gap;
+
+    track.style.transform =
+    `translateX(-${
+        galleryIndex *
+        move
+    }px)`;
+}
+
+
+/* ==========================
+GALLERY 
+========================== */
+function addGallery() {
+  var titleInput = document.querySelector('.gallery-input');
+  var title = titleInput ? titleInput.value.trim() : '';
+  var file = document.getElementById('galleryImage').files[0];
+
+  if (!title) { alert('Please enter album title'); return; }
+  if (!file)  { alert('Please upload an image');   return; }
+
+  var formData = new FormData();
+  formData.append('title', title);
+  formData.append('image', file);
+
+  fetch('http://localhost:8080/api/social/upload', {
+    method: 'POST',
+    body: formData
+  })
+  .then(function(res) { return res.text(); })
+  .then(function(data) {
+    alert('Gallery image added successfully!');
+    loadGalleryFromBackend();
+    titleInput.value = '';
+    document.getElementById('galleryImage').value = '';
+  })
+  .catch(function(err) {
+    console.log(err);
+    alert('Upload failed. Check if backend is running.');
+  });
+}
+
+function updateGallery() {
+  var titleInput = document.querySelector('.gallery-input');
+  var title = titleInput ? titleInput.value.trim() : '';
+  var file = document.getElementById('galleryImage').files[0];
+
+  if (!title) { alert('Enter album title to update'); return; }
+  if (!file)  { alert('Please upload new image');     return; }
+
+  var formData = new FormData();
+  formData.append('title', title);
+  formData.append('image', file);
+
+  fetch('http://localhost:8080/api/social/updateByTitle', {
+    method: 'PUT',
+    body: formData
+  })
+  .then(function(res) { return res.text(); })
+  .then(function(data) {
+    alert(data);
+    loadGalleryFromBackend();
+    titleInput.value = '';
+    document.getElementById('galleryImage').value = '';
+  })
+  .catch(function(err) {
+    console.log(err);
+    alert('Update failed.');
+  });
+}
+
+function deleteGallery() {
+  var titleInput = document.querySelector('.gallery-input');
+  var title = titleInput ? titleInput.value.trim() : '';
+
+  if (!title) { alert('Enter album title to delete'); return; }
+
+  if (!confirm('Delete "' + title + '"?')) return;
+
+  fetch('http://localhost:8080/api/social/deleteByTitle/' + encodeURIComponent(title), {
+    method: 'DELETE'
+  })
+  .then(function(res) { return res.text(); })
+  .then(function(data) {
+    alert(data);
+    loadGalleryFromBackend();
+    titleInput.value = '';
+  })
+  .catch(function(err) {
+    console.log(err);
+    alert('Delete failed.');
+  });
+}
+
+
+// /* ==========================================
+// SOCIAL CONTRIBUTION
+// ========================================== */
+
+let currentSC = 0;
+
+function getSCTrack(){
+
+    return document.querySelector(
+    '.sc-slider-track'
+    );
+}
+
+function getSCCards(){
+
+    return document.querySelectorAll(
+    '.sc-card'
+    );
+}
+
+function updateSCSlider(){
+
+    const card =
+getSCCards()[0];
+    const cardWidth =
+    card.offsetWidth + 24;
+
+    getSCTrack().style.transform =
+    `translateX(-${
+        currentSC *
+        cardWidth
+    }px)`;
+
+    getSCTrack().style.transition =
+    '0.5s ease';
+}
+
+/* NEXT */
+
+function nextSC(){
+
+    if(
+        currentSC <
+        getSCCards().length - 1
+    ){
+        currentSC++;
+    }
+
+    updateSCSlider();
+}
+/* PREVIOUS */
+
+function prevSC(){
+
+    if(
+        currentSC > 0
+    ){
+        currentSC--;
+    }
+
+    updateSCSlider()
+  }
+// /* ==========================
+// SOCIAL CRUD
+// ========================== */
+
+// function addContribution(){
+
+//     const title =
+//     document.getElementById(
+//     "contributionTitle"
+//     ).value;
+
+//     const desc =
+//     document.getElementById(
+//     "contributionDesc"
+//     ).value;
+
+//     const image =
+//     document.getElementById(
+//     "contributionImage"
+//     ).files[0];
+
+//     if(
+//         title === "" ||
+//         desc === "" ||
+//         !image
+//     ){
+//         alert(
+//         "Fill all fields"
+//         );
+//         return;
+//     }
+
+//     const imageURL =
+//     URL.createObjectURL(image);
+
+//     const card =
+//     document.createElement(
+//     "div"
+//     );
+
+//     card.className =
+//     "sc-card";
+
+//     card.innerHTML = `
+//         <img src="${imageURL}">
+//         <div class="sc-card-content">
+//             <h3>${title}</h3>
+//             <p>${desc}</p>
+
+//             <button class="read-more-btn">
+//                 Read more
+//                 <i class="fa-solid fa-arrow-right"></i>
+//             </button>
+//         </div>
+//     `;
+
+//     document.querySelector(
+//     ".sc-slider-track"
+//     ).appendChild(card);
+
+//     alert(
+//     "Contribution Added!"
+//     );
+// }
+
+// function updateContribution(){
+
+//     alert(
+//     "Contribution Updated!"
+//     );
+// }
+
+// function deleteContribution(){
+
+//     const cards =
+//     document.querySelectorAll(
+//     ".sc-card"
+//     );
+
+//     if(cards.length > 0){
+
+//         cards[
+//         cards.length - 1
+//         ].remove();
+
+//         alert(
+//         "Contribution Deleted!"
+//         );
+//     }
+// }
+/* =========================SOCIAL CRUD========================== */
+
+function addContribution(){
+
+    const title =
+    document.getElementById(
+    "contributionTitle"
+    ).value;
+
+    const desc =
+    document.getElementById(
+    "contributionDesc"
+    ).value;
+
+    const image =
+    document.getElementById(
+    "contributionImage"
+    ).files[0];
+
+    if(
+        title === "" ||
+        desc === "" ||
+        !image
+    ){
+        alert("Fill all fields");
+        return;
+    }
+
+    const formData =
+    new FormData();
+
+    formData.append(
+    "title",
+    title
+    );
+
+    formData.append(
+    "description",
+    desc
+    );
+    
+
+    formData.append(
+    "image",
+    image
+    );
+
+    fetch(
+    "http://localhost:8080/api/contribution/add",
+    {
+        method: "POST",
+        body: formData
+    })
+
+    .then(res => res.json())
+   .then(data => {
+
+
+    alert(
+    "Contribution Added Successfully"
+    );
+
+    const track =
+    document.querySelector(
+    ".sc-slider-track"
+    );
+    console.log(track);
+
+    const card =
+    document.createElement("div");
+
+    card.className =
+    "sc-card";
+card.innerHTML = `
+
+    <img src="${URL.createObjectURL(image)}">
+
+    <div class="sc-card-content">
+
+        <h3>
+            ${title}
+        </h3>
+
+        <p>
+            ${desc}
+        </p>
+
+        <button class="read-more-btn">
+
+            Read more
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </button>
+
+    </div>
+
+`;
+    
+
+   // Page reload 
+loadContributions();
+})
+  
+    .catch(err => {
+
+        console.log(err);
+
+        alert(
+        "Upload Failed"
+        );
+
+    });
+
+}
+function updateContribution(){
+
+    const title =
+    document.getElementById(
+    "contributionTitle"
+    ).value;
+
+    const desc =
+    document.getElementById(
+    "contributionDesc"
+    ).value;
+
+    const image =
+    document.getElementById(
+    "contributionImage"
+    ).files[0];
+
+    if(
+        title === "" ||
+        desc === "" ||
+        !image
+    ){
+        alert("Fill all fields");
+        return;
+    }
+
+    const formData =
+    new FormData();
+
+    formData.append("title", title);
+    formData.append("description", desc);
+    formData.append("pageLink", "#");
+    formData.append("image", image);
+
+    fetch(
+    "http://localhost:8080/api/contribution/updateByTitle",
+    {
+        method: "PUT",
+        body: formData
+    })
+
+    .then(res => res.text())
+
+    .then(data => {
+        console.log(data);
+
+        alert(data);
+
+        location.reload();
+
+    })
+
+    .catch(err => {
+
+        console.log(err);
+
+        alert("Update Failed");
+
+    });
+}
+
+function deleteContribution(){
+
+    const title =
+    document.getElementById(
+    "contributionTitle"
+    ).value;
+
+    if(title === ""){
+
+        alert("Enter title");
+
+        return;
+    }
+
+    fetch(
+    `http://localhost:8080/api/contribution/deleteByTitle/${title}`,
+    {
+        method: "DELETE"
+    })
+
+    .then(res => res.text())
+
+    .then(data => {
+
+        alert(data);
+
+        location.reload();
+
+    })
+
+    .catch(err => {
+
+        console.log(err);
+
+        alert("Delete Failed");
+
+    });
+}
+</script>
+  
+<script>
+const staticImages = `
+<div class="gallery-item">
+    <img src="assets/images/2 (1).png">
+</div>
+<div class="gallery-item">
+    <img src="assets/images/2 (2).png">
+</div>
+<div class="gallery-item">
+    <img src="assets/images/2 (3).png">
+</div>
+`;
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const track = document.querySelector(".gallery-slider-track"); 
+    // ⚠️ ADMIN uses THIS CLASS
+
+    if (!track) {
+        console.log("Track not found");
+        return;
+    }
+
+    fetch("http://localhost:8080/api/social/getAll")
+        .then(res => {
+            if (!res.ok) throw new Error("API failed");
+            return res.json();
+        })
+        .then(data => {
+
+            console.log("ADMIN API DATA:", data);
+
+            if (data && data.length > 0) {
+
+                track.innerHTML = data.map(item => `
+                    <div class="gallery-item">
+                        <img src="http://localhost:8080${item.imageUrl}">
+                    </div>
+                `).join("");
+
+            } else {
+                track.innerHTML = staticImages;
+            }
+
+        })
+        .catch(err => {
+            console.log("ADMIN API ERROR:", err);
+            track.innerHTML = staticImages;
+        });
+
+});
+
+</script>
+  
+  <script>
+    // Profile Dropdown Logic
+    const profileBtn = document.getElementById('profileBtn');
+    const dropdownWrapper = document.querySelector('.profile-dropdown-wrapper');
+
+    // Toggle dropdown on click
+    profileBtn.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevent bubbling
+      dropdownWrapper.classList.toggle('active');
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!dropdownWrapper.contains(e.target)) {
+        dropdownWrapper.classList.remove('active');
+      }
+    });
+
+    if(hamburger) {
+      hamburger.addEventListener('click', () => {
+        sidebar.classList.add('active');
+      });
+    }
+
+    if(closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        sidebar.classList.remove('active');
+      });
+    }
+  </script>
+
+    <!-- JS Script (Updated: Click anywhere to close logic) -->
+    <script>
+      const hamburger = document.querySelector('.hamburger');
+      const closeBtn = document.querySelector('.close-btn');
+      const sidebar = document.querySelector('.sidebar');
+
+      if(hamburger){
+        hamburger.addEventListener('click', () => {
+          sidebar.classList.add('active');
+        });
+      }
+
+      if(closeBtn){
+        closeBtn.addEventListener('click', () => {
+          sidebar.classList.remove('active');
+        });
+      }
+    </script>
+
+<script>
+// ── Load Contributions from Backend ──
+var allContributions = [];
+var scIndex = 0;
+
+function loadContributions() {
+  fetch('http://localhost:8080/api/contribution/getAll')
+  .then(function(res) { return res.json(); })
+  .then(function(data) {
+    if (data && data.length > 0) {
+      allContributions = data;
+
+      // remove static cards
+      var track = document.querySelector('.sc-slider-track');
+      track.innerHTML = '';
+
+      data.forEach(function(item) {
+        var card = document.createElement('div');
+        card.className = 'sc-card';
+        card.style.cursor = 'pointer';
+        card.innerHTML =
+            '<img src="http://localhost:8080' + item.imageUrl + '" onerror="this.src=\'assets/images/1 (2).png\'">' +
+            '<div class="sc-card-content">' +
+            '<h3>' + item.title + '</h3>' +
+            '<p>' + item.description + '</p>' +
+            '<button class="read-more-btn">Read more <i class="fa-solid fa-arrow-right"></i></button>' +
+            '</div>';
+
+        // click on card so details will be there in the form
+        card.addEventListener('click', function() {
+            document.getElementById('contributionTitle').value = item.title;
+            document.getElementById('contributionDesc').value  = item.description;
+            // Image field clear 
+            document.getElementById('contributionImage').value = '';
+            // Highlight selected card
+            document.querySelectorAll('.sc-card').forEach(function(c) {
+            c.style.border = '';
+            });
+            card.style.border = '2px solid #0796FE';
+        });
+
+        track.appendChild(card);
+        });
+
+      scIndex = 0;
+      updateSCSlider();
+    }
+  })
+  .catch(function(err) {
+    console.log('Backend OFF → static cards stay', err);
+  });
+}
+function loadGalleryFromBackend() {
+  var track = document.querySelector('.gallery-slider-track');
+  if (!track) return;
+
+  fetch('http://localhost:8080/api/social/getAll')
+  .then(function(res) { return res.json(); })
+  .then(function(data) {
+    if (data && data.length > 0) {
+      track.innerHTML = '';
+
+      data.forEach(function(item) {
+        var div = document.createElement('div');
+        div.className = 'gallery-item';
+        div.style.cursor = 'pointer';
+        div.innerHTML = '<img src="http://localhost:8080' + item.imageUrl + '" onerror="this.src=\'assets/images/2 (1).png\'">';
+
+        // by clicking on image title will be ther in the fome
+        div.addEventListener('click', function() {
+          var titleInput = document.querySelector('.gallery-input');
+          if (titleInput) titleInput.value = item.title;
+
+          // Image field clear 
+          document.getElementById('galleryImage').value = '';
+
+          // Highlight selected
+          document.querySelectorAll('.gallery-item').forEach(function(g) {
+            g.style.border = '';
+          });
+          div.style.border = '2px solid #0796FE';
+        });
+
+        track.appendChild(div);
+      });
+
+    } else {
+      track.innerHTML = staticImages;
+    }
+    galleryIndex = 0;
+    moveGallery();
+  })
+  .catch(function(err) {
+    console.log('Gallery load error:', err);
+    track.innerHTML = staticImages;
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  loadGalleryFromBackend();
+  loadContributions();
+});
+
+</script>
+<!-- Do not remove below commneted code -->
+<script>
+// ── Auth Check + Profile + Logout ──
+(function() {
+  var userStr = localStorage.getItem('user');
+  if (!userStr) {
+    window.location.replace('Sign-In.html');
+    return;
+  }
+  var userData;
+  try {
+    userData = JSON.parse(userStr);
+  } catch(e) {
+    localStorage.removeItem('user');
+    window.location.replace('Sign-In.html');
+    return;
+  }
+  if (!userData.token || userData.role !== 'SUPER_ADMIN') {
+    localStorage.removeItem('user');
+    window.location.replace('Sign-In.html');
+    return;
+  }
+  var name     = userData.name || 'Admin';
+  var parts    = name.trim().split(' ');
+  var initials = parts.length >= 2
+    ? (parts[0][0] + parts[1][0]).toUpperCase()
+    : name.substring(0, 2).toUpperCase();
+  var profileBtn = document.getElementById('profileBtn');
+  if (profileBtn) profileBtn.textContent = initials;
+})();
+
+function handleLogout() {
+  localStorage.removeItem('user');
+  localStorage.removeItem('creative_email');
+  localStorage.removeItem('creative_remember');
+  window.location.replace('Sign-In.html');
+}
+</script>
+
+</body>
+</html>

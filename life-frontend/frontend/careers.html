@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>careers — CWS.life</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Oswald:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/careers.css">
+</head>
+<body>
+
+  <div id="navbar-placeholder"></div>
+  <!-- Hero section -->
+  <section class="social-hero">
+      <div class="social-content">
+        <h1 class="social-hero-title">CAREER</h1>
+        <p class="social-hero-subtitle"> <a href="index.html">Home</a> > 
+          <a href="careers.html" class="breadcrumb-active">Career</a>
+      </div>
+    </section>
+
+  <!-- Career Opportunities Section (2nd Half) -->
+  <section class="career-opportunities">
+    <img src="assets/images/career-bg.jpg" alt="Career Background" class="career-opp-bg-img">
+    <div class="career-opp-content">
+      <h2 class="career-opp-title">Explore Opportunities At CWS</h2>
+      <p class="career-opp-text">Find the role that matches your skills and passion. Join our team and work on meaningful 
+                                  projects that drive innovation and growth.</p>
+    </div>
+  </section>
+
+  <section class="careers-container">
+    <!-- "Open Positions" headline block -->
+     <!-- Check  -->
+    <div class="open-positions-header">
+      <div class="title-block">
+        <h1>Open Positions</h1>
+      </div>
+    </div>
+<!-- Filter Section 28-4-28(2)-->
+<div class="filters-container">
+  <div class="filters-wrapper">
+    <!-- Job Title / Keyword Filter -->
+    <div class="filter-group">
+      <input type="text" id="jobKeyword" placeholder="Job Title Or Keywords" class="filter-input">
+    </div>
+    
+    <!-- Job Type Dropdown -->
+<div class="filter-group">
+
+  <!-- Desktop Select -->
+  <select id="jobType" class="filter-select desktop-select">
+    <option value="">Job Type</option>
+    <option value="Full Time">Full Time</option>
+    <option value="Part Time">Part Time</option>
+    <option value="Intern">Intern</option>
+    <option value="Remote">Remote</option>
+    <option value="WFO">WFO</option>
+  </select>
+
+  <!-- Mobile Custom Dropdown -->
+  <div class="mobile-select" data-target="jobType">
+    <button type="button" class="mobile-btn">Job Type</button>
+
+    <div class="mobile-menu">
+      <div data-value="">Job Type</div>
+      <div data-value="Full Time">Full Time</div>
+      <div data-value="Part Time">Part Time</div>
+      <div data-value="Intern">Intern</div>
+      <div data-value="Remote">Remote</div>
+      <div data-value="WFO">WFO</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Experience Level Dropdown -->
+<div class="filter-group">
+
+  <!-- Desktop Select -->
+  <select id="experienceLevel" class="filter-select desktop-select">
+    <option value="">Experience Level</option>
+    <option value="0-2">Fresher (0-2 years)</option>
+    <option value="0-3">1-2 years</option>
+    <option value="3-5">3-5 years</option>
+    <option value="6-8">6-8 years</option>
+    <option value="9+">9+ years</option>
+  </select>
+
+  <!-- Mobile Custom Dropdown -->
+  <div class="mobile-select" data-target="experienceLevel">
+    <button type="button" class="mobile-btn">Experience Level</button>
+
+    <div class="mobile-menu">
+      <div data-value="">Experience Level</div>
+      <div data-value="0-2">Fresher (0-2 years)</div>
+      <div data-value="0-3">1-2 years</div>
+      <div data-value="3-5">3-5 years</div>
+      <div data-value="6-8">6-8 years</div>
+      <div data-value="9+">9+ years</div>
+    </div>
+  </div>
+
+</div>
+    
+    
+    <!-- Search Button  -->
+    <div class="filter-group">
+      <button id="searchFilters" class="filter-search">Search </i></button>
+    </div>
+  </div>
+</div>
+    <!-- Cards grid -->
+    <div class="cards-grid">
+      
+      <!-- UI/UX Designer Card (0-2 Years) -->
+      <div class="job-card">
+        <div class="job-info">
+          <!-- Job details badge - horizontal flow with gap 2px -->
+          <div class="job-details-badge">
+            <span class="detail-item">Remote</span>
+            
+            <span class="detail-item">Full Time</span>
+            <!-- changes made on 27-04-26 years -->
+            <span class="detail-item">0-2 Years</span>
+          </div>
+          <h2 class="job-title">UI/UX Designer</h2>
+          <p class="job-description">Design intuitive and engaging user experiences for web and mobile products while collaborating with cross-functional teams.</p>
+          <div class="skillset">
+            <span class="skill-badge">Figma</span>
+            <span class="skill-badge">Wireframing</span>
+            <span class="skill-badge">Prototyping</span>
+          </div>
+        </div>
+        <div class="apply-action">
+          <a href="UI-job-application.html" class="btn-apply">Apply Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Frontend Developer Card (0-2 Years) -->
+      <div class="job-card">
+        <div class="job-info">
+          <div class="job-details-badge">
+            <span class="detail-item">Remote</span>
+            <span class="detail-item">Full Time</span>
+            <!-- changes made on 27-04-26 years -->
+            <span class="detail-item">0-2 Years</span>
+          </div>
+
+          <h2 class="job-title">Frontend Developer</h2>
+          <p class="job-description">Build responsive and high-performance web applications using modern frontend technologies.</p>
+          <div class="skillset">
+            <span class="skill-badge">HTML</span>
+            <span class="skill-badge">CSS</span>
+            <span class="skill-badge">JavaScript</span>
+            <!-- <span class="skill-badge">React</span> -->
+          </div>
+        </div>
+        <div class="apply-action">
+          <!-- changes made on 27-04-26 added href address -->
+          <a href="#" class="btn-apply">Apply Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Backend Developer Card (0-3 Year) -->
+      <div class="job-card">
+        <div class="job-info">
+          <div class="job-details-badge">
+            <span class="detail-item">Remote</span>
+            <span class="detail-item">Full Time</span>
+            <!-- changes made on 27-04-26 years -->
+            <span class="detail-item">0-3 Years</span>
+          </div>
+          <h2 class="job-title">Backend Developer</h2>
+          <p class="job-description">Develop scalable backend systems, APIs, and integrations to support robust applications.</p>
+          <div class="skillset">
+            <span class="skill-badge">Node.js</span>
+            <span class="skill-badge">APIs</span>
+            <span class="skill-badge">Database</span>
+            <!-- <span class="skill-badge">Python</span> -->
+          </div>
+        </div>
+        <div class="apply-action">
+          <!-- changes made on 27-04-26 added href address -->
+          <a href="#" class="btn-apply">Apply Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Digital Marketing Executive Card (0-3 Year) -->
+      <div class="job-card">
+        <div class="job-info">
+          <div class="job-details-badge">
+            <span class="detail-item">Remote</span>
+            
+            <span class="detail-item">Full Time</span>
+            <!-- changes made on 27-04-26 years -->
+            <span class="detail-item">0-3 Years</span>
+          </div>
+          <h2 class="job-title">Digital Marketing Executive</h2>
+          <p class="job-description">Plan and execute digital marketing campaigns to increase brand visibility and generate leads.</p>
+          <div class="skillset">
+            <span class="skill-badge">SEO</span>
+            <span class="skill-badge">Social Media</span>
+            <span class="skill-badge">Campaigns</span>
+            <!-- <span class="skill-badge">Analytics</span> -->
+          </div>
+        </div>
+        <div class="apply-action">
+          <!-- changes made on 27-04-26 added href address  -->
+          <a href="#" class="btn-apply">Apply Now</a>
+        </div>
+        
+      </div>
+      <!-- Data Analyst Card (0-3 Year) (1)28-4-26-->
+      <div class="job-card">
+        <div class="job-info">
+          <div class="job-details-badge">
+            <span class="detail-item">Remote</span>
+            <span class="detail-item">Full Time</span>
+            <span class="detail-item">0-3 Years</span>
+          </div>
+          <h2 class="job-title">Data Analyst</h2>
+          <p class="job-description">Build responsive and high-performance web applications using modern frontend technologies and database integrations.</p>
+          <div class="skillset">
+            <span class="skill-badge">HTML</span>
+            <span class="skill-badge">CSS</span>
+            <span class="skill-badge">Database</span>
+          </div>
+        </div>
+        <div class="apply-action">
+          <a href="#" class="btn-apply">Apply Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="readmore-container">
+  <button class="btn-readmore">Read More</button>
+</div>
+  </section>
+  
+
+
+
+
+
+  <!-- WHY JOIN CWS SECTION -->
+    <section class="why-join-cws">
+      <div class="container">
+
+        <div class="section-heading">
+          <h2>Why Join CWS ?</h2>
+          <div class="heading-line"></div>
+          <p>
+            At CWS, we create an environment where talent grows,
+            ideas are valued and individuals thrive.
+          </p>
+        </div>
+
+        <div class="why-join-grid">
+
+          <div class="why-card">
+            <div class="icon-box">
+              <img src="assets/icons/Background.png" alt="Growth Opportunities">
+            </div>
+            <h3>Growth Opportunities</h3>
+            <p>
+              Continuous learning through mentorship and professional
+              development programs.
+            </p>
+          </div>
+
+          <div class="why-card">
+            <div class="icon-box">
+              <img src="assets/icons/Background(1).png" alt="Innovative Environment">
+            </div>
+            <h3>Innovative Environment</h3>
+            <p>
+              Work on cutting-edge technologies that redefine digital experiences.
+            </p>
+          </div>
+
+          <div class="why-card">
+            <div class="icon-box">
+              <img src="assets/icons/Background(2).png" alt="Collaborative Culture">
+            </div>
+            <h3>Collaborative Culture</h3>
+            <p>
+              A community of thinkers where every voice is heard and valued.
+            </p>
+          </div>
+
+          <div class="why-card">
+            <div class="icon-box">
+              <img src="assets/icons/Background(3).png" alt="Work-Life Balance">
+            </div>
+            <h3>Work-Life Balance</h3>
+            <p>
+              Flexible working hours and remote options to keep you energized.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+<!-- Hiring Section -->
+ <section class="hiring-section">
+    <div class="hiring-container">
+      <h2 class="hiring-title">Our Hiring Process</h2>
+      <div class="hiring-line"></div>
+
+      <p class="hiring-subtitle">
+        We follow a simple and transparent hiring to ensure the best experience for every candidate. </p>
+
+      <div class="hiring-steps">
+
+        <div class="hiring-step">
+          <div class="step-number">01</div>
+          <h4>Apply</h4>
+          <p>Submit your application through our portal with your updated portfolio or resume.</p>
+        </div>
+
+        <div class="hiring-step">
+          <div class="step-number">02</div>
+          <h4>Screening</h4>
+          <p>Our recruiting team reviews your skills to see if they align with the team’s current needs.</p>
+        </div>
+
+        <div class="hiring-step">
+          <div class="step-number">03</div>
+          <h4>Interview</h4>
+          <p>Meet the team and discuss your experience, technical skills, and cultural fit.</p>
+        </div>
+
+        <div class="hiring-step">
+          <div class="step-number">04</div>
+          <h4>Final Selection</h4>
+          <p>Welcome aboard! We wrap up with an offer and onboarding details.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+<!-- Banner Section -->
+<section class="findrole">
+
+    <div class="findrole-content">
+    
+    <!-- CHANGE: Icon Removed -->
+    
+    <h1>Didn’t Find A Role That Fits You?</h1>
+
+    <p>
+    We’re always looking for passionate and talented individuals to join our
+    visionary team. Drop us a line and let's talk about your future.
+    </p>
+
+    <div class="findrole-email">
+    <i class="fa-regular fa-envelope"></i>
+    <a href="mailto:hr@creativewebsolution.in">hr@creativewebsolution.in</a>
+    <span>/</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0796FE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 5px;">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+    </svg>
+    <a href="tel:+919326246981">+91 9326246981</a>
+    </div>
+
+    </div>
+
+</section>
+
+<!-- SCROLL NAVIGATION BUTTON — Bottom only -->
+<button class="scroll-nav-btn scroll-to-top-btn" id="scrollToTopBtn" aria-label="Scroll to top">
+   <svg viewBox="0 0 24 24">
+      <polyline points="18 15 12 9 6 15"></polyline>
+   </svg>
+</button>
+
+<script>
+   // SCROLL NAVIGATION: hidden at top, visible after 1st section, scrolls to top
+   (function() {
+      var btnTop = document.getElementById('scrollToTopBtn');
+      /* CHANGED: target first section element dynamically so it works on all pages */
+      var firstSection = document.querySelector('section');
+
+      function onScroll() {
+         if (firstSection) {
+            /* CHANGED: show button only when scrolled past the 1st section */
+            var sectionBottom = firstSection.offsetTop + firstSection.offsetHeight;
+            if (window.pageYOffset > sectionBottom) {
+               btnTop.classList.add('scroll-nav-visible');
+            } else {
+               btnTop.classList.remove('scroll-nav-visible');
+            }
+         }
+      }
+
+      window.addEventListener('scroll', onScroll);
+
+      btnTop.addEventListener('click', function() {
+         window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+   })();
+
+
+</script>
+  <div id="footer-placeholder"></div>
+
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+  
+
+<script>
+document.querySelectorAll('.mobile-select').forEach(box=>{
+ const btn=box.querySelector('.mobile-btn');
+ const menu=box.querySelector('.mobile-menu');
+ const target=document.getElementById(box.dataset.target);
+
+ btn.onclick=()=>box.classList.toggle('open');
+
+ menu.querySelectorAll('div').forEach(item=>{
+   item.onclick=()=>{
+     btn.textContent=item.textContent;
+     target.value=item.dataset.value;
+     box.classList.remove('open');
+   };
+ });
+
+ document.addEventListener('click',e=>{
+   if(!box.contains(e.target)) box.classList.remove('open');
+ });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>careers — CWS.life</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Oswald:wght@200;300;400;500&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/UI-job-application.css">
+</head>
+
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="social-hero">
+        <div class="social-content">
+            <h1 class="social-hero-title">CAREER</h1>
+            <p class="social-hero-subtitle"> <a href="index.html">Home</a> >
+                <a href="careers.html">Career</a> >     <!--made changes on 04-05-26-->
+                <span class="breadcrumb-active">Detail Page</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- 2nd Half: Layout Section -->
+    <section class="design-layout-section">
+        <div class="layout-container">
+
+            <!-- LEFT SIDE: Job Details -->
+            <div class="details-layout-wrapper">
+
+                <div class="title-header-container">
+                    <h2 class="details-title">Ux/Ui Designer</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="tags-container">
+                    <span class="tag-pill">Remote</span>
+                    <span class="tag-pill">Full Time</span>
+                    <span class="tag-pill">0-2 Years</span>
+                </div>
+
+                <div class="text-content-layout">
+                    <!-- Responsibilities -->
+                    <div class="text-block">
+                        <p class="text-heading">Responsibilities:</p>
+                        <ul class="detail-list-layout">
+                            <li>Create visually appealing graphics for various digital platforms</li>
+                            <li>Design user-friendly interfaces for websites and mobile applications</li>
+                            <li>Develop wireframes, prototypes, and mockups to effectively communicate design ideas</li>
+                            <li>Collaborate with cross-functional teams to ensure designs meet project requirements</li>
+                            <li>Stay updated on industry trends and best practices in graphic design and UI/UX design
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Skills -->
+                    <div class="text-block">
+                        <p class="text-heading">Skills/Requirements :</p>
+                        <ul class="detail-list-layout">
+                            <li>Experience :   0-2 years of professional experience.</li>
+                            <li>Proficiency in Adobe Creative Suite (Photoshop, Illustrator, InDesign), Sketch, Visual
+                                Studio, and Adobe XD</li>
+                            <li>Strong understanding of typography, color theory, and layout principles</li>
+                            <li>Experience with responsive design and mobile-first principles</li>
+                            <li>Excellent communication and teamwork skills</li>
+                            <li>Ability to work on multiple projects simultaneously and meet deadlines</li>
+                        </ul>
+                    </div>
+
+                    <!-- Education -->
+                    <div class="text-block">
+                        <p class="text-heading">Education:</p>
+                        <ul class="detail-list-layout">
+                            <li>Bachelor's degree in Graphic Design, UI/UX Design, or related field</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT SIDE: Application Form -->
+            <div class="form-layout-wrapper">
+                <!-- <div class="appliactionform-container"> -->
+                    <h2 class="appliactionform-title">Application Form</h2>
+
+                    <form id="applicationForm">
+
+                        <div class="appliactionform-row">
+                            <div class="appliactionform-group">
+                                <label>First Name</label>
+                                <input type="text" name="firstName" placeholder="First Name">
+                                <small id="firstNameError"></small>
+                            </div>
+
+                            <div class="appliactionform-group">
+                                <label>Last Name</label>
+                                <input type="text" name="lastName" placeholder="Last Name">
+                                <small id="lastNameError"></small>
+                            </div>
+                        </div>
+
+                        <div class="appliactionform-group">
+                            <label>Email</label>
+                            <input type="email" name="email" placeholder="you@company.com">
+                            <small id="emailError"></small>
+                        </div>
+
+                        <div class="appliactionform-group">
+                            <label>Phone Number</label>     <!--changes made on 04-05-26-->
+                            <input type="text" name="phone" placeholder="+91 00000 00000">
+                            <small id="phoneError"></small>
+                        </div>
+
+                        <div class="appliactionform-group">
+                            <label>Message</label>
+                            <textarea name="message" class="group-message"></textarea>
+                            <small id="messageError"></small>
+                        </div>
+
+                        <div class="appliactionform-upload">
+                            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx">
+                            <label for="resume" id="uploadLabel">
+                                <img src="../frontend/assets/icons/uploadicon.png" /><p>Upload Resume</p></label>
+                            <small id="resumeError"></small>
+                        </div>
+
+                        <button type="submit" class="appliactionform-btn"> Click Here To Apply</button>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 3rd Half: Didn't Find Role Section -->
+    <section class="no-role-section">
+        <div class="no-role-container">
+
+            <!-- Title and Desc -->
+            <div class="text-desc-wrapper">
+                <h2 class="no-role-title">Didn’t Find A Role That Fits You?</h2>
+                <p class="no-role-desc">We’re always looking for passionate and talented individuals to join our
+                    visionary team. Drop us a line and let's talk about your future.</p>
+            </div>
+
+            <!-- Contact Box Layout -->
+            <div class="contact-box-layout">
+
+                <!-- Mail Item (Clean Envelope) -->
+                <a href="mailto:hr@creativewebsolution.in" class="contact-item mail-item">
+                    <!-- Clean Outline SVG -->
+                    <!-- <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M1 4H19C20.1 4 21 4.9 21 6V14C21 15.1 20.1 16 19 16H1C-0.1 16 -1 15.1 -1 14V6C-1 4.9 -0.1 4 1 4Z"
+                            stroke="#0796FE" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M1 6L10 12L19 6" stroke="#0796FE" stroke-width="1.2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg> -->
+                    <img src="../frontend/assets/icons/emailicon.png"/>
+                    <span>hr@creativewebsolution.in /</span>
+                </a>
+                <!-- Phone Item (Clean Phone) -->
+                <a href="tel:+919326246981" class="contact-item phone-item">
+                    <!-- Clean Outline SVG -->
+                    <!-- <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M4.5 1H15.5C16.8807 1 18 2.11929 18 3.5V16.5C18 17.8807 16.8807 19 15.5 19H4.5C3.11929 19 2 17.8807 2 16.5V3.5C2 2.11929 3.11929 1 4.5 1Z"
+                            stroke="#0796FE" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M6 8L10 12L14 8" stroke="#0796FE" stroke-width="1.2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg> -->
+                    <img src="../frontend/assets/icons/phoneicon.png"/>
+                    <span>+91 9326246981</span>
+                </a>
+<!-- 
+            </div> -->
+        </div>
+    </section>
+
+    <button class="scroll-nav-btn scroll-to-top-btn" id="scrollToTopBtn" aria-label="Scroll to top">
+        <svg viewBox="0 0 24 24">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
+    <script>
+        // SCROLL NAVIGATION: hidden at top, visible after 1st section, scrolls to top
+        (function () {
+            var btnTop = document.getElementById('scrollToTopBtn');
+            /* CHANGED: target first section element dynamically so it works on all pages */
+            var firstSection = document.querySelector('section');
+
+            function onScroll() {
+                if (firstSection) {
+                    /* CHANGED: show button only when scrolled past the 1st section */
+                    var sectionBottom = firstSection.offsetTop + firstSection.offsetHeight;
+                    if (window.pageYOffset > sectionBottom) {
+                        btnTop.classList.add('scroll-nav-visible');
+                    } else {
+                        btnTop.classList.remove('scroll-nav-visible');
+                    }
+                }
+            }
+
+            window.addEventListener('scroll', onScroll);
+
+            btnTop.addEventListener('click', function () {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        })();
+
+       const form = document.getElementById("applicationForm");
+const uploadLabel = document.getElementById("uploadLabel");
+
+// ✅ Show selected file name
+form.resume.addEventListener("change", function () {
+  if (this.files.length > 0) {
+    uploadLabel.innerHTML = "✅ " + this.files[0].name;
+  }
+});
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  // Clear errors
+  document.querySelectorAll("small").forEach(el => el.innerText = "");
+
+  const firstName = form.firstName.value.trim();
+  const lastName = form.lastName.value.trim();
+  const email = form.email.value.trim();
+  const phone = form.phone.value.trim();
+  const message = form.message.value.trim();
+  const resume = form.resume.files[0];
+
+  let isValid = true;
+
+  // ✅ Patterns
+  const firstNamePattern = /^[A-Za-z]{2,}$/;
+  const lastNamePattern = /^[A-Za-z]{1,}$/;
+  const phonePattern = /^[6-9]\d{9}$/;
+
+  // 🔥 Strong Email Pattern
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  // =============================
+  // ✅ First Name
+  if (!firstNamePattern.test(firstName)) {
+    document.getElementById("firstNameError").innerText =
+      "⚠️ First name must be at least 2 letters";
+    isValid = false;
+  }
+
+  // ✅ Last Name
+  if (!lastNamePattern.test(lastName)) {
+    document.getElementById("lastNameError").innerText =
+      "⚠️ Last name must be at least 1 letter";
+    isValid = false;
+  }
+
+  // =============================
+  // ✅ Email (STRONG VALIDATION)
+
+  if (!emailPattern.test(email)) {
+    document.getElementById("emailError").innerText =
+      "⚠️ Enter valid email";
+    isValid = false;
+  } else {
+    const parts = email.split("@");
+    const local = parts[0];
+    const domain = parts[1];
+
+    const domainParts = domain.split(".");
+
+    if (
+      (email.match(/@/g) || []).length !== 1 ||   // only one @
+      email.includes("..") ||                   // no double dots
+      email.startsWith(".") ||                  // cannot start with dot
+      email.endsWith(".") ||                    // cannot end with dot
+
+      // 🔴 Local rules
+      local.startsWith(".") ||
+      local.endsWith(".") ||
+
+      // 🔴 Domain rules
+      domain.startsWith("-") ||                 // m@-gmail.com
+      domain.endsWith("-") ||                   // m@gmail-.com
+      domain.includes("..") ||                  // m@gmail..com
+
+      // 🔴 Block multiple extensions
+      domainParts.length > 2                    // m@gmail.com.com
+    ) {
+      document.getElementById("emailError").innerText =
+        "⚠️ Enter valid email";
+      isValid = false;
+    }
+  }
+
+  // =============================
+  // ✅ Phone
+  if (!phonePattern.test(phone)) {
+    document.getElementById("phoneError").innerText =
+      "⚠️ Enter valid 10-digit phone number";
+    isValid = false;
+  }
+
+  // =============================
+  // ✅ Message
+  if (message.length < 10) {
+    document.getElementById("messageError").innerText =
+      "⚠️ Minimum 10 characters required";
+    isValid = false;
+  }
+
+  // =============================
+  // ✅ Resume Upload
+  if (!resume) {
+    document.getElementById("resumeError").innerText =
+      "⚠️ Please upload resume";
+    isValid = false;
+  } else {
+    const allowedTypes = [
+      "application/pdf",
+      "application/msword",
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    ];
+
+    if (!allowedTypes.includes(resume.type)) {
+      document.getElementById("resumeError").innerText =
+        "⚠️ Only PDF/DOC/DOCX allowed";
+      isValid = false;
+    }
+
+    if (resume.size > 2 * 1024 * 1024) {
+      document.getElementById("resumeError").innerText =
+        "⚠️ File must be less than 2MB";
+      isValid = false;
+    }
+  }
+
+  // =============================
+  // ✅ SUCCESS
+  if (isValid) {
+    alert("✅ Form submitted successfully!");
+
+    console.log("Form Data:", {
+      firstName,
+      lastName,
+      email,
+      phone,
+      message,
+      resume: resume.name
+    });
+    
+
+    form.reset();
+    uploadLabel.innerHTML = "Upload Resume";
+  }
+});
+
+    </script>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/components.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

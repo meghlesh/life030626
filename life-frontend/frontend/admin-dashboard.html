@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+  <link rel="stylesheet" href="css/admin-dashboard.css">
+</head>
+
+<body>
+
+<div class="dashboard-wrapper"> 
+
+  <!-- SIDEBAR (Independent) -->
+  <aside class="sidebar">
+    
+    <div class="logo">
+      <img src="assets/icons/Creative Web Logo.png" alt="logo">
+    </div>
+
+    <div class="close-btn">
+      <i class="fa-solid fa-xmark"></i>
+    </div>
+
+    <ul class="menu">
+      <!-- FIXED: Removed hardcoded 'active' class. JS will handle this now. -->
+      <li>
+        <a href="admin-dashboard.html" class="nav-link" data-page="dashboard">
+          <img src="assets/icons/dashboard.png" class="icon">
+          <span class="menu-text">Dashboard</span>
+        </a>
+      </li>
+      
+      <!-- COMMENTED: BLOGS -->
+      <!-- <li>
+        <a href="#" class="nav-link">
+          <img src="assets/icons/BLOGS.png" class="icon">
+          <span class="menu-text">Blogs</span>
+        </a>
+      </li> -->
+      
+      <li>
+        <a href="admin-events.html">
+          <img src="assets/icons/EVENTS.png" class="icon">
+          <span class="menu-text">Events</span>
+        </a>
+      </li>
+      <li>
+        <a href="admin-gallery.html" class="nav-link" data-page="gallery">
+          <img src="assets/icons/GALLERY.png" class="icon">
+          <span class="menu-text">Gallery</span>
+        </a>
+      </li>
+      <li>
+        <a href="admin-socialservices.html" class="nav-link" data-page="social-service">
+          <img src="assets/icons/SOCIAL SERVICE.png" class="icon">
+          <span class="menu-text">Social Service</span>
+        </a>
+      </li>
+      <li>
+        <a href="career-panel.html" class="nav-link" data-page="careers">
+          <img src="assets/icons/CARRER.png" class="icon">
+          <span class="menu-text">Careers</span>
+        </a>
+      </li>
+      
+      <!-- COMMENTED: USERS & ROLES -->
+      <!-- <li>
+        <a href="#">
+          <img src="assets/icons/USER&ROLES.png" class="icon">
+          <span class="menu-text">Users & Roles</span>
+        </a>
+      </li> -->
+      
+      <!-- COMMENTED: ANALYTICS -->
+      <!-- <li>
+        <a href="#">
+          <img src="assets/icons/ANALYTICS.png" class="icon">
+          <span class="menu-text">Analytics</span>
+        </a>
+      </li> -->
+
+      <li>
+        <a href="admin-contact-us.html">
+          <i class="fa-regular fa-envelope sidebar-fa-icon"></i>
+          <span class="menu-text">Contact Us</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="admin-setting.html" class="nav-link" data-page="settings">
+          <img src="assets/icons/SETTING.png" class="icon">
+          <span class="menu-text">Setting</span>
+        </a>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <div class="main">
+    
+    <div class="main-wrapper">
+      
+      <header class="top-navbar">
+        
+        <div class="hamburger">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Search...">
+        </div>
+
+        <div class="nav-right">
+
+          <div class="notification-box">
+            <div class="notification">
+              <i class="fa-regular fa-bell"></i>
+            </div>
+            <span class="menu-text notification-text">Notification</span>
+          </div>
+
+          <!-- UPDATED: Profile with Dropdown -->
+          <div class="profile-dropdown-wrapper">
+            <div class="profile" id="profileBtn">AS</div>
+            
+            <div class="dropdown-menu" id="logoutDropdown">
+              <ul>
+                <!-- My Profile Container -->
+                <li class="menu-item">
+                  <a href="#">
+                    <i class="fa-regular fa-user"></i> 
+                    <span>My Profile</span>
+                  </a>
+                </li>
+                
+                <!-- Logout Container -->
+                <!-- <li class="menu-item">
+                  <a href="Sign-In.html"> 
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span>Logout</span>
+                  </a>
+                </li> -->
+                <!-- Logout Container -->
+                <li class="menu-item">
+                  <a href="#" onclick="handleLogout(); return false;">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span>Logout</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </header>
+
+      <!-- Dashboard Section Start -->
+      <div class="dashboard-container">
+
+        <!-- Title and Subtitle Section -->
+        <div class="dashboard-header">
+          <h1 class="dashboard-title">Dashboard</h1>
+          <p class="dashboard-subtitle">Welcome back.</p>
+        </div>
+
+        <!-- Total Stats Container -->
+        <div class="stats-container">
+
+          <!-- COMMENTED: BLOG CARD -->
+          <!-- <div class="stat-card">
+            <div class="card-content">
+              <div class="icon-text-wrapper">
+                <div class="icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M14 2V8H20" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M16 13H8" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M16 17H8" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M10 9H9H8" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <span class="card-title">Blog</span>
+              </div>
+              <div class="card-number">30</div>
+            </div>
+          </div> -->
+
+          <!-- Card 2: Events (Fixed: Clean Calendar) -->
+          <div class="stat-card">
+            <div class="card-content">
+              <div class="icon-text-wrapper">
+                <div class="icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2" stroke="#6366F1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <line x1="16" y1="2" x2="16" y2="6" stroke="#6366F1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <line x1="8" y1="2" x2="8" y2="6" stroke="#6366F1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <line x1="3" y1="10" x2="21" y2="10" stroke="#6366F1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <span class="card-title">Events</span>
+              </div>
+              <!-- <div class="card-number">15</div> -->
+               <div class="card-number" id="eventCount">0</div>
+            </div>
+          </div>
+
+          <!-- Card 3: Visitors (Fixed: Single Person) -->
+          <div class="stat-card">
+            <div class="card-content">
+              <div class="icon-text-wrapper">
+                <div class="icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="#22C55E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <circle cx="12" cy="7" r="4" stroke="#22C55E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <span class="card-title">Visitors</span>
+              </div>
+              <!-- <div class="card-number">2532</div> -->
+               <div class="card-number" id="visitorCount">0</div>
+            </div>
+          </div>
+
+          <!-- Card 4: Media Uploads (Fixed: Image/Mountain) -->
+          <div class="stat-card">
+            <div class="card-content">
+              <div class="icon-text-wrapper">
+                <div class="icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <circle cx="8.5" cy="8.5" r="1.5" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <polyline points="21 15 16 10 5 21" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <span class="card-title">Media Uploads</span>
+              </div>
+              <div class="card-number">12</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- Dashboard Section End -->
+
+      <!-- SECTIONS 1 -->
+      <div class="dashboard-content-wrapper section-1">      
+        
+        <!-- COMMENTED: WEBSITE TRAFFIC ANALYSIS -->
+        <!-- <div class="card chart-card">
+          <div class="chart-header">
+            <span class="title-text">Website Traffic Analysis</span>
+            <div class="tabs">
+              <button class="tab-btn" data-period="today">Today</button>
+              <button class="tab-btn active" data-period="7days">7 Days</button>
+              <button class="tab-btn" data-period="30days">30 Days</button>
+            </div>
+          </div>
+
+          <div class="chart-container">
+            <canvas id="trafficChart"></canvas>
+          </div>
+
+          <div class="chart-footer">Week</div>
+        </div> -->
+
+        <!-- Quick Management Container -->
+        <div class="card quick-management-card">
+          <div class="card-header">
+            <span class="title-text">Quick Management</span>
+            <div class="header-icon">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="card-body">
+            <!-- Create Blog -->
+            <div class="item">
+              <div class="icon-box">
+                <i class="fa-regular fa-file-lines"></i>
+              </div>
+              <span>Create Blog</span>
+            </div>
+
+            <!-- Add Event -->
+            <div class="item">
+              <div class="icon-box">
+                <i class="fa-regular fa-calendar-plus"></i>
+              </div>
+              <span>Add Event</span>
+            </div>
+
+            <!-- Upload Gallery -->
+            <div class="item">
+              <div class="icon-box">
+                <i class="fa-regular fa-images"></i>
+              </div>
+              <span>Upload Gallery</span>
+            </div>
+
+            <!-- Social Service -->
+            <div class="item">
+              <div class="icon-box">
+                <i class="fa-solid fa-hand-holding-heart"></i>
+              </div>
+              <span>Create Social Service</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CHANGED: MOVED EVENTS CARD HERE (Side by Side with Quick Management) -->
+        <div class="card events-card">
+          <div class="ev-card-header">
+            <h2>Events</h2>
+            <a href="admin-events.html">
+              <button class="view-btn">View All</button>
+            </a>
+          </div>
+
+          <div class="table-header">
+            <span>Event Name</span>
+            <span>Date</span>
+            <span>Category</span>
+            <span>Status</span>
+          </div>
+          <div id="eventsTableBody">
+          <div class="table-row">
+            <span>Good Friday</span>
+            <span>3 April 2026</span>
+            <span>Event</span>
+            <span><span class="badge completed">Completed</span></span>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="table-row">
+            <span>Independence Day</span>
+            <span>15 Aug 2026</span>
+            <span>Event</span>
+            <span><span class="badge upcoming">Upcoming</span></span>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="table-row">
+            <span>Ganesh Chaturthi</span>
+            <span>14 Sept 2026</span>
+            <span>Festival</span>
+            <span><span class="badge upcoming">Upcoming</span></span>
+          </div>
+          </div>
+        </div>
+
+        <!-- COMMENTED: SYSTEM ALERTS -->
+        <!-- <div class="card system-alert-card">
+          <div class="card-header">
+            <span class="title-text">System Alerts</span>
+            <div class="header-icon">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="card-body system-alert-list">
+            <div class="alert-card error">
+              <i class="fa-solid fa-circle-exclamation icon red"></i>
+          
+              <div>
+                <h4>Upload Failed</h4>
+                <p>Video 'CSR_Recap.mp4' format error.</p>
+              </div>
+            </div>
+
+            <div class="alert-card warning">
+              <i class="fa-regular fa-envelope-open icon yellow"></i>
+              <div>
+                <h4>Unpublished Drafts</h4>
+                <p>4 blog posts pending review.</p>
+              </div>
+            </div>
+
+            <div class="alert-card error">
+              <i class="fa-solid fa-circle-exclamation icon red"></i>
+              <div>
+                <h4>Upload Failed</h4>
+                <p>Video 'CSR_Recap.mp4' format error.</p>
+              </div>
+            </div>
+
+            <div class="alert-card neutral">
+              <i class="fa-regular fa-calendar-xmark icon gray"></i>
+              <div>
+                <h4>Event Expiring</h4>
+                <p>'Annual Gala' listing expires today.</p>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+
+      <!--EVENT AND RECENT ACTIVITY SECTION (Now only Recent Activity) -->
+      <!-- <div class="dashboard events-activity-section"> -->
+
+        <!-- CHANGED: FULL WIDTH RECENT ACTIVITY (MOVED HERE) -->
+        <!-- <div class="card activity-card activity-card-full">
+          <div class="ra-card-header">
+            <h2>Recent Activity</h2>
+            <button class="view-btn">View All</button>
+          </div>
+
+          <div class="timeline">
+
+            <div class="timeline-item">
+              <div class="dot blue"></div>
+              <div class="content">
+                <h4>Blog 'Work Culture At Office' Published</h4>
+                <p>24 mins ago by Sarah Jenkins</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="dot green"></div>
+              <div class="content">
+                <h4>New Event Added</h4>
+                <p>2 hours ago by Mike Chen</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="dot grey"></div>
+              <div class="content">
+                <h4>User Role Updated</h4>
+                <p>5 hours ago by Admin System</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="dot purple"></div>
+              <div class="content">
+                <h4>Gallery Refresh</h4>
+                <p>Yesterday by Elena Rodriguez</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="dot blue"></div>
+              <div class="content">
+                <h4>Blog 'Future of AI' Drafted</h4>
+                <p>Oct 21, 2024 by Sarah Jenkins</p>
+              </div>
+            </div> -->
+       
+            <!-- RECENT ACTIVITY SECTION - Updated -->
+<!-- RECENT ACTIVITY SECTION - Updated (No Modal) -->
+<div class="dashboard events-activity-section">
+    <div class="card activity-card activity-card-full">
+        <div class="ra-card-header">
+            <h2>Recent Activity</h2>
+            <button class="view-btn" id="viewAllActivitiesBtn" type="button">View All</button>
+        </div>
+
+        <div class="timeline" id="recentActivityTimeline">
+            <!-- Dynamic content will be loaded here -->
+            <div class="timeline-item">
+                <div class="dot blue"></div>
+                <div class="content">
+                    <h4>Loading activities...</h4>
+                    <p>Please wait</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <!-- NEW SECTIONS -->
+      <!-- COMMENTED: TOP BLOG & ACTIVITY LOG -->
+      <!-- <div class="dashboard-content-wrapper">
+
+        <div class="card top-blog-card">
+          
+          <div class="card-header">
+            <h3 class="card-title">Top Blog</h3>
+            <a href="#" class="btn-view-all">
+              <span>View All</span>
+            </a>
+          </div>
+
+          <div class="blog-list">
+            
+            <div class="blog-item">
+              <div class="blog-img-box">
+                <img src="assets/images/sales-pipeline.png" alt="Blog Thumbnail">
+              </div>
+              <div class="blog-info">
+                <div class="blog-title">5 Ways to Improve Your Sales Pipeline</div>
+                <div class="blog-stats">
+                  <div class="stat-item">
+                    <i class="fa-regular fa-eye"></i>
+                    <span>4.2k</span>
+                  </div>
+                  <div class="stat-item">
+                    <i class="fa-regular fa-heart"></i>
+                    <span>284</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="blog-item">
+              <div class="blog-img-box">
+                <img src="assets/images/customer-experience.png" alt="Blog Thumbnail">
+              </div>
+              <div class="blog-info">
+                <div class="blog-title">Why Customer Experience Matters More Than Ever</div>
+                <div class="blog-stats">
+                  <div class="stat-item">
+                    <i class="fa-regular fa-eye"></i>
+                    <span>4.2k</span>
+                  </div>
+                  <div class="stat-item">
+                    <i class="fa-regular fa-heart"></i>
+                    <span>284</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="blog-item">
+              <div class="blog-img-box">
+                <img src="assets/images/CRM-feature.png" alt="Blog Thumbnail">
+              </div>
+              <div class="blog-info">
+                <div class="blog-title">Top CRM Features Every Business Needs</div>
+                <div class="blog-stats">
+                  <div class="stat-item">
+                    <i class="fa-regular fa-eye"></i>
+                    <span>4.2k</span>
+                  </div>
+                  <div class="stat-item">
+                    <i class="fa-regular fa-heart"></i>
+                    <span>284</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="card activity-log-card">
+          
+          <div class="card-header">
+            <h3 class="card-title">Activity Log</h3>
+            <a href="#" class="btn-view-all">
+              <span>View All</span>
+            </a>
+          </div>
+
+          <div class="activity-table-container">
+            <table class="activity-table">
+              <thead>
+                <tr>
+                  <th class="col-name">Name</th>
+                  <th class="col-role">Role</th>
+                  <th class="col-action">Action performed</th>
+                  <th class="col-timestamp">Timestamp</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="title-layout">
+                      <div class="title-containt">Ujwala G</div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="title-layout">
+                      <div class="title-containt">Admin</div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="action-text">Updated Privacy Policy</div>
+                  </td>
+                  <td>
+                    <div class="timestamp-text">28/04/2026 13:00</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="title-layout">
+                      <div class="title-containt">Sakshi Patil</div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="title-layout">
+                      <div class="title-containt">User</div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="action-text">Updated profile: David Low</div>
+                  </td>
+                  <td>
+                    <div class="timestamp-text">28/04/2026 13:00</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="title-layout">
+                      <div class="title-containt">Rashmi R</div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="title-layout">
+                      <div class="title-containt">Admin</div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="action-text">Revoked API access key</div>
+                  </td>
+                  <td>
+                    <div class="timestamp-text">28/04/2026 13:00</div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+
+      </div> -->
+
+      <!-- COPYRIGHT TEXT -->
+      <div class="copyright-section">
+            <p class="copyright-text">Copyright &copy; 2025 - 2026 <a href="https://www.creativewebsolution.in/" target="_blank" class="company-name"> Creative Web
+                    Solution</a>. ALL RIGHTS RESERVED</p>
+      </div>
+      
+    </div> <!-- MAIN WRAPPER ENDS -->
+
+  </div> 
+
+</div> 
+
+<!-- ============================================ -->
+<!-- UPDATED: NEW SIDEBAR HIGHLIGHT SCRIPT -->
+<!-- ============================================ -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Get current page URL
+    const currentPath = window.location.pathname;
+
+    // Select all sidebar links
+    const menuLinks = document.querySelectorAll('.menu li');
+
+    menuLinks.forEach(li => {
+      const link = li.querySelector('a');
+      const pageName = link.getAttribute('data-page');
+
+      if (pageName) {
+        // Check if current URL contains the page name string
+        if (currentPath.includes(pageName)) {
+          li.classList.add('active');
+        } else {
+          li.classList.remove('active');
+        }
+      }
+    });
+  });
+</script>
+
+<!-- REMOVED: OLD CLICK SCRIPT (No longer needed, use logic above) -->
+<!-- 
+<script>
+const items = document.querySelectorAll(".menu li");
+items.forEach(item => {
+  item.addEventListener("click", () => {
+    document.querySelector(".menu li.active")?.classList.remove("active");
+    item.classList.add("active");
+  });
+});
+</script> 
+-->
+
+<!-- COMMENTED: CHART SCRIPT (Traffic Chart was commented in HTML, so commenting JS too to avoid errors) -->
+<!-- <script>
+    const ctx = document.getElementById('trafficChart').getContext('2d');
+
+    let chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        datasets: [
+          {
+            label: 'Visitors',
+            data: [900, 2400, 2500, 3100, 2700, 4000, 4800, 5200],
+            borderColor: '#00c853',
+            backgroundColor: 'rgba(0, 200, 83, 0.1)',
+            borderWidth:3,
+            fill: false,
+            pointRadius: 6,
+            pointBackgroundColor: '#00c853',
+            pointBorderColor: '#ffffff',
+            pointBorderWidth: 2,
+            tension: 0.4,
+            pointHoverRadius: 8
+          },
+          {
+            label: 'Page Views',
+            data: [null, 400, 2000, 2100, 3200, 3200, 3500, 4800],
+            borderColor: '#2196f3',
+            backgroundColor: 'rgba(33, 150, 243, 0.1)',
+            borderWidth:3,
+            fill: false,
+            pointRadius: 0,
+            pointBackgroundColor: '#2196f3',
+            pointBorderColor: '#ffffff',
+            pointBorderWidth: 0,
+            tension: 0.4,
+            pointHoverRadius: 0
+          }
+        ]
+      },
+      plugins: [
+        {
+          id: 'insideLegend',
+          afterDraw: function (chart) {
+            const { ctx, chartArea, scales } = chart;
+            ctx.save();
+            
+            const fontSize = 16;
+            ctx.font = `400 ${fontSize}px "Lato", sans-serif`;
+            ctx.textBaseline = 'middle';
+
+            const visitorsText = 'Visitors';
+            const pageViewsText = 'Page Views';
+            
+            const spacer = 13; 
+            const iconSize = 14; 
+            
+            const visitorsWidth = ctx.measureText(visitorsText).width;
+            const pageViewsWidth = ctx.measureText(pageViewsText).width;
+            
+            const totalWidth = iconSize + visitorsWidth + spacer + iconSize + pageViewsWidth;
+            
+            const startX = chartArea.left + (chartArea.width - totalWidth) / 2;
+            
+            const yPos = scales.y.getPixelForValue(6000);
+            
+            const legendY = yPos;
+
+            if (chartArea.width < 300) {
+              ctx.restore();
+              return;
+            }
+
+            ctx.fillStyle = '#22c55e'; 
+            ctx.fillRect(startX, legendY - iconSize / 2, iconSize, iconSize);
+            
+            ctx.fillStyle = '#797979'; 
+            ctx.fillText(visitorsText, startX + iconSize + 7, legendY); 
+
+            const secondX = startX + iconSize + 7 + visitorsWidth + spacer;
+            
+            ctx.fillStyle = '#0796fe'; 
+            ctx.fillRect(secondX, legendY - iconSize / 2, iconSize, iconSize);
+            
+            ctx.fillStyle = '#797979'; 
+            ctx.fillText(pageViewsText, secondX + iconSize + 7, legendY); 
+
+            ctx.restore();
+          }
+        }
+      ],
+      options: {
+        layout: {
+          padding: {
+            left: 10,
+            right: 0,
+            top: 30,
+            bottom: 0
+          }
+        },
+        responsive: true,
+        maintainAspectRatio: false,
+        indexAxis: 'x',
+        plugins: {
+          legend: {
+            display: false
+          },
+          tooltip: {
+            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+            padding: 12,
+            titleFont: {
+              size: 14,
+              weight: 'bold'
+            },
+            bodyFont: {
+              size: 13
+            },
+            borderColor: '#ddd',
+            borderWidth: 0,
+            displayColors: true,
+            callbacks:{
+              label: function (context) {
+                let label = context.dataset.label || '';
+                if (label) {
+                  label += ': ';
+                }
+                label += context.parsed.y.toLocaleString();
+                return label;
+              }
+            }
+          }
+        },
+        scales: {
+          y: {
+            type: 'linear',
+            position: left,
+            beginAtZero: true,
+            min: 0,
+            max: 6000,
+            ticks: {
+              stepSize: 1000,
+              callback: function (value) {
+                if (value === 0) return '0';
+                return value / 1000 + 'k';
+              },
+              font: {
+                size: 12
+              },
+              color: '#999'
+            },
+            grid: {
+              display: true,
+              color: 'transparent',
+              drawBorder: true,
+              drawTicks: true,
+              tickLength: 6,
+              tickColor: '#999',
+              tickWidth: 1,
+              lineWidth: 1
+            },
+            border: {
+              display: true,
+              color: '#999',
+              width: 2
+            }
+          },
+          x: {
+            type: 'category',
+            offset: true,
+            ticks: {
+              padding: 10,
+              font: {
+                size:13
+              },
+              color: function (context) {
+                return context.tick && context.tick.label === '' ? 'transparent' : '#999';
+              }
+            },
+            grid: {
+              display: true,
+              color: 'transparent',
+              drawBorder: true,
+              drawTicks: true,
+              tickLength: 6,
+              tickColor: function (context) {
+                return context.tick && context.tick.label === '' ? 'transparent' : '#999';
+              },
+              tickWidth: function (context) {
+                return context.tick && context.tick.label === '' ? 0 : 1;
+              }
+            },
+            border: {
+              display: true,
+              color: '#999',
+              width: 2
+            }
+          }
+        }
+      }
+    });
+
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', function () {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        const period = this.dataset.period;
+        updateChartData(period);
+      });
+    });
+
+    function updateChartData(period) {
+      let visitorsData, pageViewsData;
+
+      switch (period) {
+        case 'today':
+          visitorsData = [null, 200, 300, 250, 400, 350, 450, 500, 550, 600, 650, 700, 750];
+          pageViewsData = [null, 150, 250, 200, 350, 300, 400, 450, 500, 550, 600, 650, 700];
+          chart.data.labels = ['', '6h', '7h', '8h', '9h', '10h', '11h', '12h', '13h', '14h', '15h', '16h', '17h'];
+          break;
+        case '7days':
+          visitorsData = [null, 1000, 2300, 3100, 2700, 4000, 4800, 5200];
+          pageViewsData = [null, 500, 1800, 2800, 3000, 3500, 4200, 4800];
+          chart.data.labels = ['', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+          break;
+        case '30days':
+          visitorsData = [null, 5200, 5500, 5800, 6000, 5900, 6100, 6300, 6200, 6400, 6500, 6600, 6400];
+          pageViewsData = [null, 4800, 5000, 5200, 5400, 5300, 5500, 5700, 5600, 5800, 5900, 6000, 5800];
+          chart.data.labels = ['', 'Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6', 'Week 7', 'Week 8', 'Week 9', 'Week 10', 'Week 11', 'Week 12'];
+          break;
+      }
+      chart.data.datasets[0].data = visitorsData;
+      chart.data.datasets[1].data = pageViewsData;
+      chart.update();
+    }
+
+  </script> -->
+
+    <!-- JS Script (Updated: Click anywhere to close logic) -->
+    <script>
+      const hamburger = document.querySelector('.hamburger');
+      const closeBtn = document.querySelector('.close-btn');
+      const sidebar = document.querySelector('.sidebar');
+
+      if(hamburger){
+        hamburger.addEventListener('click', () => {
+          sidebar.classList.add('active');
+        });
+      }
+
+      if(closeBtn){
+        closeBtn.addEventListener('click', () => {
+          sidebar.classList.remove('active');
+        });
+      }
+    </script>
+
+  <script>
+    // Profile Dropdown Logic
+    const profileBtn = document.getElementById('profileBtn');
+    const dropdownWrapper = document.querySelector('.profile-dropdown-wrapper');
+
+    // Toggle dropdown on click
+    profileBtn.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevent bubbling
+      dropdownWrapper.classList.toggle('active');
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!dropdownWrapper.contains(e.target)) {
+        dropdownWrapper.classList.remove('active');
+      }
+    });
+
+    if(hamburger) {
+      hamburger.addEventListener('click', () => {
+        sidebar.classList.add('active');
+      });
+    }
+
+    if(closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        sidebar.classList.remove('active');
+      });
+    }
+  </script>
+  <!-- Do not remove below script -->
+<script>
+// ── Auth Check ──
+(function() {
+  var user = localStorage.getItem('user');
+  
+  if (!user) {
+    // if token is not ther then it should redirct to sign in
+    window.location.replace('Sign-In.html');
+    return;
+  }
+  
+  try {
+    var userData = JSON.parse(user);
+    if (!userData.token || userData.role !== 'SUPER_ADMIN') {
+      // if token is not there then redirct to admin
+      localStorage.removeItem('user');
+      window.location.replace('Sign-In.html');
+      return;
+    }
+    
+    // set admin details
+    var initials = userData.name
+      ? userData.name.trim().split(' ').map(function(n) { 
+          return n[0]; 
+        }).join('').substring(0, 2).toUpperCase()
+      : 'AD';
+    
+    var profileBtn = document.getElementById('profileBtn');
+    if (profileBtn) profileBtn.textContent = initials;
+    
+  } catch(e) {
+    localStorage.removeItem('user');
+    window.location.replace('Sign-In.html');
+  }
+})();
+
+// ── Logout ──
+function handleLogout() {
+  localStorage.removeItem('user');
+  localStorage.removeItem('creative_email');
+  localStorage.removeItem('creative_remember');
+  window.location.replace('Sign-In.html');
+}
+// ── Load Events in Dashboard Table ──
+function loadDashboardEvents() {
+  fetch('http://localhost:8080/api/events/upcoming')
+  .then(function(res) { return res.json(); })
+  .then(function(events) {
+
+    var tbody = document.getElementById('eventsTableBody');
+    if (!tbody) return;
+
+    if (events.length === 0) {
+      tbody.innerHTML = '<div style="text-align:center; padding:20px; color:#797979;">No upcoming events</div>';
+      return;
+    }
+
+    var html = '';
+
+    // only 3 events are visible
+    var limit = Math.min(events.length, 3);
+
+    for (var i = 0; i < limit; i++) {
+      var event = events[i];
+
+      // Date format 
+      var dateObj = new Date(event.eventDate);
+      var options = { day: 'numeric', month: 'short', year: 'numeric' };
+      var dateStr = dateObj.toLocaleDateString('en-IN', options);
+
+      // Status badge
+      var badgeClass = event.status === 'UPCOMING' ? 'upcoming' : 'completed';
+      var statusText = event.status === 'UPCOMING' ? 'Upcoming' : 'Completed';
+
+      html += '<div class="table-row">';
+      html += '  <span>' + event.title + '</span>';
+      html += '  <span>' + dateStr + '</span>';
+      html += '  <span>' + (event.category || 'Event') + '</span>';
+      html += '  <span><span class="badge ' + badgeClass + '">' + statusText + '</span></span>';
+      html += '</div>';
+
+      // Divider add 
+      if (i < limit - 1) {
+        html += '<div class="divider"></div>';
+      }
+    }
+
+    tbody.innerHTML = html;
+
+    // Total events count fetch 
+    fetch('http://localhost:8080/api/events/count')
+    .then(function(res) { return res.json(); })
+    .then(function(countData) {
+      var eventsCountEl = document.querySelector('.stat-card:first-child .card-number');
+      if (eventsCountEl) {
+        eventsCountEl.textContent = countData.total || 0;
+      }
+})
+.catch(function(e) { console.log('Count error:', e); });
+
+  })
+  .catch(function(error) {
+    console.log('Events load error:', error);
+    var tbody = document.getElementById('eventsTableBody');
+    if (tbody) {
+      tbody.innerHTML = '<div style="text-align:center; padding:20px; color:#cc0000;">Failed to load events</div>';
+    }
+  });
+}
+
+// Page load call 
+document.addEventListener('DOMContentLoaded', function() {
+  loadDashboardEvents();
+});
+</script>
+
+
+
+<script>
+
+// ======================================
+// Fetch Event Count
+// ======================================
+
+function loadEventCount() {
+
+    fetch('http://localhost:8080/api/events/count')
+    .then(response => response.json())
+    .then(data => {
+
+        console.log("Event API Response:", data);
+
+        // If API returns { total: 15 }
+        document.getElementById('eventCount').innerText = data.total || 0;
+
+    })
+    .catch(error => {
+
+        console.error('Event Count Error:', error);
+
+    });
+
+}
+
+// ======================================
+// Page Load
+// ======================================
+
+window.onload = function () {
+
+    // loadVisitorCount();
+    loadEventCount();
+
+};
+</script>
+
+<script src="js/admin-profile.js"></script>
+
+
+<script>
+
+// ======================================
+// Live Visitor Count Auto Update
+// ======================================
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    const visitorElement =
+        document.getElementById('visitorCount');
+
+    async function loadVisitorCount() {
+
+        try {
+
+            const response = await fetch(
+                'http://localhost:8080/api/visitors'
+            );
+
+            const data = await response.json();
+
+            console.log("Visitor API Response:", data);
+
+            // Different possible API responses handled
+            if (typeof data === 'number') {
+
+                visitorElement.innerText = data;
+
+            } else if (data.totalVisitors !== undefined) {
+
+                visitorElement.innerText = data.totalVisitors;
+
+            } else if (data.count !== undefined) {
+
+                visitorElement.innerText = data.count;
+
+            } else {
+
+                visitorElement.innerText = 0;
+
+            }
+
+        } catch (error) {
+
+            console.error(
+                'Visitor Fetch Error:',
+                error
+            );
+
+            visitorElement.innerText = 0;
+
+        }
+
+    }
+
+    // Initial load
+    loadVisitorCount();
+
+    // Auto refresh every 3 sec
+    setInterval(loadVisitorCount, 3000);
+
+});
+
+</script>
+<script>
+// ======================================
+// RECENT ACTIVITIES - EXPAND ON SAME PAGE
+// ======================================
+
+let allActivities = [];
+let showAllActivities = false;
+
+// Get dot color based on activity type
+function getDotColor(message) {
+    if (message.toLowerCase().includes('updated')) return 'green';
+    if (message.toLowerCase().includes('removed') || message.toLowerCase().includes('deleted')) return 'grey';
+    if (message.toLowerCase().includes('added') || message.toLowerCase().includes('new')) return 'blue';
+    return 'purple';
+}
+
+// Escape HTML
+function escapeHtml(text) {
+    if (!text) return '';
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+// Render activities based on showAllActivities flag
+function renderActivities() {
+    const container = document.getElementById('recentActivityTimeline');
+    if (!container) return;
+    
+    if (!allActivities || allActivities.length === 0) {
+        container.innerHTML = `<div class="timeline-item"><div class="dot grey"></div><div class="content"><h4>No recent activities</h4><p>No activities to display</p></div></div>`;
+        return;
+    }
+    
+    // Show either all activities or only first 5
+    const activitiesToShow = showAllActivities ? allActivities : allActivities.slice(0, 5);
+    
+    let html = '';
+    activitiesToShow.forEach(activity => {
+        const dotColor = getDotColor(activity.message);
+        html += `<div class="timeline-item"><div class="dot ${dotColor}"></div><div class="content"><h4>${escapeHtml(activity.message)}</h4><p>${escapeHtml(activity.time)} by ${escapeHtml(activity.createdBy)}</p></div></div>`;
+    });
+    container.innerHTML = html;
+}
+
+// Load recent activities from backend
+async function loadRecentActivities() {
+    try {
+        const response = await fetch('http://localhost:8080/admin/dashboard/recent-activities');
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        
+        const activities = await response.json();
+        allActivities = activities;
+        
+        // Sort newest first
+        allActivities.sort((a, b) => {
+            const getMinutes = (timeStr) => {
+                if (!timeStr) return 0;
+                if (timeStr.includes('mins ago')) return parseInt(timeStr);
+                if (timeStr.includes('hours ago')) return parseInt(timeStr) * 60;
+                if (timeStr.includes('days ago')) return parseInt(timeStr) * 24 * 60;
+                return 0;
+            };
+            return getMinutes(a.time) - getMinutes(b.time);
+        });
+        
+        // Reset to show only 5 initially
+        showAllActivities = false;
+        renderActivities();
+        
+        // Update button text
+        updateButtonText();
+        
+    } catch (error) {
+        console.error('Error loading activities:', error);
+        const container = document.getElementById('recentActivityTimeline');
+        if (container) {
+            container.innerHTML = `<div class="timeline-item"><div class="dot grey"></div><div class="content"><h4>Failed to load activities</h4><p>Please check your connection</p></div></div>`;
+        }
+    }
+}
+
+// Update button text based on state
+function updateButtonText() {
+    const viewAllBtn = document.getElementById('viewAllActivitiesBtn');
+    if (viewAllBtn) {
+        if (showAllActivities) {
+            viewAllBtn.textContent = 'Show Less';
+        } else {
+            viewAllBtn.textContent = 'View All';
+        }
+    }
+}
+
+// Toggle between show all and show less
+function setupViewAllButton() {
+    const viewAllBtn = document.getElementById('viewAllActivitiesBtn');
+    if (!viewAllBtn) return;
+    
+    viewAllBtn.onclick = function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        // Toggle the state
+        showAllActivities = !showAllActivities;
+        
+        // Re-render activities
+        renderActivities();
+        
+        // Update button text
+        updateButtonText();
+        
+        return false;
+    };
+}
+
+// Auto refresh every 30 seconds
+let refreshInterval;
+function startAutoRefresh() {
+    if (refreshInterval) clearInterval(refreshInterval);
+    refreshInterval = setInterval(loadRecentActivities, 30000);
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', function() {
+    loadRecentActivities();
+    setupViewAllButton();
+    startAutoRefresh();
+});
+</script>
+</body>
+</html>

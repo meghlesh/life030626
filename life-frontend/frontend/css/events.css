@@ -1,0 +1,1885 @@
+/* ================================================
+   CWS.life — events.css
+   Page-specific styles for events.html
+   All global styles (colors, fonts, navbar,
+   footer, buttons) are in global.css
+   ================================================ */
+
+/* Add your page-specific CSS here */
+/* ================================================
+   CWS.life — events.css
+   Premium Company Events Page Design
+================================================ */
+
+/* =========================================
+   GOOGLE FONT
+========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* =========================================
+   ROOT COLORS
+========================================= */
+
+:root {
+  --navy: #0A2540;
+  --navy-mid: #0d3358;
+  --cyan: #0796FE;
+  --cyan-soft: #E0F7FA;
+  --cyan-mid: #b2ebf2;
+  --white: #FFFFFF;
+  --off-white: #F7F9FC;
+  --mid-gray: #797979;
+  --body-text: #4A5568;
+  --border: #E1E4E8;
+  --border-alt: rgba(7, 150, 254, 0.15);
+}
+
+/* =========================================
+   GLOBAL
+========================================= */
+
+/* =========================================
+   HERO SECTION
+========================================= */
+
+.events-hero {
+  width: 100%;
+  height: 286.19px;
+  margin: 0 auto;
+  margin-top: 125.49px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  position: relative;
+  z-index: 10;
+  overflow: visible !important;
+  min-height: 250px;
+}
+
+
+/* Main Dark Background (Top Layer) */
+.events-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(16, 52, 89, 1);
+  clip-path: polygon(0 0, 100% 0, 100% 60%, 50% 100%, 0 60%);
+  z-index: 2;
+}
+
+
+/* Blue Line (Bottom Layer - Shifted Down) */
+.events-hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0796FE;
+  clip-path: polygon(0 0, 100% 0, 100% 60%, 50% 100%, 0 60%);
+  transform: translateY(12px);
+  z-index: 1;
+}
+
+
+.events-hero-content {
+  text-align: center;
+  position: relative;
+  z-index: 3;
+  padding: 0 20px;
+}
+
+
+.events-hero-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 300;
+  font-style: Light;
+  font-size: 64px;
+  line-height: 75px;
+  letter-spacing: 0;
+  text-align: center;
+  vertical-align: middle;
+  text-transform: capitalize;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+
+.events-hero-subtitle {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: 0;
+  text-align: center;
+  vertical-align: middle;
+  color: rgba(196, 196, 196, 1);
+  margin: 0;
+  margin-top: 23px;
+}
+
+/* Breadcrumb "Even" Color */
+.breadcrumb-active {
+  color: #0796FE;
+}
+
+/* =========================================
+   EVENTS INTRO SECTION
+========================================= */
+
+.events-intro {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  min-height: 770px;
+  margin-top: -103px;
+  z-index: 5;
+}
+
+.events-intro-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 770px;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  transform: scale(1.16);
+  padding-left: 20px;
+}
+
+.events-intro-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.60);
+  z-index: 1;
+}
+
+.events-intro-inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 840px;
+  margin: 0 auto;
+  padding: 100px 20px;
+  margin-top: 50px;
+}
+
+.events-intro-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 300;
+  font-size: 70px;
+  line-height: 75px;
+  text-align: center;
+  color: #ffffff;
+  margin: 0 0 20px 0;
+}
+
+.events-intro-subtitle {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;     /*changed to get matching typography like figma*/
+  font-style: italic;
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+  color: #ffffff;
+  margin: 0 0 28px 0;
+}
+
+.events-intro-divider {
+  width: 740px;   /*changes for better width of line */
+  height: 1px;
+  background: #4064C5;
+  border: 1px;
+  margin: 0 auto 28px auto;
+}
+
+.events-intro-desc {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;     /*changed to get matching typography like figma*/
+  font-style: italic;
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+  color: #ffffff;
+  margin: 0;
+  margin-top: -20px;    /*added for better spacing*/
+}
+
+/* =========================================
+   RESPONSIVE — HERO & INTRO SECTION
+========================================= */
+
+/* TABLET LARGE — 1024px */
+@media (max-width: 1024px) {
+
+  .events-hero {
+    height: 240px;
+    margin-top: 100px;
+    min-height: 220px;
+  }
+
+  .events-hero-title {
+    font-size: 52px;
+    line-height: 60px;
+  }
+
+  .events-hero-subtitle {
+    font-size: 16px;
+    margin-top: 16px;
+  }
+
+  .events-intro {
+    min-height: 600px;
+    margin-top: -90px;
+  }
+
+  .events-intro-bg {
+    height: 600px;
+  }
+
+  .events-intro-title {
+    font-size: 48px;
+  }
+
+  .events-intro-subtitle {
+    font-size: 16px;
+  }
+
+  .events-intro-desc {
+    font-size: 15px;
+  }
+
+  .events-intro-inner {
+    padding: 80px 20px;
+  }
+
+}
+
+/* TABLET — 768px */
+@media (max-width: 768px) {
+
+  .events-hero {
+    height: 200px;
+    margin-top: 80px;
+    min-height: 180px;
+  }
+
+  .events-hero-title {
+    font-size: 40px;
+    line-height: 50px;
+  }
+
+  .events-hero-subtitle {
+    font-size: 14px;
+    margin-top: 12px;
+  }
+
+  .events-intro {
+    min-height: 500px;
+    margin-top: -75px;
+  }
+
+  .events-intro-bg {
+    height: 500px;
+  }
+
+  .events-intro-title {
+    font-size: 36px;
+  }
+
+  .events-intro-subtitle {
+    font-size: 15px;
+  }
+
+  .events-intro-desc {
+    font-size: 14px;
+  }
+
+  .events-intro-inner {
+    padding: 60px 20px;
+  }
+
+  .events-intro-divider {
+    width: 160px;
+  }
+
+}
+
+/* MOBILE — 480px */
+@media (max-width: 480px) {
+
+  .events-hero {
+    height: 170px;
+    margin-top: 70px;
+    min-height: 150px;
+  }
+
+  .events-hero-title {
+    font-size: 30px;
+    line-height: 38px;
+  }
+
+  .events-hero-subtitle {
+    font-size: 12px;
+    margin-top: 10px;
+  }
+
+  .events-intro {
+    min-height: 420px;
+    margin-top: -73px;
+  }
+
+  .events-intro-bg {
+    height: 420px;
+  }
+
+  .events-intro-title {
+    font-size: 26px;
+  }
+
+  .events-intro-subtitle {
+    font-size: 13px;
+  }
+
+  .events-intro-desc {
+    font-size: 13px;
+  }
+
+  .events-intro-inner {
+    padding: 40px 16px;
+  }
+
+  .events-intro-divider {
+    width: 120px;
+  }
+
+}
+
+/* =========================================
+   EVENTS SECTION
+========================================= */
+
+/* ========================================= ROOT COLORS ========================================= */
+
+/* ========================================= EVENTS SECTION ========================================= */
+/* ===================================================
+   ABOUT EVENTS SECTION
+=================================================== */
+
+.about-events-section{
+  width:100%;
+  max-width:1443px;
+  margin: 20px auto; 
+  display: flex;          
+  flex-direction: column; 
+  align-items: center;    
+}
+
+/* ===================================================
+   HEADING
+=================================================== */
+
+.about-events-heading{
+  text-align:center;
+  margin-bottom:55px;
+  width: 100%; 
+}
+
+.about-events-heading h2{
+  font-family:'Oswald', sans-serif;
+  font-weight:300;
+  font-size:40px;
+  line-height:46px;
+  color:rgba(10, 37, 64, 1);
+  margin-bottom:15px;
+  font-style: Light;
+}
+
+.about-events-line{
+  width:82px;
+  height:9.5px;
+  background:rgba(7, 150, 254, 1);
+  margin:0 auto 18px;
+}
+
+.about-events-heading p{
+  max-width:645px;
+  margin:auto;
+  font-family:'Lato', sans-serif;
+  font-weight:400;
+  font-style:italic;
+  font-size:18px;
+  line-height:25px;
+  text-align:center;
+  color:rgba(121, 121, 121, 1);
+  padding-top: 5px;   
+}
+
+/* ===================================================
+   CARDS CONTAINER
+=================================================== */
+
+.about-events-container{
+  width: 100%; 
+  max-width: 1280px;
+  height: auto; 
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:30px; 
+  margin: 0; 
+}
+
+/* ===================================================
+   CARD
+=================================================== */
+
+.about-events-card{
+  max-width: 284px;   
+  width:100%;
+  height: auto; 
+  min-height: 324px; 
+  background:rgba(255, 255, 255, 1);
+  border:1px solid #EEEEEE;
+  box-shadow:0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  transition:0.35s ease;
+  cursor:pointer;
+  padding:20px;
+  border-radius: 4px;   
+}
+
+.about-events-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0px 10px 22px rgba(0,0,0,0.12);
+}
+
+/* ===================================================
+   ICON
+=================================================== */
+
+/* .about-events-icon img{
+  width:72px;
+  height:72px;
+  object-fit:contain;
+} */
+
+/* ===================================================
+   TITLE
+=================================================== */
+
+.about-events-card h3{
+  font-family:'Oswald', sans-serif;
+  font-weight:300;
+  font-size:32px;
+  line-height:40px;
+  text-align:center;
+  padding-top:20px;
+  color:#0A2540;
+  margin-top: 20px;   
+}
+
+/* ===================================================
+   LARGE LAPTOP
+=================================================== */
+
+@media (max-width:1400px){
+
+  .about-events-section{
+    padding:30px 50px 50px;
+  }
+
+  .about-events-container{
+    gap:22px;
+  }
+
+  .about-events-card{
+    min-height: 324px; 
+  }
+
+  .about-events-card h3{
+    font-size:28px;
+    line-height:36px;
+  }
+
+}
+
+/* ===================================================
+   LAPTOP
+=================================================== */
+
+@media (max-width:1200px){
+
+  .about-events-section{
+    padding:30px 40px 50px;
+  }
+
+  .about-events-container{
+    grid-template-columns:repeat(2,1fr);
+    gap:40px; 
+    justify-items: center;    
+  }
+
+  .about-events-card{
+    min-height: 324px; 
+    max-width: 100%; 
+    margin-bottom: 0; 
+    margin-top: 0;    
+  }
+
+  .about-events-icon img{
+    width:65px;
+    height:65px;
+  }
+
+  .about-events-card h3{
+    font-size:28px;
+    line-height:36px;
+  }
+
+}
+
+/* ===================================================
+   TABLET
+=================================================== */
+
+@media (max-width:992px){
+
+  .about-events-section{
+    padding:30px 24px 45px;
+  }
+
+  .about-events-heading{
+    margin-bottom:40px;
+  }
+
+  .about-events-heading h2{
+    font-size:34px;
+    line-height:42px;
+  }
+
+  .about-events-heading p{
+    max-width:100%;
+    font-size:16px;
+    line-height:24px;
+  }
+
+  .about-events-container{
+    grid-template-columns:repeat(2,1fr);
+    gap:30px; 
+    justify-items: center;    
+  }
+
+  .about-events-card{
+    min-height: 324px; 
+    max-width: 100%; 
+    margin-bottom: 0; 
+    margin-top: 0;    
+  }
+
+  .about-events-icon img{
+    width:58px;
+    height:58px;
+  }
+
+  .about-events-card h3{
+    font-size:24px;
+    line-height:32px;
+    padding-top:16px;
+  }
+
+}
+
+/* ===================================================
+   MOBILE
+=================================================== */
+
+@media (max-width:768px){
+
+  .about-events-section{
+    padding:30px 18px 40px;
+  }
+
+  .about-events-heading h2{
+    font-size:30px;
+    line-height:38px;
+  }
+
+  .about-events-line{
+    width:70px;
+    height:5px;
+  }
+
+  .about-events-heading p{
+    font-size:15px;
+    line-height:23px;
+  }
+
+  .about-events-container{
+    grid-template-columns:1fr;
+    gap:25px; 
+    justify-items: center;    
+  }
+
+  .about-events-card{
+    min-height: 324px; 
+    max-width: 100%; 
+    margin-bottom: 0; 
+    margin-top: 0;    
+  }
+
+  .about-events-icon img{
+    width:55px;
+    height:55px;
+  }
+
+  .about-events-card h3{
+    font-size:24px;
+    line-height:30px;
+  }
+
+}
+
+/* ===================================================
+   SMALL MOBILE
+=================================================== */
+
+@media (max-width:480px){
+
+  .about-events-section{
+    padding:25px 14px 35px;
+  }
+
+  .about-events-container {
+    justify-content: center;    
+    justify-items: center;      
+  }
+
+  .about-events-heading{
+    margin-bottom:32px;
+  }
+
+  .about-events-heading h2{
+    font-size:26px;
+    line-height:34px;
+  }
+
+  .about-events-heading p{
+    font-size:14px;
+    line-height:22px;
+  }
+
+  .about-events-card{
+    min-height: 324px; 
+    padding:16px;
+    max-width: 100%; 
+    margin-bottom: 0; 
+    margin-top: 0;    
+  }
+
+  .about-events-icon img{
+    width:48px;
+    height:48px;
+  }
+
+  .about-events-card h3{
+    font-size:20px;
+    line-height:28px;
+    padding-top:14px;
+  }
+
+}
+
+/* Upcoming Events */
+/* ===================================================
+   EVENTS SECTION
+=================================================== */
+
+.events-section {
+  width: 100%;
+  max-width: 1443px; 
+  padding: 40px 50px; 
+  background: rgba(225, 242, 255, 1);
+  margin: 0 auto;
+}
+
+/* ===================================================
+   TITLE
+=================================================== */
+
+.events-title {
+  text-align: center;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 300;
+  font-size: 40px;
+  line-height: 46px;
+  color: #0A2540;
+}
+
+.events-title::after {
+  content: "";
+  width: 82px;
+  height: 9.5px;
+  background: #0796FE;
+  display: block;
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+/* ===================================================
+   SLIDER
+=================================================== */
+
+.events-slider {
+  overflow: hidden;
+  width: 100%;
+  max-width: 1210px; 
+  margin-left: auto; 
+  margin-right: auto; 
+}
+
+.events-container {
+  display: flex;
+  gap: 20px; 
+  margin-top: 40px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory; 
+  scrollbar-width: none;
+  padding-bottom: 10px;
+  align-items: stretch; 
+  width: 100%;
+}
+
+.events-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* ===================================================
+   EVENT CARD (UPDATED FOR EQUAL HEIGHT/WIDTH)
+=================================================== */
+
+.event-card {
+  width: 390px; 
+  height: 307px; 
+  background: #FFFFFF;
+  padding: 23px;
+  border-radius: 3px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-shrink: 0; 
+  box-sizing: border-box; 
+  scroll-snap-align: start; 
+}
+
+/* ===================================================
+   TOP
+=================================================== */
+
+.event-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.event-top h3 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 300;
+  font-size: 28px;
+  line-height: 34px;
+  color: #092A49;
+}
+
+/* ===================================================
+   BADGE
+=================================================== */
+
+.event-badge {
+  border: 1px solid #0796FE;
+  color: #0796FE;
+  width: 80px;    /*changed for correct size*/
+  height: 30px;   /*changed for correct size*/
+  /* padding: 4px 12px; */    /*removed for correct alignment*/
+  border-radius: 50px;
+  background: #E1F2FF;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  white-space: nowrap; 
+  display: inline-flex;   /*added for correct alignment*/
+  align-items: center;    /*added for correct alignment*/
+  justify-content: center;    /*added for correct alignment*/
+}
+
+/* ===================================================
+   DATE
+=================================================== */
+
+.event-date {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.event-date img {
+  width: 24px;    /*added for correct size*/
+  height: 24px;   /*added for correct size*/
+}
+
+.event-date span {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  line-height: 25px;
+  color: #777777;
+}
+
+/* ===================================================
+   DESCRIPTION
+=================================================== */
+
+.event-card p {
+  color: #797979;
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  line-height: 34px;
+  flex-grow: 1; 
+
+}
+
+/* ===================================================
+   BUTTONS
+=================================================== */
+
+.slider-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 35px;
+}
+
+.slider-buttons button {
+  width: 42px;
+  height: 42px;
+  border: none;
+  background: #0796FE;
+  color: #FFFFFF;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.slider-buttons button:hover {
+  transform: scale(1.05);
+}
+
+/* ===================================================
+   LARGE LAPTOP
+=================================================== */
+
+/* ===================================================
+   LAPTOP
+=================================================== */
+
+@media (max-width: 1200px) {
+
+  .events-section {
+    padding: 35px 30px;
+  }
+
+  .events-slider {
+    max-width: 1010px; 
+  }
+
+  .events-container {
+    gap: 20px;
+  }
+
+  .event-card {
+    width: 330px; 
+    padding: 20px;
+    height: 307px; 
+  }
+
+  .event-top h3 {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  .event-date span {
+    font-size: 16px;
+  }
+
+  .event-card p {
+    font-size: 16px;
+    line-height: 30px;
+  }
+
+}
+
+/* ===================================================
+   TABLET
+=================================================== */
+
+@media (max-width: 992px) {
+
+  .events-section {
+    padding: 35px 24px;
+  }
+
+  .events-title {
+    font-size: 34px;
+    line-height: 40px;
+  }
+
+
+  .events-slider {
+    max-width: 900px; 
+  }
+
+  .events-container {
+    gap: 15px; 
+    margin-top: 30px;
+  }
+
+  .event-card {
+    width: 290px; 
+    padding: 18px;
+    height: 250px; 
+  }
+
+  .event-top h3 {
+    font-size: 22px;
+    line-height: 28px;
+  }
+
+  .event-badge {
+    font-size: 14px;
+    padding: 4px 10px;
+  }
+
+  .event-date {
+    gap: 8px;
+  }
+
+  .event-date img {
+    width: 14px;
+    height: 14px;
+  }
+
+  .event-date span {
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .event-card p {
+    font-size: 15px;
+    line-height: 28px;
+  }
+
+  .slider-buttons button {
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+  }
+
+}
+
+/* ===================================================
+   MOBILE
+=================================================== */
+
+@media (max-width: 768px) {
+
+  .events-section {
+    padding: 30px 18px;
+  }
+
+  .events-title {
+    font-size: 30px;
+    line-height: 36px;
+  }
+
+  .events-title::after {
+    width: 70px;
+    height: 5px;
+  }
+
+  .events-slider {
+    max-width: 100%;
+  }
+
+  .events-container {
+    gap: 16px;
+    margin-top: 25px;
+    width: 100%; 
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .event-card {
+    width: 50%; 
+    padding: 18px;
+    height: auto; 
+    min-height: 250px; 
+  }
+
+  .event-top h3 {
+    font-size: 22px;
+    line-height: 28px;
+  }
+
+  .event-badge {
+    font-size: 13px;
+    padding: 4px 10px;
+  }
+
+  .event-date img {
+    width: 14px;
+    height: 14px;
+  }
+
+  .event-date span {
+    font-size: 14px;
+  }
+
+  .event-card p {
+    font-size: 14px;
+    line-height: 28px;
+  }
+
+  .slider-buttons {
+    margin-top: 25px;
+  }
+
+  .slider-buttons button {
+    width: 34px;
+    height: 34px;
+    font-size: 16px;
+  }
+
+}
+
+/* ===================================================
+   SMALL MOBILE
+=================================================== */
+
+@media (max-width: 480px) {
+  
+  .events-container {
+    justify-content: flex-start; 
+  }
+  
+  .events-section {
+    padding: 25px 14px;
+  }
+
+  .events-title {
+    font-size: 26px;
+    line-height: 32px;
+  }
+
+  .event-card {
+    padding: 16px;
+    width: 100%; 
+    height: auto; 
+    min-height: 250px; 
+  }
+
+  .event-top {
+    gap: 10px;
+  }
+
+  .event-top h3 {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .event-badge {
+    font-size: 12px;
+    /*added for better badge text alignment*/
+    padding-top: 6px;
+    width: 80px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .event-date {
+    gap: 6px;
+  }
+
+  .event-date img {
+    width: 12px;
+    height: 12px;
+  }
+
+  .event-date span {
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+  .event-card p {
+    font-size: 13px;
+    line-height: 24px;
+  }
+
+  .slider-buttons button {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+
+}
+
+
+/* Past Section Events */
+/* ===================================================
+   PAST EVENTS SECTION
+=================================================== */
+
+.pastevents-section {
+  width: 100%;
+  max-width: 1240px;
+  background: #ffffff;
+  margin: 0 auto;
+  padding: 20px 20px;
+  display: flex;          
+  flex-direction: column; 
+  align-items: center;    
+}
+
+/* ===================================================
+   TITLE
+=================================================== */
+
+.pastevents-title {
+  text-align: center;
+  font-family: 'Oswald', sans-serif;
+  font-size: 42px;
+  line-height: 48px;
+  font-weight: 300;
+  color: #0A2540;
+  margin-bottom: 54px;
+  position: relative;
+  margin-top: 40px;   /*added for better spacing*/
+}
+
+.pastevents-title::after {
+  content: "";
+  width: 82px;
+  height: 9.5px;
+  background: #0796FE;
+  /* border-radius: 50px; */    /*removed for correct border*/
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -22px;
+}
+
+/* ===================================================
+   CONTAINER (Main & Extra) - FIXED CENTERING
+=================================================== */
+
+.pastevents-container,
+.extra-events {
+  width: fit-content; 
+  max-width: 100%;    
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px; 
+  align-items: start;
+  margin: 0 auto;
+  justify-content: center;
+  justify-items: center; 
+}
+
+.extra-events {
+  display: none; 
+  margin-top: 30px;
+}
+
+.extra-events.show {
+  display: grid;
+}
+
+/* ===================================================
+   CARD
+=================================================== */
+
+.pastevents-card {
+  background: #ffffff;
+  border: 1px solid #D9D9D9;
+  box-shadow: 0px 6px 8px -3px rgba(0, 0, 0, 0.45);   /*changed for better shadow*/
+  position: relative;
+  overflow: hidden;
+  width: 398px !important;
+  height: 553px !important; 
+  margin: 0 auto; 
+}
+
+/* ===================================================
+   IMAGE
+=================================================== */
+
+.pastevents-card img {
+  width: 100%;
+  height: 280px; 
+  object-fit: cover;
+  display: block;
+}
+
+/* ===================================================
+   BADGE
+=================================================== */
+
+.pastevents-badge {
+  position: absolute;
+  top: 220px; 
+  right: 14px;
+  width: 160px;
+  height: 36px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #ffffff;
+  z-index: 10; 
+}
+
+.orange {
+  background: #FE590799;
+}
+
+.blue {
+  background: #0796FE99;
+}
+
+/* ===================================================
+   CONTENT
+=================================================== */
+
+.pastevents-content {
+  padding: 10px 20px 16px 20px; 
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.pastevents-content h3 {
+  font-family: Oswald;
+  font-weight: 300;
+  font-style: Light;
+  font-size: 28px;
+  line-height: 34px;
+  letter-spacing: 0%;
+  color: #0A2540;
+  margin: 0 0 8px 0;
+}
+
+/* ===================================================
+   DATE
+=================================================== */
+
+.pastevents-date {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.pastevents-date img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.pastevents-date span {
+  font-family: Lato;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  text-transform: capitalize;
+  color: #797979;
+}
+
+/* ===================================================
+   DESCRIPTION
+=================================================== */
+
+.pastevents-content p {
+  width: 350px;
+  height: 143px;
+  font-family: Lato;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 18px;
+  line-height: 34px; 
+  letter-spacing: 0%;
+  color: rgba(121, 121, 121, 1);
+}
+
+/* ===================================================
+   BUTTON
+=================================================== */
+
+.pastevents-button-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  width: 100%; 
+}
+
+.pastevents-btn {
+  width: 406px;
+  max-width: 100%;
+  height: 47px;
+  background: #0796FE;
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 13px 0 13px 0;    /*changes for better spacing*/
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: 0.3s ease;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.pastevents-btn:hover {
+  background: #ffffff;    /*changed for better hover color effect*/
+  color: #0796FE;         /*added for better hover color effect*/
+  border: 1px solid #0796FE;    /*added for better hover color effect*/
+  transform: translateY(-2px);
+}
+
+/* ===================================================
+   RESPONSIVE
+=================================================== */
+
+/* ===================================================
+   RESPONSIVE — LARGE LAPTOP (Up to 1400px)
+=================================================== */
+
+@media (max-width: 1400px) {
+  .pastevents-container,
+  .extra-events {
+    gap: 20px; 
+  }
+
+  .pastevents-content h3 {
+    font-size: 26px;
+    line-height: 32px;
+  }
+
+  .pastevents-date span {
+    font-size: 17px;
+  }
+
+  .pastevents-content p {
+    font-size: 17px;
+    line-height: 26px;
+  }
+}
+
+/* ===================================================
+   RESPONSIVE — LAPTOP (Up to 1200px)
+=================================================== */
+
+@media (max-width: 1200px) {
+  .pastevents-section {
+    padding: 40px 30px;
+  }
+
+  .pastevents-container,
+  .extra-events {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-content: center;
+    justify-items: center; 
+  }
+
+  .pastevents-card {
+    width: 398px !important; 
+  }
+
+  .pastevents-card img {
+    height: 240px;
+  }
+
+  .pastevents-badge {
+    top: 204px;
+    width: 140px;
+    height: 32px;
+    font-size: 18px;
+  }
+
+  .pastevents-content {
+    padding: 48px 20px 18px 20px; 
+  }
+
+  .pastevents-content h3 {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  .pastevents-date img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .pastevents-date span {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .pastevents-content p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+/* ===================================================
+   RESPONSIVE (Up to 1024px)
+=================================================== */
+@media (max-width: 1024px) {
+
+  .pastevents-title {
+    margin-bottom: 50px;
+  }
+
+  /*added for better alignment*/  
+  .pastevents-title::after {
+    height: 10px ;
+    margin-bottom: 0;
+  }
+}
+/* ===================================================
+   RESPONSIVE — TABLET (Up to 992px)
+=================================================== */
+
+@media (max-width: 992px) {
+  .pastevents-section {
+    padding: 35px 24px;
+  }
+
+  .pastevents-title {
+    font-size: 36px;
+    line-height: 42px;
+    margin-bottom: 60px;    /*added for better alignment*/
+  }
+
+  /*added for better size of line*/
+  .pastevents-title::after {
+    height: 10px;
+    margin-bottom: -4px;
+  }
+
+  .pastevents-container,
+  .extra-events {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    justify-items: center; 
+  }
+
+  .pastevents-card {
+    width: 100% !important; 
+    max-width: 398px;
+    height: auto !important; 
+  }
+
+  .pastevents-card img {
+    height: 220px;
+  }
+
+  .pastevents-badge {
+    top: 184px;
+    width: 100px;
+    height: 28px;
+    font-size: 14px;
+  }
+
+  .pastevents-content {
+    padding: 20px 20px 20px 20px; 
+  }
+
+  .pastevents-content h3 {
+    font-size: 22px;
+    line-height: 28px;
+  }
+
+  .pastevents-date {
+    margin-bottom: 10px;
+  }
+
+  .pastevents-date img {
+    width: 18px;
+    height: 18px;
+  }
+
+  .pastevents-date span {
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .pastevents-content p {
+    font-size: 15px;
+    line-height: 24px;
+  }
+
+  .pastevents-btn {
+    width: 200px;
+    height: 42px;
+    font-size: 14px;
+  }
+}
+
+/* ===================================================
+   RESPONSIVE (Up to 840px)
+=================================================== */
+@media (max-width: 840px) {
+
+  /*added for better alignment*/  
+  .pastevents-title::after {
+    height: 6px ;
+    margin-bottom: 10px;
+  }
+}
+
+/* ===================================================
+   RESPONSIVE — MOBILE (Up to 768px)
+=================================================== */
+
+@media (max-width: 768px) {
+  .pastevents-section {
+    padding: 30px 18px 40px;
+  }
+
+  .pastevents-title {
+    font-size: 30px;
+    line-height: 38px;
+    margin-bottom: 26px;
+  }
+
+  .pastevents-container,
+  .extra-events {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    justify-items: center; 
+  }
+
+  .pastevents-card {
+    width: 100% !important;
+    height: auto !important; 
+  }
+
+  .pastevents-card img {
+    height: 250px;
+  }
+
+  .pastevents-badge {
+    top: 214px;
+    right: 12px;
+    width: 120px;
+    height: 32px;
+    font-size: 16px;
+  }
+
+  .pastevents-content {
+    padding: 36px 20px 16px 20px; 
+  }
+
+  .pastevents-content h3 {
+    font-size: 22px;
+    line-height: 28px;
+  }
+
+  .pastevents-date img {
+    width: 18px;
+    height: 18px;
+  }
+
+  .pastevents-date span {
+    font-size: 15px;
+  }
+
+  .pastevents-content p {
+    font-size: 15px;
+    line-height: 24px;
+    margin-bottom: 0; 
+  }
+
+  .pastevents-btn {
+    width: 100%;
+    height: 45px;
+    font-size: 16px;
+  }
+}
+
+/*Added for improvement of surface pro past events*/
+/* ===================================================
+   RESPONSIVE — SMALL MOBILE (Up to 540px)
+=================================================== */
+
+@media (max-width: 540px) {
+
+  .pastevents-title {
+    margin-bottom: 50px;
+  }
+
+  .pastevents-title::after {
+    height: 6px;
+    margin-bottom: 7px;
+  }
+}
+
+/* ===================================================
+   RESPONSIVE — SMALL MOBILE (Up to 480px)
+=================================================== */
+
+@media (max-width: 480px) {
+  .pastevents-section {
+    padding: 25px 14px 35px;
+  }
+
+  .pastevents-title {
+    font-size: 26px;
+    line-height: 34px;
+    margin-top: 10px;   /*added for better alignment*/
+  }
+
+  /*added for better alignment*/  
+  .pastevents-title::after {
+    height: 5px ;
+    margin-bottom: 10px;
+  }
+
+  .pastevents-card {
+    width: 100% !important;
+    height: auto !important; 
+  }
+
+  .pastevents-card img {
+    height: 220px;
+  }
+
+  .pastevents-badge {
+    top: 184px;
+    width: 100px;
+    height: 28px;
+    font-size: 14px;
+  }
+
+  .pastevents-content {
+    padding: 32px 14px 14px 14px;
+  }
+
+  .pastevents-content h3 {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .astevents-date {
+    gap: 5px;
+  }
+
+  .pastevents-date img {
+    width: 16px;
+    height: 16px;
+  }
+
+  .pastevents-date span {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .pastevents-content p {
+    font-size: 14px;
+    line-height: 22px;
+    margin-bottom: 0;
+  }
+
+  .pastevents-btn {
+    width: 100%;
+    height: 40px;
+    font-size: 14px;
+  }
+}
+
+/* ================================================
+   SCROLL NAVIGATION BUTTON
+   Bottom button → scrolls to top (up arrow)
+   Hidden at top, visible after scrolling past 1st section
+   ================================================ */
+
+/* Base style — hidden by default */
+.scroll-nav-btn {
+   position: fixed;
+   right: 20px;
+   /* CHANGED: adjusted base size */
+   width: 38px;
+   height: 38px;
+   background-color: #0796FE;
+   color: #ffffff;
+   border: none;
+   border-radius: 5%;
+   cursor: pointer;
+   z-index: 9999;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   opacity: 0;
+   visibility: hidden;
+   transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+   box-shadow: 0 4px 14px rgba(7, 150, 254, 0.35);
+   -webkit-tap-highlight-color: transparent;
+}
+
+/* Visible state — added via JS after scrolling past 1st section */
+.scroll-nav-btn.scroll-nav-visible {
+   opacity: 1;
+   visibility: visible;
+}
+
+/* Shared hover */
+.scroll-nav-btn:hover {
+   background-color: #0680db;
+   box-shadow: 0 6px 20px rgba(7, 150, 254, 0.45);
+}
+
+/* Shared active/press */
+.scroll-nav-btn:active {
+   transform: scale(0.92);
+   background-color: #056cbb;
+}
+
+/* Shared SVG icon style */
+.scroll-nav-btn svg {
+   width: 18px;
+   height: 18px;
+   fill: none;
+   stroke: #ffffff;
+   stroke-width: 2.5;
+   stroke-linecap: round;
+   stroke-linejoin: round;
+}
+
+/* Bottom button — fixed bottom-right — scrolls to page top */
+.scroll-to-top-btn {
+   bottom: 20px;
+}
+
+/* Responsive: tablet */
+@media (max-width: 1024px) {
+   .scroll-nav-btn {
+      right: 16px;
+      width: 36px;
+      height: 36px;
+   }
+   .scroll-nav-btn svg {
+      width: 16px;
+      height: 16px;
+   }
+   .scroll-to-top-btn {
+      bottom: 30px;
+   }
+}
+
+/* Responsive: mobile */
+@media (max-width: 768px) {
+   .scroll-nav-btn {
+      right: 16px;
+      width: 34px;
+      height: 34px;
+   }
+   .scroll-nav-btn svg {
+      width: 15px;
+      height: 15px;
+   }
+   .scroll-to-top-btn {
+      bottom: 24px;
+   }
+}
+
+/* Responsive: small mobile */
+@media (max-width: 480px) {
+   .scroll-nav-btn {
+      right: 12px;
+      width: 32px;
+      height: 32px;
+   }
+   .scroll-nav-btn svg {
+      width: 14px;
+      height: 14px;
+      stroke-width: 2.8;
+   }
+   .scroll-to-top-btn {
+      bottom: 20px;
+   }
+}
+/* Nagshree COde */
+ @media (max-width: 480px) {
+      .welcome-text {
+        margin-top: 30px;  
+      margin-bottom: 12px;  }
+      .section-heading {
+        font-size: 30px;
+        margin-bottom: 0px;
+      }
+          .sub-heading {
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 20px;
+    }
+    .description-para {
+        font-size: 14px;
+        line-height: 20px;
+        margin-bottom: 10px;
+    }
+        .growth-image-wrapper {
+        margin-top: 10px;
+    }
+    .day-title {
+      font-size: 30px;
+    }
+    .day-subtext {
+    font-size: 14px;
+    margin: 0 auto 20px;
+}
+    .wsection-heading h2 {
+        font-size: 30px;
+    }
+    .heading-line {
+   
+    margin: 0 auto 20px;
+}
+}

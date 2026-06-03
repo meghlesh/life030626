@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>navbar · CWS.life (original links preserved)</title>
+  <!-- Fonts & icons (same as project) -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Oswald:wght@200;300;400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* === RESET / BASE (isolated for navbar) === */
+    .cws-nav * { margin: 0; padding: 0; box-sizing: border-box; }
+    .cws-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 9999;
+      font-family: 'Lato', 'DM Sans', sans-serif;
+      background: transparent;
+      transition: background 0.3s ease;
+    }
+    
+    /* when scrolled */
+    .cws-nav.scrolled {
+      background: #0a2540; /* navy */
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    /* === TOP STRIP (always visible, solid navy to match PNG) === */
+    .nav-strip {
+      width: 100%;
+      height: 36px;
+       /* Solid navy, not gradient */
+      background: linear-gradient(90deg, #0796fe, #0a2540);
+      display: block;
+      overflow: hidden;
+    }
+    .strip-inner {
+      /* max-width: 1400px; */
+      height: 100%;
+      margin: 0 auto;
+      padding: 0 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .strip-left { display: flex; align-items: center; gap: 24px; }
+    
+    .strip-item {
+      display: flex; 
+      align-items: center;
+      gap: 5px; 
+      font-size: 14px; /* More precise size like in image */
+      color: rgba(238, 238, 238, 1);
+      white-space: nowrap;
+      font-family: Lato; /* Clean system fonts */
+      letter-spacing: 0%; /* No extra spacing */
+      font-style: Regular;
+      text-transform: none;
+      font-weight: 400; /* Regular weight */
+    }
+    
+    .strip-item.time-slot {
+      display: flex;
+      align-items: center;
+    }
+    
+    .time-text-separator {
+      margin-right: 10px;
+    }
+
+    /* Make the icons slightly more prominent */
+    .strip-item i {
+      color: rgba(255, 255, 255, 1);
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+
+    /* Add extra space specifically between time and day */
+    .strip-item:first-child {
+      word-spacing: 1px; /* Adds space between elements */
+    }
+
+    .strip-item i { 
+      color: #ffffff; /* Changed icons to white as well */
+      font-size: 12px; 
+      width: 14px;
+    }
+    .strip-right { display: flex; align-items: center; height: 100%; gap: 8px; }
+    .strip-soc {
+      display: flex; align-items: center; justify-content: center;
+      width: 28px; height: 28px;
+      color: rgba(255,255,255,0.6);
+      transition: 0.2s; 
+      font-size: 14px;
+      border: none;
+      outline: none;
+      box-shadow: none;
+      border-radius: 0;
+      background: transparent;
+    
+     
+    }
+    .strip-soc:hover { 
+      color: #00bcd4; 
+      background: transparent;
+    }
+
+    /* === MAIN NAVBAR (flex, max-width) === */
+    .nav-bar-wrapper {
+      width: 100%;
+      background: #0a2540;
+    }
+    .nav-bar {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 45px 30px; /* Reduced padding to match PNG */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: transparent;
+    }
+
+    /* --- LOGO (left) --- */
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .nav-logo {
+      height: 50px;
+      width: auto;
+      /* filter: brightness(0) invert(1); */
+    }
+    /* fallback text logo (if image missing) */
+    .brand-fallback {
+      display: flex;
+      align-items: center;
+      font-family: 'Oswald', sans-serif;
+      color: #ffffff;
+    }
+    .brand-fallback .brand-box {
+      background: #00bcd4;
+      color: #0a2540;
+      padding: 14px 16px;
+      font-size: 25px;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+    .brand-fallback .brand-tail {
+      font-size: 32px;
+      font-weight: 300;
+      margin-left: 6px;
+    }
+    .brand-fallback .brand-tail span { color: #00bcd4; }
+
+    /* --- CENTER NAV LINKS --- */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      flex: 1;
+      /* justify-content: center; */
+      justify-content: flex-end; /* Changed from 'center' to 'flex-end' to push toward Sign In */
+      margin-right: 20px; /* Add some space before Sign In button */
+        }
+    .nav-links > li {
+      position: relative;
+    }
+    .nav-links > li > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 10px; /* Slightly more horizontal padding */
+  font-family: 'Lato', sans-serif;
+  font-style: regular;
+  font-size: 14px;
+  font-weight: 300; /* Regular weight for clean look */
+  letter-spacing: 1px; /* Slight letter spacing like in image */
+  text-transform: uppercase; /* ALL CAPS as shown in image */
+  color: rgba(255, 255, 255, 1);
+  text-decoration: none;
+  transition: color 0.2s;
+  white-space: nowrap;
+  line-height: 21px;
+}
+
+/* Add dropdown arrows styling */
+.nav-links > li > a i.chev {
+  font-size: 10px;
+  color: rgba(255,255,255,0.7);
+  margin-left: 4px;
+  transition: transform 0.2s;
+}
+
+/* Hover state - cyan color as shown in image */
+.nav-links > li > a:hover,
+.nav-links > li.active > a {
+  color: #00bcd4; /* Cyan color on hover */
+}
+
+/* Make the dropdown menus match the style */
+.nav-drop {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  background: #ffffff;
+  min-width: 200px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  border-top: 3px solid #00bcd4;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.25s ease;
+  z-index: 100;
+  padding: 8px 0;
+}
+
+.drop-item {
+  display: block;
+  padding: 10px 20px;
+  font-family: 'Lato', 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #0a2540;
+  text-decoration: none;
+  transition: all 0.2s;
+  border-bottom: 1px solid rgba(0,188,212,0.08);
+  text-transform: capitalize; /* First letter capital for dropdown items */
+  letter-spacing: 0.3px;
+}
+
+.drop-item:last-child { 
+  border-bottom: none; 
+}
+
+.drop-item:hover {
+  background: #e0f7fa;
+  color: #00bcd4;
+  padding-left: 26px;
+}
+
+.drop-item i { 
+  margin-right: 10px; 
+  color: #00bcd4; 
+  width: 16px;
+  font-size: 12px;
+}
+
+    /* --- RIGHT SIDE: SIGN IN (changed from Join Us) & hamburger --- */
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-shrink: 0;
+    }
+    .nav-cta {
+      background: rgba(7, 150, 254, 1);  /* ← CHANGE THIS 17-3-26(1) */
+      color: #ffffff;           /* ← CHANGE THIS */
+       border: none;
+      padding: 6px 20px;        /* ← CHANGE THIS */
+      
+      /* font-family: Arial, sans-serif !important;  */
+      font:Lato;
+      font-style:regular;
+      font-size: 14px;
+      font-weight: 300;
+      line-height:20px;
+      letter-spacing: 0px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      color: rgba(255, 255, 255, 1);
+    }
+    .nav-cta:hover {
+      background: #ffffff;
+      color: #00bcd4;
+     
+    }
+
+    /* hamburger (hidden on desktop) */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .ham-l {
+      width: 24px;
+      height: 2px;
+      background: #ffffff;
+      transition: 0.3s;
+      transform-origin: center;
+    }
+    .hamburger.open .ham-l:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+    .hamburger.open .ham-l:nth-child(2) { opacity: 0; }
+    .hamburger.open .ham-l:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+
+    /* mobile menu panel */
+    .mob-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: #0a2540;
+      z-index: 9998;
+      padding: 100px 25px 30px;
+      transform: translateX(100%);
+      transition: transform 0.4s ease;
+      overflow-y: auto;
+    }
+    .mob-menu.open { transform: translateX(0); }
+    .mob-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      color: #ffffff;
+      font-family: 'Oswald', sans-serif;
+      font-size: 18px;
+      text-decoration: none;
+    }
+    .mob-link i { color: #00bcd4; }
+    .mob-sub {
+      display: flex;
+      flex-direction: column;
+      padding-left: 16px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s;
+    }
+    .mob-sub.open { max-height: 300px; }
+    .mob-sub-link {
+      padding: 9px 0;
+      font-size: 15px;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .mob-sub-link::before { content: "—"; color: #00bcd4; }
+    .mob-bottom { margin-top: 40px; }
+    .mob-info { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.7); margin-bottom: 12px; font-size: 13px; text-decoration: none; transition: 0.2s; }   /*changes made on 04-05-26*/
+    .mob-info:hover { color: #00BCD4; }
+    .mob-info i { color: #00bcd4; width: 20px; }
+    .mob-cta {
+      display: block;
+      background: #00bcd4;
+      color: #0a2540;
+      text-align: center;
+      padding: 14px;
+      font-family: 'Oswald', sans-serif;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-weight: 500;
+      margin-top: 20px;
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+    .prog-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #00bcd4, #0a2540);
+      z-index: 10000;
+      width: 0%;
+      transition: width 0.1s;
+    }
+
+    /* responsive */
+    /* @media (max-width: 1200px) {
+      .nav-links > li > a { padding: 8px 10px; font-size: 12px; }
+    }
+    @media (max-width: 991px) {
+      .nav-strip { display: none !important; }
+      .cws-nav { background: #0a2540 !important; }
+      .nav-bar { padding: 10px 20px; }
+      .nav-links { display: none; }
+      .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .mob-menu { display: block; }
+    }
+    @media (min-width: 992px) {
+      .mob-menu { display: none !important; }
+    } */
+     @media (max-width: 991px) {
+  .nav-strip {
+    display: block !important;
+    height: auto;
+    padding: 4px 0;
+  }
+
+  .strip-inner {
+    display: flex;
+    flex-direction: row !important;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 8px;
+    width: 100%;
+  }
+
+  .strip-left {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+  }
+
+  .strip-right {
+    display: flex !important;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
+  .strip-item {
+    font-size: 10px;
+    white-space: nowrap;
+  }
+
+  .strip-right a {
+    display: inline-flex !important;
+    color: #ffffff !important;
+    font-size: 12px;
+  }
+
+  .strip-right a i {
+    color: #ffffff !important;
+    font-size: 12px !important;
+    display: inline-block !important;
+  }
+
+  .strip-divider {
+    display: none;
+  }
+
+  .cws-nav { background: #0a2540 !important; }
+  .nav-bar { padding: 10px 20px; }
+  .nav-links { display: none; }
+  .nav-cta { display: none; }
+  .hamburger { display: flex; }
+  .mob-menu { display: block; }
+}
+  </style>
+</head>
+<body style="margin:0; background:#f5f7fa; font-family: 'Lato', sans-serif;">
+
+<!-- PROGRESS BAR (dummy) -->
+<div class="prog-bar" id="prog" style="width: 0%;"></div>
+
+<!-- ========== NEW NAVBAR (ALL ORIGINAL LINKS RETAINED) ========== -->
+<nav class="cws-nav" id="cwsNav">
+
+  <!-- TOP STRIP with divider lines at edges16-3-26(1) -->
+    <div class="nav-strip" id="strip">
+      <div class="strip-inner">
+        <div class="strip-left">
+          <div class="strip-divider"></div>
+          <!-- CHANGE: Added class 'time-slot' and span 'time-text-separator' for precise spacing -->
+          <div class="strip-item time-slot">
+            <i class="far fa-clock"></i> 
+            <span class="time-text-separator">09:00AM - 06:00PM</span>     Mon - Sat
+          </div>
+          <div class="strip-divider"></div>
+          <!-- removed div tag and added a tag to make it clickable  -->
+          <a href="tel:+919326246981" class="strip-item"><i class="fas fa-phone-alt"></i> +91 93262 46981</a>
+          <div class="strip-divider"></div>
+        </div>
+        <div class="strip-right">
+          <div class="strip-divider"></div>
+          <a href="https://linkedin.com/company/creativewebsolution404/"  target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          <div class="strip-divider"></div>
+          <a href="https://instagram.com/creativewebsolution99"  target="_blank"><i class="fab fa-instagram"></i></a>
+          <div class="strip-divider"></div>
+        </div>
+      </div>
+    </div>
+<!-- 16-3-26(1) -->
+  <!-- MAIN NAVBAR -->
+  <div class="nav-bar-wrapper">
+    <div class="nav-bar">
+
+      <!-- LOGO (left) with original link -->
+      <a class="nav-brand" href="index.html">
+        <img src="assets/images/CWS-LOGO1.png" alt="Creative Web Solution" class="nav-logo"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="brand-fallback" style="display:none;">
+          <span class="brand-box">CWS</span>
+          <span class="brand-tail">.<span>life</span></span>
+        </div>
+      </a>
+
+      <!-- CENTER MENU – original links preserved -->
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="life-at-cws.html">Life at CWS</a></li>
+        <li><a href="culture.html">Culture</a></li>
+        <li><a href="social-service.html">Social Service</a></li>
+
+        <!-- Events dropdown -->
+         
+        <li>
+          <a href="events.html">Events </a>
+          <!-- <a href="events.html">Events <i class="fas fa-chevron-down chev"></i></a> -->
+          <!-- <div class="nav-drop">
+            <a class="drop-item" href="events.html"><i class="fas fa-calendar-alt"></i> Company Events</a>
+            <a class="drop-item" href="events.html"><i class="fas fa-glass-cheers"></i> Celebrations</a>
+            <a class="drop-item" href="events.html"><i class="fas fa-users"></i> Team Activities</a>
+          </div> -->
+        </li>
+
+        <!-- Team Spotlight dropdown -->
+        <!-- <li>
+          <a href="team-spotlight.html">Team Spotlight <i class="fas fa-chevron-down chev"></i></a>
+          <div class="nav-drop">
+            <a class="drop-item" href="team-spotlight.html"><i class="fas fa-crown"></i> Leadership Team</a>
+            <a class="drop-item" href="team-spotlight.html"><i class="fas fa-user-tie"></i> Our Employees</a>
+          </div>
+        </li> -->
+
+        <!-- Gallery dropdown -->
+        <li>
+          <a href="gallery.html">Gallery</a>
+          <!-- <a href="gallery.html">Gallery <i class="fas fa-chevron-down chev"></i></a>
+          <div class="nav-drop">
+            <a class="drop-item" href="gallery.html"><i class="fas fa-building"></i> Office Life</a>
+            <a class="drop-item" href="gallery.html"><i class="fas fa-camera"></i> Events Gallery</a>
+            <a class="drop-item" href="gallery.html"><i class="fas fa-hand-holding-heart"></i> Social Activities</a>
+            <a class="drop-item" href="gallery.html"><i class="fas fa-people-group"></i> Team Moments</a>
+          </div> -->
+        </li>
+         <!-- Careers (new link)16-3-26(2) -->
+          <!-- changes on 27-04-26 changes careers to career as per figma -->
+        <li><a href="careers.html">Careers</a></li>
+
+        <!-- Contact dropdown -->
+        <li>
+          <a href="contact-us.html">Contact Us </a>
+          <!-- <a href="contact.html">Contact Us <i class="fas fa-chevron-down chev"></i></a>
+          <div class="nav-drop">
+            <a class="drop-item" href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a>
+            <a class="drop-item" href="office-location.html"><i class="fas fa-map-pin"></i> Office Location</a>
+            <a class="drop-item" href="inquiry.html"><i class="fas fa-pen"></i> Submit Inquiry</a>
+          </div> -->
+        </li>
+      </ul>
+
+      <!-- RIGHT SIDE: SIGN IN (changed from Join Us) + HAMBURGER -->
+      <div class="nav-right">
+        <a href="Sign-In.html" class="nav-cta">SIGN IN </a>
+        <button class="hamburger" id="ham" onclick="toggleMob()">
+          <span class="ham-l"></span>
+          <span class="ham-l"></span>
+          <span class="ham-l"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU (updated with SIGN IN) -->
+<div class="mob-menu" id="mobMenu">
+  <a href="index.html" class="mob-link">Home <i class="fas fa-arrow-right"></i></a>
+  <a href="life-at-cws.html" class="mob-link">Life at CWS <i class="fas fa-arrow-right"></i></a>
+  <a href="culture.html" class="mob-link">Culture <i class="fas fa-arrow-right"></i></a>
+  <a href="social-service.html" class="mob-link">Social Service <i class="fas fa-arrow-right"></i></a>
+  
+  <!-- Events dropdown -->
+  <div>
+    <a href="events.html" class="mob-link">Events <i class="fas fa-arrow-right"></i></a>
+    <!-- <a href="#" class="mob-link" onclick="toggleSub(event,'eventsSub')">Events <i class="fas fa-chevron-down"></i></a>
+    < <div class="mob-sub" id="eventsSub">
+      <a href="events.html" class="mob-sub-link">Company Events</a>
+      <a href="events.html" class="mob-sub-link">Workshops</a>
+      <a href="events.html" class="mob-sub-link">Celebrations</a>
+      <a href="events.html" class="mob-sub-link">Team Activities</a>
+    </div> --> 
+  </div>
+  
+  <!-- Team Spotlight dropdown -->
+  <!-- <div>
+    <a href="#" class="mob-link" onclick="toggleSub(event,'teamSub')">Team Spotlight <i class="fas fa-chevron-down"></i></a>
+    <div class="mob-sub" id="teamSub">
+      <a href="team-spotlight.html" class="mob-sub-link">Leadership Team</a>
+      <a href="team-spotlight.html" class="mob-sub-link">Our Employees</a>
+      <a href="stories.html" class="mob-sub-link">Employee Stories</a>
+    </div>
+  </div>
+   -->
+  <!-- Gallery dropdown -->
+  <div>
+    <a href="gallery.html" class="mob-link">Gallery <i class="fas fa-arrow-right"></i></a>
+    <!-- <a href="#" class="mob-link" onclick="toggleSub(event,'gallerySub')">Gallery <i class="fas fa-chevron-down"></i></a>
+    <div class="mob-sub" id="gallerySub">
+      <a href="gallery.html" class="mob-sub-link">Office Life</a>
+      <a href="gallery.html" class="mob-sub-link">Events Gallery</a>
+      <a href="gallery.html" class="mob-sub-link">Social Activities</a>
+      <a href="gallery.html" class="mob-sub-link">Team Moments</a>
+    </div> -->
+  </div>
+  <!-- Careers (new link) -->
+   <!-- changes made on 27-04-26 from careers to career -->
+  <a href="careers.html" class="mob-link">Careers <i class="fas fa-arrow-right"></i></a>
+
+  <!-- Contact dropdown -->
+  <div>
+    <a href="contact-us.html" class="mob-link">Contact Us <i class="fas fa-arrow-right"></i></a>
+    <!-- <a href="#" class="mob-link" onclick="toggleSub(event,'contactSub')">Contact <i class="fas fa-chevron-down"></i></a>
+    <div class="mob-sub" id="contactSub">
+      <a href="contact.html" class="mob-sub-link">Contact Us</a>
+      <a href="office-location.html" class="mob-sub-link">Office Location</a>
+      <a href="inquiry.html" class="mob-sub-link">Submit Inquiry</a>
+    </div> -->
+  </div>
+
+  <div class="mob-bottom">
+  
+    <a href="tel:+919326246981" class="mob-info">   <!--made changes on 04-05-26-->
+      <i class="fas fa-phone-alt"></i> +91 93262 46981
+    </a>
+    <a href="mailto:info@creativewebsolution.in" class="mob-info">    <!--made changes on 04-05-26-->
+      <i class="fas fa-envelope"></i> info@creativewebsolution.in
+    </a>
+    <a href="Sign-In.html" class="mob-cta">SIGN IN </a>
+  </div>
+</div>
+
+<script>
+  // toggle mobile menu
+  window.toggleMob = function() {
+    const ham = document.getElementById('ham');
+    const mob = document.getElementById('mobMenu');
+    if (!ham || !mob) return;
+    ham.classList.toggle('open');
+    mob.classList.toggle('open');
+    document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '';
+  };
+
+  // toggle submenu on mobile
+  window.toggleSub = function(e, id) {
+    e.preventDefault();
+    const el = document.getElementById(id);
+    if (el) el.classList.toggle('open');
+  };
+
+  // scroll effect: add .scrolled to nav
+  window.addEventListener('scroll', function() {
+    const nav = document.getElementById('cwsNav');
+    if (window.scrollY > 10) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+    // progress bar
+    const prog = document.getElementById('prog');
+    if (prog) {
+      const winScroll = document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = (winScroll / height) * 100;
+      prog.style.width = scrolled + '%';
+    }
+  });
+
+  // set active link based on current url
+  document.addEventListener('DOMContentLoaded', function() {
+    const path = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-links > li > a').forEach(link => {
+      const href = link.getAttribute('href');
+      if (href === path) {
+        link.parentElement.classList.add('active');
+      }
+    });
+  });
+</script>
+</body>
+</html>

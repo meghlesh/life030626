@@ -1,0 +1,1621 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'DM Sans', sans-serif;
+}
+
+body {
+  background: #f4f6f9;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* =========================================
+   NEW: DASHBOARD WRAPPER (CENTERS EVERYTHING)
+   ========================================= */
+.dashboard-wrapper {
+  display: flex; 
+  width: 100%;
+  max-width: 1600px; /* Already 1600px as you mentioned */
+  margin: 0 auto; 
+  min-height: 100vh;
+  background: #f4f6f9; 
+}
+
+/* =========================================
+   SIDEBAR (FIXED: Active State Updated)
+   ========================================= */
+.sidebar {
+  width: 253px;
+  height: 100vh; 
+  background: #0a2540;
+  padding: 27px 20px;
+  flex-shrink: 0; 
+  position: sticky; 
+  top: 0;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.logo img {
+  width: 160px;
+  margin-bottom: 40px;
+  display: block;
+}
+
+.close-btn {
+  display: none;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Default Link Style */
+.menu li a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  text-decoration: none;
+  color: #b0b8c4; /* Default light grey text */
+  border-radius: 6px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  /* Position relative kar diya taaki left line absolute laga sake */
+  position: relative; 
+  border-left: 4px solid transparent; /* Default transparent border for layout stability */
+}
+
+.menu li a .icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  filter: brightness(0) invert(1); /* White icon by default */
+}
+
+.menu li a:hover {
+  background: rgba(255,255, 255, 0.1);
+  color: #ffffff;
+}
+
+/* =========================================
+   UPDATED: ACTIVE SIDEBAR ITEM STYLES
+   ========================================= */
+.menu li.active a {
+  color: #0796FE; /* Active Text Color: Blue */
+  font-weight: 500; /* Thoda bold text */
+  
+  /* Active Box Effect (Background) */
+  background: rgba(7, 150, 254, 0.1); 
+  
+  /* Active Left Line Effect (Border) */
+  border-left-color: #0796FE; 
+  border-left-width: 4px; 
+  border-radius: 0 6px 6px 0; /* Round corners except left */
+}
+
+.menu li.active a .icon {
+  /* Active Icon Color: Blue */
+  filter: brightness(0) saturate(100%) invert(43%) sepia(99%) saturate(749%) hue-rotate(186deg) brightness(101%) contrast(101%);
+}
+
+/* =========================================
+   MAIN CONTENT
+   ========================================= */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.main-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================================
+   TOP NAVBAR
+   ========================================= */
+.top-navbar {
+  height: 79px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  border-bottom: 1px solid #e5e5e5;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  /* Navbar ko wrapper ke top pe stick kiya */
+  position: sticky;
+  top: 0;
+  z-index: 900;
+}
+
+.hamburger {
+  display: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #0a2540;
+  margin-right: 20px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  width: 564px;
+  max-width: 100%;
+  height: 52px;
+  background: #f6f6f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0 16px;
+}
+
+.search-box i {
+  font-size: 16px;
+  color: #9ca3af;
+  margin-right: 12px;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  width: 100%;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.notification-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.notification {
+  font-size: 20px;
+  color: #4b5563;
+}
+
+.notification-text {
+  font-size: 10px;
+  color: #6b7280;
+  margin-top: 2px;
+  font-weight: 500;
+}
+
+/* =========================================
+   ADDED: PROFILE DROPDOWN STYLES
+   ========================================= */
+.profile-dropdown-wrapper {
+  position: relative;
+}
+
+.profile {
+  width: 40px;
+  height: 40px;
+  background: #0a2540;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  width: 170px; /* Thodi width badha di icons ke liye */
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.2s ease;
+  z-index: 1000;
+  padding: 6px 0; /* Thoda padding kam kiya */
+  overflow: hidden; /* Radius ke bahar color na nikle */
+}
+
+/* Dropdown Open Class */
+.profile-dropdown-wrapper.active .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu ul {
+  list-style: none;
+}
+
+.dropdown-menu li {
+  width: 100%;
+}
+
+.dropdown-menu li a {
+  display: flex;
+  align-items: center;
+  gap: 12px; 
+  padding: 12px 16px;
+  text-decoration: none;
+  color: #0a2540; 
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* Icon Style */
+.dropdown-menu li a i {
+  font-size: 16px;
+  color: #0a2540; 
+  width: 20px;
+  text-align: center;
+}
+
+/* --- HOVER EFFECT (As requested) --- */
+.dropdown-menu li a:hover {
+  background-color: #0a2540 !important; 
+  color: #ffffff !important; 
+}
+
+.dropdown-menu li a:hover i {
+  color: #ffffff !important; 
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+   ========================================= */
+
+@media (max-width: 1024px) {  
+  .top-navbar { padding: 0 15px; }
+  .hamburger { display: block; }
+  .close-btn { display: block; }
+  .search-box { width: 300px; }
+  .notification-text { display: none; }
+
+  .sidebar {
+    position: fixed; 
+    left: -280px; 
+    height: 100vh; 
+    width: 280px;
+    top: 0;
+    box-shadow: none; 
+    transition: box-shadow 0.3s ease;
+  }
+  .sidebar.active { left: 0; box-shadow: 4px 0 15px rgba(0,0,0,0.3); }
+  .dashboard-wrapper { margin: 0; }
+}
+
+@media (max-width: 600px) {  
+  .top-navbar { flex-wrap: wrap; height: auto; padding: 10px 15px; gap: 10px; }
+  .search-box { width: 100%; order: 3; margin-top: 5px; }
+  .hamburger { order: 1; margin-right: 0; }
+  .nav-right { margin-left: auto; order: 2; gap: 15px; }
+  .sidebar { width: 260px; left: -260px; box-shadow: none; }
+  .sidebar.active { box-shadow: 4px 0 15px rgba(0,0,0,0.3); }
+  .dropdown-menu { right: -10px; top: 110%; }
+}
+
+
+/* =========================================
+       NEW CSS (BLOG & ACTIVITY) - COMMENTED
+       ========================================= */
+
+/* .lato-font { font-family: 'Lato', sans-serif; }
+.inter-font { font-family: 'Inter', sans-serif; }
+
+.dashboard-content-wrapper {
+  display: flex;
+  align-items: flex-start;   
+  gap: 15px;
+  padding-bottom: 0px;   
+  box-sizing: border-box; 
+  margin: 0 auto;
+  width: 100%; 
+  max-width: 1600px; 
+  padding-left: 10px; 
+  padding-right: 5px; 
+} */
+
+/* Common Card Styles */
+/* .card {
+  background: #ffffff;
+  border: 1px solid #E5E5E5;
+  border-radius: 4px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.ra-card-header {
+  padding: 0px 0px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ra-card-header h2{
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.card-title {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+  color: rgba(9, 42, 73, 1);
+} */
+
+/* View All Button */
+/* .btn-view-all {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: 1px solid rgba(7, 150, 254, 1);
+  background: transparent;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-view-all span {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+  color: rgba(7, 150, 254, 1);
+}
+
+.btn-view-all i {
+  font-size: 10px;
+  color: rgba(7, 150, 254, 1);
+}
+
+.btn-view-all:hover {
+  background-color: #f0f9ff;
+} */
+
+/* --- LEFT COLUMN: TOP BLOG  --- */
+/* .top-blog-card {
+  width: 28%; 
+  min-width: 280px;
+  height: 360px; 
+  flex-shrink: 1;
+  background: rgba(255, 255, 255, 1);
+  border: 1px solid var(--Border, rgba(229, 229, 229, 1));
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.blog-list {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px 16px 10px;
+  gap: 7px;
+}
+
+.blog-item {
+  display: flex;
+  align-items: center;
+  height: 88px; 
+  padding: 12px 8px; 
+  background: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(229, 231, 235, 1);
+  border-radius: 4px;
+  transition: transform 0.2s;
+}
+
+.blog-item:hover {
+  border-color: #cbd5e1;
+  transform: translateY(-1px);
+} */
+
+/* --- IMAGE BOX LAYOUT --- */
+/* .blog-img-box {
+  width: 64px; 
+  height: 64px;
+  border-radius: 4px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background-color: #eee; 
+}
+
+.blog-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.blog-info {
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 64px;
+  margin-left: 10px; 
+}
+
+.blog-title {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgba(0, 0, 0, 1);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.blog-stats {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.stat-item i {
+  color: rgba(100, 116, 139, 1);
+  font-size: 11px;
+}
+
+.stat-item span {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 16.5px;
+  color: rgba(100, 116, 139, 1);
+} */
+
+
+/* --- RIGHT COLUMN: ACTIVITY LOG --- */
+/* .activity-log-card {
+  width: 70%; 
+  flex-shrink: 1;
+  min-width: 0; 
+  height: 361px; 
+  display: flex;
+  flex-direction: column; 
+  background: rgba(255, 255, 255, 1);
+  border: 1px solid var(--Border, rgba(229, 229, 229, 1));
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+} */
+
+/* NEW CONTAINER FOR SCROLLING */
+/* .activity-table-container {
+  width: 100%;
+  flex-grow: 1;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-top: 1px solid rgba(229, 229, 229, 1); 
+}
+
+.activity-table {
+  width: 100%;
+  border-collapse: collapse;
+  height: 100%; 
+}
+
+.activity-table th {
+  background: rgba(225, 242, 255, 1);
+  border-bottom: none; 
+  padding: 15px 14px;  
+  text-align: left;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 13.46px;
+  line-height: 19.23px;
+  color: rgba(9, 42, 73, 1);
+  vertical-align: middle; 
+  white-space: nowrap;
+} */
+
+/* 4 Separate Column Widths */
+/* .col-name { width: 20%; min-width: 150px; } 
+.col-role { width: 15%; min-width: 120px; } 
+.col-action { width: auto; } 
+.col-timestamp { width: 20%; min-width: 170px; }
+
+.activity-table td {
+  border-bottom: 0.96px solid rgba(229,231, 235, 1);
+  padding: 25px 14px; 
+  vertical-align: middle; 
+  white-space: nowrap;
+} */
+
+/* --- Name & Role Layout --- */
+/* .title-layout {
+  display: flex;
+  align-items: center;
+}
+
+.title-containt {
+  font-family: Lato;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 13.46px;
+  line-height: 19.23px;
+  letter-spacing: 0%;
+  color: rgba(9, 42, 73, 1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+} */
+
+/* Role text subtle */
+/* .col-role .title-containt {
+  opacity: 0.7;
+}
+
+.action-text {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+  color: rgba(30, 41, 59, 1);
+}
+
+.timestamp-text {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 13.46px;
+  line-height: 19.23px;
+  color: rgba(9, 42, 73, 1);
+} */
+
+/* Copyright Footer */
+.copyright-section {
+  text-align: center;
+  padding: 5px 0;
+  width: 100%; 
+  max-width: 1600px; 
+  margin: auto 10px; 
+}
+
+.copyright-text {
+  font-family: 'Lato' sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(121, 121, 121, 1);
+}
+
+.copyright-text span {
+  color: rgba(9, 42, 73, 1);
+}
+
+/* ========================================= */
+/* CHANGED: Darker color for copyright link   */
+/* ========================================= */
+.copyright-text a.company-name {
+  color: rgba(9, 42, 73, 1); /* Changed to a darker color */
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.copyright-text a.company-name:hover {
+  color: #00bcd4 !important;
+  font-weight: 700; 
+  letter-spacing: 1px; 
+  margin-left: 4px; 
+}
+
+/* Responsive */
+/* @media (max-width: 1200px) {
+  .dashboard-content-wrapper {
+    flex-direction: column;
+    width: 100%; 
+    padding: 0 10px; 
+    box-sizing: border-box;
+  }
+  .top-blog-card, .activity-log-card {
+    width: 100%; 
+    height: auto; 
+  }
+} */
+
+/* MOBILE (Small Screen adjustments) */
+@media (max-width: 768px) {
+  .dashboard-content-wrapper {
+    padding: 0 10px; 
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .activity-log-card {
+    height: auto; 
+    width: 100%;
+    overflow: visible; 
+    border-radius: 4px;
+  }
+
+  /* --- FIX FOR SCROLL CONTAINER --- */
+  .activity-table-container {
+    width: 100%; 
+    overflow-x: auto; 
+    -webkit-overflow-scrolling: touch;
+    border-radius: 0 0 4px 4px; 
+  }
+
+  /* --- FIX FOR TABLE --- */
+  .activity-table {
+    min-width: 600px; 
+    width: 600px;
+    height: auto;
+  }
+  
+  /* Adjust padding for mobile */
+  .activity-table th, 
+  .activity-table td {
+    padding: 15px 15px; 
+  }
+  
+  .blog-item {
+    height: auto; 
+    padding: 10px;
+  }
+}
+
+/* =========================================
+       SECTION 1 (QUICK MANAGEMENT + EVENTS)
+       ========================================= */
+
+/* UPDATED: Wrapper for Quick Management & Events Side by Side */
+.dashboard-content-wrapper.section-1 {
+  display: flex;
+  flex-wrap: wrap; /* Responsive ke liye wrap */
+  gap: 15px; 
+  align-items: stretch; 
+  width: 100%;
+  max-width: 1600px; 
+  margin: 0 auto 20px auto; /* Bottom margin for separation */
+  box-sizing: border-box;
+  padding: 0 10px; /* Side padding */
+}
+
+/* 1. QUICK MANAGEMENT CARD LAYOUT */
+.card.quick-management-card {
+  width: 273px; 
+  flex: 0 0 auto; /* Don't shrink */
+  height: 362px;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 8px;
+  border: 1px solid rgba(226, 232, 240, 1);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 2. EVENTS CARD LAYOUT */
+.card.events-card {
+  flex: 1; /* Events card takes remaining space */
+  min-width: 300px; /* Ensure it doesn't get too small */
+  height: 362px;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 4px;
+  border: 1px solid rgba(229, 229, 229, 1);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ----------------------------------------------------
+   SHARED HEADER STYLES
+---------------------------------------------------- */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  width: 100%;
+  height: 57px;
+  border-bottom: 1px solid rgba(241, 245, 249, 1);
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.title-text {
+  width: auto;
+  height: 24px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 24px;
+  color: rgba(9, 42, 73, 1);
+  font-style: Regular;
+}
+
+/* Quick Management Icon */
+.quick-management-card .header-icon {
+  width: 32px;
+  height: 32px;
+  background: #e6f2fb;
+  color: #3aa0d8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.divider {
+  display: none; /* Default hidden */
+}
+
+/* ----------------------------------------------------
+   QUICK MANAGEMENT ITEMS
+---------------------------------------------------- */
+.quick-management-list {
+  padding: 20px 10px; 
+  display: flex;
+  flex-direction: column;
+  gap: 10px; 
+  overflow-y: auto;
+  flex: 1;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px; 
+  border: 1px solid rgba(238, 238, 238, 1);
+  border-radius: 4px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 1);
+  transition: background 0.2s;
+  width: auto; 
+  margin: 10px 0px 10px 0;
+  height: auto; 
+  min-height: 61px;
+  box-sizing: border-box;
+}
+
+.item:first-child {
+  margin-top: 10px; 
+}
+
+.item:hover {
+  background: #f8fbff;
+  border-color: #d1e9ff;
+}
+
+/* Icon Box inside Item (Distinct from Card Icon) */
+.item .icon-box {
+  width: 32px;
+  height: 32px;
+  background: #e6f2fb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3aa0d8;
+  font-size: 16px;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.item span {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  color: rgba(9, 42, 73, 1);
+  white-space: nowrap; 
+  font-style: Regular;
+}
+
+/* ----------------------------------------------------
+   EVENTS CARD INTERNAL STYLES
+---------------------------------------------------- */
+.ev-card-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: left;
+  margin-bottom: 15px;
+  padding: 10px 10px;
+}
+.ev-card-header h2 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #1e2b3a;
+}
+
+.view-btn {
+  border: 1px solid #3b82f6;
+  background: transparent;
+  color: #3b82f6;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.view-btn:hover {
+  background: #3b82f6;
+  color: #fff;
+}
+
+/* EVENTS TABLE STYLES */
+.table-header,
+.table-row {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1fr 1fr;
+  align-items: center;
+}
+
+.table-header {
+   font-family: 'Oswald', sans-serif;
+  background: #E1F2FF;
+  padding: 17px 6px;
+  font-weight: 400;
+  font-size: 16px;
+  color: rgba(60, 68, 82, 1);
+  font-style: Regular;
+  line-height: 17px;
+}
+
+.table-row {
+  padding: 28px 4px;
+  color: rgba(9, 42, 73, 1);
+  font-weight: 300;
+  font-size: 14px;
+  font-family: 'Lato', sans-serif;
+  font-style: Regular;
+  line-height: 19px;
+}
+
+.divider {
+  height: 1px;
+  background: #e5e7eb;
+  margin: 0 4px; /* Add some margin so it fits grid */
+}
+
+.badge {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.completed {
+  background: #d1fae5;
+  color: #059669;
+}
+
+.upcoming {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+
+/* =========================================
+       RECENT ACTIVITY SECTION (FULL WIDTH)
+       ========================================= */
+
+/* Container for Recent Activity - Full Width below Section 1 */
+.dashboard.events-activity-section {
+  display: flex;
+  width: 100%;
+  max-width: 1600px; 
+  margin: 0 auto 20px auto; /* Center and spacing */
+  box-sizing: border-box;
+  padding: 0 10px;
+}
+
+/* RECENT ACTIVITY CARD FULL WIDTH */
+.card.activity-card {
+  width: 100%; /* Take full width of container */
+  height: 361px;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 4px;
+  border: 1px solid rgba(229, 229, 229, 1);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Recent Activity Header */
+.ra-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.ra-card-header h2 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #1e2b3a;
+}
+
+/* ACTIVITY TIMELINE STYLES */
+.timeline {
+  position: relative;
+  margin-top: 5px;
+  padding-left: 25px;
+  overflow-y: auto;
+  overflow-x: hidden; 
+  flex: 1;
+  scrollbar-width: none;  
+  -ms-overflow-style: none;  
+}
+
+.timeline::-webkit-scrollbar {
+  display: none;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 5px;
+  bottom: 40px;
+  width: 2px;
+  background: #d1d5db;
+}
+
+.timeline-item {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 14px;
+  position: relative;
+}
+
+.dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: relative;
+  left: -24px;
+  flex-shrink: 0;
+}
+
+/* DOT COLORS */
+.blue { background: #3b82f6; }
+.green { background: #10b981; }
+.grey { background: #94a3b8; }
+.purple { background: #6366f1; }
+
+.content h4 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  color: #1f2937;
+  margin-bottom: 4px;
+  line-height: 1.2;
+  font-weight: 300;
+  font-style: Regular;
+}
+
+.content p {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+
+/* --- Dashboard Section CSS (Responsive & Stable) --- */
+
+/* Main Container - Centered & Stable on Zoom */
+.dashboard-container {
+  display: flex;        
+  flex-direction: column; 
+  width: 100%;         
+  margin: 0px;      
+  padding: 10px;       
+  box-sizing: border-box;
+  overflow-x: hidden; 
+}
+
+/* 1. Header Styling */
+.dashboard-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  gap: 5px;
+  margin-bottom: 10px;     
+  width: 100%; /* Updated to 100% for responsiveness */
+  height: auto; 
+  min-height: 63px;             
+}
+
+/* Title Typography */
+.dashboard-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 300;
+  font-size: 32px;
+  font-style: Light;
+  line-height: 28px;
+  color: rgba(9, 42, 73, 1);
+  margin: 0;
+  margin-top: 20px;
+}
+
+/* Subtitle Typography */
+.dashboard-subtitle {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(121, 121, 121, 1);
+  margin: 0;
+  font-style: Regular;
+  letter-spacing: 0px;
+}
+
+/* 2. Total Stats Container */
+.stats-container {
+  display: flex;
+  justify-content: space-between; 
+  align-items: stretch;
+  gap: 10px; 
+  width: 100%; 
+  flex-wrap: wrap; 
+}
+
+/* 3. Individual Card Styling (Responsive) */
+.stat-card {
+  flex: 1 1 calc(25% - 20px); 
+  min-width: 220px; 
+  height: auto; 
+  min-height: 140px;
+  background: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(229, 229, 229, 1);
+  border-radius: 4px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
+/* Inner Content Layout */
+.card-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+/* Icon + Text Wrapper */
+.icon-text-wrapper {
+  display: flex;
+  align-items: center; 
+  gap: 15px;
+}
+
+/* Common Icon Box */
+/* Note: Specific Icon Boxes handled inside Stat Card logic, this is generic */
+.stat-card .icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* --- Theme Colors & Icons --- */
+/* Card 1: Blog */
+.stat-card:nth-child(1) .icon-box {
+  width: 48px; height: 48px;
+  border-radius: 4px;
+  background: rgba(232, 241, 255, 1);
+}
+.stat-card:nth-child(1) .icon-box svg { 
+  width: 24px; 
+  height: 24px; 
+}
+
+/* Card 2: Events */
+.stat-card:nth-child(2) .icon-box {
+  width: 48px; 
+  height: 48px;
+  border-radius: 4px;
+  background: rgba(238, 242, 255, 1);
+}
+.stat-card:nth-child(2) .icon-box svg { 
+width: 27px; 
+height: 27px; 
+}
+
+/* Card 3: Visitors */
+.stat-card:nth-child(3) .icon-box {
+  width: 48px; 
+  height: 48px;
+  border-radius: 4px;
+  background: rgba(234, 251, 241, 1);
+}
+.stat-card:nth-child(3) .icon-box svg { 
+  width: 24px; 
+  height: 24px; 
+}
+
+/* Card 4: Media */
+.stat-card:nth-child(4) .icon-box {
+  width: 48px; 
+  height: 48px;
+  border-radius: 4px;
+  background: rgba(255, 247, 237, 1);
+}
+.stat-card:nth-child(4) .icon-box svg { 
+  width: 24px; 
+  height: 24px; 
+}
+
+/* Text Styling */
+.card-title {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 16px; 
+  line-height: 1.2;
+  color: rgba(9, 42, 73, 1);
+}
+
+.card-number {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 36px; 
+  line-height: 1;
+  color: rgba(9, 42, 73, 1);
+  padding-left: 2px;
+}
+
+
+/* =========================================
+   RESPONSIVE MEDIA QUERIES
+   ========================================= */
+
+/* Tablet (Laptop screens < 1024px) */
+@media (max-width: 1024px) {
+  .dashboard-container {
+    padding: 15px;
+    max-width: 100%; 
+  }
+
+  .stat-card {
+    flex: 1 1 calc(50% - 20px);
+  }
+
+  /* Section 1 responsive tweaks */
+  .dashboard-content-wrapper.section-1 {
+    flex-direction: column;
+  }
+  
+  .card.quick-management-card, 
+  .card.events-card {
+    width: 100%;
+    max-width: 100%;
+    flex: none;
+  }
+}
+
+/* Mobile (Screens < 600px) */
+@media (max-width: 600px) {
+  .dashboard-header {
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+
+  .dashboard-title {
+    font-size: 26px; 
+  }
+  
+  .dashboard-subtitle {
+    font-size: 14px;
+  }
+  
+  .stats-container {
+    gap: 15px;
+  }
+
+  .stat-card {
+    flex: 1 1 100%; 
+  }
+
+  .card-number {
+    font-size: 32px; 
+  }
+  
+  .icon-box {
+    width: 40px; height: 40px; 
+  }
+  .icon-box svg {
+    width: 20px; height: 20px;
+  }
+
+  /* Section 1 Mobile */
+  .dashboard-content-wrapper.section-1 {
+    padding: 0 10px;
+  }
+
+  /* Recent Activity Mobile */
+  .dashboard.events-activity-section {
+    padding: 0 10px;
+  }
+}
+
+
+/* Base font import */
+/* @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;600&display=swap'); */
+
+/* =========================================
+      1. WEBSITE TRAFFIC ANALYSIS CARD (COMMENTED)
+      ========================================= */
+/* .card.chart-card {
+  width: 565px; 
+  height: 362px; 
+  flex: 1 1 565px; 
+  background: rgba(255, 255, 255, 1);
+  border-radius: 4px;
+  border: 1px solid rgba(229, 229, 229, 1);
+  box-shadow: 0px 2px 12px -6px rgba(0, 0, 0, 0.25);
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 0; 
+} */
+
+/* .chart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  flex-shrink: 0;
+  flex-wrap: wrap; 
+  gap: 10px;
+}
+
+.chart-title-text {
+  font-size: 18px;
+  font-weight: 400;
+  color: rgba(9, 42, 73, 1);
+  font-family: 'Lato', sans-serif;
+  line-height: 100%;
+  letter-spacing: 0%;
+  vertical-align: middle;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+}
+
+.tab-btn {
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  color: #334155;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.2s;
+  font-family: 'Lato', sans-serif;
+}
+
+.tab-btn.active {
+  background: #2563eb;
+  color: #fff;
+  border-color: #2563eb;
+}
+
+.chart-container {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  padding: 0 10px 10px 10px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.chart-footer {
+  text-align: center;
+  padding: 5px 0 0 0;
+  font-size: 12px;
+  color: #999;
+  border-top: 1px solid #f0f0f0;
+  height: 25px;
+} */
+
+/* =========================================
+      3. SYSTEM ALERTS CARD (COMMENTED)
+      ========================================= */
+/* .card.system-alert-card {
+  position: relative; 
+  top: auto;
+  left: auto;
+  width: 273px; 
+  flex-shrink: 0;
+  height: 362px;
+  border-radius: 8px;
+  opacity: 1;
+  background: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(226, 232, 240, 1);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  font-family: 'Lato', sans-serif;
+} */
+
+/* ----------------------------------------------------
+   ALERT CONTENT LIST (COMMENTED)
+---------------------------------------------------- */
+/* .system-alert-list {
+  width: auto; 
+  padding: 10px 10px 10px 10px; 
+  gap: 10px; 
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  flex: 1;
+  box-sizing: border-box; 
+  margin: 0;
+} */
+
+/* ----------------------------------------------------
+   INDIVIDUAL ALERT CARDS (COMMENTED)
+---------------------------------------------------- */
+/* .alert-card {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 4px;
+  border-width: 1px;
+  width: 100%; 
+  height: auto; 
+  min-height: 61px;
+  box-sizing: border-box;
+  border-bottom: none;
+  flex-shrink: 0;
+  margin-top: 0; 
+} */
+
+/* --- 1st & 3rd Items (Error/Red) --- */
+/* .alert-card.error {
+  background: rgba(254, 242, 242, 1);
+  border: 1px solid rgba(254, 226, 226, 1);
+}
+
+.alert-card.error .icon {
+  width: 15px;
+  height: 35px;
+  color: rgba(186, 26, 26, 1);
+  display: flex;
+  align-items: center;
+}
+
+.alert-card.error h4 {
+  width: auto;
+  height: 18px;
+  font-family: 'Lato';
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 18px;
+  color: rgba(127, 29, 29, 1);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.alert-card.error p {
+  width: auto;
+  height: 17px;
+  font-family: 'Lato';
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 16.5px;
+  color: rgba(185, 28, 28, 1);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+} */
+
+/* --- 2nd Item (Warning/Yellow) --- */
+/* .alert-card.warning {
+  background: rgba(255, 251, 235, 1);
+  border: 1px solid rgba(254, 243, 199, 1);
+}
+
+.alert-card.warning .icon {
+  width: 15px;
+  height: 35px;
+  color: rgba(217, 119, 6, 1);
+  display: flex;
+  align-items: center;
+}
+
+.alert-card.warning h4 {
+  width: auto;
+  height: 18px;
+  font-family: 'Lato';
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 18px;
+  color: rgba(120, 53, 15, 1);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.alert-card.warning p {
+  width: auto;
+  height: 17px;
+  font-family: 'Lato';
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 16.5px;
+  color: rgba(180, 83, 9, 1);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+} */
+
+/* --- 4th Item (Neutral/Gray) --- */
+/* .alert-card.neutral {
+  background: rgba(248, 250, 252, 1);
+  border: 1px solid rgba(241, 245, 249, 1);
+}
+
+.alert-card.neutral .icon {
+  width: 13.5px;
+  height: 35px;
+  color: rgba(71, 85, 105, 1);
+  display: flex;
+  align-items: center;
+}
+
+.alert-card.neutral h4 {
+  width: auto;
+  height: 18px;
+  font-family: 'Lato';
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 18px;
+  color: rgba(15, 23, 42, 1);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.alert-card.neutral p {
+  width: auto;
+  height: 17px;
+  font-family: 'Lato';
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 16.5px;
+  color: rgba(71, 85, 105, 1);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+} */
+
+/* =========================================
+   RESPONSIVE MEDIA QUERIES (Legacy / Backup)
+   ========================================= */
+
+/* 1. TABLETS & IPAD (900px and down) */
+@media (max-width: 900px) {
+  /* Chart full width (if active) */
+  .card.chart-card {
+    width: 100%;
+    max-width: 100%;
+    flex: 1 1 100%;
+    height: 400px; 
+  }
+  
+  /* System Alerts (if active) */
+  .card.system-alert-card {
+    width: calc(50% - 10px); 
+    max-width: 50%;
+    flex: 0 0 calc(50% - 10px); 
+    height: 320px;
+  }
+  
+  /* Alert List */
+  .item, .system-alert-list {
+    width: 100%;
+  }
+  
+  .quick-management-list {
+      padding: 10px; 
+  }
+
+  /* Tablet header adjustment */
+  .chart-header {
+    justify-content: space-between;
+  }
+}
+
+/* 2. MOBILE PHONES (768px and below) */
+@media (max-width: 768px) {
+  .dashboard-content-wrapper.section-1 {
+    flex-direction: column; 
+    gap: 20px;
+    padding: 0 10px;
+  }
+
+  /* Responsive adjustments for commented cards */
+  .card.chart-card, 
+  .card.quick-management-card, 
+  .card.system-alert-card {
+    width: 100%;
+    max-width: 100%;
+    flex: 1 1 auto;
+    height: auto; 
+  }
+
+  .card.chart-card {
+    min-height: 300px;
+  }
+  
+  .item, .system-alert-list {
+    width: 100%;
+  }
+
+  .item {
+    margin: 0 0 10px 0;
+    width: 100%;
+  }
+  
+  .system-alert-list {
+    padding: 10px 5px;
+    height: auto;
+  }
+
+  .alert-card {
+    height: auto;
+    min-height: 70px;
+  }
+  
+  .alert-card h4, .alert-card p {
+    white-space: normal; 
+  }
+}

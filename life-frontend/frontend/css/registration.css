@@ -1,0 +1,1460 @@
+/* login page  */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  position: relative;
+  background:
+    linear-gradient(
+      235.87deg,
+      rgba(9, 42, 73, 0.88) 50.48%,
+      rgba(15, 71, 124, 0.88) 81.97%,
+      rgba(7, 150, 254, 0.55) 113.46%
+    ),
+    url('../assets/images/loginbg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  
+  /* IMPORTANT: Centering Logic */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* vertically center */
+  
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+  overflow-x: hidden;
+  overflow-y: auto; /* Browser scroll enabled */
+  padding: 0;
+}
+
+
+.main-app {
+  width: 100%;
+  max-width: 100vw;
+  min-height: 100vh;
+  height: auto; /* Allows content to grow */
+  position: relative;
+  background: transparent;
+  overflow-x: hidden;
+  overflow-y: visible; /* Internal scroll removed */
+  margin: 0;
+  padding: 0;
+  
+  /* IMPORTANT: Centering Logic for content inside */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* CHANGE: .main-app::after hata diya gaya hai (background effect removed) */
+/* .main-app::after { ... } */
+
+
+.bg-image {
+  display: none;
+}
+
+
+.main-app:has(#fullName) .bg-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  min-height: 100vh;
+  width: 100%;
+}
+
+
+/* ========================================== */
+/* CHANGE: PROPER CENTER LOGIC */
+/* ========================================== */
+.content-wrapper {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  /* min-height: 100vh;  <-- Removed this so it doesn't force height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  padding: 40px 20px;
+  margin: 0 auto;
+}
+
+
+.brand-logo {
+  position: absolute;
+  top: -20px;  
+  right: 0px;  
+  width: 55vw;
+  max-width: 220px;
+  min-width: 160px;
+  height: auto;
+  z-index: 12;
+  transform: translateY(-35px);
+}
+
+
+.logo-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+/* Login card settings */
+.login-card-outer {
+  position: relative;
+  top: auto;
+  left: auto;
+  width: 100%;
+  max-width: 499.9px;
+  height: auto;
+  min-height: 733.9px;
+  background: #FFFFFF;
+  border-radius: 20px;
+  box-shadow: 0 30px 45px -15px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(7,150,254,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s;
+  overflow-y: visible;
+  overflow-x: hidden;
+  z-index: 1;
+  margin: 0 auto;
+  flex-shrink: 0;
+}
+
+
+.login-inner {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 30px 28px;
+  margin: 0 auto;
+}
+
+.login-card-outer:hover {
+  box-shadow: 0 32px 50px -18px rgba(7,150,254,0.3), 0 0 0 1px rgba(7,150,254,0.3);
+}
+
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.login-headline {
+  font-size: 28px;
+  font-weight: 600;
+  color: #0796FE;
+  margin-bottom: 8px;
+  letter-spacing: -0.3px;
+  text-align: left;
+}
+
+.input-label {
+  font-weight: 700;
+  font-size: 14px;
+  color: #0b2b3f;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 13px 18px;
+  font-size: 14px;
+  font-family: inherit;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 5px;
+  background: #F6F6F6;
+  transition: 0.2s ease;
+  outline: none;
+  font-weight: 400;
+  color: #092A49;
+}
+
+.input-field:focus {
+  border-color: #0796FE;
+  box-shadow: 0 0 0 4px rgba(7, 150, 254, 0.2);
+}
+
+.input-field::placeholder {
+  color: #a2bbd3;
+  font-weight: 450;
+}
+
+.row-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 6px 0;
+}
+
+.remember-check {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 14px;
+  color: #092A49;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.remember-check input {
+  width: 17px;
+  height: 17px;
+  accent-color: #0796FE;
+  cursor: pointer;
+}
+
+.forgot-link {
+  font-size: 13px;
+  color: #0796FE;
+  text-decoration: none;
+  font-weight: 700;
+  transition: 0.2s;
+}
+
+.forgot-link:hover {
+  text-decoration: underline;
+  color: #056fc9;
+}
+
+.password-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.password-wrapper .input-field {
+  padding-right: 45px;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8ba0bc;
+  transition: color 0.2s;
+}
+
+.toggle-password:hover {
+  color: #0796FE;
+}
+
+.login-button {
+  width: 100%;
+  height: 52px;
+  background: linear-gradient(95deg, #0796FE 0%, #2b9eff 100%);
+  border: none;
+  border-radius: 10px;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.4px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 6px 14px rgba(7, 150, 254, 0.35);
+  margin-top: 6px;
+}
+
+.login-button:hover {
+  background: linear-gradient(95deg, #0684e6, #1a8efc);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 22px rgba(7, 150, 254, 0.4);
+}
+
+.login-button:active {
+  transform: scale(0.97);
+}
+
+.admin-access-message {
+  text-align: center;
+  font-size: 13px;
+  color: #092A49;
+  margin-top: 4px;
+  line-height: 1.45;
+  padding: 4px 10px;
+}
+
+.admin-access-message a {
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.admin-access-message a:hover {
+  text-decoration: underline;
+}
+
+.demo-toast {
+  font-size: 12px;
+  border-radius: 20px;
+  text-align: center;
+  padding: 8px 12px;
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+.divider-line {
+  border: none;
+  height: 1px;
+  background: #e2e8f0;
+  margin: 0;
+}
+
+.divider {
+  margin: 4px 0;
+}
+
+.forgot-password-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.modal-content {
+  background: white;
+  width: 500px;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 30px 45px -15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 10000;
+}
+
+.modal-header h3 {
+  font-size: 24px;
+  color: #092A49;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modal-content .input-label {
+  color: #344054;
+}
+
+.back-to-login {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.back-to-login a {
+  color: #0796FE;
+  text-decoration: underline;
+  text-underline-offset: 3.6px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.back-to-login span {
+  color: #000000;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.back-to-login a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (min-width: 769px) {
+  .brand-logo {
+    position: absolute;
+    top: -20px;
+    right: 0px;
+    width: 55vw;
+    max-width: 220px;
+    min-width: 160px;
+    margin: 0;
+    z-index: 999999 !important;
+  }
+  
+  .main-app {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 1440px) {
+  .main-app {
+    transform: none;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 1024px) {
+  .main-app {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    position: relative;
+    overflow-y: visible;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .login-card-outer {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 90%;
+    max-width: 500px;
+    height: auto;
+    min-height: auto;
+    margin: 0 auto;
+  }
+
+  .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    gap: 30px;
+    min-height: auto;
+  }
+
+  .login-inner {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    max-width: 100%;
+    padding: 30px 24px;
+    gap: 20px;
+  }
+}
+
+
+/* Mobile Devices (General) */
+@media (max-width: 768px) {
+  body {
+    overflow-y: auto; 
+    display: flex;   
+    flex-direction: column;
+  }
+
+  .main-app {
+    height: auto;
+    min-height: 100vh;
+    background: transparent;
+    position: relative;
+    padding-top: 70px;
+    overflow-y: visible;
+    overflow-x: hidden;
+    
+    /* Keep flex centering */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .bg-image {
+    opacity: 0.2;
+    mix-blend-mode: overlay;
+  }
+
+  .content-wrapper {
+    padding: 20px 16px 40px 16px;
+    justify-content: center;
+    min-height: auto;
+    height: auto;
+    position: relative;
+    z-index: 2;
+    gap: 0;
+    align-items: center;
+  }
+
+  .brand-logo {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    width: 130px;
+    max-width: 130px;
+    min-width: 110px;
+    margin: 0;
+    z-index: 1000;
+    background: transparent;
+  }
+
+  .logo-image {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  }
+
+  .login-card-outer {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 24px;
+    margin: 0 auto;
+    height: auto;
+    overflow-y: visible;
+    background: #FFFFFF;
+    box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.25);
+    position: relative;
+    z-index: 1;
+    min-height: auto;
+    max-height: none;
+  }
+
+  .login-inner {
+    padding: 28px 20px;
+    gap: 18px;
+  }
+
+  .login-headline {
+    font-size: 26px;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .input-field {
+    padding: 12px 16px;
+    font-size: 15px;
+  }
+
+  .input-label {
+    font-size: 14px;
+  }
+
+  .row-options {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 12px;
+    margin: 8px 0;
+    width: 100%;
+  }
+
+  .remember-check {
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+
+  .forgot-link {
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+
+  .login-button {
+    height: 48px;
+    font-size: 15px;
+    margin-top: 8px;
+  }
+
+  .admin-access-message {
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+
+  .forgot-password-modal {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+  }
+
+  .modal-content {
+    width: 100%;
+    max-width: 400px;
+    padding: 28px 24px;
+    border-radius: 24px;
+    background: #FFFFFF;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 30px 45px -15px rgba(0, 0, 0, 0.4);
+  }
+
+  .modal-header h3 {
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .modal-body {
+    gap: 18px;
+  }
+
+  .modal-body .input-field {
+    padding: 12px 16px;
+  }
+
+  .modal-body .login-button {
+    margin-top: 8px;
+  }
+
+  .back-to-login {
+    margin-top: 12px;
+  }
+
+  .back-to-login a,
+  .back-to-login span {
+    font-size: 13px;
+  }
+  
+  .back-to-login span {
+    color: #344054;
+  }
+
+  @supports (padding: max(0px)) {
+    .main-app {
+      padding-top: max(70px, env(safe-area-inset-top));
+    }
+    
+    .brand-logo {
+      top: max(16px, env(safe-area-inset-top));
+      right: max(16px, env(safe-area-inset-right));
+    }
+
+    .content-wrapper {
+      padding-left: max(16px, env(safe-area-inset-left));
+      padding-right: max(16px, env(safe-area-inset-right));
+      padding-bottom: max(30px, env(safe-area-inset-bottom));
+    }
+
+    .forgot-password-modal {
+      padding-left: max(16px, env(safe-area-inset-left));
+      padding-right: max(16px, env(safe-area-inset-right));
+      padding-top: max(16px, env(safe-area-inset-top));
+      padding-bottom: max(16px, env(safe-area-inset-bottom));
+    }
+  }
+
+  .login-button,
+  .toggle-password,
+  .forgot-link,
+  .remember-check input,
+  .back-to-login a {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .login-button:active {
+    transform: scale(0.98);
+  }
+
+  .toggle-password {
+    padding: 8px;
+    right: 8px;
+  }
+
+  .input-field {
+    font-size: 16px;
+  }
+}
+
+
+/* Small Mobile Devices (iPhone SE, etc) */
+@media (max-width: 480px) {
+  .main-app {
+    padding-top: 60px;
+  }
+
+  .content-wrapper {
+    padding: 10px 12px 30px 12px;
+    min-height: auto;
+  }
+
+  .brand-logo {
+    top: 12px;
+    right: 12px;
+    width: 110px;
+    min-width: 90px;
+  }
+
+  .login-card-outer {
+    border-radius: 20px;
+  }
+
+  .login-inner {
+    padding: 24px 16px;
+    gap: 16px;
+  }
+
+  .login-headline {
+    font-size: 24px;
+  }
+
+  .input-label {
+    font-size: 13px;
+  }
+
+  .input-field {
+    padding: 11px 14px;
+    font-size: 14px;
+  }
+
+  .row-options {
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 10px;
+    margin: 8px 0;
+    width: 100%;
+  }
+
+  .remember-check {
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+
+  .forgot-link {
+    font-size: 12px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+
+  .login-button {
+    height: 46px;
+    font-size: 15px;
+  }
+
+  .admin-access-message {
+    font-size: 11px;
+    padding: 4px;
+  }
+
+  .toggle-password {
+    right: 10px;
+  }
+
+  .toggle-password .eye-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .forgot-password-modal {
+    padding: 16px;
+  }
+  
+  .modal-content {
+    padding: 24px 20px;
+    border-radius: 20px;
+  }
+
+  .modal-header h3 {
+    font-size: 20px;
+    margin-bottom: 18px;
+  }
+
+  .modal-body .input-field {
+    padding: 11px 14px;
+    font-size: 14px;
+  }
+
+  .modal-body .login-button {
+    height: 44px;
+  }
+  
+  .back-to-login {
+    margin-top: 10px;
+  }
+  
+  .back-to-login a,
+  .back-to-login span {
+    font-size: 12px;
+  }
+}
+
+
+/* Landscape Mode Fixes */
+@media (max-width: 896px) and (orientation: landscape) {
+  .main-app {
+    height: auto;
+    min-height: 100vh;
+    padding-top: 50px;
+    overflow-y: visible;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .content-wrapper {
+    padding: 0 15px 20px 15px;
+    min-height: auto;
+    height: auto;
+    justify-content: center;
+  }
+
+  .brand-logo {
+    position: fixed;
+    top: 8px;
+    right: 15px;
+    width: 100px;
+    max-width: 100px;
+    min-width: 85px;
+    transform: none;
+  }
+
+  .login-card-outer {
+    width: 90%;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .login-inner {
+    padding: 20px 24px;
+    gap: 14px;
+  }
+
+  .login-headline {
+    font-size: 24px;
+  }
+
+  .input-field {
+    padding: 10px 14px;
+  }
+
+  .login-button {
+    height: 44px;
+  }
+  
+  .row-options {
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+  
+  .forgot-link {
+    margin-left: auto;
+  }
+  
+  .forgot-password-modal {
+    padding: 15px;
+  }
+  
+  .modal-content {
+    max-width: 450px;
+    padding: 24px 20px;
+  }
+  
+  .modal-header h3 {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+  
+  .modal-body {
+    gap: 14px;
+  }
+}
+
+/* Fine-tune for register card height */
+@media (max-width: 768px) {
+  .login-card-outer {
+    min-height: auto;
+  }
+  
+  .brand-logo {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    width: 130px;
+    max-width: 130px;
+    min-width: 110px;
+    z-index: 999999 !important;
+    background: transparent;
+  }
+  
+  .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: auto;
+    padding: 20px 16px 40px 16px;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .login-card-outer {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+  }
+  
+  .login-inner {
+    padding: 28px 20px;
+    width: 100%;
+  }
+  
+  .main-app {
+    min-height: 100vh;
+    height: auto;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-logo {
+    top: 12px;
+    right: 12px;
+    width: 110px;
+  }
+  
+  .content-wrapper {
+    padding: 10px 12px 30px 12px;
+  }
+  
+  .login-inner {
+    padding: 24px 16px;
+  }
+}
+
+@media (max-width: 896px) and (orientation: landscape) {
+  .brand-logo {
+    top: 8px;
+    right: 15px;
+    width: 100px;
+  }
+  
+  .content-wrapper {
+    padding: 20px 15px;
+  }
+  
+  .login-card-outer {
+    width: 90%;
+    max-width: 480px;
+  }
+}
+
+.login-card-outer {
+  min-height: 680px;
+  height: auto;
+  max-height: none;
+  overflow-y: visible;
+}
+
+.login-inner {
+  padding: 30px 28px;
+  gap: 14px;
+}
+
+
+/* Center card properly on desktop */
+@media (min-width: 1025px) {
+  .content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: auto;
+  }
+  
+  .login-card-outer {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 20px 0;
+  }
+}
+
+
+/* ========== REGISTER PAGE SPECIFIC FIXES ========== */
+/* Target register page specifically */
+body:has(.login-headline[textContent*="Register"]) .login-card-outer,
+body:has(h2:contains("Register")) .login-card-outer {
+  min-height: 680px !important;
+  height: auto !important;
+}
+
+/* Alternative - target by page content */
+.main-app:has(#fullName) .login-card-outer {
+  min-height: 680px !important;
+  height: auto !important;
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  margin: 40px auto !important;
+  overflow-y: visible !important;
+}
+
+
+.main-app:has(#fullName) .content-wrapper {
+  height: auto !important;
+  padding: 40px 20px !important;
+}
+
+.main-app:has(#fullName) .login-inner {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  width: 100% !important;
+  padding: 30px 28px !important;
+  gap: 14px !important;
+}
+
+
+/* Desktop centering for register page */
+@media (min-width: 1025px) {
+  .main-app:has(#fullName) {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  
+  .main-app:has(#fullName) .login-card-outer {
+    margin: 40px auto !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
+}
+
+/* making back to home page in blue color */
+.back-home-link {
+  color: #0796FE !important;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.back-home-link:hover {
+  text-decoration: underline;
+  color: #056fc9 !important;
+}
+/* 21-4-26 Email success massage */
+
+/* Email Success Card - Exact Size */
+.modal-email-success .modal-content {
+  width: 465px;
+  height: 321px;
+  max-width: 465px;
+  min-width: 465px;
+  padding: 32px 32px 12px 32px;
+  border-radius: 20px;
+  border: 1px solid #EEEEEE;
+  background: #FFFFFF;
+  box-shadow: 0 30px 45px -15px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: -0.33px;
+  overflow: visible;
+}
+
+
+/* Email Success Container */
+.email-success-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: 32px 32px 12px 32px;
+}
+
+/* Circle Ring */
+.circle-ring-wrapper {
+  width: 92px;
+  height: 92px;
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.circle-ring {
+  width: 92px;
+  height: 92px;
+  display: block;
+}
+
+
+/* Mail Icon inside ring - Exact Size 60.17px x 41.11px */
+.message-logo-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 50px;
+}
+
+.message-logo {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.success-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #092A49;
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+
+.success-message {
+  font-size: 15px;
+  color: #5a6e7c;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.success-email {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0796FE;
+  margin: 2px 0;
+  background: transparent;
+  padding: 8px 20px;
+  display: inline-block;
+  word-break: break-all;
+}
+
+.try-again-link {
+  color: #0796FE;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 8px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.try-again-link:hover {
+  text-decoration: underline;
+  color: #056fc9;
+}
+.try-again-wrapper {
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.try-again-text {
+  color: #000000;
+}
+
+.try-again-link {
+  color: #0796FE;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.try-again-link:hover {
+  text-decoration: underline;
+  color: #056fc9;
+}
+
+
+.forgot-password-modal {
+  background: rgba(0,0,0,0.5);
+}
+
+
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .modal-email-success .modal-content {
+    width: 90%;
+    height: auto;
+    min-width: auto;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-email-success .modal-content {
+    width: 90%;
+    height: auto;
+    min-width: auto;
+    max-width: 350px;
+  }
+  
+  .circle-ring-wrapper {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .circle-ring {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .message-logo-wrapper {
+    width: 52px;
+    height: 36px;
+  }
+  
+  .message-logo {
+    width: 52px;
+    height: 36px;
+  }
+  
+  .success-title {
+    font-size: 20px;
+  }
+}
+
+
+/* ========== REGISTER PAGE - KEEP AS IS (NO CHANGE) ========== */
+/* Register page styles remain untouched */
+.main-app:has(#fullName) {
+  overflow-y: visible !important;
+  overflow-x: hidden !important;
+  padding-top: 30px !important;
+  padding-bottom: 30px !important;
+  height: auto !important;
+  min-height: 100vh !important; 
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.main-app:has(#fullName) .login-card-outer {
+  min-height: 680px !important;   
+  height: auto !important;
+  overflow-y: visible !important;
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  margin: 40px auto !important;
+}
+
+/* ========== FIX: REMOVE DOUBLE SCROLLBARS ON REGISTER PAGE ========== */
+/* FIX: REMOVED position: fixed FROM body TO ENABLE SCROLLING */
+/* body:has(#fullName) { */
+  /* overflow: hidden !important; REMOVED */
+  /* height: 100vh !important; REMOVED */
+  /* position: fixed !important; REMOVED */
+  /* All fixed restrictions removed to allow normal page scroll */
+/* } */
+
+
+/* Main app handles all scrolling - single scrollbar on right side */
+.main-app:has(#fullName) {
+  height: auto !important;
+  min-height: 100vh !important;
+  overflow-y: visible !important;
+  overflow-x: hidden !important;
+  display: flex !important; 
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+/* Remove scroll from register card - let main-app handle scrolling */
+.main-app:has(#fullName) .login-card-outer {
+  min-height: auto !important;
+  height: auto !important;
+  overflow-y: visible !important;
+  overflow-x: visible !important;
+  margin: 40px auto !important;
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  max-height: none !important;
+}
+
+
+/* Content wrapper takes natural height */
+.main-app:has(#fullName) .content-wrapper {
+  height: auto !important;
+  padding: 40px 20px !important;
+  min-height: auto !important;
+}
+
+/* Login inner - no changes needed */
+.main-app:has(#fullName) .login-inner {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  width: 100% !important;
+  padding: 30px 28px !important;
+  gap: 14px !important;
+}
+
+
+/* For mobile devices - register page only */
+@media (max-width: 768px) {
+  /* body:has(#fullName) restrictions REMOVED */
+  
+  .main-app:has(#fullName) {
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow-y: visible !important;
+    
+    /* Ensure centering works on mobile */
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  
+  .main-app:has(#fullName) .login-card-outer {
+    margin: 20px auto !important;
+    width: 90% !important;
+  }
+  
+  .main-app:has(#fullName) .content-wrapper {
+    padding: 20px 16px !important;
+  }
+}
+
+/* For desktop - ensure proper centering */
+@media (min-width: 1025px) {
+  body:has(#fullName) {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  
+  .main-app:has(#fullName) {
+    width: 100% !important;
+    max-width: 1440px !important;
+    margin: 0 auto !important;
+  }
+}
+
+
+
+
+/* make bold the Target only the input labels */
+.input-group .input-label {
+  font-family: 'Lato', 'Inter', system-ui, sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 16px !important;
+  line-height: 100% !important;
+  letter-spacing: normal !important;
+  color:#092A49 !important
+}
+
+
+/* CHANGE: Update Register Page layout logic to match stable centered flow */
+.main-app:has(#fullName) {
+  min-height: 100vh !important;
+  height: auto !important;
+  overflow: visible !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+
+.main-app:has(#fullName) .content-wrapper {
+  min-height: 100% !important;
+  height: auto !important;
+  padding: 40px 20px !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+
+.main-app:has(#fullName) .login-card-outer {
+  min-height: 680px !important;
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  margin: 40px auto !important;
+}
+
+
+.main-app:has(#fullName) .login-inner {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  width: 100% !important;
+  padding: 30px 28px !important;
+  gap: 14px !important;
+}
+
+
+/* CHANGE: Ensure mobile layout also stays centered and scrolls from main-app only */
+@media (max-width: 768px) {
+  .main-app:has(#fullName) .content-wrapper {
+    justify-content: center !important;
+    align-items: center !important;
+    padding-top: 20px !important;
+    min-height: auto !important;
+  }
+
+  .main-app:has(#fullName) .login-card-outer {
+    width: 100% !important;
+    margin: 20px auto !important;
+    min-height: auto !important;
+  }
+}

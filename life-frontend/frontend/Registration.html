@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Creative Solution | Create Account</title>
+  <link rel="stylesheet" href="css/registration.css">
+</head>
+<body>
+<div class="main-app">
+  <div class="bg-image"></div>
+  
+ <!-- brand-logo remains independent -->
+  <div class="brand-logo">
+    <img class="logo-image" src="assets/images/creative1.png" alt="Creative Solution" 
+         onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'480\' height=\'112\' viewBox=\'0 0 480 112\'%3E%3Crect width=\'480\' height=\'112\' fill=\'%2300233f\' rx=\'20\'/%3E%3Ctext x=\'28\' y=\'58\' font-family=\'Inter, system-ui\' font-weight=\'bold\' font-size=\'38\' fill=\'%23FFFFFF\'%3ECreative%3C/text%3E%3Ctext x=\'28\' y=\'92\' font-family=\'Inter, system-ui\' font-size=\'26\' fill=\'%230796FE\'%3ESolution%3C/text%3E%3C/svg%3E';">
+  </div>
+
+  <div class="content-wrapper">
+    <div class="login-card-outer">
+      <div class="login-inner">
+        <h2 class="login-headline">Register</h2>
+        
+        <!-- Name field -->
+        <div class="input-group">
+          <div class="input-label">Name</div>
+          <input type="text" class="input-field" id="fullName" placeholder="Enter Name" autocomplete="name">
+        </div>
+
+        <!-- Email field -->
+        <div class="input-group">
+          <div class="input-label">Email</div>
+          <input type="email" class="input-field" id="emailInput" placeholder="Enter your email" autocomplete="email">
+        </div>
+
+        <!-- Mobile Number field -->
+        <div class="input-group">
+          <div class="input-label">Mobile Number</div>
+          <input type="tel" class="input-field" id="mobileInput" placeholder="Enter 10-Digit Mobile Number" autocomplete="tel" maxlength="10">
+        </div>
+
+        <!-- Password field with toggle -->
+        <div class="input-group">
+          <div class="input-label">Password</div>
+          <div class="password-wrapper">
+            <input type="password" class="input-field" id="passwordInput" placeholder="Your Password" autocomplete="new-password">
+            <button type="button" class="toggle-password" data-target="passwordInput">
+              <svg class="eye-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Confirm Password field with toggle -->
+        <div class="input-group">
+          <div class="input-label">Confirm Password</div>
+          <div class="password-wrapper">
+            <input type="password" class="input-field" id="confirmPasswordInput" placeholder="Confirm Password" autocomplete="new-password">
+            <button type="button" class="toggle-password" data-target="confirmPasswordInput">
+              <svg class="eye-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Remember Me checkbox -->
+        <div class="row-options">
+          <label class="remember-check">
+            <input type="checkbox" id="rememberCheckbox"> 
+            <span>Remember Me</span>
+          </label>
+        </div>
+
+        <!-- Register Button -->
+        <button class="login-button" id="registerBtn">
+          <span>Register</span> 
+        </button>
+        
+        <div class="divider">
+          <hr class="divider-line">
+        </div>
+        
+        <!-- Admin access message (same as login but indicates registration flow) -->
+        <div class="admin-access-message">Already have an account? <a href="#" id="loginRedirectLink" style="color:#0796FE; text-decoration:none; font-weight:600;">Login</a></div>
+        <div class="demo-toast" id="demoMessage" style="display: none;"></div>
+      </div>
+    </div>
+  </div>
+     
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    // DOM elements for registration
+    const fullNameInput = document.getElementById('fullName');
+    const emailInput = document.getElementById('emailInput');
+    const mobileInput = document.getElementById('mobileInput');
+    const passwordInput = document.getElementById('passwordInput');
+    const confirmPasswordInput = document.getElementById('confirmPasswordInput');
+    const registerBtn = document.getElementById('registerBtn');
+    const rememberCheckbox = document.getElementById('rememberCheckbox');
+    const demoMessageDiv = document.getElementById('demoMessage');
+    const loginRedirectLink = document.getElementById('loginRedirectLink');
+    
+    // Forgot password modal elements
+    const forgotPasswordTrigger = document.getElementById('forgotPasswordTrigger');
+    const forgotPasswordModal = document.getElementById('forgotPasswordModal');
+    const sendEmailBtn = document.getElementById('sendEmailBtn');
+    const forgotEmailInput = document.getElementById('forgotEmailInput');
+    const backToLoginLink = document.getElementById('backToLoginLink');
+    
+    // Toggle password visibility for all password toggles
+    const toggleButtons = document.querySelectorAll('.toggle-password');
+    toggleButtons.forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('data-target');
+        const targetInput = document.getElementById(targetId);
+        if (targetInput) {
+          const type = targetInput.getAttribute('type') === 'password' ? 'text' : 'password';
+          targetInput.setAttribute('type', type);
+          const svg = this.querySelector('.eye-icon');
+          if (svg) {
+            if (type === 'text') {
+              svg.setAttribute('stroke', '#0796FE');
+            } else {
+              svg.setAttribute('stroke', 'currentColor');
+            }
+          }
+        }
+      });
+    });
+    
+    // Helper to show toast message
+    function showMessage(msg, isError = true) {
+      demoMessageDiv.style.display = 'block';
+      demoMessageDiv.textContent = msg;
+      demoMessageDiv.style.backgroundColor = isError ? '#fee2e2' : '#e0f2fe';
+      demoMessageDiv.style.color = isError ? '#b91c1c' : '#0c4e6e';
+      demoMessageDiv.style.border = isError ? '1px solid #fecaca' : '1px solid #bae6fd';
+      demoMessageDiv.style.borderRadius = '12px';
+      demoMessageDiv.style.padding = '10px';
+      demoMessageDiv.style.marginTop = '10px';
+      setTimeout(() => {
+        demoMessageDiv.style.display = 'none';
+      }, 3000);
+    }
+    
+    // validate mobile (10 digits)
+    function validateMobile(mobile) {
+      const mobileRegex = /^[0-9]{10}$/;
+      return mobileRegex.test(mobile);
+    }
+    
+    // validate email basic
+    function validateEmail(email) {
+      const emailRegex = /^[^\s@]+@([^\s@]+\.)+[^\s@]+$/;
+      return emailRegex.test(email);
+    }
+    
+    // validate name not empty
+    function validateName(name) {
+      return name && name.trim().length >= 2;
+    }
+    
+    // handle registration (with Remember Me simulation)
+    function handleRegistration() {
+      demoMessageDiv.style.display = 'none';
+      
+      const name = fullNameInput.value.trim();
+      const email = emailInput.value.trim();
+      const mobile = mobileInput.value.trim();
+      const password = passwordInput.value;
+      const confirmPassword = confirmPasswordInput.value;
+      const remember = rememberCheckbox.checked;
+      
+      // Validation sequence exactly as per image requirement
+      if (!validateName(name)) {
+        showMessage('Please enter a valid name (minimum 2 characters).', true);
+        fullNameInput.focus();
+        return;
+      }
+      if (!validateEmail(email)) {
+        showMessage('Please enter a valid email address (e.g., name@example.com).', true);
+        emailInput.focus();
+        return;
+      }
+      if (!validateMobile(mobile)) {
+        showMessage('Mobile number must be exactly 10 digits.', true);
+        mobileInput.focus();
+        return;
+      }
+      if (password.length < 6) {
+        showMessage('Password must be at least 6 characters.', true);
+        passwordInput.focus();
+        return;
+      }
+      if (password !== confirmPassword) {
+        showMessage('Password and Confirm Password do not match.', true);
+        confirmPasswordInput.focus();
+        return;
+      }
+      
+      // If "Remember Me" is checked, store a flag in localStorage (demo)
+      if (remember) {
+        localStorage.setItem('rememberedEmail', email);
+        localStorage.setItem('rememberedUser', name);
+      } else {
+        localStorage.removeItem('rememberedEmail');
+        localStorage.removeItem('rememberedUser');
+      }
+      
+     // Backend API call registration
+      fetch('http://localhost:8080/api/auth/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          fullName:        name,
+          email:           email,
+          phone:           mobile,
+          password:        password,
+          confirmPassword: confirmPassword
+        })
+      })
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        if (data.message === 'Account created successfully!') {
+          showMessage('Registration successful! Redirecting to login...', false);
+          setTimeout(function() {
+            window.location.href = 'Sign-In.html';
+          }, 1500);
+        } else {
+          showMessage(data.message || 'Registration failed. Please try again.', true);
+          registerBtn.disabled    = false;
+          registerBtn.textContent = 'Register';
+        }
+      })
+      .catch(function() {
+        showMessage('Cannot connect to server. Make sure backend is running.', true);
+        registerBtn.disabled    = false;
+        registerBtn.textContent = 'Register';
+      });
+    } // Backend API call registration
+    
+    registerBtn.addEventListener('click', handleRegistration);
+    
+    // Allow enter key on form fields
+    const inputs = [fullNameInput, emailInput, mobileInput, passwordInput, confirmPasswordInput];
+    inputs.forEach(input => {
+      input.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          handleRegistration();
+        }
+      });
+    });
+    
+    // mobile input restrict to digits only and max 10 chars
+    mobileInput.addEventListener('input', function(e) {
+      this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);
+    });
+    
+    // redirect to login link (already have account? login)
+        if (loginRedirectLink) {
+        loginRedirectLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = 'Sign-In.html';
+        });
+        }
+    
+    // Forgot Password Modal logic (fully functional, consistent with login page)
+    if (forgotPasswordTrigger) {
+      forgotPasswordTrigger.addEventListener('click', function(e) {
+        e.preventDefault();
+        forgotPasswordModal.style.display = 'flex';
+      });
+    }
+    
+    function closeForgotModal() {
+      forgotPasswordModal.style.display = 'none';
+      if (forgotEmailInput) forgotEmailInput.value = '';
+    }
+    
+    if (sendEmailBtn) {
+      sendEmailBtn.addEventListener('click', function() {
+        const forgotEmail = forgotEmailInput.value.trim();
+        if (!forgotEmail) {
+          alert('Please enter your email address.');
+          return;
+        }
+        if (!validateEmail(forgotEmail)) {
+          alert('Please enter a valid email address.');
+          return;
+        }
+        // Simulate sending email
+        alert(`Password reset link has been sent to ${forgotEmail} (demo).`);
+        closeForgotModal();
+      });
+    }
+    
+    if (backToLoginLink) {
+      backToLoginLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        closeForgotModal();
+        // Optionally redirect to login page
+        window.location.href = 'Sign-In.html';
+      });
+    }
+    
+    // Close modal when clicking outside
+    if (forgotPasswordModal) {
+      forgotPasswordModal.addEventListener('click', function(e) {
+        if (e.target === forgotPasswordModal) {
+          closeForgotModal();
+        }
+      });
+    }
+    
+    // Optional: prefill "Remember Me" data if any (for registration it's just UI)
+    if (localStorage.getItem('rememberedEmail')) {
+      // not auto-filling for register for privacy, but checkbox could be ticked? no auto.
+    }
+  })();
+</script>
+<script src="js/signin.js"></script>
+</body>
+</html>

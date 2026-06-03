@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>contact-us — CWS.life</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Oswald:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/contact-us.css">
+  <!-- reCAPTCHA Script -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+
+  <div id="navbar-placeholder"></div>
+  <!-- Life at CWS Top Hero Section -->
+  <section class="life-at-cws-hero">
+    <div class="hero-content">
+      <h1 class="hero-title">CONTACT US</h1>
+        <p class="hero-subtitle">
+         <a href="index.html" class="breadcrumb-link">Home</a> > 
+         <span class="breadcrumb-active">Contact Us</span>
+        </p>
+    </div>
+  </section>
+
+  <!-- 2nd half section -->
+  <section class="contact-main-section">
+    <div class="contact-layout-container">
+      
+      <!-- Right Column: Contact Form -->
+      <div class="form-container-right">
+        <div class="form-inner-wrapper">
+          <div class="form-header-section">
+            <h2 class="form-title-new">Get in Touch With Us</h2>
+            <div class="title-underline"></div>
+          </div>
+          
+          <!-- Description aligned left 17-4-6(1)line no 43 -->
+          <p class="form-description">Have questions, feedback, or need support? We’re here to help. 
+                Reach out to us anytime, and our team will get back to you as soon as possible.</p>
+          
+          <form id="contactForm" onsubmit="return false;">
+            <div class="form-row-new">
+              <div class="form-group-half">
+                <label for="firstname">First name</label>
+                <div class="input-wrapper">
+                  <input type="text" id="firstname" placeholder="First name" required>
+                </div>
+              </div>
+              <div class="form-group-half">
+                <label for="lastname">Last name</label>
+                <div class="input-wrapper">
+                  <input type="text" id="lastname" placeholder="Last name" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group-full">
+              <label for="email">Email</label>
+              <div class="input-wrapper">
+                <input type="email" id="email" placeholder="you@company.com" required>
+              </div>
+            </div>
+
+            <div class="form-group-full">
+              <label for="phone">Phone Number</label>
+              <div class="input-wrapper">
+                <input type="tel" id="phone" placeholder="+91 00000 00000">
+              </div>
+            </div>
+
+            <div class="form-group-full">
+              <label for="message">Message</label>
+              <div class="textarea-wrapper">
+                <textarea id="message" rows="4"></textarea>
+              </div>
+            </div>
+
+
+<!-- Robot Captcha
+<div class="robot-captcha-box">
+
+  <div class="robot-captcha">
+
+    <label class="robot-check-label">
+
+      <input
+        type="checkbox"
+        id="robotCheck"
+        required
+      >
+
+      <span class="custom-checkmark"></span>
+
+      <span class="robot-text">
+        I'm not a robot
+      </span>
+
+    </label>
+
+    <div class="captcha-brand">
+      <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png"
+           alt="captcha">
+
+      <small>reCAPTCHA</small>
+    </div>
+
+  </div>
+
+</div> -->
+<!-- Google reCAPTCHA -->
+<div class="g-recaptcha" 
+     data-sitekey="6LfjC_8sAAAAAAyxqw9bybIx6h_xHRwHg6oudRQC"
+     style="margin-bottom: 20px;">
+</div>
+
+            <div class="form-btn-wrapper">
+              <button type="submit" class="submit-btn-new">
+                Send message
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+     
+<!-- Left Column: Info Cards -->
+<div class="info-cards-left">
+
+  <!-- Address Card -->
+  <div class="info-card">
+    <div class="card-icon-box">
+      <img src="assets/icons/cs1.png" alt="Address"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+      <i class="fa-solid fa-location-dot" style="display:none;"></i>
+    </div>
+
+    <h4 class="card-title">Address</h4>
+
+    <div class="card-desc">
+      <a href="https://maps.google.com/?q=Creative+Web+Solution+ITI+Road+Anand+Park+Pune+Maharashtra+India"
+         target="_blank"
+         class="card-link">
+        Creative Web Solution, ITI Road, Anand Park, Pune, Maharashtra, India
+      </a>
+    </div>
+  </div>
+
+  <!-- Email Card -->
+  <div class="info-card">
+    <div class="card-icon-box">
+      <img src="assets/icons/cs2.png" alt="Email"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+      <i class="fa-solid fa-envelope" style="display:none;"></i>
+    </div>
+
+    <h4 class="card-title">Email</h4>
+
+    <div class="card-desc">
+      <a href="mailto:hr@creativewebsolution.in" class="email-link">
+        hr@creativewebsolution.in
+      </a>
+
+      <br>
+
+      <a href="mailto:info@creativewebsolution.in" class="email-link">
+        info@creativewebsolution.in
+      </a>
+    </div>
+  </div>
+
+  <!-- Phone Card -->
+  <div class="info-card">
+    <div class="card-icon-box">
+      <img src="assets/icons/cs3.png" alt="Phone"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+      <i class="fa-solid fa-phone" style="display:none;"></i>
+    </div>
+
+    <h4 class="card-title">Phone</h4>
+
+    <div class="card-desc phone-blue">
+      <a href="tel:+919326246981" class="phone-link">
+        +91 93262 46981
+      </a>
+
+      <span class="sub-note">
+        Call us for immediate assistance
+      </span>
+    </div>
+  </div>
+
+  <!-- Business Hours Card -->
+  <div class="info-card">
+    <div class="card-icon-box">
+      <img src="assets/icons/cs4.png" alt="Hours"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+      <i class="fa-solid fa-clock" style="display:none;"></i>
+    </div>
+
+    <h4 class="card-title">Business Hours</h4>
+
+    <div class="card-desc">
+      <span class="hours-text">
+        Mon - Sat: 9:00 AM - 6:00 PM
+      </span>
+
+      <span class="sub-note">
+        24/7 Support Available
+      </span>
+    </div>
+  </div>
+
+</div>
+  </section>
+  <!-- END 2nd half SECTION -->
+ <!-- Find Us On Map -->
+<!-- Find Us On Map 17-4-6(2)-->
+<section class="map-section">
+    <div class="map-container">
+      <h2 class="map-title">Find Us Here</h2>
+      <div class="map-underline"></div>
+      <p class="map-subtitle">
+        Visit our office or locate us on the map for easy directions.
+      </p>
+      <div class="map-box">
+        <iframe 
+          src="https://maps.google.com/maps?q=Creative+Web+Solution+ITI Rd, Aundh, Pune, Maharashtra 411067, India&output=embed"
+          width="100%" 
+          height="100%" 
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+</section>
+
+ <!-- map End -->
+
+<!-- We'd Love To Hear From You -->
+  <section class="weloveto-banner">
+  <div class="weloveto-content">
+    
+    <div class="weloveto-text">
+      <h2>We'd Love To Hear From You</h2>
+      <p>
+        Your feedback helps us improve and serve you better. Don't hesitate to
+        <span class="break-line">reach out!</span>
+      </p>
+    </div>
+    <!--i tag is added to improve arrow icon-->
+    <a href="contact-us.html" class="contact-btn">Contact Support <i class="fa-solid fa-arrow-right" style="margin-left: 8px; margin-top: 3px;"></i></a>
+
+  </div>
+</section>
+
+<!-- SCROLL NAVIGATION BUTTON — Bottom only -->
+  <button class="scroll-nav-btn scroll-to-top-btn" id="scrollToTopBtn" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+
+
+<!-- <script>
+document.querySelector("form")
+.addEventListener("submit", function(e){
+
+   const robotCheck =
+   document.getElementById("robotCheck");
+
+   if(!robotCheck.checked){
+
+      e.preventDefault();
+      alert("Please verify 'I'm not a robot'");
+   }
+
+});
+</script> -->
+<script>
+document.querySelector("form")
+.addEventListener("submit", function(e) {
+  // reCAPTCHA verify karo
+  var captchaResponse = grecaptcha.getResponse();
+  if (captchaResponse.length === 0) {
+    e.preventDefault();
+    alert("Please verify 'I'm not a robot'");
+    return;
+  }
+});
+</script>
+
+<!-- Scroll to Top Button -->
+
+  <script>
+   // SCROLL NAVIGATION: hidden at top, visible after 1st section, scrolls to top
+   (function() {
+      var btnTop = document.getElementById('scrollToTopBtn');
+      /* CHANGED: target first section element dynamically so it works on all pages */
+      var firstSection = document.querySelector('section');
+
+      function onScroll() {
+         if (firstSection) {
+            /* CHANGED: show button only when scrolled past the 1st section */
+            var sectionBottom = firstSection.offsetTop + firstSection.offsetHeight;
+            if (window.pageYOffset > sectionBottom) {
+               btnTop.classList.add('scroll-nav-visible');
+            } else {
+               btnTop.classList.remove('scroll-nav-visible');
+            }
+         }
+      }
+
+      window.addEventListener('scroll', onScroll);
+
+      btnTop.addEventListener('click', function() {
+         window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+   })();
+</script>
+</body>
+</html>

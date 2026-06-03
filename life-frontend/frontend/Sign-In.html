@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Creative Solution | Secure Login</title>
+  <link rel="stylesheet" href="css/sign-in.css">
+</head>
+<body>
+<div class="main-app">
+  <div class="bg-image"></div>
+  
+  <!-- brand-logo remains independent -->
+  <div class="brand-logo">
+    <img class="logo-image" src="assets/images/creative1.png" alt="Creative Solution" 
+         onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'480\' height=\'112\' viewBox=\'0 0 480 112\'%3E%3Crect width=\'480\' height=\'112\' fill=\'%2300233f\' rx=\'20\'/%3E%3Ctext x=\'28\' y=\'58\' font-family=\'Inter, system-ui\' font-weight=\'bold\' font-size=\'38\' fill=\'%23FFFFFF\'%3ECreative%3C/text%3E%3Ctext x=\'28\' y=\'92\' font-family=\'Inter, system-ui\' font-size=\'26\' fill=\'%230796FE\'%3ESolution%3C/text%3E%3C/svg%3E';">
+  </div>
+
+  <div class="content-wrapper">
+    <div class="login-card-outer" id="loginCard">
+      <div class="login-inner" id="loginInner">
+        <h2 class="login-headline">Login</h2>
+        <div class="input-group">
+          <div class="input-label">Email</div>
+          <input type="email" class="input-field" id="emailInput" placeholder="Enter your email" autocomplete="email">
+        </div>
+
+        <div class="input-group">
+          <div class="input-label">Password</div>
+          <div class="password-wrapper">
+            <input type="password" class="input-field" id="passwordInput" placeholder="Min 6 characters" autocomplete="current-password">
+            <button type="button" class="toggle-password" id="togglePassword">
+              <svg class="eye-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </button>
+          </div>
+        </div>
+        
+        <div class="row-options">
+          <label class="remember-check">
+            <input type="checkbox" id="rememberCheckbox"> 
+            <span>Remember Me</span>
+          </label>
+          <a href="#" class="forgot-link" id="forgotPasswordTrigger">Forgot Password</a>
+        </div>
+
+        <button class="login-button" id="loginBtn">
+          <span>Login</span> 
+        </button>
+        
+        <div class="divider">
+          <hr class="divider-line">
+        </div>
+        
+        <div class="admin-access-message">
+          Don't have account?
+          <a href="#" class="signup-link" id="signupLink">Sign Up</a>
+        </div>
+        <div class="demo-toast" id="demoMessage" style="display: none;"></div>
+        <div class="admin-access-message" style="margin-top: 12px;">
+        <a href="#" class="back-home-link" id="backToHomeLink">← Back to Home</a>
+      </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Forgot Password Modal -->
+  <div class="forgot-password-modal" id="forgotPasswordModal" style="display: none;">
+    <div class="modal-content" id="modalContent">
+      <div class="modal-header">
+        <h3>Forgot Password</h3>
+      </div>
+      <div class="modal-body" id="modalBody">
+        <div class="input-group">
+          <div class="input-label">Email</div>
+          <input type="email" class="input-field" id="forgotEmailInput" placeholder="Enter email">
+        </div>
+        <button class="login-button" id="sendEmailBtn">Send Email</button>
+        <div class="back-to-login">
+          <span>Remember password? </span><a href="#" id="backToLoginLink">Back to Login</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script src="js/signin.js"></script>
+<script>
+  (function() {
+    // Get elements
+    const modal = document.getElementById('forgotPasswordModal');
+    const modalContent = document.getElementById('modalContent');
+    const modalBody = document.getElementById('modalBody');
+    const forgotTrigger = document.getElementById('forgotPasswordTrigger');
+    const loginCard = document.querySelector('.login-card-outer');
+    
+    // Function to close modal and show login
+    function closeModalAndShowLogin() {
+      modal.style.display = 'none';
+      loginCard.style.display = 'flex';
+      loginCard.style.visibility = 'visible';
+      loginCard.style.opacity = '1';
+    }
+    
+    // Function to show email success page with custom image icon
+    function showEmailSuccessPage(email) {
+      modalBody.innerHTML = `
+        <div class="email-success-container">
+          <div class="circle-ring-wrapper">
+            <svg class="circle-ring" width="92" height="92" viewBox="0 0 92 92" fill="none" xmlns="http://www.w3.org/2000/svg">
+              
+            </svg>
+            <div class="message-logo-wrapper">
+              <img src="assets/icons/emailcheck.png" alt="Email Sent" class="message-logo" style="width: 60px; height: auto;">
+            </div>
+          </div>
+          <h3 class="success-title">Check Your Email!</h3>
+          <p class="success-message">We have sent a password reset link to your mail</p>
+          <p class="success-email">${email}</p>
+          <div class="try-again-wrapper">
+            <span class="try-again-text">Didn't receive mail? </span>
+            <a href="#" class="try-again-link" id="tryAgainLink">Try again</a>
+          </div>
+        </div>
+      `;
+      
+      modalContent.classList.add('modal-email-success');
+      
+      const modalHeader = modalContent.querySelector('.modal-header');
+      if (modalHeader) {
+        modalHeader.style.display = 'none';
+      }
+      
+      const tryAgainLink = document.getElementById('tryAgainLink');
+      if (tryAgainLink) {
+        tryAgainLink.addEventListener('click', function(e) {
+          e.preventDefault();
+          resetToForgotPasswordForm();
+        });
+      }
+    }
+    
+  function resetToForgotPasswordForm() {
+  modalBody.innerHTML = `
+    <div class="input-group">
+      <div class="input-label">Email</div>
+      <input type="email" class="input-field" id="forgotEmailInput" placeholder="Enter email">
+    </div>
+    <button class="login-button" id="sendEmailBtn">Send Email</button>
+    <div class="back-to-login">
+      <span>Remember password? </span><a href="#" id="backToLoginLink">Back to Login</a>
+    </div>
+  `;
+
+  modalContent.classList.remove('modal-email-success');
+
+  var modalHeader = modalContent.querySelector('.modal-header');
+  if (modalHeader) {
+    modalHeader.style.display = 'block';
+  }
+
+  // Back to Login
+  var backToLoginLink = document.getElementById('backToLoginLink');
+  if (backToLoginLink) {
+    backToLoginLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      closeModalAndShowLogin();
+    });
+  }
+
+  // Send Email — Backend API
+  var sendEmailBtn   = document.getElementById('sendEmailBtn');
+  var forgotEmailInput = document.getElementById('forgotEmailInput');
+
+  if (sendEmailBtn) {
+    sendEmailBtn.addEventListener('click', function() {
+
+      var email = forgotEmailInput ? forgotEmailInput.value.trim() : '';
+
+      if (!email || !email.includes('@')) {
+        alert('Please enter a valid email address');
+        return;
+      }
+
+      sendEmailBtn.disabled   = true;
+      sendEmailBtn.textContent = 'Sending...';
+
+      // Backend API call
+      fetch('http://localhost:8080/api/auth/forgot-password', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email })
+      })
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        console.log('Response:', data);
+        if (data.message && data.message.includes('sent')) {
+          // Show success screen
+          showEmailSuccessPage(email);
+        } else {
+          alert(data.message || 'Email not found.');
+          sendEmailBtn.disabled    = false;
+          sendEmailBtn.textContent = 'Send Email';
+        }
+      })
+      .catch(function(error) {
+        console.log('Error:', error);
+        alert('Cannot connect to server. Make sure backend is running.');
+        sendEmailBtn.disabled    = false;
+        sendEmailBtn.textContent = 'Send Email';
+      });
+
+    });
+  }
+}
+    
+    // Forgot password trigger
+    if (forgotTrigger) {
+      forgotTrigger.addEventListener('click', function(e) {
+        e.preventDefault();
+        resetToForgotPasswordForm();
+        modal.style.display = 'flex';
+        loginCard.style.display = 'flex';
+      });
+    }
+    
+    // Close modal when clicking outside
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        closeModalAndShowLogin();
+      }
+    });
+    
+    // Initial setup - if there's any existing Back to Login button
+    const existingBackLink = document.getElementById('backToLoginLink');
+    if (existingBackLink) {
+      existingBackLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        closeModalAndShowLogin();
+      });
+    }
+    
+    // // Initial Send Email button
+    // const existingSendBtn = document.getElementById('sendEmailBtn');
+    // const existingEmailInput = document.getElementById('forgotEmailInput');
+    // if (existingSendBtn) {
+    //   existingSendBtn.addEventListener('click', function(e) {
+    //     e.preventDefault();
+    //     const email = existingEmailInput ? existingEmailInput.value.trim() : '';
+    //     if (email && email.includes('@')) {
+    //       showEmailSuccessPage(email);
+    //     } else {
+    //       alert('Please enter a valid email address');
+    //     }
+    //   });
+    // }
+  })();
+  
+  // Back to Home button functionality
+  const backToHomeLink = document.getElementById('backToHomeLink');
+  if (backToHomeLink) {
+    backToHomeLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.location.href = 'index.html'; // Navigate to home page
+    });
+  }
+</script>
+
+</body>
+</html>

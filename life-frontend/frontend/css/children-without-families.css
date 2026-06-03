@@ -1,0 +1,1428 @@
+
+/* ================================================
+   CWS.life — Supportingchildern-withoutfamilies.css
+   Page-specific styles for Supportingchildern-withoutfamilies.html
+   All global styles (colors, fonts, navbar,
+   footer, buttons) are in global.css
+   ================================================ */
+
+/* Add your page-specific CSS here */
+
+/* IMPROVEMENT: Global fix for horizontal scroll/overflow on all devices including iPhone 14 Pro Max */
+html {
+   scroll-behavior: smooth;
+   /* IMPROVEMENT: Prevent horizontal scroll */
+   max-width: 100vw;
+   overflow-x: hidden;
+}
+
+body {
+   margin: 0;
+   padding: 0;
+   background-color: #ffffff;
+   /* IMPROVEMENT: Prevent horizontal scroll */
+   max-width: 100vw;
+   overflow-x: hidden;
+}
+
+/* IMPROVEMENT: Global box-sizing to prevent padding/border causing width overflow */
+*, *::before, *::after {
+   box-sizing: border-box;
+}
+
+/* ===============================
+   Hero section Section
+================================= */
+.social-hero {
+   /* max-width: 1440px; */
+   width: 100%;
+   height: 298.19px;
+   margin: 0 auto;
+   margin-top: 124.99px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   opacity: 1;
+   position: relative;
+   z-index: 10;
+
+   overflow: visible !important;
+   min-height: 250px; 
+}
+
+/* Main Dark Background (Top Layer) */
+.social-hero::before {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: #0d3358;
+
+   /* V-Shape Cut */
+   clip-path: polygon(0 0, 100% 0, 100% 60%, 50% 100%, 0 60%);
+   z-index: 2;
+}
+
+/* Blue Line (Bottom Layer - Shifted Down) */
+.social-hero::after {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: #0796FE;
+   clip-path: polygon(0 0, 100% 0, 100% 60%, 50% 100%, 0 60%);
+   transform: translateY(12px);
+   z-index: 1;
+}
+
+.social-content {
+   text-align: center;
+   position: relative;
+   z-index: 3;
+   padding: 0 20px; 
+}
+
+.social-hero-title {
+   font-family: 'Oswald', sans-serif;   
+   font-weight: 300;
+   font-style: Light;    
+   font-size: 64px;
+   line-height: 75px;
+   letter-spacing: 0;
+   text-align: center;
+   vertical-align: middle;
+   text-transform: capitalize;
+   color: #FFFFFF;
+   margin: 0;
+}
+
+.social-hero-subtitle {
+   font-family: 'Lato', sans-serif;
+   font-weight: 400;
+   font-style: Regular; 
+   font-size: 18px;
+   line-height: 25px;
+   letter-spacing: 0;
+   text-align: center;
+   vertical-align: middle;
+   color: #C4C4C4;
+   margin: 0;
+   margin-top: 8px;
+}
+
+/* Breadcrumb "Life At CWS" Color */
+.breadcrumb-active {
+   color: #0796FE;
+}
+
+@media (max-width: 1440px) {
+
+   .social-hero,
+   .social-content {
+      width: 100%;
+   }
+}
+
+@media (max-width: 1024px) {
+   .social-content {
+      padding: 60px 20px;
+   }
+
+   .social-hero {
+      margin-top: 50px;
+   }
+}
+
+@media (max-width: 900px) {
+   .social-hero {
+      height: 250px;
+      margin-top: 50px;     
+   }
+
+   .social-hero-title {
+      font-size: 48px;
+      line-height: 56px;
+   }
+}
+
+/* IMPROVEMENT: Added specific breakpoint for iPad Portrait */
+@media (max-width: 768px) {
+   .social-hero {
+      margin-top: 50px;     
+      height: 220px;
+   }
+   
+   .social-hero-title {
+      font-size: 40px;
+      line-height: 48px;
+   }
+}
+
+@media (max-width: 640px) {
+   .social-hero {
+      height: 200px;
+      margin-top: 50px;    
+   }
+
+   .social-hero-title {
+      font-size: 36px;
+      line-height: 44px;
+   }
+
+   .social-hero-subtitle {
+      font-size: 16px;
+      line-height: 22px;
+   }
+
+   .social-content {
+      padding: 40px 15px;
+      margin-top: -40px;
+   }
+}
+
+/* IMPROVEMENT: Added styles for extra small devices */
+@media (max-width: 480px) {
+   .social-hero {
+      height: 180px;
+      margin-top: 50px;     
+   }
+
+   .social-hero-title {
+      font-size: 28px;
+      line-height: 36px;
+   }
+
+   .social-hero-subtitle {
+      font-size: 14px;
+      line-height: 20px;
+   }
+}
+
+/* ===============================
+   ADDED: 2nd Half Hero Details Section
+================================= */
+
+/* ADDED: Section wrapper */
+.hero-details-section {
+   width: 100%;
+   padding: 60px 0 80px 0;
+}
+
+/* ADDED: Container layout — width: 1254px, height: 469px, gap: 200px */
+.hero-details-container {
+   max-width: 1254px;
+   width: 100%;
+   height: auto;
+   margin: 0 auto;
+   display: flex;
+   align-items: flex-start;
+   justify-content: space-between;
+   gap: 200px;
+   padding: 0 20px;
+}
+
+/* ADDED: Left side container — width: 528px, height: 396px, gap: 25px */
+.hero-details-left {
+   flex: 0 0 auto;
+   max-width: 527px;
+   width: 100%;
+   height: 395.8px;
+   display: flex;
+   flex-direction: column;
+   gap: 25px;
+}
+
+/* ADDED: Title wrap — width: 434px, padding 16px top/bottom */
+.hero-details-title-wrap {
+   max-width: 450.25px;
+   height: 130.88px;
+   padding-top: 0;
+   padding-bottom: 16px;
+   position: relative;
+   margin-bottom: 20px;
+}
+
+/* ADDED: Title typography — Oswald Light 40px, line-height 50px, color #0A2540 */
+.hero-details-title {
+   font-family: 'Oswald', sans-serif;
+   font-weight: 300;
+   font-style: Light;
+   font-size: 40px;
+   line-height: 50px;
+   letter-spacing: 0%;
+   color: #0A2540;
+   margin: 0;
+}
+
+/* ADDED: Blue underline below headline — width 80px, height 3px, color #0796FE */
+.hero-details-title-wrap::after {
+   content: '';
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   width: 81.27px;
+   height: 9.5px;
+   background-color: #0796FE;
+}
+
+/* ADDED: Description typography — Lato Regular 18px, line-height 25px, color #797979 */
+.hero-details-desc {
+   font-family: 'Lato', sans-serif;
+   font-weight: 400;
+   font-style: Regular;
+   font-size: 18px;
+   line-height: 25px;
+   letter-spacing: 0%;
+   color: #797979;
+   margin: 0;
+   margin-bottom: 50px;
+}
+
+/* ADDED: Buttons container — width: 461px, height: 47px, gap: 25px */
+.hero-details-buttons {
+   display: flex;
+   align-items: center;
+   gap: 25px;
+   max-width: 461px;
+   height: 47px;
+}
+
+/* ADDED: Common button base style */
+.hero-btn {
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   gap: 3px;
+   width: 218px;
+   height: 47px;
+   border-radius: 2px;
+   border: 1px;
+   padding: 15px 18px 15px 18px;
+   font-family: 'Lato', sans-serif;
+   font-weight: 500;
+   font-style: Medium;
+   font-size: 20px;
+   line-height: 20px;
+   letter-spacing: 0%;
+   text-align: center;
+   text-decoration: none;
+   cursor: pointer;
+   transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+/* ADDED: Donate button — bg #0796FE, border 1px solid #0796FE, text #FFFFFF */
+.hero-btn-donate {
+   background-color: #0796FE;
+   border: 1px solid #0796FE;
+   color: #FFFFFF;
+   /* added for smooth transition  */
+   transition: transform 0.4s ease;
+}
+
+/* ADDED: Donate button hover effect */
+.hero-btn-donate:hover {
+   opacity: 0.9;
+   /* cahnges for smooth hover effect  */
+   transform: translateY(-5px);
+}
+
+/* ADDED: Volunteer button — no bg, border 1px solid #0796FE, text #0796FE */
+.hero-btn-volunteer {
+   background-color: transparent;
+   border: 1px solid #0796FE;
+   color: #0796FE;
+}
+
+/* ADDED: Volunteer button hover effect */
+.hero-btn-volunteer:hover {
+   background-color: #0796FE;
+   color: #FFFFFF;
+   transform: translateY(-1px);
+}
+
+/* ADDED: Arrow icon size inside buttons */
+.hero-btn i {
+   font-size: 14px;
+   transition: transform 0.3s ease;
+}
+
+/* ADDED: Arrow icon slide on hover */
+.hero-btn:hover i {
+   transform: translateX(3px);
+}
+
+/* ADDED: Right side image container — width: 526px, height: 469px, border-radius 4px */
+.hero-details-right {
+   flex: 0 0 auto;
+   width: 526px;
+   height: 469px;
+   border-radius: 4px;
+   overflow: hidden;
+}
+
+/* ADDED: Image fills container */
+.hero-details-img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   display: block;
+}
+
+/* ===============================
+   ADDED: Responsive — 2nd Half Hero Details
+================================= */
+
+/* ADDED: Tablet landscape */
+@media (max-width: 1280px) {
+   .hero-details-container {
+      gap: 100px;
+   }
+}
+
+/* ADDED: Tablet portrait */
+@media (max-width: 1024px) {
+   .hero-details-container {
+      flex-direction: column;
+      gap: 40px;
+      text-align: center;
+      align-items: center;
+   }
+
+   .hero-details-left {
+      max-width: 100%;
+      align-items: center;
+   }
+
+   .hero-details-title-wrap {
+      max-width: 100%;
+      height: auto;
+      padding-bottom: 20px;
+      margin-bottom: 15px;
+   }
+
+   /* ADDED: Center the underline on tablet */
+   .hero-details-title-wrap::after {
+      left: 50%;
+      transform: translateX(-50%);
+   }
+
+   .hero-details-buttons {
+      justify-content: center;
+   }
+
+   .hero-details-right {
+      width: 100%;
+      max-width: 526px;
+      height: 400px;
+      margin-top: 10px;
+   }
+}
+
+/* ADDED: Mobile landscape */
+@media (max-width: 768px) {
+   .hero-details-section {
+      padding: 40px 0 60px 0;
+   }
+
+   .hero-details-right {
+      height: 350px;
+   }
+}
+
+/* ADDED: Mobile portrait */
+@media (max-width: 640px) {
+   .hero-details-title {
+      font-size: 32px;
+      line-height: 42px;
+   }
+
+   .hero-details-desc {
+      font-size: 16px;
+      line-height: 22px;
+   }
+
+   .hero-details-buttons {
+      flex-direction: column;
+      max-width: 100%;
+      width: 100%;
+      margin-bottom: 10px;
+   }
+
+   .hero-btn {
+      width: 100%;
+      max-width: 300px;
+   }
+
+   .hero-details-right {
+      height: 280px;
+      margin-top: 0;
+   }
+}
+
+/* ADDED: Extra small devices */
+@media (max-width: 480px) {
+   .hero-details-title {
+      font-size: 28px;
+      line-height: 38px;
+   }
+
+   .hero-details-desc {
+      font-size: 15px;
+      line-height: 21px;
+   }
+
+   .hero-details-right {
+      height: 220px;
+   }
+}
+/* --------------------Hero section ENd ----------------------------*/
+
+/* ------------ why children support matters section ---------------- */
+
+/* ----- RESET & BASE OVERRIDES ----- */
+
+.children-main {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #E1F2FF;
+  margin: 0;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  padding-left: 40px;
+  padding-right: 40px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 130px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ----- MAIN CONTAINER ----- */
+.blue-background-container {
+  position: relative;
+  width: 95%;
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 100px 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 80px;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-x: visible;
+}
+
+/* ----- BACKGROUND ACCENT LAYER (removed) ----- */
+.bg-children-layer {
+  display: none;
+}
+
+/* ----- MAIN GALLERY CONTAINER (LEFT SIDE) ----- */
+.children-gallery {
+  flex: 0 0 584px;
+  width: 584px;
+  height: auto;
+  z-index: 10;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 16px;
+  row-gap: 16px;
+  background: transparent;
+}
+
+/* ----- COLUMN STYLES ----- */
+.gallery-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  height: 100%;
+}
+
+.gallery-col-left {
+  grid-row-start: 1;
+  grid-column-start: 1;
+}
+
+.gallery-col-right {
+  grid-row-start: 1;
+  grid-column-start: 2;
+  transform: translateY(40px);
+}
+
+/* ----- IMAGE STYLES ----- */
+.gallery-img {
+  width: 100%;
+  border-radius: 5px;
+  object-fit: cover;
+  display: block;
+  background-color: #ffffff;
+
+  transition: all 0.35s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.10);
+
+  cursor: pointer;
+}
+
+/* HOVER EFFECT */
+.gallery-img:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+}
+
+.img-large {
+  height: 378.67px;
+}
+
+.img-medium {
+  height: 284px;
+}
+
+/* ----- WELFARE CONTENT SECTION (RIGHT SIDE) ----- */
+.welfare-content {
+  flex: 1;
+  width: 100%;
+  max-width: 527px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background: transparent;
+  margin-top: 35px;
+  box-sizing: border-box;
+}
+
+/* Headline styling */
+.welfare-headline {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 300;
+  font-size: 40px;
+  line-height: 1.2;
+  letter-spacing: 0%;
+  color: #0a2540;
+  margin: 0;
+  padding: 0;
+  max-width: 300px;
+  white-space: pre-line;
+}
+
+/* Add blue line below Matters */
+.welfare-headline::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 9px;
+  background-color: #0796FE;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+/* Text content styling */
+.welfare-text {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 29.25px;
+  letter-spacing: 0px;
+  color: #424940;
+  margin: 0;
+  padding: 0;
+}
+
+/* Welfare footer section */
+.welfare-footer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 520px;
+  height: 50px;
+  background-color: #ffffff;
+  padding-left: 15px;
+  padding-right: 12px;
+  border-radius: 36px;
+  margin-top: 40px;
+  opacity: 1;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Heart icon styling */
+.welfare-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* Footer text styling */
+.welfare-footer-text {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  color: #0796FE;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Tablet and smaller desktop (max-width: 1100px) */
+@media screen and (max-width: 1100px) {
+  .blue-background-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+  
+  .children-gallery {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 584px;
+  }
+  
+  .welfare-content {
+    width: 100%;
+    max-width: 584px;
+    text-align: center;
+    margin-top: 0;
+  }
+  
+  .gallery-col-right {
+    transform: translateY(0);
+  }
+  
+  .welfare-headline {
+    max-width: 100%;
+  }
+  
+  .welfare-headline::after {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Mobile devices (max-width: 768px) */
+@media screen and (max-width: 768px) {
+  .children-main {
+    padding-top: 40px;
+    padding-bottom: 60px;
+    padding-left: 16px;
+    padding-right: 16px;
+    gap: 30px;
+    align-items: center;
+  }
+  
+  .blue-background-container {
+    gap: 30px;
+    padding: 40px 15px;
+    margin: 20px auto;
+  }
+  
+  .children-gallery {
+    max-width: 100%;
+    width: 100%;
+    column-gap: 12px;
+    row-gap: 12px;
+  }
+  
+  .gallery-col {
+    gap: 12px;
+  }
+  
+  .gallery-col-right {
+    transform: translateY(0);
+  }
+  
+  .gallery-img {
+    width: 100%;
+    height: auto !important;
+    border-radius: 12px;
+  }
+  
+  .img-large {
+    aspect-ratio: 284 / 378.67;
+    height: auto;
+  }
+  
+  .img-medium {
+    aspect-ratio: 284 / 284;
+    height: auto;
+  }
+  
+  .welfare-content {
+    width: 100%;
+    max-width: 100%;
+    gap: 20px;
+    text-align: center;
+    margin-top: -20px;
+    padding: 0 10px;
+  }
+  
+  .welfare-headline {
+    font-size: 32px;
+    text-align: center;
+    max-width: 100%;
+  }
+  
+  .welfare-headline::after {
+    margin: 20px auto 0 auto;
+    width: 60px;
+    height: 6px;
+  }
+  
+  .welfare-text {
+    font-size: 16px;
+    line-height: 26px;
+    text-align: left;
+  }
+  
+  .welfare-footer {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 60px;
+    padding: 15px 20px;
+    border-radius: 50px;
+    gap: 12px;
+  }
+  
+  .welfare-footer-text {
+    white-space: normal;
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  
+  .welfare-icon {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* Small mobile devices (max-width: 480px) */
+@media screen and (max-width: 480px) {
+  .children-main {
+    padding-top: 30px;
+    padding-bottom: 50px;
+    padding-left: 12px;
+    padding-right: 12px;
+    gap: 25px;
+  }
+  
+  .children-gallery {
+    column-gap: 10px;
+    row-gap: 10px;
+  }
+  
+  .gallery-col {
+    gap: 10px;
+  }
+  
+  .gallery-img {
+    border-radius: 10px;
+  }
+  
+  .welfare-content {
+    gap: 16px;
+    padding: 020px 5px;
+  }
+  
+  .welfare-headline {
+    font-size: 28px;
+  }
+  
+  .welfare-headline::after {
+    width: 50px;
+    height: 5px;
+    margin-top: 15px;
+  }
+  
+  .welfare-text {
+    font-size: 15px;
+    line-height: 24px;
+  }
+  
+  .welfare-footer {
+    padding: 12px 16px;
+    gap: 10px;
+    min-height: 55px;
+  }
+  
+  .welfare-footer-text {
+    font-size: 13px;
+  }
+  
+  .welfare-icon {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+/* -------------- why children support matters section end ---------- */
+/*  */
+/* ---------------- Our Initiative section ---------------- */
+
+.initiatives {
+  padding: 80px 20px;
+  background: #ffffff;
+}
+
+.initiatives-container {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+/* Title */
+.initiatives-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 300;
+  font-size: 40px;
+  line-height: 50px;
+  text-align: center;
+  color: #0A2540;
+  margin: 0;
+}
+
+.initiatives-title::after {
+  content: "";
+  width: 81px;
+  height: 9px;
+  background: #0796FE;
+  display: block;
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+/* Subtitle */
+.initiatives-subtitle {
+  max-width: 625px;
+  margin: 16px auto 40px;
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  line-height: 28px;
+  color: #424940;
+  text-align: center;
+}
+
+/* Grid */
+.initiatives-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+/* Card */
+.initiative-card {
+  min-height: 344px;
+  padding: 32px;
+  background: #ffffff;
+  border: 1px solid #D4DBE0;
+  border-radius: 4px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.initiative-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Icon */
+.initiative-card .icon {
+  width: 56px;
+  height: 56px;
+  background: #E1F2FF;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.icon img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Heading */
+.initiative-card h3 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 300;
+  font-size: 32px;
+  line-height: 38px;
+  color: #092A49;
+  margin: 0 0 16px;
+}
+
+/* Paragraph */
+.initiative-card p {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  line-height: 28px;
+  color: #797979;
+  margin: 0;
+}
+
+/* Tablet */
+@media (max-width: 991px) {
+  .initiatives-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .initiative-card h3 {
+    font-size: 28px;
+  }
+
+  .initiative-card p {
+    font-size: 16px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  .initiatives {
+    padding: 60px 16px;
+  }
+
+  .initiatives-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .initiatives-title {
+    font-size: 32px;
+    line-height: 42px;
+  }
+
+  .initiatives-subtitle {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .initiative-card {
+    min-height: auto;
+    padding: 24px;
+  }
+
+  .initiative-card h3 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .initiative-card p {
+    font-size: 15px;
+    line-height: 24px;
+  }
+}
+
+/* ---------------- Our Initiative section end ---------------- */
+
+  /* ------------------ Ready to make a difference? section start -------- */
+/* Section */
+.readyto-banner {
+   width: 90%;
+   margin: 50px auto;
+   padding: 50px 60px;
+   border-radius: 2px;
+   background:
+      linear-gradient(90deg, rgba(6, 26, 52, 0.9), rgba(11, 61, 115, 0.8)),
+      url('../assets/images/join-our-bg.png') no-repeat center center;
+   background-size: cover;
+   background-position: center;
+   color: #fff;
+   position: relative;
+   overflow: hidden;
+   height: 350px;
+}
+
+
+.readyto-content {
+   align-items: center;
+}
+
+/* Text */
+.readtto-text h2 {
+   margin: 0;
+   font-family: 'Oswald';
+   font-weight: 300;
+   font-style: Light;
+   font-size: 32px;
+   line-height: 46px;
+   letter-spacing: 0%;
+   vertical-align: middle;
+   text-transform: capitalize;
+   color: #fff;
+   margin-bottom: 20px;
+   text-align: center;
+}
+
+.readtto-text p {
+   font-weight: 400;
+   font-style: Italic;
+   font-size: 18px;
+   line-height: 25px;
+   letter-spacing: 0%;
+   width: 600px;
+   margin: 0px auto;
+   color: #fff;
+   text-align: center;
+}
+
+/* Button */
+.btn-conatiner {
+   margin-top: 50px;
+   display: flex;
+   flex-direction: row;
+   place-content: center;
+   gap: 30px;
+}
+
+/* DONATE BUTTON */
+.readyto-btn {
+   background: #0796FE;
+   color: #fff;
+   height: 47px;
+   width: 263px;
+   text-decoration: none;
+   border-radius: 2px;
+   font-family: Lato;
+   font-weight: 500;
+   font-size: 20px;
+   line-height: 20px;
+   letter-spacing: 0%;
+   text-align: center;
+
+align-content: center;
+/* added for smooth transition  */
+transition: transform 0.4s ease;
+}
+
+/* added for smooth hover effect  */
+.readyto-btn:hover {
+   opacity: 0.9;
+   transform: translateY(-5px);
+}
+
+/* .readyto-btn-volunteer{
+=======
+   align-content: center;
+   transition: all 0.3s ease;
+   cursor: pointer;
+} */
+
+/* DONATE BUTTON HOVER */
+/* .readyto-btn:hover {
+   background: #056fd1;
+   transform: translateY(-3px);
+   box-shadow: 0 8px 20px rgba(7, 150, 254, 0.35);
+} */
+
+/* VOLUNTEER BUTTON */
+.readyto-btn-volunteer {
+   color: #fff;
+   border: 1px solid #fff;
+   height: 47px;
+   width: 263px;
+   text-decoration: none;
+   border-radius: 2px;
+   font-family: Lato;
+   font-weight: 500;
+   font-size: 20px;
+   line-height: 20px;
+   letter-spacing: 0%;
+   text-align: center;
+   align-content: center;
+   transition: all 0.3s ease;
+   cursor: pointer;
+}
+
+/* VOLUNTEER BUTTON HOVER */
+.readyto-btn-volunteer:hover {
+   background: #ffffff;
+   color: #0796FE;
+   transform: translateY(-3px);
+   box-shadow: 0 8px 20px rgba(255,255,255,0.2);
+}
+
+@media (max-width:800px) {
+   .readyto-banner{
+      width:90%;
+      margin: 0px auto;
+      
+   }
+   .btn-conatiner {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+}
+.readtto-text p {
+    font-size: 16px;
+    width: 90%;
+}
+  .readyto-banner {
+    margin: 20px auto;
+    padding: 20px ;
+    height: 100%;
+}
+}
+@media(max-width:480px){
+   .readtto-text h2{
+      font-size: 30px;
+   }
+   .readyto-banner {
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px ;
+    height: 100%;
+}
+.readtto-text p {
+    font-size: 16px;
+    width: 90%;
+}
+.btn-conatiner {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+align-items: center;}
+}
+
+
+/* ================================================
+   SCROLL NAVIGATION BUTTON
+   Bottom button → scrolls to top (up arrow)
+   Hidden at top, visible after scrolling past 1st section
+   ================================================ */
+
+/* Base style — hidden by default */
+.scroll-nav-btn {
+   position: fixed;
+   right: 20px;
+   /* CHANGED: adjusted base size */
+   width: 38px;
+   height: 38px;
+   background-color: #0796FE;
+   color: #ffffff;
+   border: none;
+   border-radius: 5%;
+   cursor: pointer;
+   z-index: 9999;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   opacity: 0;
+   visibility: hidden;
+   transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+   box-shadow: 0 4px 14px rgba(7, 150, 254, 0.35);
+   -webkit-tap-highlight-color: transparent;
+}
+
+/* Visible state — added via JS after scrolling past 1st section */
+.scroll-nav-btn.scroll-nav-visible {
+   opacity: 1;
+   visibility: visible;
+}
+
+/* Shared hover */
+.scroll-nav-btn:hover {
+   background-color: #0680db;
+   box-shadow: 0 6px 20px rgba(7, 150, 254, 0.45);
+}
+
+/* Shared active/press */
+.scroll-nav-btn:active {
+   transform: scale(0.92);
+   background-color: #056cbb;
+}
+
+/* Shared SVG icon style */
+.scroll-nav-btn svg {
+   width: 18px;
+   height: 18px;
+   fill: none;
+   stroke: #ffffff;
+   stroke-width: 2.5;
+   stroke-linecap: round;
+   stroke-linejoin: round;
+}
+
+/* Bottom button — fixed bottom-right — scrolls to page top */
+.scroll-to-top-btn {
+   bottom: 20px;
+}
+
+/* Responsive: tablet */
+@media (max-width: 1024px) {
+   .scroll-nav-btn {
+      right: 16px;
+      width: 36px;
+      height: 36px;
+   }
+   .scroll-nav-btn svg {
+      width: 16px;
+      height: 16px;
+   }
+   .scroll-to-top-btn {
+      bottom: 30px;
+   }
+}
+
+/* Responsive: mobile */
+@media (max-width: 768px) {
+   .scroll-nav-btn {
+      right: 16px;
+      width: 34px;
+      height: 34px;
+   }
+   .scroll-nav-btn svg {
+      width: 15px;
+      height: 15px;
+   }
+   .scroll-to-top-btn {
+      bottom: 24px;
+   }
+}
+
+/* Responsive: small mobile */
+@media (max-width: 480px) {
+   .scroll-nav-btn {
+      right: 12px;
+      width: 32px;
+      height: 32px;
+   }
+   .scroll-nav-btn svg {
+      width: 14px;
+      height: 14px;
+      stroke-width: 2.8;
+   }
+   .scroll-to-top-btn {
+      bottom: 20px;
+   }
+}
+/*  */
+
+
+/* ================================================
+   SCROLL NAVIGATION BUTTON
+   Bottom button → scrolls to top (up arrow)
+   Hidden at top, visible after scrolling past 1st section
+   ================================================ */
+
+/* Base style — hidden by default */
+.scroll-nav-btn {
+   position: fixed;
+   right: 20px;
+   /* CHANGED: adjusted base size */
+   width: 38px;
+   height: 38px;
+   background-color: #0796FE;
+   color: #ffffff;
+   border: none;
+   border-radius: 5%;
+   cursor: pointer;
+   z-index: 9999;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   opacity: 0;
+   visibility: hidden;
+   transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+   box-shadow: 0 4px 14px rgba(7, 150, 254, 0.35);
+   -webkit-tap-highlight-color: transparent;
+}
+
+/* Visible state — added via JS after scrolling past 1st section */
+.scroll-nav-btn.scroll-nav-visible {
+   opacity: 1;
+   visibility: visible;
+}
+
+/* Shared hover */
+.scroll-nav-btn:hover {
+   background-color: #0680db;
+   box-shadow: 0 6px 20px rgba(7, 150, 254, 0.45);
+}
+
+/* Shared active/press */
+.scroll-nav-btn:active {
+   transform: scale(0.92);
+   background-color: #056cbb;
+}
+
+/* Shared SVG icon style */
+.scroll-nav-btn svg {
+   width: 18px;
+   height: 18px;
+   fill: none;
+   stroke: #ffffff;
+   stroke-width: 2.5;
+   stroke-linecap: round;
+   stroke-linejoin: round;
+}
+
+/* Bottom button — fixed bottom-right — scrolls to page top */
+.scroll-to-top-btn {
+   bottom: 20px;
+}
+
+/* Responsive: tablet */
+@media (max-width: 1024px) {
+   .scroll-nav-btn {
+      right: 16px;
+      width: 36px;
+      height: 36px;
+   }
+   .scroll-nav-btn svg {
+      width: 16px;
+      height: 16px;
+   }
+   .scroll-to-top-btn {
+      bottom: 30px;
+   }
+}
+
+/* Responsive: mobile */
+@media (max-width: 768px) {
+   .scroll-nav-btn {
+      right: 16px;
+      width: 34px;
+      height: 34px;
+   }
+   .scroll-nav-btn svg {
+      width: 15px;
+      height: 15px;
+   }
+   .scroll-to-top-btn {
+      bottom: 24px;
+   }
+}
+
+/* Responsive: small mobile */
+@media (max-width: 480px) {
+   .scroll-nav-btn {
+      right: 12px;
+      width: 32px;
+      height: 32px;
+   }
+   .scroll-nav-btn svg {
+      width: 14px;
+      height: 14px;
+      stroke-width: 2.8;
+   }
+   .scroll-to-top-btn {
+      bottom: 20px;
+   }
+}

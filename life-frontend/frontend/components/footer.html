@@ -1,0 +1,634 @@
+<!-- Oswald ExtraLight (200) + Lato Regular (400) -->
+<link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Oswald:wght@200;300;400;500;600&family=Lato:wght@300;400;700&display=swap"
+    rel="stylesheet">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+<style>
+    /* ══════════════════════════════════
+       CSS VARIABLES
+    ═════════════════════════════════ */
+    :root {
+      --navy: rgba(10, 37, 64, 1);
+      --cyan: rgba(7, 150, 254, 1);
+      --white: #FFFFFF;
+      --border-input: rgba(45, 74, 104, 1);
+      --text-desc: rgba(184, 197, 214, 1);
+      --text-placeholder: rgba(125, 143, 165, 1);
+      --border-light: rgba(255, 255, 255, 0.1);
+    }
+
+    * { box-sizing: border-box; }
+
+/* ===== FOOTER STYLES (DESKTOP - UNCHANGED) ===== */
+.footer-wrapper {
+    width: 100%;
+    background: rgba(10, 37, 64, 1);
+    overflow-x: hidden; 
+    display: flex;
+    justify-content: center;
+}
+
+.footer-container {
+    width: 100%; 
+    max-width: 1320px;
+    margin: 0 auto; 
+    position: relative;
+}
+
+.footer-grid {
+    display: grid;
+    column-gap: 15px; 
+    grid-template-columns: 1.2fr 0.6fr 0.6fr 1.8fr;
+    padding-left: 42px; 
+}
+
+/* ── Column 1: Logo & Contact ── */
+.footer-contact {
+    padding-right: 30px;
+}
+
+.footer-logo img {
+    width: 160px;
+    height: auto;
+    display: block;
+}
+
+.contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0 0;
+}
+
+.contact-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.contact-list li:last-child {
+    margin-bottom: 40px;
+}
+
+.contact-list li i {
+    font-size: 14px;
+    color: rgba(7, 150, 254, 1);
+    margin-top: 5px;
+    flex-shrink: 0;
+    width: 16px;
+    text-align: center;
+}
+
+.contact-list li span {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 16px;
+    line-height: 24px;
+    color: rgba(255, 255, 255, 1);
+}
+
+.contact-list li a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+/* ── Column 2 & 3: Quick Links ── */
+.footer-links {
+    padding-top: 0.5px;
+}
+
+.footer-title {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-style: Light;
+    font-size: 22px;
+    line-height: 26.4px;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 1);
+    margin: 0 0 15px;
+}
+
+.footer-title::after {
+    content: '';
+    display: block;
+    width: 45px;
+    height: 2px;
+    background: rgba(7, 150, 254, 1);
+    margin-top: 10px;
+}
+
+.footer-links .footer-title {
+    margin-bottom: 28px;
+    padding-left: 0;
+}
+
+.footer-links-col2 .footer-title {
+    visibility: hidden;
+}
+
+.quick-links-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.link-item {
+    margin-bottom: 12px;
+}
+
+.link-item:last-child {
+    margin-bottom: 0;
+}
+
+.link-item a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 1.5px 0;
+    padding-left: 0;
+    text-decoration: none;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0%;
+    color: rgba(255, 255, 255, 1);
+    transition: color 0.3s ease;
+    font-style: Regular;
+}
+
+.link-item a:hover {
+    color: rgba(7, 150, 254, 1);
+}
+
+.arrow-icon {
+    font-size: 10px;
+    flex-shrink: 0;
+}
+
+/* ── Column 4: Newsletter ── */
+.footer-newsletter {
+    padding-left: 5px;
+}
+
+.footer-newsletter .footer-title {
+    margin-bottom: 33px;
+}
+
+.newsletter-text {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 25.6px;
+    color: rgba(184, 197, 214, 1);
+    margin: 0 0 48px;
+    max-width: 487px;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 10px;
+}
+
+.newsletter-form input[type="email"] {
+    width: 380px;
+    height: 38px;
+    padding: 0 16px;
+    border:1px solid rgba(45, 74, 104, 1);
+    border-radius: 4px 0 0 4px; 
+    background: transparent;
+    font-style: Regular;
+    outline: none;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 38px;
+    color: rgba(125, 143, 165, 1);
+    box-sizing: border-box;
+    letter-spacing: 0%;
+}
+
+.newsletter-form input[type="email"]::placeholder {
+    color: rgba(125, 143, 165, 1);
+}
+
+.newsletter-form input[type="email"]:focus {
+    border-color: rgba(7, 150, 254, 1);
+}
+
+.newsletter-form button {
+    width: 105px;
+    height: 38px;
+    margin-left: 0; 
+    border: 2px solid rgba(7, 150, 254, 1);
+    border-radius: 0 4px 4px 0;
+    background: rgba(7, 150, 254, 1);
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    font-style: Medium;
+    line-height: 19.2px;
+    text-align: center;
+    color: rgba(255, 255, 255, 1);
+    cursor: pointer;
+    transition: background 0.3s ease, border-color 0.3s ease;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.newsletter-form button:hover {
+    background: rgba(40, 167, 255, 1);
+    border-color: rgba(40, 167, 255, 1);
+    color: rgba(255, 255, 255, 1);
+}
+
+    /* ════════════════════════════════════
+       COPYRIGHT TEXT - Lato Regular (400)
+    ════════════════════════════════════════ */
+    .footer-copyright {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: 0;
+        padding-top: 20px;
+        width: 100%;
+        height: auto;
+        margin-left: 30px;
+        margin-right: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .copyright-text {
+        font-family: 'Lato', sans-serif !important;
+        font-weight: 400 !important;
+        color: #999999;
+        font-size: 14px;
+        margin: 0;
+        line-height: 24px;
+        display: flex;
+        align-items: center;
+    }
+
+    .company-name {
+        color: var(--white);
+        font-weight: 600;
+        display: inline-block;
+        text-decoration: none;
+        vertical-align: middle;
+        transition: all 0.3s ease;
+        margin-left: 2px; 
+    }
+
+    .copyright-text a.company-name:hover {
+        color: #00bcd4 !important;
+        font-weight: 700; 
+        letter-spacing: 1px; 
+        margin-left: 4px; 
+    }
+
+    /* SOCIAL ICONS */
+    .copyright-links {
+        display: flex;
+        gap: 5px;
+        margin-right: 40px;
+    }
+
+    .copyright-links a {
+        display: flex;
+        padding: 8px;
+        border-radius: 50%;
+        transition: 0.2s ease;
+        color: #FFFFFF;
+        font-size: 16px;
+        text-decoration: none;
+    }
+
+    .copyright-links a:hover {
+        background: #00bcd4;
+        color: #fff;
+        transform: translateY(-3px);
+    }
+
+    .copyright-links a:hover i {
+        color: #fff;
+    }
+
+
+/* ===================================================
+   RESPONSIVE FIXES (TABLET & MOBILE)
+   =================================================== */
+
+/* Tablet & iPad (Under 1200px) */
+@media (max-width: 1200px) {
+    .footer-container { padding: 0 30px; width: 100%; max-width: 100%;} 
+    
+    .footer-grid {
+        grid-template-columns: 280px 1fr 200px 200px;
+        padding-left: 0;
+        gap: 0; 
+    }
+
+    /* TOP ROW LEFT: Contact */
+    .footer-contact {
+        grid-column: 1 / 2;
+        padding-right: 0;
+    }
+
+    /* TOP ROW MIDDLE: (Empty Spacer) */
+    
+    /* TOP ROW RIGHT: Quick Links 1 */
+    .footer-links-col1 {
+        grid-column: 3 / 4;
+        padding-right: 5px;
+    }
+
+    /* TOP ROW RIGHT: Quick Links 2 */
+    .footer-links-col2 {
+        grid-column: 4 / 5;
+        padding-left: 5px;
+        text-align: left;
+    }
+
+    .footer-links-col2 .footer-title { 
+        visibility: visible; 
+    }
+    
+    /* BOTTOM ROW: Newsletter (Full Width) */
+    .footer-newsletter { 
+        grid-column: 1 / -1; 
+        padding-left: 0;
+        padding-right: 0;
+        margin-top: 20px;
+    }
+
+    .newsletter-text {
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+    
+    .newsletter-form input[type="email"] { width: 100%; flex: 1; max-width: 600px;}
+    .newsletter-form button { width: auto; flex-shrink: 0; min-width: 100px;}
+}
+
+/* Mobile Portrait (Under 768px) */
+@media (max-width: 768px) {
+    .footer-container { padding: 0 20px; width: 100%; max-width: 100%;}
+    
+    .footer-grid { 
+        grid-template-columns: 1fr; 
+        padding-left: 0;
+        gap: 35px; /* Standard gap between blocks */
+    }
+    
+    .footer-contact,
+    .footer-links-col1, 
+    .footer-links-col2,
+    .footer-newsletter {
+        grid-column: 1 / -1; 
+    }
+
+    /* Reset tablet paddings */
+    .footer-contact { padding-right: 0; }
+    .footer-links-col1 { padding-right: 0; }
+    
+    /* FIX: Merge the two Quick Lists to remove gap between Events and Gallery */
+    .footer-links-col2 { 
+        padding-left: 0; 
+        margin-top: -90px; 
+    }
+
+    .footer-links-col2 .footer-title { visibility: hidden; }
+    
+    .footer-copyright { 
+        flex-direction: column; 
+        height: auto; 
+        padding: 30px 0; 
+        gap: 20px; 
+        text-align: center; 
+        justify-content: center; 
+    }
+    
+    .copyright-text { font-size: 14px; }
+}
+
+@media (max-width: 576px) {
+    .footer-container { padding: 0 15px; }
+    
+    .newsletter-form { flex-direction: column; gap: 10px; width: 100%; }
+    
+    .newsletter-form input[type="email"] { 
+        width: 100%; 
+        border-radius: 4px; 
+        border-right: 1px solid rgba(45, 74, 104, 1); 
+        box-sizing: border-box;
+    }
+    
+    .newsletter-form input[type="email"]:focus { 
+        border-right: 1px solid rgba(7, 150, 254, 1); 
+    }
+    
+    .newsletter-form button { 
+        width: 100%; 
+        border-radius: 4px; 
+        margin-left: 0; 
+        box-sizing: border-box;
+    }
+    
+    .copyright-text { font-size: 13px; line-height: 20px; }
+    .copyright-links { gap: 15px; }
+}
+
+</style>
+
+<footer class="footer-wrapper">
+    <div class="footer-container">
+        
+        <div class="footer-grid">
+            
+            <!-- Column 1: Image & Contact -->
+            <div class="footer-contact">
+                <div class="footer-logo">
+                    <img src="assets/images/CWS-LOGO1.png" alt="Creative Web Solution">
+                </div>
+                
+                <ul class="contact-list">
+                    <li>
+                        <a href="https://www.google.com/maps/place/CREATIVE+WEB+SOLUTION/@18.5553894,73.8066449,17z/data=!3m1!4b1!4m6!3m5!1s0x3bc2bf35b7cb1db9:0xfb131e6d9d9ddbea!8m2!3d18.5553894!4d73.8092198!16s%2Fg%2F11wt__1dd0?entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </a>
+                        <span>LWT, 203, C/O, ITI RD, above PNG, near Parihar Chowk, Aundh, Maharashtra-411007</span>
+                    </li>
+                    
+                    <!-- CHANGE: Mobile number ke liye <a> tag add kiya aur href="tel:" lagaya taaki click karne par call ho jaye -->
+                    <li>
+                        <a href="tel:+919326246981">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+91 93262 46981</span>
+                        </a>
+                    </li>
+                   
+                   <li>
+                        <a href="mailto:info@creativewebsolution.in">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@creativewebsolution.in</span>
+                        </a>
+                    </li>
+                    <li>
+                        <i class="fas fa-globe"></i>
+                        <span>www.creativewebsolution.in</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Column 2: Quick Links -->
+            <div class="footer-links footer-links-col1">
+                <h2 class="footer-title">Quick Links</h2>
+                <ul class="quick-links-list">
+                    <li class="link-item"><a href="index.html"><i class="fas fa-chevron-right arrow-icon"></i> Home</a></li>
+                    <li class="link-item"><a href="life-at-cws.html"><i class="fas fa-chevron-right arrow-icon"></i> Life at CWS</a></li>
+                    <li class="link-item"><a href="culture.html"><i class="fas fa-chevron-right arrow-icon"></i> Culture</a></li>
+                    <li class="link-item"><a href="social-service.html"><i class="fas fa-chevron-right arrow-icon"></i> Social Service</a></li>
+                    <li class="link-item"><a href="events.html"><i class="fas fa-chevron-right arrow-icon"></i> Events</a></li>
+                </ul>
+            </div>
+            
+            <!-- Column 3: Quick Links 2 -->
+            <div class="footer-links footer-links-col2">
+                <h2 class="footer-title" style="visibility: hidden;">Links</h2>
+                <ul class="quick-links-list">
+                    <li class="link-item"><a href="gallery.html"><i class="fas fa-chevron-right arrow-icon"></i> Gallery</a></li>
+                    <li class="link-item"><a href="Careers.html"><i class="fas fa-chevron-right arrow-icon"></i> Career</a></li>
+                    <li class="link-item"><a href="contact-us.html"><i class="fas fa-chevron-right arrow-icon"></i> Contact Us</a></li> 
+                </ul>
+            </div>
+            
+            <!-- Column 4: Newsletter -->
+            <div class="footer-newsletter">
+                <h2 class="footer-title">Newsletters</h2>
+                <p class="newsletter-text">
+                    Elevate your business with Creative Web Solution. Experience growth through smart websites and cutting edge digital strategies.
+                </p>
+                <form id="newsletterForm" class="newsletter-form" novalidate>
+                <input type="email" id="newsletterEmail" placeholder="Email goes here">
+                <button type="submit">Submit</button>
+                </form> 
+            </div>
+            
+        </div>
+        
+        <!-- Copyright Section -->
+        <div class="footer-copyright">
+            <p class="copyright-text">Copyright &copy; 2025 - 2026 <a href="https://www.creativewebsolution.in/" target="_blank" class="company-name"> Creative Web
+                    Solution</a>. ALL RIGHTS RESERVED</p>
+            <div class="copyright-links">
+                <a href="https://www.linkedin.com/company/creativewebsolution404/?viewAsMember=true" target="_blank"
+                    rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com/creativewebsolution99?utm_source=qr&igsh=OWlxcGlvNG1tNG1s"
+                    target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>        
+    </div>
+</footer>
+
+<script>
+    
+// WORKING NEWSLETTER SUBSCRIPTION - FOR ACTUAL PROJECT
+(function() {
+    console.log('Newsletter script initializing...');
+    
+    function showMessage(message, isSuccess) {
+        const msgDiv = document.getElementById('newsletterMessage');
+        if (msgDiv) {
+            msgDiv.innerHTML = '<div class="newsletter-message ' + (isSuccess ? 'success' : 'error') + '">' + message + '</div>';
+            setTimeout(() => {
+                msgDiv.innerHTML = '';
+            }, 5000);
+        }
+    }
+    
+    function setupNewsletter() {
+        const form = document.getElementById('newsletterForm');
+        if (!form) {
+            console.log('Waiting for newsletter form...');
+            setTimeout(setupNewsletter, 500);
+            return;
+        }
+        
+        console.log('✅ Newsletter form found! Attaching event listener...');
+        
+        // Remove any existing event listeners
+        const newForm = form.cloneNode(true);
+        form.parentNode.replaceChild(newForm, form);
+        
+        const finalForm = document.getElementById('newsletterForm');
+        const emailInput = document.getElementById('newsletterEmail');
+        const submitBtn = finalForm.querySelector('button');
+        
+        finalForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const email = emailInput.value.trim();
+            const originalText = submitBtn.innerHTML;
+            
+            if (!email) {
+                showMessage('❌ Please enter your email address', false);
+                return;
+            }
+            
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+            if (!emailPattern.test(email)) {
+                showMessage('❌ Please enter a valid email address', false);
+                return;
+            }
+            
+            // Show loading
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Subscribing...';
+            
+            try {
+                const response = await fetch('http://localhost:8080/api/email/subscribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email: email })
+                });
+                
+                const result = await response.text();
+                
+                if (response.ok) {
+                    emailInput.value = '';
+                    showMessage('✅ ' + result, true);
+                    console.log('Subscription successful:', email);
+                } else {
+                    showMessage('❌ ' + result, false);
+                }
+            } catch (error) {
+                console.error('Fetch error:', error);
+                showMessage('❌ Cannot connect to backend. Make sure backend is running on port 8080', false);
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+            }
+        });
+        
+        console.log('✅ Event listener attached successfully!');
+    }
+    
+    // Start when page is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setupNewsletter);
+    } else {
+        setupNewsletter();
+    }
+})();
+</script>

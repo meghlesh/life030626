@@ -1,0 +1,1269 @@
+/* ================================================
+   CWS.life — culture.css
+   Page-specific styles for culture.html
+   All global styles (colors, fonts, navbar,
+   footer, buttons) are in global.css
+   ================================================ */
+
+/* Top Hero Section */
+.life-at-cws-hero {
+  /* max-width: 1440px; */
+  width: 100%;
+  height: 298.1px;
+  margin: 0 auto;
+  margin-top: 125.49px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  position: relative;
+  z-index: 10;
+  overflow: visible !important;
+}
+
+.life-at-cws-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0d3358;
+  clip-path: polygon(0 0, 100% 0, 100% 60%, 50% 100%, 0 60%);
+  z-index: 2; 
+}
+
+.life-at-cws-hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0796FE;
+  clip-path: polygon(0 0, 100% 0, 100% 60%, 50% 100%, 0 60%);
+  transform: translateY(12px);
+  z-index: 1; 
+}
+
+.hero-content {
+  text-align: center;
+  position: relative;
+  z-index: 3; 
+  margin-top: 30px;   /*added for better alignment*/
+}
+
+.hero-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 300;
+  font-size: 64px;
+  line-height: 75px;
+  letter-spacing: 0;
+  text-align: center;
+  vertical-align: middle;
+  text-transform: capitalize;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.hero-subtitle {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: 0;
+  text-align: center;
+  vertical-align: middle;
+  color: #c4c4c4;   /*added to match color with figma*/
+  margin: 0;
+  margin-top: 23px;   /*added for spacing improvement*/
+}
+
+.breadcrumb-active {
+  color: rgba(7, 150, 254, 1);
+}
+
+/* Culture Section Styles */
+
+.culture-section {
+  background-color: #ffffff;
+  padding: 80px 0 60px 0;
+  margin-bottom: 60px;          /* Changes Added 25/03/2026 */
+}
+
+.culture-container {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  gap: 30px;
+  align-items: stretch;
+  padding: 0 100px 0 60px;    /*for better section alignment*/
+  box-sizing: border-box;
+}
+
+/* Left Side Container */
+
+.culture-left {
+  width: 610px; 
+  height: 914px;
+  display: flex;
+  flex-direction: column;
+  padding-right: 30px;    /*for better section alignment*/
+}
+
+/* .right-content-box {
+  width: 610px;
+  height: 912px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-top: 5px;
+} */
+
+.culture-heading {
+  font-family: 'Oswald', sans-serif;
+  font-size: 36px;
+  font-weight: 300;
+  color: #0A2540;
+  line-height: 43px;
+  letter-spacing: 0%;
+  font-style: Light;
+  margin: 0 0 30px 0;
+  width: 536px;
+}
+
+.culture-desc {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 18px;          /* Changes on 26/03/2026 */
+  font-style: Regular;
+  letter-spacing: 0%;
+  color: #797979;
+  line-height: 25px;
+  margin: 0 0 50px 0;
+  width: 512px;            /* Changes on 26/03/2026 */
+}
+
+/* Image with Vertical Lines */
+.culture-image-wrapper {
+  position: relative;
+  display: block;
+  width: 570px;
+  margin-bottom: 40px;
+}
+
+.culture-image-wrapper img {
+  width: 536px;            /* Changes on 26/03/2026 */
+  height: 493px;    /*for better image size*/
+  object-fit: cover;
+  display: block;
+  border-radius: 4px;
+  top: 733px;
+  left: 99px;
+}
+
+/* Right Top Vertical Line */
+.culture-image-wrapper::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  right: 60px;            /* Changes on 26/03/2026 */
+  width: 10px;
+  height: 100px;
+  background-color: #0796FE;
+  z-index: 1;
+}
+
+/* Left Bottom Vertical Line */
+.culture-image-wrapper::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 30px;
+  width: 10px;
+  height: 170px;
+  background-color: #0796FE;
+  z-index: 1;
+}
+
+/* Quote Box */
+.culture-quote {
+  background-color: #0796FE;
+  padding: 35px 40px;         /* Changes on 26/03/2026 */
+  border-radius: 4px;
+  width: 537px;              /* Changes on 26/03/2026 */
+  box-sizing: border-box;
+  height: auto;          /* Changes on 26/03/2026 */
+  top: 1310px;          /* Changes on 26/03/2026 */
+  left: 98px;           /* Changes on 26/03/2026 */
+  gap: 10px;            /* Changes on 26/03/2026 */
+}
+
+.culture-quote p {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;     /*changes for better font*/
+  font-size: 24px;      /*changes for better font*/
+  color: #ffffff;
+  margin: 0;
+  line-height: 33px;       /*changes for better font*/
+  text-align: center;
+  font-style: normal;    /*changes for better font*/
+}
+
+/* Right Side Container */
+
+/* .culture-right {
+  width: 610px;
+  height: 914px;
+  display: flex;
+  flex-direction: column;
+} */
+
+.right-content-box {
+  width: 610px;
+  height: 914px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-top: 5px;
+}
+
+/* Vision Section */
+
+.vision {
+  margin-bottom: 0;
+}
+
+.vision h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 36px;
+  font-weight: 300;
+  font-style: Light;
+  line-height: 43px;
+  letter-spacing: 0%;
+  color: #0A2540;
+  margin: 0 0 20px 0;   /*changes for better spacing*/
+  text-transform: 1, uppercase;
+}
+
+.vision p {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;        /* Changes on 26/03/2026 */
+  font-weight: 400;
+  font-style: Regular;
+  line-height: 25px;
+  letter-spacing: 0%;
+  color: #797979;
+  margin: 0;
+  width: 580px;          /* Changes on 26/03/2026 */
+}
+
+/* Mission Section */
+
+.mission {
+  margin-bottom: 0;
+}
+
+.mission h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 36px;
+  font-weight: 300;
+  font-style: Light;
+  line-height: 43px;
+  letter-spacing: 0%;
+  color: #0A2540;
+  margin: 0 0 20px 0;   /*changes for better spacing*/
+  text-transform: 1, uppercase;
+}
+
+.mission p {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;        /* Changes on 26/03/2026 */
+  font-weight: 400;
+  font-style: Regular;
+  line-height: 25px;
+  letter-spacing: 0%;
+  color: #797979;
+  margin: 0 0 20px 0;
+  width: 630px;         /* Changes on 26/03/2026 */
+}
+
+/* Underline (common for vision, mission, values) */
+.item-line {
+  width: 70px;
+  height: 8px;
+  background-color: #0796FE;
+  margin-bottom: 20px;
+}
+
+/* Our Values Section */
+
+.values-box {
+  margin-top: 0;
+}
+
+.values-box h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 36px;
+  font-weight: 300;
+  font-style: Light;
+  line-height: 43px;
+  color: #0A2540;
+  margin: 0 0 20px 0;   /*changes for better spacing*/
+  text-transform: 1, uppercase;
+  letter-spacing: 0%;
+}
+
+.values-intro {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;          /* Changes on 26/03/2026 */
+  font-weight: 400;
+  color: #797979;
+  margin: 0 0 25px 0;
+  line-height: 26px;
+  width: 500px;
+}
+
+/* Values List Items */
+
+.values-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;    /*for proper space between icons*/
+}
+
+.value-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+/* Value Icon Box */
+.value-icon {
+  width: 50px;
+  height: 50px;   /*Correct height is added*/
+  min-width: 50px;
+  background-color: #E1F2FF;    /*Added correct background color*/
+  border-radius: 4px;   /*correct border radius is added*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Value Icon Image */
+.value-icon img {
+  width: 40px;    /*Correct width is added*/
+  height: 40px;   /*Correct height is added*/
+  border-radius: 4px;   /*Correct radius is added*/
+  object-fit: contain;
+}
+
+.value-content {
+  flex: 1;
+  padding-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 5px;             /* Added Changes on 26/03/2026 */
+}
+
+/* Value Name (Bold text) */
+.value-name {
+  font-family: 'Lato', sans-serif;     /* Changes on 26/03/2026 */
+  font-size: 24px;         /* Changes on 26/03/2026 */
+  font-weight: 400;
+  color: #092A49;   /*changes for exact font color*/
+  font-style: Regular;
+  letter-spacing: 0%;
+  line-height: 25px;    /*added missing line height*/
+}
+
+/* Value Description (Normal text) */
+.value-desc {
+  font-family: 'Lato', sans-serif;
+  font-size: 24px;          /* changes to match correct font size */
+  font-weight: 400;
+  color: #797979;
+  line-height: 26px;
+  letter-spacing: 0%;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width:1280px) {
+  .right-content-box {
+    width: 610px;   /*changes made for paragraph spacing*/
+    gap: 20px;
+}
+.vision p , .mission p {
+    
+    font-size: 18px;
+    width: 600px;   /*changes made for paragraph spacing*/
+}
+
+ /*added for improved alignment*/
+  .vision h3,
+  .mission h3,
+  .values-box h3 {
+    margin: 0 0 20px 0;
+  }
+
+  /*added for improved alignment*/
+  .vision p,
+  .mission p,
+  .values-box p {
+    margin-top: 30px;
+  }
+
+  /*added for better spacing*/
+  .hero-subtitle {
+    font-size: 25px;
+    margin-top: 10px;
+  }
+
+  .culture-container {    /*added for better spacing*/
+    gap: 0px;
+  }
+
+  .value-content span {   /*added for better typography*/
+    font-size: 23px;
+  }
+}
+@media (max-width: 1200px) {
+  .culture-container {
+    padding: 0 60px;
+    gap: 40px;   /* Changes on 26/03/2026 */
+  }
+  
+  .culture-heading,
+  .culture-desc,
+  .vision p,
+  .mission p,
+  .values-intro {
+    width: 80%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .life-at-cws-hero {
+    height: 250px;
+    margin-top: 60px;             /* Changes on 26/03/2026 */
+  }
+  
+  .hero-title {
+    font-size: 48px;
+    line-height: 60px;
+  }
+
+  /*added for better spacing*/
+  .hero-subtitle {
+    margin-top: 5px;
+  }
+  
+  .culture-container {
+    flex-direction: column;
+    gap: 50px;
+    align-items: stretch;
+    padding: 0 40px;
+  }
+  
+  .culture-left,
+  .culture-right,
+  .right-content-box {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .culture-heading {
+    width: 100%;
+  }
+  
+  .culture-desc {
+    width: 100%;
+  }
+  
+  .culture-image-wrapper {
+    width: 100%;
+  }
+  
+  .culture-image-wrapper img {
+    width: 100%;
+    height: 400px;
+  }
+
+    /* Extra Code Added on 26/03/2026 */
+  .culture-image-wrapper::before {
+    right: 30px;
+    height: 70px;
+  }
+  
+  .culture-image-wrapper::after {
+    left: 20px;
+    height: 100px;
+  }
+  /* ---------------------------------  */
+
+  .culture-quote {
+    width: 100%;
+    padding: 25px 30px;
+  }
+  
+  .culture-quote p {
+    font-size: 24px;
+    line-height: 30px;
+  }
+  
+/* Added for better alignment*/
+  .culture-heading,
+  .culture-desc,
+  .culture-image-wrapper,
+  .culture-quote {
+    margin-left: 15px;
+  }
+
+  /* Added for better alignment*/
+  .vision,
+  .mission,
+  .values-box {
+    margin-left: 15px;
+  }
+
+  .vision p,
+  .mission p,
+  .values-intro {
+    width: 100%;
+  }
+
+  .values-box p {   /* Added for better spacing*/
+    margin-bottom: 30px;
+  }
+}
+
+/* New Code Added 26/03/2026 */
+@media (max-width: 820px) {
+  .life-at-cws-hero {
+    height: 220px;
+    margin-top: 55px;             
+  }
+  
+  .hero-title {
+    font-size: 42px;
+    line-height: 52px;
+  }
+
+  /*added for better spacing*/
+  .hero-subtitle {
+    margin-top: 5px;    
+  }
+  
+  .culture-container {
+    padding: 0 30px;
+  }
+  
+  .culture-image-wrapper img {
+    height: 350px;
+  }
+
+  /* Added for better alignment*/
+  .culture-heading,
+  .culture-desc,
+  .culture-image-wrapper,
+  .culture-quote {
+    margin-left: 15px;
+  }
+
+  /* Added for better alignment*/
+  .vision,
+  .mission,
+  .values-box {
+    margin-left: 10px;
+  }
+}
+ /*------------------------------- */
+
+
+@media (max-width: 768px) {
+  .life-at-cws-hero {
+    height: 200px;
+    margin-top: 50px;             /* Changes on 26/03/2026 */
+  }
+  
+  .hero-title {
+    font-size: 40px;
+    line-height: 50px;
+  }
+  
+  .hero-subtitle {
+    font-size: 16px;
+    margin-top: 5px;    /*added for better spacing*/
+  }
+  
+  .culture-section {
+    padding: 60px 0 40px 0;
+  }
+  
+  .culture-container {
+    padding: 0 20px;
+    gap: 40px;
+  }
+  
+  .right-content-box {
+    gap: 30px;
+  }
+  
+  .culture-heading {
+    font-size: 30px;
+    line-height: 38px;
+  }
+  
+  .culture-desc {
+    font-size: 16px;
+  }
+  
+  .culture-image-wrapper img {
+    height: 300px;
+  }
+  
+  .culture-quote {
+    padding: 20px 25px;
+  }
+  
+  .culture-quote p {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  /* Added for better alignment*/
+  .culture-heading,
+  .culture-desc,
+  .culture-image-wrapper,
+  .culture-quote {
+    margin-left: 15px;
+  }
+
+  /* Added for better alignment*/
+  .vision,
+  .mission,
+  .values-box {
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .life-at-cws-hero {
+    height: 180px;
+    margin-top: 45px;             /* Changes on 26/03/2026 */
+  }
+  
+  .life-at-cws-hero::before,
+  .life-at-cws-hero::after {
+    clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%);
+  }
+  
+  .hero-title {
+    font-size: 32px;
+    line-height: 30px;
+    margin-top: 15px;
+  }
+  
+  .hero-subtitle {
+    font-size: 14px;
+  }
+  
+  .culture-heading {
+    font-size: 26px;
+    line-height: 32px;
+    margin-top: 25px;   /*Changes for improved spacing*/
+  }
+  
+  .culture-image-wrapper img {
+    height: 250px;
+  }
+  
+  .culture-image-wrapper::before {
+    width: 6px;
+    height: 60px;
+    top: -15px;
+    right: 15px;
+  }
+  
+  .culture-image-wrapper::after {
+    width: 6px;
+    height: 80px;
+    bottom: -15px;
+    left: 15px;
+  }
+  
+  .culture-quote {
+    padding: 20px 15px;
+  }
+  
+  .culture-quote p {
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  /* Added for better alignment*/
+  .culture-heading,
+  .culture-desc,
+  .culture-image-wrapper,
+  .culture-quote {
+    margin-left: 15px;
+  }
+
+  /* Added for better alignment*/
+  .vision,
+  .mission,
+  .values-box {
+    margin-left: 5px;
+  }
+  
+  .values-box p {   /* Added for improved spacing*/
+    margin-bottom: 20px;    
+  }
+
+  .value-icon {
+    width: 40px;
+    height: 45px;
+    min-width: 40px;
+  }
+  
+  .value-icon img {
+    width: 22px;
+    height: 30px;
+  }
+  
+  .value-name {
+    font-size: 18px;
+  }
+  
+  .value-desc {
+    font-size: 16px;
+  }
+
+  /*added for better typography*/
+  .value-content span {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-subtitle {
+    margin-top: 5px;      /*added for better title spacing*/
+  }
+
+  /*added for correct typogrphy*/
+  .value-content span {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  .life-at-cws-hero {
+    height: 160px;
+    margin-top: 40px;             /* Changes on 26/03/2026 */
+  }
+  
+  .hero-title {
+    font-size: 28px;
+    line-height: 35px;
+    padding-top: 15px !important;   /*changes for better alignment*/
+  }
+
+  /*changes for better alignment*/
+  .hero-content p {
+    margin-top: 0px;
+  }
+  
+  .culture-section {
+    padding: 40px 0 30px 0;
+  }
+  
+  .culture-container {
+    padding: 0 15px;
+  }
+
+  .culture-heading {     /*added for better alignment*/
+    margin-left: 15px;
+  }
+
+  .culture-desc {    /*added for better alignment*/
+    margin-left: 15px;
+  }
+
+  .culture-image-wrapper {     /*added for better alignment*/
+    margin-left: 15px;
+  }
+
+  /*added for better alignment*/
+  .culture-left {
+    margin-top: 15px;
+  }
+  
+  .culture-quote {
+    padding: 15px 12px;
+    margin-left: 15px;    /*added for better alignment*/
+  }
+  
+  .culture-quote p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .vision,
+  .mission,
+  .values-box {   /*added for better alignment*/
+    margin-left: 5px;
+  }
+
+  .values-box p {    /*added for better alignment*/
+    margin-bottom: 20px;
+  }
+
+  /*added for better typography*/
+  .value-content span {
+    font-size: 20px;
+  }
+}
+
+/*------------ ---------Perk section--------------------- */
+
+.perks-section {
+  background: #103459;
+  padding: 40px 0 90px; 
+}
+
+.perks-container {
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.perks-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 40px; 
+  font-weight: 200;          /* Changes on 26/03/2026 */
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.perks-line {
+  width: 90px;
+  height: 10px;
+  background: #0796FE;
+  margin: 0 auto 30px; 
+  /* border-radius: 3px; */          /* Changes remove on 26/03/2026 */
+}
+
+.perks-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 35px 12px;   /*added for better cards spacing*/
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.perk-card {
+  background: #FFFFFF;
+  padding: 30px 28px;             /* correction to match the figma */
+  border-radius: 3px;            /* Changes on 26/03/2026 */
+  text-align: left;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+  transition: 0.3s ease;
+  width: 380px;
+  height: 300px;    /*added to match figma*/
+}
+
+.perk-card:hover {
+  transform: translateY(-6px);
+}
+
+.perk-icon {
+  width: 50px; 
+  height: 50px;
+  margin-bottom: 20px;
+  margin-left: 15px;    /*added to improve alignment*/
+}
+
+.perk-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.perk-card h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 34px;                 /* Changes on 26/03/2026 */
+  font-weight: 300;
+  color: #0A2540;
+  margin-bottom: 12px;
+  margin-top: 35px;       /*added to improve spacing*/
+}
+
+.perk-card p {
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;             /* changes for correct size */
+  line-height: 25px;
+  color: #797979;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+  .perks-container {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .perk-card {
+    width: 100%;
+  }
+}
+
+/*added for better cards spacing*/
+@media (max-width: 1024px) {
+  .perks-grid {
+    gap: 20px 10px;
+  }
+}
+
+@media (max-width: 992px) {
+  .perks-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/*added for better cards spacing*/
+@media (max-width: 820px) {
+  .perks-grid {
+    gap: 20px 13px;
+  }
+}
+
+@media (max-width: 600px) {
+  .perks-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*added for better cards size*/
+@media (max-width: 480px) {
+  .perk-card {
+    height: 270px;
+  }
+}
+
+/* ========= */
+/* SECTION */
+.join-team-section {
+  padding: 50px 0;
+  background: #ffffff;
+}
+
+/* CONTAINER */
+.container {
+  max-width: 1240px; 
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px; 
+  box-sizing: border-box;
+}
+
+/* WRAPPER */
+.join-wrapper {
+  border-radius: 8px;
+  padding: 0px; 
+  background: #2ea3ff; 
+}
+
+/* MAIN BANNER */
+.join-container {
+  width: 100%; 
+  min-height: 203px; 
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  padding: 42px 60px 32px 60px;
+  border-radius: 0px;
+  
+  background-image: url("../assets/images/join-our-bg.png");
+  background-size: cover;
+  background-position: center;
+  transition: all 0.25s ease;
+  box-sizing: border-box; 
+  /* added for background image  */
+  overflow: hidden;
+  position: relative;
+}
+
+/* added for background image  */
+.join-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+    background: /*added for better bg image*/
+    linear-gradient(84.75deg, rgba(10, 37, 64, 0.51) 13.74%, rgba(26, 96, 166, 0.51) 70.94%, rgba(10, 37, 64, 0.51) 83.33%),
+    url('../assets/images/join-our-bg.png') no-repeat center center;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.07);  
+  z-index: 0;
+}
+
+/* added for background image  */
+.join-content, .join-btn {
+  position: relative;
+  z-index: 1;
+}
+
+.join-container:hover {
+  border-color: #2ea3ff; 
+}
+
+/* TEXT */
+.join-content {
+  width: 100%; 
+  padding-right: 20px; 
+  padding-left: 29px;   /*added for better alignment*/
+}
+
+.join-content h2 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 34px;
+  font-weight: 200;
+  line-height: 46px;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.join-content p {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  font-style: Italic;
+  line-height: 25px;
+  color: #ffffff;
+  width: 100%; 
+  max-width: 560px;      /* Changes on 26/03/2026 */
+  font-weight: 200;      /* Added on 26/03/2026 */
+  margin-top: 11px;      /*added for better spacing*/
+}     
+
+/* BUTTON */
+.join-btn {
+  height: auto; 
+  display: flex;
+  align-items: center;
+  margin-top: 70px; 
+  /* changes for consistent transition  */
+  transition: all 0.4s ease, opacity 0.3s ease;    
+}
+
+.join-btn a {
+  width: 263px;     /* added for improved button */
+  height: 47px;     /* added for improved button */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0796FE;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 2px;
+  font-size: 20px;        /* added for improved button */
+  white-space: nowrap;
+  font-weight: 500;       /* added for improved button */
+}
+
+/*added for better hover effect*/
+.join-btn:hover {
+  /* changes for consistent hover effect  */
+  transform: translateY(-5px);
+  opacity: 0.9;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .join-container {
+    flex-direction: column; 
+    align-items: flex-start;
+    padding: 30px;
+    height: auto;
+  }
+
+  .join-content {
+    width: 100%;
+    padding-right: 0;
+    margin-bottom: 20px; 
+  }
+
+  .join-btn {
+    width: 100%;
+    margin-top: 10px;   /*added for improved space*/
+  }
+
+  .join-btn a {
+    width: 100%; 
+  }
+}
+
+@media (max-width: 600px) {
+  .join-container {
+    padding: 25px 20px;
+  }
+
+  .join-content h2 {
+    font-size: 24px; 
+    line-height: 1.3;
+  }
+
+  .join-content p {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .join-btn {   /*added for improved alignment*/
+    margin-top: 20px;
+  }
+}
+
+
+/* ================================================
+   SCROLL NAVIGATION BUTTON
+   Bottom button → scrolls to top (up arrow)
+   Hidden at top, visible after scrolling past 1st section
+   ================================================ */
+
+/* Base style — hidden by default */
+.scroll-nav-btn {
+   position: fixed;
+   right: 20px;
+   /* CHANGED: adjusted base size */
+   width: 38px;
+   height: 38px;
+   background-color: #0796FE;
+   color: #ffffff;
+   border: none;
+   border-radius: 5%;
+   cursor: pointer;
+   z-index: 9999;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   opacity: 0;
+   visibility: hidden;
+   transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+   box-shadow: 0 4px 14px rgba(7, 150, 254, 0.35);
+   -webkit-tap-highlight-color: transparent;
+}
+
+/* Visible state — added via JS after scrolling past 1st section */
+.scroll-nav-btn.scroll-nav-visible {
+   opacity: 1;
+   visibility: visible;
+}
+
+/* Shared hover */
+.scroll-nav-btn:hover {
+   background-color: #0680db;
+   box-shadow: 0 6px 20px rgba(7, 150, 254, 0.45);
+}
+
+/* Shared active/press */
+.scroll-nav-btn:active {
+   transform: scale(0.92);
+   background-color: #056cbb;
+}
+
+/* Shared SVG icon style */
+.scroll-nav-btn svg {
+   width: 18px;
+   height: 18px;
+   fill: none;
+   stroke: #ffffff;
+   stroke-width: 2.5;
+   stroke-linecap: round;
+   stroke-linejoin: round;
+}
+
+/* Bottom button — fixed bottom-right — scrolls to page top */
+.scroll-to-top-btn {
+   bottom: 20px;
+}
+
+/* Responsive: tablet */
+@media (max-width: 1024px) {
+   .scroll-nav-btn {
+      right: 16px;
+      width: 36px;
+      height: 36px;
+   }
+   .scroll-nav-btn svg {
+      width: 16px;
+      height: 16px;
+   }
+   .scroll-to-top-btn {
+      bottom: 30px;
+   }
+}
+
+/* Responsive: mobile */
+@media (max-width: 768px) {
+   .scroll-nav-btn {
+      right: 16px;
+      width: 34px;
+      height: 34px;
+   }
+   .scroll-nav-btn svg {
+      width: 15px;
+      height: 15px;
+   }
+   .scroll-to-top-btn {
+      bottom: 24px;
+   }
+}
+
+/* Responsive: small mobile */
+@media (max-width: 480px) {
+   .scroll-nav-btn {
+      right: 12px;
+      width: 32px;
+      height: 32px;
+   }
+   .scroll-nav-btn svg {
+      width: 14px;
+      height: 14px;
+      stroke-width: 2.8;
+   }
+   .scroll-to-top-btn {
+      bottom: 20px;
+   }
+}
+/* Resposive nagshree code */
+@media (max-width: 480px) {
+  .vision h3 , .mission h3 , .values-box h3 , .perks-title  {
+    font-size: 30px;
+    margin: 0 0 15px 0
+  }
+  .vision p , .mission p , .values-intro ,.perk-card p  {
+    font-size: 16px;
+    margin: 0px;
+}
+    .culture-section {
+        padding: 10px 0 10px 0;
+    }
+    .perk-card h3{
+      font-size: 25px;
+    }
+    .perk-card {
+    padding: 30px 20px;
+   
+}
+.perks-section {
+    padding: 20px 0 40px;
+}
+}

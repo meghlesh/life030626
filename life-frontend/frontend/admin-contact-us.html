@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us — CWS.life</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Inter:wght@400;500;600&family=Lato:wght@300;400;700&family=Oswald:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/admin-contact-us.css">
+</head>
+<body>
+
+<div class="dashboard-wrapper"> 
+
+  <!-- ============================================================ -->
+  <!-- CHANGED: Replaced entire sidebar HTML with exact copy from admin-dashboard.html -->
+  <!-- ============================================================ -->
+  <aside class="sidebar">
+    
+    <div class="logo">
+      <a class="nav-brand" href="index.html">
+        <img src="assets/images/CWS-LOGO1.png" alt="Creative Web Solution" class="nav-logo"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="brand-fallback" style="display:none;">
+          <span class="brand-box">CWS</span>
+          <span class="brand-tail">.<span>life</span></span>
+        </div>
+      </a>
+    </div>
+
+    <div class="close-btn">
+      <i class="fa-solid fa-xmark"></i>
+    </div>
+
+    <ul class="menu">
+      <li>
+        <a href="admin-dashboard.html" class="nav-link" data-page="dashboard">
+          <img src="assets/icons/dashboard.png" class="icon">
+          <span class="menu-text">Dashboard</span>
+        </a>
+      </li>
+      
+      <!-- <li>
+        <a href="#" class="nav-link">
+          <img src="assets/icons/BLOGS.png" class="icon">
+          <span class="menu-text">Blogs</span>
+        </a>
+      </li> -->
+      
+      <li>
+        <a href="admin-events.html">
+          <img src="assets/icons/EVENTS.png" class="icon">
+          <span class="menu-text">Events</span>
+        </a>
+      </li>
+      <li>
+        <a href="admin-gallery.html" class="nav-link" data-page="gallery">
+          <img src="assets/icons/GALLERY.png" class="icon">
+          <span class="menu-text">Gallery</span>
+        </a>
+      </li>
+      <li>
+        <a href="admin-socialservices.html" class="nav-link" data-page="social-service">
+          <img src="assets/icons/SOCIAL SERVICE.png" class="icon">
+          <span class="menu-text">Social Service</span>
+        </a>
+      </li>
+      <li>
+        <a href="career-panel.html" class="nav-link" data-page="career">
+          <img src="assets/icons/CARRER.png" class="icon">
+          <span class="menu-text">Careers</span>
+        </a>
+      </li>
+      
+      <!-- <li>
+        <a href="#">
+          <img src="assets/icons/USER&ROLES.png" class="icon">
+          <span class="menu-text">Users & Roles</span>
+        </a>
+      </li> -->
+      
+      <!-- <li>
+        <a href="#">
+          <img src="assets/icons/ANALYTICS.png" class="icon">
+          <span class="menu-text">Analytics</span>
+        </a>
+      </li> -->
+
+      <li>
+        <!-- CHANGED: Added data-page="contact" because without it the sidebar highlight script skips this link entirely, so Contact Us never gets selected as active -->
+        <a href="admin-contact-us.html" data-page="contact">
+          <i class="fa-regular fa-envelope sidebar-fa-icon"></i>
+          <span class="menu-text">Contact Us</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="admin-setting.html" class="nav-link" data-page="settings">
+          <img src="assets/icons/SETTING.png" class="icon">
+          <span class="menu-text">Setting</span>
+        </a>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <div class="main">
+    
+    <div class="main-wrapper">
+      
+      <header class="top-navbar">
+        
+        <div class="hamburger">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Search...">
+        </div>
+
+        <div class="nav-right">
+
+          <!-- ADDED: Notification Dropdown Wrapper with Badge -->
+          <div class="notification-dropdown-wrapper">
+            <div class="notification" id="notifyBtn">
+              <i class="fa-regular fa-bell"></i>
+              <span class="badge">5</span>
+            </div>
+            <span class="menu-text notification-text">Notification</span>
+            
+            <!-- NOTIFICATION POPUP BOX -->
+            <div class="notification-popup" id="notifyPopup">
+                <div class="notify-header">
+                    <span class="notify-title">Notifications</span>
+                    <span class="mark-read">Mark all as read</span>
+                </div>
+                <ul class="notify-list" id="notifyList">
+                    <!-- Notifications injected by JS -->
+                </ul>
+                <div class="notify-footer">
+                    <a href="admin-contact-us.html">View All Notifications</a>
+                </div>
+            </div>
+          </div>
+
+          <!-- UPDATED: Profile with Dropdown -->
+          <div class="profile-dropdown-wrapper">
+            <div class="profile" id="profileBtn">AS</div>
+            
+            <div class="dropdown-menu" id="logoutDropdown">
+              <ul>
+                <!-- My Profile Container -->
+                <li class="menu-item">
+                  <a href="#">
+                    <i class="fa-regular fa-user"></i> 
+                    <span>My Profile</span>
+                  </a>
+                </li>
+                
+                <li class="menu-item">
+                  <a href="#" onclick="handleLogout(); return false;">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span>Logout</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </header>
+
+      <!-- CONTACT PAGE CONTAINER -->
+      <div class="contact-page-container">
+
+        <!-- Breadcrumb -->
+        <div class="breadcrumb-layout">
+          <!-- <span>Home</span> -->
+           <a href="admin-dashboard.html" class="breadcrumb-home">Home</a>
+          <span class="separator">></span>
+          <span class="current">Contact Us</span>
+        </div>
+
+        <!-- Header: Title + Search only -->
+        <div class="header-action-layout">
+          <h1 class="contact-title-text">Contact Us</h1>
+
+          <div class="header-right-actions">
+            <div class="layout-search-wrapper">
+              <i class="fa-solid fa-magnifying-glass layout-search-icon-fa"></i>
+              <input type="text" class="layout-search-input" placeholder="Search" id="globalSearch">
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter Container: Sort By + Date -->
+        <div class="filter-container-layout">
+
+          <!-- Sort By -->
+          <div class="filter-col">
+            <div class="filter-label">Sort By</div>
+            <div class="filter-select-wrapper">
+              <select id="sortFilter">
+                <option value="latest">Latest First</option>
+                <option value="oldest">Oldest First</option>
+                <option value="name-az">Name A–Z</option>
+                <option value="name-za">Name Z–A</option>
+              </select>
+              <i class="fa-solid fa-chevron-down select-arrow"></i>
+            </div>
+          </div>
+
+          <!-- Date -->
+          <div class="filter-col">
+            <div class="filter-label">Date</div>
+            <div class="filter-input-wrapper date-wrapper">
+              <i class="fa-regular fa-calendar input-icon"></i>
+              <input type="date" id="dateFilter" placeholder="Select date">
+            </div>
+          </div>
+
+          <!-- Sort Icon Button + Remove Filters -->
+            <div class="filter-col filter-sort-icon-col">
+                <div class="filter-action-group">
+                    <!-- <button class="sort-icon-btn-layout" id="applyFilterBtn" title="Apply Filters">
+                    <i class="fa-solid fa-arrow-down-wide-short"></i>
+                    </button> -->
+                    <button class="remove-filter-btn" id="removeFilterBtn">
+                    <i class="fa-solid fa-xmark"></i> Remove Filters
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Submissions Table -->
+        <div class="contact-list-wrapper">
+
+          <div class="contact-list-header">
+            <h2>Contact Submissions</h2>
+            <span class="submission-count" id="submissionCount">Showing 5 of 10 entries</span>
+          </div>
+
+          <div class="contact-table-wrapper-inner">
+            <table class="contact-table-layout">
+              <thead>
+                <tr>
+                  <!-- <th>#</th> -->
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Email</th>
+                  <th>Phone Number</th>
+                  <th>Message</th>
+                  <th>Date</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+                <tbody id="contactTableBody">
+                    <!-- Rows injected by JS  -->
+                </tbody>
+            </table>
+          </div>
+
+          <!-- Pagination -->
+          <div class="pagination-wrapper" id="paginationWrapper">
+            <!-- Buttons injected by JS -->
+          </div>
+
+        </div>
+
+      </div>
+      <!-- END CONTACT PAGE CONTAINER -->
+
+      <!-- COPYRIGHT TEXT -->
+      <div class="copyright-section">
+            <p class="copyright-text">Copyright &copy; 2025 - 2026 <a href="https://www.creativewebsolution.in/" target="_blank" class="company-name"> Creative Web
+                    Solution</a>. ALL RIGHTS RESERVED</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Preview Modal -->
+<div class="modal-overlay" id="previewModal">
+  <!-- <div class="modal-box"> -->
+
+  <!-- added to stop the background scrolling  -->
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <h3>Contact Message Preview</h3>
+      <button class="modal-close-btn" id="modalCloseBtn"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="modal-body" id="modalBody">
+      <!-- Injected by JS -->
+    </div>
+  </div>
+</div>
+
+<!-- Delete Confirm Modal -->
+<div class="modal-overlay" id="deleteModal">
+  <!-- <div class="modal-box modal-box-sm"> -->
+
+  <!-- added to stop background scrolling -->
+  <div class="modal-box modal-box-sm" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <h3>Confirm Delete</h3>
+      <button class="modal-close-btn" id="deleteModalCloseBtn"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="modal-body">
+      <p class="delete-confirm-text">Are you sure you want to delete this entry? This action cannot be undone.</p>
+      <div class="delete-actions">
+        <button class="btn-cancel" id="cancelDeleteBtn">Cancel</button>
+        <button class="btn-delete-confirm" id="confirmDeleteBtn">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ==========================================
+  // NOTIFICATION LOGIC
+  // ==========================================
+  const notifyBtn = document.getElementById('notifyBtn');
+  const notifyWrapper = document.querySelector('.notification-dropdown-wrapper');
+  const notifyList = document.getElementById('notifyList');
+  const notifyBadge = document.querySelector('.badge');
+
+  // 1. Toggle Dropdown
+  notifyBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    notifyWrapper.classList.toggle('active');
+  });
+
+  // Close when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!notifyWrapper.contains(e.target)) {
+      notifyWrapper.classList.remove('active');
+    }
+  });
+
+  // 2. Dummy Data
+  let notifications = [
+    { id: 1, text: "New contact form submission from Rahul", time: "2 mins ago", icon: "fa-envelope", color: "#0796FE" },
+    { id: 2, text: "System update scheduled for tonight", time: "1 hour ago", icon: "fa-gear", color: "#6b7280" },
+    { id: 3, text: "New user registered: Priya Sharma", time: "3 hours ago", icon: "fa-user-plus", color: "#10b981" },
+    { id: 4, text: "Database backup completed successfully", time: "5 hours ago", icon: "fa-database", color: "#8b5cf6" },
+    { id: 5, text: "Security alert: New login detected", time: "1 day ago", icon: "fa-shield-halved", color: "#f59e0b" }
+  ];
+
+  // 3. Load Notifications Function
+  function renderNotifications() {
+    notifyList.innerHTML = ''; 
+    
+    notifications.forEach(notif => {
+      const li = document.createElement('li');
+      li.className = 'notify-item';
+      li.innerHTML = `
+        <div class="notify-icon" style="background-color: ${notif.color}20; color: ${notif.color}">
+          <i class="fa-solid ${notif.icon}"></i>
+        </div>
+        <div class="notify-content">
+          <span class="notify-msg">${notif.text}</span>
+          <span class="notify-time">${notif.time}</span>
+        </div>
+      `;
+      notifyList.appendChild(li);
+    });
+
+    // Update badge count
+    notifyBadge.textContent = notifications.length;
+    if(notifications.length > 0) {
+      notifyBadge.style.display = 'flex';
+    } else {
+      notifyBadge.style.display = 'none';
+    }
+  }
+
+  // 4. Backend Connect Function (Structure Ready)
+  function loadNotificationsFromBackend() {
+  fetch('http://localhost:8080/api/contact/notifications')
+  .then(function(res) { return res.json(); })
+  .then(function(data) {
+    var count = data.count || 0;
+    var notifData = data.notifications || [];
+
+    // Badge update 
+    notifyBadge.textContent = count > 99 ? '99+' : count;
+    if (count > 0) {
+      notifyBadge.style.display = 'flex';
+    } else {
+      notifyBadge.style.display = 'none';
+    }
+
+    // List update 
+    notifyList.innerHTML = '';
+
+    if (notifData.length === 0) {
+      notifyList.innerHTML = '<li style="padding:20px; text-align:center; color:#9ca3af; font-size:13px;">No new notifications</li>';
+      return;
+    }
+
+    notifData.forEach(function(notif) {
+      var li = document.createElement('li');
+      li.className = 'notify-item';
+      li.innerHTML =
+        '<div class="notify-icon" style="background-color:#EEF4FF; color:#0796FE;">' +
+          '<i class="fa-regular fa-envelope"></i>' +
+        '</div>' +
+        '<div class="notify-content">' +
+          '<span class="notify-msg"><strong>' + notif.name + '</strong> sent a message.</span>' +
+          '<span class="notify-time">' + notif.time + '</span>' +
+        '</div>';
+
+      // Click pe contact us pe jaao
+      li.style.cursor = 'pointer';
+      li.addEventListener('click', function() {
+        window.location.href = 'admin-contact-us.html';
+      });
+
+      notifyList.appendChild(li);
+    });
+  })
+  .catch(function(err) {
+    console.log('Notification Error:', err);
+    // Error pe dummy data data
+    renderNotifications();
+  });
+}
+
+  // Init Notifications
+  loadNotificationsFromBackend();
+
+
+  // ==========================================
+  // DATA
+  // ==========================================
+  // const allContacts = [
+  //   { id: 1,  firstName: 'Aarav',    lastName: 'Sharma',    email: 'aarav.sharma@gmail.com',      phone: '+91 98765 43210', message: 'I would like to know more about your web development services and pricing plans.', date: '2026-05-15' },
+  //   { id: 2,  firstName: 'Priya',    lastName: 'Mehta',     email: 'priya.mehta@outlook.com',     phone: '+91 87654 32109', message: 'We are looking for a long-term partnership for our e-commerce platform redesign project.', date: '2026-05-14' },
+  //   { id: 3,  firstName: 'Rohan',    lastName: 'Verma',     email: 'rohan.verma@yahoo.com',       phone: '+91 76543 21098', message: 'Can you provide a demo of your CMS solution? We have an urgent requirement.', date: '2026-05-13' },
+  //   { id: 4,  firstName: 'Sneha',    lastName: 'Patel',     email: 'sneha.patel@company.in',      phone: '+91 65432 10987', message: 'I am interested in your social media management services. Please share the packages.', date: '2026-05-12' },
+  //   { id: 5,  firstName: 'Karan',    lastName: 'Singh',     email: 'karan.singh@techcorp.com',    phone: '+91 54321 09876', message: 'Regarding your internship openings, I would love to discuss potential collaboration.', date: '2026-05-11' },
+  //   { id: 6,  firstName: 'Divya',    lastName: 'Nair',      email: 'divya.nair@startup.io',       phone: '+91 43210 98765', message: 'Hello! We need a mobile app developed for our logistics startup. Can we schedule a call?', date: '2026-05-10' },
+  //   { id: 7,  firstName: 'Arjun',    lastName: 'Gupta',     email: 'arjun.gupta@freelance.net',   phone: '+91 32109 87654', message: 'I am a freelancer looking to collaborate with your team on upcoming projects.', date: '2026-05-09' },
+  //   { id: 8,  firstName: 'Neha',     lastName: 'Joshi',     email: 'neha.joshi@designhub.co',     phone: '+91 21098 76543', message: 'Your portfolio is impressive. I would like to discuss a UI/UX project for our fintech app.', date: '2026-05-08' },
+  //   { id: 9,  firstName: 'Vikram',   lastName: 'Rao',       email: 'vikram.rao@enterprise.com',   phone: '+91 10987 65432', message: 'We are an enterprise client seeking custom ERP development. Please contact us ASAP.', date: '2026-05-07' },
+  //   { id: 10, firstName: 'Ananya',   lastName: 'Krishnan',  email: 'ananya.krishnan@edu.org',     phone: '+91 90876 54321', message: 'Looking for a website revamp for our educational NGO. Budget is limited — need your advice.', date: '2026-05-06' },
+  // ];
+
+  let allContacts = [];
+  let filteredContacts = [];
+  let currentPage = 1;
+  let deleteTargetId = null;
+
+  // ── Fetch data from backend ──
+  function loadContactsFromBackend() {
+    fetch('http://localhost:8080/api/contact/all')
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+
+      // convert backend data to fontend format
+      allContacts = data.map(function(item) {
+        return {
+          id:        item.id,
+          firstName: item.firstName  || '',
+          lastName:  item.lastName   || '',
+          email:     item.email      || '',
+          phone:     item.phone      || '',
+          message:   item.message    || '',
+          date:      item.createdAt
+                    ? item.createdAt.substring(0, 10)
+                    : ''
+        };
+      });
+
+      filteredContacts = [...allContacts];
+      renderTable();
+    })
+    .catch(function(error) {
+      console.log('Error loading contacts:', error);
+      // if backend is not working then static data will be shown
+      allContacts = [
+        { id: 1, firstName: 'Aarav', lastName: 'Sharma', email: 'aarav.sharma@gmail.com', phone: '+91 98765 43210', message: 'I would like to know more about your web development services.', date: '2026-05-15' },
+        { id: 2, firstName: 'Priya', lastName: 'Mehta', email: 'priya.mehta@outlook.com', phone: '+91 87654 32109', message: 'We are looking for a long-term partnership for our e-commerce platform.', date: '2026-05-14' },
+      ];
+      filteredContacts = [...allContacts];
+      renderTable();
+    });
+  }
+
+  const ROWS_PER_PAGE = 5;
+  // let currentPage = 1;
+  // let filteredContacts = [...allContacts];
+  // let deleteTargetId = null;
+
+  // ==========================================
+  // RENDER TABLE
+  // ==========================================
+  function renderTable() {
+    const tbody = document.getElementById('contactTableBody');
+    const start = (currentPage - 1) * ROWS_PER_PAGE;
+    const end = start + ROWS_PER_PAGE;
+    const pageData = filteredContacts.slice(start, end);
+
+    tbody.innerHTML = '';
+
+    if (pageData.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="7" style="text-align:center; padding: 40px; color: #9ca3af;">No entries found.</td></tr>`;
+      return;
+    }
+
+    pageData.forEach((contact, index) => {
+      // const rowNum = start + index + 1;
+      const shortMsg = contact.message.length > 55 ? contact.message.slice(0, 55) + '...' : contact.message;
+      const formattedDate = formatDate(contact.date);
+
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        
+        <td class="col-name">${contact.firstName}</td>
+        <td class="col-name">${contact.lastName}</td>
+        <td class="col-email">${contact.email}</td>
+        <td class="col-phone">${contact.phone}</td>
+        <td class="col-message" title="${contact.message}">${shortMsg}</td>
+        <td class="col-date">${formattedDate}</td>
+        <td class="col-action">
+          <div class="action-btns">
+            <button class="action-btn btn-preview" onclick="openPreview(${contact.id})" title="Preview">
+              <i class="fa-regular fa-eye"></i> Preview
+            </button>
+            <button class="action-btn btn-delete" onclick="openDelete(${contact.id})" title="Delete">
+              <i class="fa-regular fa-trash-can"></i> Delete
+            </button>
+          </div>
+        </td>
+      `;
+      tbody.appendChild(tr);
+    });
+
+    document.getElementById('submissionCount').textContent =
+      `Showing ${pageData.length} of ${filteredContacts.length} entries`;
+
+    renderPagination();
+  }
+
+  // ==========================================
+  // PAGINATION
+  // ==========================================
+  function renderPagination() {
+    const wrapper = document.getElementById('paginationWrapper');
+    const totalPages = Math.ceil(filteredContacts.length / ROWS_PER_PAGE);
+    wrapper.innerHTML = '';
+
+    // Prev button
+    const prevBtn = document.createElement('button');
+    prevBtn.className = 'page-btn prev-btn' + (currentPage === 1 ? ' disabled' : '');
+    prevBtn.innerHTML = '<i class="fa-solid fa-chevron-left"></i>';
+    prevBtn.disabled = currentPage === 1;
+    prevBtn.addEventListener('click', () => { if (currentPage > 1) { currentPage--; renderTable(); } });
+    wrapper.appendChild(prevBtn);
+
+    for (let i = 1; i <= totalPages; i++) {
+      const btn = document.createElement('button');
+      btn.className = 'page-btn' + (i === currentPage ? ' active' : '');
+      btn.textContent = i;
+      btn.addEventListener('click', () => { currentPage = i; renderTable(); });
+      wrapper.appendChild(btn);
+    }
+
+    // Next button
+    const nextBtn = document.createElement('button');
+    nextBtn.className = 'page-btn next-btn' + (currentPage === totalPages ? ' disabled' : '');
+    nextBtn.innerHTML = '<i class="fa-solid fa-chevron-right"></i>';
+    nextBtn.disabled = currentPage === totalPages;
+    nextBtn.addEventListener('click', () => { if (currentPage < totalPages) { currentPage++; renderTable(); } });
+    wrapper.appendChild(nextBtn);
+  }
+
+  // ==========================================
+  // PREVIEW MODAL
+  // ==========================================
+  function openPreview(id) {
+    const contact = allContacts.find(c => c.id === id);
+    if (!contact) return;
+    document.getElementById('modalBody').innerHTML = `
+      <div class="preview-grid">
+        <div class="preview-field">
+          <span class="preview-label">First Name</span>
+          <span class="preview-value">${contact.firstName}</span>
+        </div>
+        <div class="preview-field">
+          <span class="preview-label">Last Name</span>
+          <span class="preview-value">${contact.lastName}</span>
+        </div>
+        <div class="preview-field full-width">
+          <span class="preview-label">Email</span>
+          <span class="preview-value">${contact.email}</span>
+        </div>
+        <div class="preview-field">
+          <span class="preview-label">Phone Number</span>
+          <span class="preview-value">${contact.phone}</span>
+        </div>
+        <div class="preview-field">
+          <span class="preview-label">Date</span>
+          <span class="preview-value">${formatDate(contact.date)}</span>
+        </div>
+        <div class="preview-field full-width">
+          <span class="preview-label">Message</span>
+          <span class="preview-value preview-message">${contact.message}</span>
+        </div>
+      </div>
+    `;
+    // document.getElementById('previewModal').classList.add('active');
+    // // added to stop background scolling when pop-up is active 
+    // document.body.style.overflow = 'hidden';    
+    // // added to stop working of tab when pop-up is active 
+    // document.querySelector('.main').setAttribute('inert', '');
+
+    // added to stop the tab selection
+    const modal = document.getElementById('previewModal');
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    lockFocus();
+    // Focus the close button immediately
+    // document.getElementById('modalCloseBtn').focus();
+    // Trap tab inside modal
+    modal._trapHandler = (e) => trapTab(e, modal); 
+    modal.addEventListener('keydown', modal._trapHandler);
+
+  }
+
+  // ==========================================
+  // DELETE MODAL
+  // ==========================================
+  function openDelete(id) {
+    deleteTargetId = id;
+    // document.getElementById('deleteModal').classList.add('active');
+    // // added to stop background scolling when pop-up is active 
+    // document.body.style.overflow = 'hidden';
+    // // added to stop working of tab when pop-up is active 
+    // document.querySelector('.main').setAttribute('inert', '');
+
+    // added to stop the tab selection
+    const modal = document.getElementById('deleteModal');
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    lockFocus();
+    // Focus the cancel button immediately
+    // document.getElementById('cancelDeleteBtn').focus(); 
+    // Trap tab inside modal
+    modal._trapHandler = (e) => trapTab(e, modal); 
+    modal.addEventListener('keydown', modal._trapHandler);
+  }
+
+  // document.getElementById('confirmDeleteBtn').addEventListener('click', () => {
+  //   if (deleteTargetId !== null) {
+  //     const idx = allContacts.findIndex(c => c.id === deleteTargetId);
+  //     if (idx > -1) allContacts.splice(idx, 1);
+  //     filteredContacts = [...allContacts];
+    
+  //     const totalPages = Math.ceil(filteredContacts.length / ROWS_PER_PAGE);
+  //     if (currentPage > totalPages) currentPage = totalPages || 1;
+  //     renderTable();
+  //   }
+  //   deleteTargetId = null;
+  //   document.getElementById('deleteModal').classList.remove('active');
+  // });
+
+  document.getElementById('confirmDeleteBtn').addEventListener('click', function() {
+  var modal = document.getElementById('deleteModal');
+    if (deleteTargetId !== null) {
+
+    // Delete from backend
+    fetch('http://localhost:8080/api/contact/delete/' + deleteTargetId, {
+      method: 'DELETE'
+    })
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      // remove from local array
+      var idx = allContacts.findIndex(function(c) { return c.id === deleteTargetId; });
+      if (idx > -1) allContacts.splice(idx, 1);
+      filteredContacts = [...allContacts];
+
+      var totalPages = Math.ceil(filteredContacts.length / ROWS_PER_PAGE);
+      if (currentPage > totalPages) currentPage = totalPages || 1;
+      renderTable();
+    })
+    .catch(function() {
+      // remvoe backedn error from local
+      var idx = allContacts.findIndex(function(c) { return c.id === deleteTargetId; });
+      if (idx > -1) allContacts.splice(idx, 1);
+      filteredContacts = [...allContacts];
+      renderTable();
+    });
+  }
+    deleteTargetId = null;
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+    unlockFocus();
+    modal.removeEventListener('keydown', modal._trapHandler); 
+  });
+
+  document.getElementById('cancelDeleteBtn').addEventListener('click', () => {
+    // deleteTargetId = null;
+    // document.getElementById('deleteModal').classList.remove('active');
+    // // added to stop background scolling when pop-up is active 
+    // document.body.style.overflow = '';
+    // // added to stop working of tab when pop-up is active 
+    // document.querySelector('.main').removeAttribute('inert');
+
+    // added to stop the tab selection
+    const modal = document.getElementById('deleteModal');
+    deleteTargetId = null;
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+    unlockFocus();
+    modal.removeEventListener('keydown', modal._trapHandler);
+  });
+
+  document.getElementById('deleteModalCloseBtn').addEventListener('click', () => {
+    // deleteTargetId = null;
+    // document.getElementById('deleteModal').classList.remove('active');
+    // // added to stop background scolling when pop-up is active 
+    // document.body.style.overflow = '';
+    // // added to stop working of tab when pop-up is active 
+    // document.querySelector('.main').removeAttribute('inert');
+
+    const modal = document.getElementById('deleteModal');
+    deleteTargetId = null;
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+    unlockFocus();
+    modal.removeEventListener('keydown', modal._trapHandler);
+  });
+
+  document.getElementById('modalCloseBtn').addEventListener('click', () => {
+    // document.getElementById('previewModal').classList.remove('active');
+    // // added to stop background scolling when pop-up is active 
+    // document.body.style.overflow = 'hidden';
+    // // added to stop working of tab when pop-up is active 
+    // document.querySelector('.main').removeAttribute('inert');
+
+    // added to stop the tab selection
+    const modal = document.getElementById('previewModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+    unlockFocus();
+    modal.removeEventListener('keydown', modal._trapHandler);
+  });
+
+  // Close modals on overlay click
+  document.querySelectorAll('.modal-overlay').forEach(overlay => {
+    overlay.addEventListener('click', function(e) {
+      if (e.target === this) this.classList.remove('active');
+      // added to stop background scolling when pop-up is active 
+      document.body.style.overflow = '';
+      unlockFocus();
+      this.removeEventListener('keydown', this._trapHandler);
+    });
+  });
+
+  // ==========================================
+  // FILTERS
+  // ==========================================
+  function applyFilters() {
+    const search = document.getElementById('globalSearch').value.trim().toLowerCase();
+    const dateVal = document.getElementById('dateFilter').value; 
+
+    const sortVal = document.getElementById('sortFilter').value;
+
+    filteredContacts = allContacts.filter(c => {
+        const matchSearch = !search ||
+        c.firstName.toLowerCase().includes(search) ||
+        c.lastName.toLowerCase().includes(search) ||
+        c.email.toLowerCase().includes(search) ||
+        c.phone.includes(search) ||
+        c.message.toLowerCase().includes(search);
+
+        // FIXED: direct string comparison — no Date parsing, no timezone shift
+        const matchDate = !dateVal || c.date.trim() === dateVal.trim();
+
+        return matchSearch && matchDate;
+    });
+
+    filteredContacts.sort((a, b) => {
+        if (sortVal === 'latest') return new Date(b.date) - new Date(a.date);
+        if (sortVal === 'oldest') return new Date(a.date) - new Date(b.date);
+        if (sortVal === 'name-az') return a.firstName.localeCompare(b.firstName);
+        if (sortVal === 'name-za') return b.firstName.localeCompare(a.firstName);
+        return 0;
+    });
+
+    currentPage = 1;
+    renderTable();
+}
+
+  // document.getElementById('applyFilterBtn').addEventListener('click', applyFilters);
+  document.getElementById('removeFilterBtn').addEventListener('click', () => {
+  document.getElementById('globalSearch').value = '';
+  document.getElementById('dateFilter').value = '';
+  document.getElementById('sortFilter').value = 'latest';
+  filteredContacts = [...allContacts];
+  currentPage = 1;
+  renderTable();
+});
+
+  document.getElementById('globalSearch').addEventListener('input', applyFilters);
+  document.getElementById('sortFilter').addEventListener('change', applyFilters);
+  document.getElementById('dateFilter').addEventListener('change', applyFilters);
+  
+
+  // ==========================================
+  // HELPERS
+  // ==========================================
+  function formatDate(dateStr) {
+    const d = new Date(dateStr);
+    return d.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' });
+  }
+
+  // ==========================================
+  // PROFILE DROPDOWN
+  // ==========================================
+  const profileBtn = document.getElementById('profileBtn');
+  const dropdownWrapper = document.querySelector('.profile-dropdown-wrapper');
+  profileBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    dropdownWrapper.classList.toggle('active');
+  });
+  document.addEventListener('click', (e) => {
+    if (!dropdownWrapper.contains(e.target)) dropdownWrapper.classList.remove('active');
+  });
+
+  // ==========================================
+  // SIDEBAR HAMBURGER
+  // ==========================================
+  const hamburger = document.querySelector('.hamburger');
+  const closeBtn = document.querySelector('.close-btn');
+  const sidebar = document.querySelector('.sidebar');
+  if (hamburger) hamburger.addEventListener('click', () => sidebar.classList.add('active'));
+  if (closeBtn) closeBtn.addEventListener('click', () => sidebar.classList.remove('active'));
+
+  // ==========================================
+  // FOCUS TRAP UTILITY
+  // ==========================================
+  const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+  function lockFocus(modalEl) {
+    document.querySelector('.main').setAttribute('inert', '');
+    document.querySelector('.sidebar').setAttribute('inert', ''); 
+  }
+
+  function unlockFocus() {
+    document.querySelector('.main').removeAttribute('inert');
+    document.querySelector('.sidebar').removeAttribute('inert');
+  }
+
+  function trapTab(e, modalEl) {
+    // if (e.key !== 'Tab') return;
+    // e.preventDefault();
+    // const focusable = [...modalEl.querySelectorAll(FOCUSABLE)];
+    // if (focusable.length === 0) return;
+    // const first = focusable[0];
+    // const last = focusable[focusable.length - 1];
+
+    // if (e.shiftKey) {
+    //   // Shift+Tab — if on first element, jump to last
+    //   if (document.activeElement === first) {
+    //     e.preventDefault();
+    //     last.focus();
+    //   }
+    // } else {
+    //   // Tab — if on last element, jump to first
+    //   if (document.activeElement === last) {
+    //     e.preventDefault();
+    //     first.focus();
+    //   }
+    // }
+  }
+
+  // ==========================================
+  // INIT
+  // ==========================================
+ // Block Tab key when modal is open
+  document.addEventListener('keydown', function(e) {
+    if (e.key !== 'Tab') return;
+    const anyModalOpen = document.querySelector('.modal-overlay.active');
+    if (anyModalOpen) {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+    }
+  }, true);
+
+  loadContactsFromBackend();
+
+</script>
+
+<!-- ============================================ -->
+<!-- CHANGED: Replaced with exact same sidebar highlight script from admin-dashboard.html -->
+<!-- ============================================ -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const currentPath = window.location.pathname;
+    const menuLinks = document.querySelectorAll('.menu li');
+
+    menuLinks.forEach(li => {
+      const link = li.querySelector('a');
+      const pageName = link.getAttribute('data-page');
+
+      if (pageName) {
+        if (currentPath.includes(pageName)) {
+          li.classList.add('active');
+        } else {
+          li.classList.remove('active');
+        }
+      }
+    });
+  });
+</script>
+<script>
+// ── Auth Check ──
+(function() {
+  var user = localStorage.getItem('user');
+  if (!user) {
+    window.location.replace('Sign-In.html');
+    return;
+  }
+  try {
+    var userData = JSON.parse(user);
+    if (!userData.token || userData.role !== 'SUPER_ADMIN') {
+      localStorage.removeItem('user');
+      window.location.replace('Sign-In.html');
+      return;
+    }
+    var initials = userData.name
+      ? userData.name.trim().split(' ').map(function(n) { return n[0]; })
+          .join('').substring(0, 2).toUpperCase()
+      : 'AD';
+    var profileBtn = document.getElementById('profileBtn');
+    if (profileBtn) profileBtn.textContent = initials;
+  } catch(e) {
+    localStorage.removeItem('user');
+    window.location.replace('Sign-In.html');
+  }
+})();
+
+function handleLogout() {
+  localStorage.removeItem('user');
+  localStorage.removeItem('creative_email');
+  localStorage.removeItem('creative_remember');
+  window.location.replace('Sign-In.html');
+}
+</script>
+</body>
+</html>

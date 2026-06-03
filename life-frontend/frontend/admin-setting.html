@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setting-Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/admin-setting.css">
+</head>
+
+<body>
+
+<div class="dashboard-wrapper"> 
+
+  <!-- SIDEBAR (Independent) -->
+  <aside class="sidebar">
+    
+    <div class="logo">
+      <img src="assets/icons/Creative Web Logo.png" alt="logo">
+    </div>
+
+    <div class="close-btn">
+      <i class="fa-solid fa-xmark"></i>
+    </div>
+
+    <ul class="menu">
+      <!-- FIXED: Removed 'active' class from Dashboard -->
+      <li>
+        <a href="admin-dashboard.html">
+          <img src="assets/icons/dashboard.png" class="icon">
+          <span class="menu-text">Dashboard</span>
+        </a>
+      </li>
+      
+      <!-- COMMENTED: BLOGS -->
+      <!-- <li>
+        <a href="#">
+          <img src="assets/icons/BLOGS.png" class="icon">
+          <span class="menu-text">Blogs</span>
+        </a>
+      </li> -->
+      
+      <li>
+        <a href="admin-events.html">
+          <img src="assets/icons/EVENTS.png" class="icon">
+          <span class="menu-text">Events</span>
+        </a>
+      </li>
+      <li>
+        <a href="admin-gallery.html">
+          <img src="assets/icons/GALLERY.png" class="icon">
+          <span class="menu-text">Gallery</span>
+        </a>
+      </li>
+      <li>
+        <a href="admin-socialservices.html">
+          <img src="assets/icons/SOCIAL SERVICE.png" class="icon">
+          <span class="menu-text">Social Service</span>
+        </a>
+      </li>
+      
+      <!-- FIXED: Added 'active' class to Careers -->
+      <li>
+        <a href="career-panel.html">
+          <img src="assets/icons/CARRER.png" class="icon">
+          <span class="menu-text">Careers</span>
+        </a>
+      </li>
+      
+      <!-- COMMENTED: USERS & ROLES -->
+      <!-- <li>
+        <a href="#">
+          <img src="assets/icons/USER&ROLES.png" class="icon">
+          <span class="menu-text">Users & Roles</span>
+        </a>
+      </li> -->
+      
+      <!-- COMMENTED: ANALYTICS -->
+      <!-- <li>
+        <a href="#">
+          <img src="assets/icons/ANALYTICS.png" class="icon">
+          <span class="menu-text">Analytics</span>
+        </a>
+      </li> -->
+
+      <li>
+        <a href="admin-contact-us.html">
+          <i class="fa-regular fa-envelope sidebar-fa-icon"></i>
+          <span class="menu-text">Contact Us</span>
+        </a>
+      </li>
+      
+      <li class="active">
+        <a href="admin-setting.html">
+          <img src="assets/icons/SETTING.png" class="icon">
+          <span class="menu-text">Setting</span>
+        </a>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <div class="main">
+    
+    <div class="main-wrapper">
+      
+      <header class="top-navbar">
+        
+        <div class="hamburger">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Search...">
+        </div>
+
+        <div class="nav-right">
+
+          <div class="notification-box">
+            <div class="notification">
+              <i class="fa-regular fa-bell"></i>
+            </div>
+            <span class="menu-text notification-text">Notification</span>
+          </div>
+
+          <!-- UPDATED: Profile with Dropdown -->
+          <div class="profile-dropdown-wrapper">
+            <div class="profile" id="profileBtn">AS</div>
+            
+            <div class="dropdown-menu" id="logoutDropdown">
+              <ul>
+                <!-- My Profile Container -->
+                <li class="menu-item">
+                  <a href="#">
+                    <i class="fa-regular fa-user"></i> 
+                    <span>My Profile</span>
+                  </a>
+                </li>
+                
+                <li class="menu-item">
+                  <a href="#" onclick="handleLogout(); return false;">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span>Logout</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </header>
+
+                <div class="dashboard-container">
+
+                    <nav class="breadcrumb">
+                        <a href="admin-dashboard.html" class="breadcrumb-home">Home</a>
+                        <span class="breadcrumb-separator"> > </span>
+                        <span class="breadcrumb-active">Settings</span>
+                    </nav>
+
+                    <div class="ue-section">
+                        <!-- Section Title -->
+                        <div class="ue-section-header">
+                            <h2 class="ue-section-title">Settings</h2>
+                            <div class="ue-title-line"></div>
+                        </div>
+                        <!-- <p class="header-text">Manage your password and notification preferences using the cards below.</p> -->
+                    </div>
+
+                    <div class="settings-grid">
+
+                        <div class="card password-card">
+                            <div class="card-header">
+                                <div class="icon-box">
+                                    <i class="fa-solid fa-key"></i>
+                                </div>
+                                <div>
+                                    <h2>Change Password</h2>
+                                    <p class="card-subtitle">Use a strong password to keep your account secure.</p>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="currentPassword">Current Password</label>
+                                <div class="password-field-wrapper">
+                                    <input type="password" id="currentPassword" placeholder="Enter current password"
+                                        autocomplete="current-password">
+                                    <button type="button" class="password-toggle" data-target="currentPassword"
+                                        aria-label="Show current password">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="newPassword">New Password</label>
+                                <div class="password-field-wrapper">
+                                    <input type="password" id="newPassword" placeholder="Enter new password"
+                                        autocomplete="new-password">
+                                    <button type="button" class="password-toggle" data-target="newPassword"
+                                        aria-label="Show new password">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirm Password</label>
+                                <div class="password-field-wrapper">
+                                    <input type="password" id="confirmPassword" placeholder="Confirm new password"
+                                        autocomplete="new-password">
+                                    <button type="button" class="password-toggle" data-target="confirmPassword"
+                                        aria-label="Show confirm password">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="password-save">
+                                <button class="save-btn save-btn-color">Save Changes</button>
+                            </div>
+                        </div>
+
+                        <div class="card notification-card">
+                            <div class="card-header">
+                                <div class="icon-box">
+                                    <i class="fa-solid fa-bell"></i>
+                                </div>
+                                <div>
+                                    <h2>Notification Settings</h2>
+                                    <p class="card-subtitle">Enable or disable your preferred notification channels.</p>
+                                </div>
+                            </div>
+
+                            <div class="toggle-row">
+                                <div class="toggle-text">
+                                    <h4>Email Notifications</h4>
+                                    <p>Receive email updates about account activity and news.</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+
+                
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- COPYRIGHT TEXT -->
+                <div class="copyright-section">
+                        <p class="copyright-text">Copyright &copy; 2025 - 2026 <a href="https://www.creativewebsolution.in/" target="_blank" class="company-name"> Creative Web
+                                Solution</a>. ALL RIGHTS RESERVED</p>
+                </div>
+            </div>
+        </div>
+    </div>
+   <script>
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    const currentPassword =
+        document.getElementById('currentPassword');
+
+    const newPassword =
+        document.getElementById('newPassword');
+
+    const confirmPassword =
+        document.getElementById('confirmPassword');
+
+    const saveBtn =
+        document.querySelector('.save-btn');
+
+    const toggleButtons =
+        document.querySelectorAll('.password-toggle');
+
+    // PASSWORD SHOW / HIDE
+    function togglePasswordVisibility(event) {
+
+        const button = event.currentTarget;
+
+        const target =
+            document.getElementById(button.dataset.target);
+
+        if (!target) return;
+
+        const isVisible = target.type === 'text';
+
+        target.type = isVisible ? 'password' : 'text';
+
+        const icon = button.querySelector('i');
+
+        if (icon) {
+
+            icon.classList.toggle('fa-eye', isVisible);
+
+            icon.classList.toggle('fa-eye-slash', !isVisible);
+        }
+    }
+
+    // CLEAR ERROR
+    function clearError(input) {
+
+        input.classList.remove('error');
+
+        const parent = input.parentNode.parentNode;
+
+        const existing =
+            parent.querySelector('.error-text');
+
+        if (existing) {
+            existing.remove();
+        }
+    }
+
+    // SHOW ERROR
+    function showError(input, message) {
+
+        clearError(input);
+
+        input.classList.add('error');
+
+        const errorText =
+            document.createElement('span');
+
+        errorText.className = 'error-text';
+
+        errorText.textContent = message;
+
+        const wrapper = input.parentNode;
+
+        wrapper.parentNode.insertBefore(
+            errorText,
+            wrapper.nextSibling
+        );
+    }
+
+    // VALIDATE CURRENT PASSWORD
+    function validateCurrentPassword() {
+
+        const value = currentPassword.value.trim();
+
+        if (!value) {
+
+            showError(
+                currentPassword,
+                'Current password is required.'
+            );
+
+            return false;
+        }
+
+        clearError(currentPassword);
+
+        return true;
+    }
+
+    // VALIDATE NEW PASSWORD
+    function validateNewPassword() {
+
+        const value = newPassword.value.trim();
+
+        if (!value) {
+
+            showError(
+                newPassword,
+                'New password is required.'
+            );
+
+            return false;
+        }
+
+        if (value.length < 8) {
+
+            showError(
+                newPassword,
+                'Password must be at least 8 characters.'
+            );
+
+            return false;
+        }
+
+        clearError(newPassword);
+
+        return true;
+    }
+
+    // VALIDATE CONFIRM PASSWORD
+    function validateConfirmPassword() {
+
+        const value = confirmPassword.value.trim();
+
+        if (!value) {
+
+            showError(
+                confirmPassword,
+                'Confirm password is required.'
+            );
+
+            return false;
+        }
+
+        if (value !== newPassword.value.trim()) {
+
+            showError(
+                confirmPassword,
+                'Passwords do not match.'
+            );
+
+            return false;
+        }
+
+        clearError(confirmPassword);
+
+        return true;
+    }
+
+    // VALIDATE ALL
+    function validateAll() {
+
+        const validCurrent =
+            validateCurrentPassword();
+
+        const validNew =
+            validateNewPassword();
+
+        const validConfirm =
+            validateConfirmPassword();
+
+        return (
+            validCurrent &&
+            validNew &&
+            validConfirm
+        );
+    }
+
+    // TOGGLE BUTTON EVENTS
+    toggleButtons.forEach(button => {
+
+        button.addEventListener(
+            'click',
+            togglePasswordVisibility
+        );
+    });
+
+    // SAVE BUTTON CLICK
+    saveBtn.addEventListener('click', async function () {
+
+        // VALIDATE
+        if (!validateAll()) {
+            return;
+        }
+
+        // REQUEST DATA
+        const requestData = {
+
+            id: 4,
+
+            currentPassword:
+                currentPassword.value.trim(),
+
+            newPassword:
+                newPassword.value.trim(),
+
+            confirmPassword:
+                confirmPassword.value.trim()
+        };
+
+        console.log("Sending Data:", requestData);
+
+        try {
+
+            // API CALL
+            const response = await fetch(
+                "http://localhost:8080/api/password/change",
+                {
+                    method: "PUT",
+
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify(requestData)
+                }
+            );
+
+            console.log("Response:", response);
+
+            // RESPONSE TEXT
+            const result = await response.text();
+
+            console.log("Server Result:", result);
+
+            // REMOVE OLD MESSAGE
+            const oldMessage =
+                document.querySelector(
+                    '.password-success-message'
+                );
+
+            if (oldMessage) {
+                oldMessage.remove();
+            }
+
+            // SUCCESS
+            if (response.ok) {
+
+                const successMessage =
+                    document.createElement('div');
+
+                successMessage.className =
+                    'password-success-message';
+
+                successMessage.style.color = "green";
+
+                successMessage.style.marginBottom = "15px";
+
+                successMessage.textContent =
+                    result || "Password updated successfully.";
+
+                saveBtn.parentNode.insertBefore(
+                    successMessage,
+                    saveBtn
+                );
+
+                // CLEAR INPUTS
+                currentPassword.value = "";
+                newPassword.value = "";
+                confirmPassword.value = "";
+
+            } else {
+
+                const errorMessage =
+                    document.createElement('div');
+
+                errorMessage.className =
+                    'password-success-message';
+
+                errorMessage.style.color = "red";
+
+                errorMessage.style.marginBottom = "15px";
+
+                errorMessage.textContent =
+                    result || "Password update failed.";
+
+                saveBtn.parentNode.insertBefore(
+                    errorMessage,
+                    saveBtn
+                );
+            }
+
+        } catch (error) {
+
+            console.error("API ERROR:", error);
+
+            alert("Backend connection failed");
+        }
+
+    });
+
+});
+
+</script>
+
+  <script>
+    // Profile Dropdown Logic
+    const profileBtn = document.getElementById('profileBtn');
+    const dropdownWrapper = document.querySelector('.profile-dropdown-wrapper');
+
+    // Toggle dropdown on click
+    profileBtn.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevent bubbling
+      dropdownWrapper.classList.toggle('active');
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!dropdownWrapper.contains(e.target)) {
+        dropdownWrapper.classList.remove('active');
+      }
+    });
+
+    if(hamburger) {
+      hamburger.addEventListener('click', () => {
+        sidebar.classList.add('active');
+      });
+    }
+
+    if(closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        sidebar.classList.remove('active');
+      });
+    }
+  </script>
+
+    <!-- JS Script (Updated: Click anywhere to close logic) -->
+    <script>
+      const hamburger = document.querySelector('.hamburger');
+      const closeBtn = document.querySelector('.close-btn');
+      const sidebar = document.querySelector('.sidebar');
+
+      if(hamburger){
+        hamburger.addEventListener('click', () => {
+          sidebar.classList.add('active');
+        });
+      }
+
+      if(closeBtn){
+        closeBtn.addEventListener('click', () => {
+          sidebar.classList.remove('active');
+        });
+      }
+    </script>
+     <!-- Do not remove below commented code -->
+<script>
+// ── Auth Check ──
+(function() {
+  var user = localStorage.getItem('user');
+  
+  if (!user) {
+    window.location.replace('Sign-In.html');
+    return;
+  }
+  
+  try {
+    var userData = JSON.parse(user);
+    if (!userData.token || userData.role !== 'SUPER_ADMIN') {
+      localStorage.removeItem('user');
+      window.location.replace('Sign-In.html');
+      return;
+    }
+    
+    // set admin details
+    var initials = userData.name
+      ? userData.name.trim().split(' ').map(function(n) { 
+          return n[0]; 
+        }).join('').substring(0, 2).toUpperCase()
+      : 'AD';
+    
+    var profileBtn = document.getElementById('profileBtn');
+    if (profileBtn) profileBtn.textContent = initials;
+    
+  } catch(e) {
+    localStorage.removeItem('user');
+    window.location.replace('Sign-In.html');
+  }
+})();
+
+// ── Logout ──
+function handleLogout() {
+  localStorage.removeItem('user');
+  localStorage.removeItem('creative_email');
+  localStorage.removeItem('creative_remember');
+  window.location.replace('Sign-In.html');
+}
+</script>
+</body>
+
+</html>

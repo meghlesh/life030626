@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Career_panel — CWS.life</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Inter:wght@400;500;600&family=Lato:wght@300;400;700&family=Oswald:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="css/global.css">
+  <!-- Career Panel CSS -->
+  <link rel="stylesheet" href="css/career-panel.css">
+  
+  <style>
+    .action-dropdown-wrapper {
+      position: fixed !important; 
+    }
+  </style>
+</head>
+<body>
+
+<div class="dashboard-wrapper"> 
+
+  <!-- ============================================================ -->
+  <!-- CHANGED: Replaced entire sidebar HTML with exact copy from admin-dashboard.html -->
+  <!-- ============================================================ -->
+  <aside class="sidebar">
+    
+    <div class="logo">
+      <a class="nav-brand" href="index.html">
+        <img src="assets/images/CWS-LOGO1.png" alt="Creative Web Solution" class="nav-logo"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="brand-fallback" style="display:none;">
+          <span class="brand-box">CWS</span>
+          <span class="brand-tail">.<span>life</span></span>
+        </div>
+      </a>
+    </div>
+
+    <div class="close-btn">
+      <i class="fa-solid fa-xmark"></i>
+    </div>
+
+    <ul class="menu">
+      <li>
+        <a href="admin-dashboard.html" class="nav-link" data-page="dashboard">
+          <img src="assets/icons/dashboard.png" class="icon">
+          <span class="menu-text">Dashboard</span>
+        </a>
+      </li>
+      
+      <!-- <li>
+        <a href="#" class="nav-link">
+          <img src="assets/icons/BLOGS.png" class="icon">
+          <span class="menu-text">Blogs</span>
+        </a>
+      </li> -->
+      
+      <li>
+        <a href="admin-events.html">
+          <img src="assets/icons/EVENTS.png" class="icon">
+          <span class="menu-text">Events</span>
+        </a>
+      </li>
+      <li>
+        <a href="admin-gallery.html" class="nav-link" data-page="gallery">
+          <img src="assets/icons/GALLERY.png" class="icon">
+          <span class="menu-text">Gallery</span>
+        </a>
+      </li>
+      <li>
+        <a href="admin-socialservices.html" class="nav-link" data-page="social-service">
+          <img src="assets/icons/SOCIAL SERVICE.png" class="icon">
+          <span class="menu-text">Social Service</span>
+        </a>
+      </li>
+      <li>
+        <a href="career-panel.html" class="nav-link" data-page="career">
+          <img src="assets/icons/CARRER.png" class="icon">
+          <span class="menu-text">Careers</span>
+        </a>
+      </li>
+      
+      <!-- <li>
+        <a href="#">
+          <img src="assets/icons/USER&ROLES.png" class="icon">
+          <span class="menu-text">Users & Roles</span>
+        </a>
+      </li> -->
+      
+      <!-- <li>
+        <a href="#">
+          <img src="assets/icons/ANALYTICS.png" class="icon">
+          <span class="menu-text">Analytics</span>
+        </a>
+      </li> -->
+
+      <li>
+        <a href="admin-contact-us.html">
+          <i class="fa-regular fa-envelope sidebar-fa-icon"></i>
+          <span class="menu-text">Contact Us</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="admin-setting.html" class="nav-link" data-page="settings">
+          <img src="assets/icons/SETTING.png" class="icon">
+          <span class="menu-text">Setting</span>
+        </a>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <div class="main">
+    
+    <div class="main-wrapper">
+      
+      <header class="top-navbar">
+        
+        <div class="hamburger">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="globalSearchInput" placeholder="Search">
+        </div>
+
+        <div class="nav-right">
+
+          <!-- CHANGE: Added Notification Dropdown Wrapper -->
+          <div class="notification-wrapper">
+            <!-- Click Trigger -->
+            <div class="notification-box" id="notificationBtn">
+              <div class="notification">
+                <i class="fa-regular fa-bell"></i>
+                <span class="notification-badge">5</span>
+              </div>
+              <span class="menu-text notification-text">Notification</span>
+            </div>
+
+            <!-- Dropdown Popup (Hidden by default) -->
+            <div class="notification-dropdown" id="notificationDropdown">
+              <div class="notif-header">
+                <h4>Notifications</h4>
+                <span class="mark-read">Mark all as read</span>
+              </div>
+              <div class="notif-list">
+                <!-- Notification Item 1 -->
+                <a href="#" class="notif-item">
+                  <div class="notif-icon">
+                    <i class="fa-solid fa-user-plus"></i>
+                  </div>
+                  <div class="notif-content">
+                    <p class="notif-text"><strong>New Application</strong> received for UI/UX Designer.</p>
+                    <span class="notif-time">2 mins ago</span>
+                  </div>
+                </a>
+                <!-- Notification Item 2 -->
+                <a href="#" class="notif-item">
+                  <div class="notif-icon warning">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                  </div>
+                  <div class="notif-content">
+                    <p class="notif-text"><strong>Server Alert:</strong> High CPU usage detected.</p>
+                    <span class="notif-time">15 mins ago</span>
+                  </div>
+                </a>
+                <!-- Notification Item 3 -->
+                <a href="#" class="notif-item">
+                  <div class="notif-icon success">
+                    <i class="fa-solid fa-check"></i>
+                  </div>
+                  <div class="notif-content">
+                    <p class="notif-text"><strong>Job Post:</strong> Backend Developer published successfully.</p>
+                    <span class="notif-time">1 hour ago</span>
+                  </div>
+                </a>
+                <!-- Notification Item 4 -->
+                <a href="#" class="notif-item">
+                  <div class="notif-icon info">
+                    <i class="fa-solid fa-envelope"></i>
+                  </div>
+                  <div class="notif-content">
+                    <p class="notif-text"><strong>New Message</strong> from Support Team.</p>
+                    <span class="notif-time">3 hours ago</span>
+                  </div>
+                </a>
+                <!-- Notification Item 5 -->
+                <a href="#" class="notif-item">
+                  <div class="notif-icon">
+                    <i class="fa-solid fa-users"></i>
+                  </div>
+                  <div class="notif-content">
+                    <p class="notif-text"><strong>Weekly Report</strong> is ready to view.</p>
+                    <span class="notif-time">5 hours ago</span>
+                  </div>
+                </a>
+              </div>
+              <div class="notif-footer">
+                <a href="#">View All Notifications</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- UPDATED: Profile with Dropdown -->
+          <div class="profile-dropdown-wrapper">
+            <div class="profile" id="profileBtn">AS</div>
+            
+            <div class="dropdown-menu" id="logoutDropdown">
+              <ul>
+                <!-- My Profile Container -->
+                <li class="menu-item">
+                  <a href="#">
+                    <i class="fa-regular fa-user"></i> 
+                    <span>My Profile</span>
+                  </a>
+                </li>
+                
+                <li class="menu-item">
+                  <a href="#" onclick="handleLogout(); return false;">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span>Logout</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </header>
+
+      <!-- ========================================= -->
+      <!-- YE RAH NAYA CAREER LAYOUT CODE (BECHA MEIN) -->
+      <!-- ========================================= -->
+      
+      <div class="career-page-container">
+
+        <!-- Breadcrumb Container -->
+        <div class="breadcrumb-layout">
+          <a href="admin-dashboard.html" class="breadcrumb-home">Home</a>
+          <span class="separator">></span>
+          <span class="current">Career</span>
+        </div>
+
+        <!-- Header: Title + Search + Add Job -->
+        <div class="header-action-layout">
+          <h1 class="career-title-text">Career</h1>
+          
+          <div class="header-right-actions">
+            <!-- Search Box as per Layout -->
+            <div class="layout-search-wrapper">
+              <div class="layout-search-icon">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              </div>
+              <!-- CHANGE: Added ID for Header Search -->
+              <input type="text" class="layout-search-input" id="headerSearchInput" placeholder="Search">
+            </div>
+
+            <!-- Add Job Button -->
+            <button class="add-job-btn-layout">
+              <span>Add Job</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter Container -->
+        <div class="filter-container-layout">
+          <!-- Job Title / Keyword -->
+          <div class="filter-col">
+            <div class="filter-label">Job Title / Keyword</div>
+            <div class="filter-input-wrapper">
+              <i class="fa-solid fa-magnifying-glass input-icon"></i>
+              <input type="text" id="searchJobTitle" placeholder="e.g. Senior Designer">
+            </div>
+          </div>
+
+          <!-- Department -->
+          <div class="filter-col">
+            <div class="filter-label">Department</div>
+            <div class="filter-select-wrapper">
+              <select id="filterDepartment">
+                <option value="">All Department</option>
+                <option value="Design">Design</option>
+                <option value="Engineering">Engineering</option>
+                <option value="Analystics">Analystics</option>
+                <option value="HR">HR</option>
+                <option value="Sales">Sales</option>
+                <option value="Marketing">Marketing</option>
+              </select>
+              <i class="fa-solid fa-chevron-down select-arrow"></i>
+            </div>
+          </div>
+
+          <!-- Experience -->
+          <div class="filter-col">
+            <div class="filter-label">Experience</div>
+            <div class="filter-select-wrapper">
+              <select id="filterExperience">
+                <option value="">All Experience</option>
+                <option value="0-2 Years">0-2 Years</option>
+                <option value="0-3 Years">0-3 Years</option>
+                <option value="3-5 Years">3-5 Years</option>
+                <option value="2-4 Years">2-4 Years</option>
+              </select>
+              <i class="fa-solid fa-chevron-down select-arrow"></i>
+            </div>
+          </div>
+
+          <!-- Sort By -->
+          <div class="filter-col">
+            <div class="filter-label">Sort By</div>
+            <div class="filter-select-wrapper">
+              <select id="sortBy">
+                <option value="latest">Latest Posted</option>
+                <option value="oldest">Oldest First</option>
+                <option value="az">Name A-Z</option>
+                <option value="za">Name Z-A</option>
+              </select>
+              <i class="fa-solid fa-chevron-down select-arrow"></i>
+            </div>
+          </div>
+
+          <!-- Job Type -->
+          <div class="filter-col">
+            <div class="filter-label">Job Type</div>
+            <div class="filter-select-wrapper">
+              <select id="filterJobType">
+                <option value="">Select</option>
+                <option value="Full-Time">Full-Time</option>
+                <option value="Part-Time">Part-Time</option>
+                <option value="Intern">Intern</option>
+              </select>
+              <i class="fa-solid fa-chevron-down select-arrow"></i>
+            </div>
+          </div>
+
+          <!-- Sort Icon Button (Changed to Filter Button) -->
+          <div class="filter-col filter-sort-icon-col">
+            <button class="sort-icon-btn-layout filter-btn" onclick="filterTable()">
+              <i class="fa-solid fa-filter"></i> Filter
+            </button>
+          </div>
+        </div>
+
+        <!-- ======================================================= -->
+        <!-- UPDATED: JOB LIST CONTAINER LAYOUT (NEW DIMENSIONS)      -->
+        <!-- ======================================================= -->
+        <div class="job-list-wrapper">
+          
+          <!-- ADDED: Job List Header Title -->
+          <div class="job-list-header">
+            <h2>Job List</h2>
+          </div>
+
+          <!-- Table Container -->
+          <div class="job-table-wrapper-inner">
+            <table class="job-table-layout">
+              <thead>
+                <tr>
+                  <th>Job Title</th>
+                  <th>Department</th>
+                  <th>Experience</th>
+                  <th>Job Type</th>
+                  <th>Work Type</th>
+                  <th>Application</th>
+                  <th>Status</th>
+                  <th>Posted Date</th>
+                  <th>Deadline</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Row 1 -->
+                <!-- CHANGE: Added clickable-row class and href -->
+                <tr class="clickable-row" data-job="UI/UX Designer" data-dept="Design" data-exp="2-4 Years" data-type="Full-Time" data-link="careers.html?id=1">
+                  <td class="col-title">UI/UX Designer</td>
+                  <td>Design</td>
+                  <td>2-4 Years</td>
+                  <td><span class="job-type-pill type-fulltime">Full-Time</span></td>
+                  <td>WFH</td>
+                  <td><div class="app-link">128</i></div></td>
+                  <td><span class="status-pill status-active">Active</span></td>
+                  <td class="col-date">May 12, 2024</td>
+                  <td class="col-date">Jun 12, 2024</td>
+                  <td class="col-action">
+                    <i class="fa-solid fa-ellipsis-vertical action-trigger" id="action-1"></i>
+                  </td>
+                </tr>
+                
+                <!-- Row 2 -->
+                <tr class="clickable-row" data-job="Frontend Developer" data-dept="Engineering" data-exp="3-5 Years" data-type="Full-Time" data-link="careers.html?id=2">
+                  <td class="col-title">Frontend Developer</td>
+                  <td>Engineering</td>
+                  <td>3-5 Years</td>
+                  <td><span class="job-type-pill type-fulltime">Full-Time</span></td>
+                  <td>WFO</td>
+                  <td><div class="app-link">95</i></div></td>
+                  <td><span class="status-pill status-active">Active</span></td>
+                  <td class="col-date">May 10, 2024</td>
+                  <td class="col-date">Jun 10, 2024</td>
+                  <td class="col-action">
+                    <i class="fa-solid fa-ellipsis-vertical action-trigger" id="action-2"></i>
+                  </td>
+                </tr>
+
+                <!-- Row 3 -->
+                <tr class="clickable-row" data-job="Backend Developer" data-dept="Engineering" data-exp="3-6 Years" data-type="Full-Time" data-link="careers.html?id=3">
+                  <td class="col-title">Backend Developer</td>
+                  <td>Engineering</td>
+                  <td>3-6 Years</td>
+                  <td><span class="job-type-pill type-fulltime">Full-Time</span></td>
+                  <td>WFO</td>
+                  <td><div class="app-link">76</i></div></td>
+                  <td><span class="status-pill status-active">Active</span></td>
+                  <td class="col-date">May 08, 2024</td>
+                  <td class="col-date">Jun 08, 2024</td>
+                  <td class="col-action">
+                    <i class="fa-solid fa-ellipsis-vertical action-trigger" id="action-3"></i>
+                  </td>
+                </tr>
+
+                <!-- Row 4 -->
+                <tr class="clickable-row" data-job="Data Analyst" data-dept="Analystics" data-exp="1-3 Years" data-type="Intern" data-link="careers.html?id=4">
+                  <td class="col-title">Data Analyst</td>
+                  <td>Analystics</td>
+                  <td>1-3 Years</td>
+                  <td><span class="job-type-pill type-intern">Intern</span></td>
+                  <td>WFH</td>
+                  <td><div class="app-link">43</i></div></td>
+                  <td><span class="status-pill status-draft">Draft</span></td>
+                  <td class="col-date">May 05, 2024</td>
+                  <td class="col-date">Jun 05, 2024</td>
+                  <td class="col-action">
+                    <i class="fa-solid fa-ellipsis-vertical action-trigger" id="action-4"></i>
+                  </td>
+                </tr>
+
+                <!-- Row 5 -->
+                <tr class="clickable-row" data-job="HR Executive" data-dept="HR" data-exp="2-4 Years" data-type="Full-Time" data-link="careers.html?id=5">
+                  <td class="col-title">HR Executive</td>
+                  <td>HR</td>
+                  <td>2-4 Years</td>
+                  <td><span class="job-type-pill type-fulltime">Full-Time</span></td>
+                  <td>WFO</td>
+                  <td><div class="app-link">38</i></div></td>
+                  <td><span class="status-pill status-active">Active</span></td>
+                  <td class="col-date">May 03, 2024</td>
+                  <td class="col-date">Jun 03, 2024</td>
+                  <td class="col-action">
+                    <i class="fa-solid fa-ellipsis-vertical action-trigger" id="action-5"></i>
+                  </td>
+                </tr>
+
+                <!-- Row 6 -->
+                <tr class="clickable-row" data-job="Sales Intern" data-dept="Sales" data-exp="0-1 Years" data-type="Intern" data-link="careers.html?id=6">
+                  <td class="col-title">Sales Intern</td>
+                  <td>Sales</td>
+                  <td>0-1 Years</td>
+                  <td><span class="job-type-pill type-intern">Intern</span></td>
+                  <td>WFH</td>
+                  <td><div class="app-link">66</i></div></td>
+                  <td><span class="status-pill status-draft">Draft</span></td>
+                  <td class="col-date">May 01, 2024</td>
+                  <td class="col-date">Jun 01, 2024</td>
+                  <td class="col-action">
+                    <i class="fa-solid fa-ellipsis-vertical action-trigger" id="action-6"></i>
+                  </td>
+                </tr>
+
+                <!-- Row 7 -->
+                <tr class="clickable-row" data-job="Marketing Manager" data-dept="Marketing" data-exp="4-7 Years" data-type="Full-Time" data-link="careers.html?id=7">
+                  <td class="col-title">Marketing Manager</td>
+                  <td>Marketing</td>
+                  <td>4-7 Years</td>
+                  <td><span class="job-type-pill type-fulltime">Full-Time</span></td>
+                  <td>WFO</td>
+                  <td><div class="app-link">110</i></div></td>
+                  <td><span class="status-pill status-closed">Closed</span></td>
+                  <td class="col-date">Apr 28, 2024</td>
+                  <td class="col-date">May 28, 2024</td>
+                  <td class="col-action">
+                    <i class="fa-solid fa-ellipsis-vertical action-trigger" id="action-7"></i>
+                  </td>
+                </tr>
+
+                <!-- Row 8 -->
+                <tr class="clickable-row" data-job="Business Analyst" data-dept="Analystics" data-exp="2-4 Years" data-type="Full-Time" data-link="careers.html?id=8">
+                  <td class="col-title">Business Analyst</td>
+                  <td>Analystics</td>
+                  <td>2-4 Years</td>
+                  <td><span class="job-type-pill type-fulltime">Full-Time</span></td>
+                  <td>WFH</td>
+                  <td><div class="app-link">54</i></div></td>
+                  <td><span class="status-pill status-closed">Closed</span></td>
+                  <td class="col-date">Apr 25, 2024</td>
+                  <td class="col-date">May 25, 2024</td>
+                  <td class="col-action">
+                    <i class="fa-solid fa-ellipsis-vertical action-trigger" id="action-8"></i>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- ======================================================= -->
+          <!-- UPDATED: PAGINATION MOVED HERE (INSIDE WRAPPER)         -->
+          <!-- ======================================================= -->
+          <div class="pagination-wrapper">
+            <a href="#" class="page-btn active" onclick="changePage(1)">1</a>
+            <a href="#" class="page-btn" onclick="changePage(2)">2</a>
+            <a href="#" class="page-btn" onclick="changePage(3)">3</a>
+            <a href="#" class="page-btn" onclick="changePage(4)">4</a>
+            <a href="#" class="page-btn" onclick="changePage(5)">5</a>
+            <a href="#" class="page-btn" onclick="changePage(10)">10</a>
+            <a href="#" class="page-btn next-btn" onclick="changePage('next')">
+              <i class="fa-solid fa-chevron-right"></i>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+      <!-- ========================================= -->
+      <!-- NAYA CAREER LAYOUT CODE YAHIN KHTAM HOTA HAI -->
+      <!-- ========================================= -->
+
+      <!-- COPYRIGHT TEXT -->
+      <div class="copyright-section">
+            <p class="copyright-text">Copyright &copy; 2025 - 2026 <a href="https://www.creativewebsolution.in/" target="_blank" class="company-name"> Creative Web
+                    Solution</a>. ALL RIGHTS RESERVED</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div id="dropdowns-container">
+  <!-- Dropdown 1 -->
+  <div class="action-dropdown-wrapper" id="dropdown-1">
+    <ul class="action-dropdown-menu">
+      <li><a href="#">Edit</a></li>
+      <li><a href="#">Preview</a></li>
+      <li><a href="#">Delete</a></li>
+    </ul>
+  </div>
+  <!-- Dropdown 2 -->
+  <div class="action-dropdown-wrapper" id="dropdown-2">
+ <ul class="action-dropdown-menu">
+      <li><a href="#">Edit</a></li>
+      <li><a href="#">Preview</a></li>
+      <li><a href="#">Delete</a></li>
+    </ul>
+  </div>
+  <!-- Dropdown 3 -->
+  <div class="action-dropdown-wrapper" id="dropdown-3">
+    <ul class="action-dropdown-menu">
+      <li><a href="#">Edit</a></li>
+      <li><a href="#">Preview</a></li>
+      <li><a href="#">Delete</a></li>
+    </ul>
+  </div>
+  <!-- Dropdown 4 -->
+  <div class="action-dropdown-wrapper" id="dropdown-4">
+    <ul class="action-dropdown-menu">
+      <li><a href="#">Edit</a></li>
+      <li><a href="#">Preview</a></li>
+      <li><a href="#">Delete</a></li>
+    </ul>
+  </div>
+  <!-- Dropdown 5 -->
+  <div class="action-dropdown-wrapper" id="dropdown-5">
+    <ul class="action-dropdown-menu">
+      <li><a href="#">Edit</a></li>
+      <li><a href="#">Preview</a></li>
+      <li><a href="#">Delete</a></li>
+    </ul>
+  </div>
+  <!-- Dropdown 6 -->
+  <div class="action-dropdown-wrapper" id="dropdown-6">
+    <ul class="action-dropdown-menu">
+      <li><a href="#">Edit</a></li>
+      <li><a href="#">Preview</a></li>
+      <li><a href="#">Delete</a></li>
+    </ul>
+  </div>
+  <!-- Dropdown 7 -->
+  <div class="action-dropdown-wrapper" id="dropdown-7">
+    <ul class="action-dropdown-menu">
+      <li><a href="#">Edit</a></li>
+      <li><a href="#">Preview</a></li>
+      <li><a href="#">Delete</a></li>
+    </ul>
+  </div>
+  <!-- Dropdown 8 -->
+  <div class="action-dropdown-wrapper" id="dropdown-8">
+    <ul class="action-dropdown-menu">
+      <li><a href="#">Edit</a></li>
+      <li><a href="#">Preview</a></li>
+      <li><a href="#">Delete</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- Moved Scripts here to ensure DOM is fully loaded before custom script runs -->
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+
+  <script>
+    // Profile Dropdown Logic
+    const profileBtn = document.getElementById('profileBtn');
+    const dropdownWrapper = document.querySelector('.profile-dropdown-wrapper');
+
+    // Toggle dropdown on click
+    profileBtn.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevent bubbling
+      dropdownWrapper.classList.toggle('active');
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!dropdownWrapper.contains(e.target)) {
+        dropdownWrapper.classList.remove('active');
+      }
+    });
+
+    if(hamburger) {
+      hamburger.addEventListener('click', () => {
+        sidebar.classList.add('active');
+      });
+    }
+
+    if(closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        sidebar.classList.remove('active');
+      });
+    }
+  </script>
+
+<!-- CHANGE: Updated Script with Sticky Logic on Scroll/Zoom -->
+<script>
+  (function() {
+    document.addEventListener('DOMContentLoaded', function() {
+      const triggers = document.querySelectorAll('.action-trigger');
+      const dropdownContainer = document.getElementById('dropdowns-container');
+      
+      let currentActiveWrapper = null;
+      let currentActiveTrigger = null;
+
+      function updatePosition() {
+        if (currentActiveWrapper && currentActiveTrigger) {
+          const rect = currentActiveTrigger.getBoundingClientRect();
+          currentActiveWrapper.style.left = rect.left + 'px';
+          currentActiveWrapper.style.top = (rect.bottom + 5) + 'px';
+        }
+      }
+
+      if (triggers.length > 0) {
+        triggers.forEach(trigger => {
+          trigger.addEventListener('click', function(e) {
+            e.stopPropagation();
+            
+            const id = this.id;
+            const dropdownId = id.replace('action', 'dropdown');
+            const dropdown = document.getElementById(dropdownId);
+
+            if (dropdown) {
+              document.querySelectorAll('.action-dropdown-wrapper').forEach(wrapper => {
+                wrapper.classList.remove('active');
+                wrapper.style.display = 'none';
+              });
+
+              currentActiveWrapper = dropdown;
+              currentActiveTrigger = this;
+
+              updatePosition();
+              dropdown.style.display = 'block';
+              
+              setTimeout(() => {
+                dropdown.classList.add('active');
+              }, 10);
+            }
+          });
+        });
+      }
+
+      document.addEventListener('click', function() {
+        if (currentActiveWrapper) {
+          currentActiveWrapper.classList.remove('active');
+          setTimeout(() => {
+            currentActiveWrapper.style.display = 'none';
+            currentActiveWrapper = null;
+            currentActiveTrigger = null;
+          }, 200);
+        }
+      });
+
+      window.addEventListener('scroll', updatePosition);
+      window.addEventListener('resize', updatePosition);
+
+    });
+  })();
+</script>
+
+<!-- ============================================ -->
+<!-- CHANGED: Replaced with exact same sidebar highlight script from admin-dashboard.html -->
+<!-- ============================================ -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const currentPath = window.location.pathname;
+    const menuLinks = document.querySelectorAll('.menu li');
+
+    menuLinks.forEach(li => {
+      const link = li.querySelector('a');
+      const pageName = link.getAttribute('data-page');
+
+      if (pageName) {
+        if (currentPath.includes(pageName)) {
+          li.classList.add('active');
+        } else {
+          li.classList.remove('active');
+        }
+      }
+    });
+  });
+</script>
+
+    <!-- JS Script (Updated: Click anywhere to close logic) -->
+    <script>
+      const hamburger = document.querySelector('.hamburger');
+      const closeBtn = document.querySelector('.close-btn');
+      const sidebar = document.querySelector('.sidebar');
+
+      if(hamburger){
+        hamburger.addEventListener('click', () => {
+          sidebar.classList.add('active');
+        });
+      }
+
+      if(closeBtn){
+        closeBtn.addEventListener('click', () => {
+          sidebar.classList.remove('active');
+        });
+      }
+    </script>
+
+    <!-- CHANGE: Notification Toggle Script -->
+    <script>
+      const notificationBtn = document.getElementById('notificationBtn');
+      const notificationWrapper = document.querySelector('.notification-wrapper');
+
+      if(notificationBtn) {
+        notificationBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          notificationWrapper.classList.toggle('active');
+        });
+      }
+
+      // Close notification when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!notificationWrapper.contains(e.target)) {
+          notificationWrapper.classList.remove('active');
+        }
+      });
+    </script>
+
+    <!-- Do not remove below commented code  -->
+<script>
+// ── Auth Check + Profile + Logout ──
+(function() {
+  var userStr = localStorage.getItem('user');
+  if (!userStr) {
+    window.location.replace('Sign-In.html');
+    return;
+  }
+  var userData;
+  try {
+    userData = JSON.parse(userStr);
+  } catch(e) {
+    localStorage.removeItem('user');
+    window.location.replace('Sign-In.html');
+    return;
+  }
+  if (!userData.token || userData.role !== 'SUPER_ADMIN') {
+    localStorage.removeItem('user');
+    window.location.replace('Sign-In.html');
+    return;
+  }
+  var name     = userData.name || 'Admin';
+  var parts    = name.trim().split(' ');
+  var initials = parts.length >= 2
+    ? (parts[0][0] + parts[1][0]).toUpperCase()
+    : name.substring(0, 2).toUpperCase();
+  var profileBtn = document.getElementById('profileBtn');
+  if (profileBtn) profileBtn.textContent = initials;
+})();
+
+function handleLogout() {
+  localStorage.removeItem('user');
+  localStorage.removeItem('creative_email');
+  localStorage.removeItem('creative_remember');
+  window.location.replace('Sign-In.html');
+}
+</script>
+
+    <!-- NEW: Search and Filter Logic Script -->
+    <script>
+      // 1. Global Search Logic (Navbar)
+      document.getElementById('globalSearchInput').addEventListener('keyup', (e) => {
+          const searchValue = e.target.value.toLowerCase();
+          const rows = document.querySelectorAll('.clickable-row');
+          rows.forEach(row => {
+              const title = row.getAttribute('data-job').toLowerCase();
+              if(title.includes(searchValue)) {
+                  row.style.display = "";
+              } else {
+                  row.style.display = "none";
+              }
+          });
+      });
+
+      // 2. Header Search Logic (Career Header)
+      document.getElementById('headerSearchInput').addEventListener('keyup', (e) => {
+          const searchValue = e.target.value.toLowerCase();
+          const rows = document.querySelectorAll('.clickable-row');
+          rows.forEach(row => {
+              const title = row.getAttribute('data-job').toLowerCase();
+              if(title.includes(searchValue)) {
+                  row.style.display = "";
+              } else {
+                  row.style.display = "none";
+              }
+          });
+      });
+
+      // 3. Filter Logic
+      function filterTable() {
+        // Get Inputs
+        const searchTitle = document.getElementById('searchJobTitle').value.toLowerCase();
+        const filterDept = document.getElementById('filterDepartment').value;
+        const filterExp = document.getElementById('filterExperience').value;
+        const filterType = document.getElementById('filterJobType').value;
+        
+        const table = document.querySelector('.job-table-layout tbody');
+        const rows = table.querySelectorAll('tr');
+
+        rows.forEach(row => {
+          const title = row.getAttribute('data-job').toLowerCase();
+          const dept = row.getAttribute('data-dept');
+          const exp = row.getAttribute('data-exp');
+          const type = row.getAttribute('data-type');
+          const titleCell = row.querySelector('.col-title');
+
+          // Check Conditions
+          let matchesTitle = title.includes(searchTitle);
+          let matchesDept = filterDept === "" || dept === filterDept;
+          let matchesExp = filterExp === "" || exp === filterExp;
+          let matchesType = filterType === "" || type === filterType;
+
+          if (matchesTitle && matchesDept && matchesExp && matchesType) {
+            row.style.display = "";
+            // No yellow highlight
+            titleCell.innerHTML = row.getAttribute('data-job');
+          } else {
+            row.style.display = "none";
+          }
+        });
+      }
+
+      // 4. Pagination Click Logic
+      function changePage(page) {
+          // Remove active class from all buttons
+          document.querySelectorAll('.page-btn').forEach(btn => btn.classList.remove('active'));
+          
+          // If it's a number (not 'next'), find the specific button
+          if (page !== 'next') {
+              const btn = document.querySelector(`.page-btn[onclick="changePage(${page})"]`);
+              if (btn) btn.classList.add('active');
+          } else {
+              // Logic for 'next' could go to page 2 in this example
+              // Just visual update for now
+              const nextBtn = document.querySelector('.next-btn');
+              // nextBtn.classList.add('active');
+          }
+      }
+
+      // 5. Clickable Row Logic
+      document.addEventListener('DOMContentLoaded', () => {
+        const rows = document.querySelectorAll('.clickable-row');
+        
+        rows.forEach(row => {
+          row.addEventListener('click', (e) => {
+            if (e.target.closest('.action-trigger')) {
+              return;
+            }
+
+            const link = row.getAttribute('data-link');
+            if (link) {
+              window.location.href = link;
+            }
+          });
+          row.style.cursor = 'pointer';
+        });
+      });
+    </script>
+
+</body>
+</html>

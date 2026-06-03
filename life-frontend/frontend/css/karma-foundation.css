@@ -1,0 +1,815 @@
+/* ================================================
+   CWS.life — karma-foundation.css
+   Page-specific styles for karma-foundation.html
+   All global styles (colors, fonts, navbar,
+   footer, buttons) are in global.css
+   ================================================ */
+
+/* Wrapper to center content if body doesn't handle it globally */
+.karma-wrapper {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto 60px auto; 
+    padding: 0 20px; 
+    padding-left: 40px; 
+}
+
+/* --- Top Line Layout (Breadcrumb) --- */
+.kf-top-line {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: 0%;
+    color: rgba(121, 121, 121, 1);
+    text-transform: capitalize;
+    margin-bottom: 15px;
+    margin-top: 160px; 
+}
+
+.kf-breadcrumb-link {
+    color: rgba(121, 121, 121, 1);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.kf-breadcrumb-link:hover {
+    color: rgba(7, 150, 254, 1);
+    cursor: pointer;
+}
+
+.kf-top-line span {
+    color: rgba(7, 150, 254, 1);
+}
+
+/* --- Section Total Layout --- */
+.kf-section {
+    width: 1254px; 
+    max-width: 100%; 
+    height: 340px;
+    display: flex;
+    justify-content: space-between;
+    gap: 200px;
+    margin: 0 auto;
+}
+
+/* --- Left Side Container Layout --- */
+.kf-left-side {
+    width: 527px; 
+    max-width: 100%; 
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* --- Title Container Layout --- */
+.kf-title-container {
+    width: 434px; 
+    max-width: 100%; 
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+/* --- Title Typography --- */
+.kf-main-title {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-style: Light;
+    font-size: 40px;
+    line-height: 50px;
+    letter-spacing: 0%;
+    color: rgba(10, 37, 64, 1);
+    margin: 0;
+    width: 100%; 
+}
+
+/* --- Title Underline Layout --- */
+.kf-title-underline {
+    width: 81px;
+    height: 9.5px;
+    background-color: rgba(7, 150, 254, 1);
+}
+
+/* --- Desc Container Layout --- */
+.kf-desc-container {
+    width: 520px;
+    max-width: 100%; 
+    height: 100%;
+}
+
+.kf-description {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: 0%;
+    color: rgba(121, 121, 121, 1);
+    margin: 0;
+}
+
+/* --- Right Side Image Layout --- */
+.kf-right-side {
+    width: 526px; 
+    max-width: 100%; 
+    height: 340px;
+    border-radius: 4px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.kf-right-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease; 
+}
+
+/* ADDED: Hover state for zoom effect */
+.kf-right-side img:hover {
+    transform: scale(1.05); 
+}
+
+
+/* =========================================
+   RESPONSIVE ADJUSTMENTS (UPDATED)
+   ========================================= */
+
+/* Tablet & Small Laptops (Less than 1250px) */
+@media (max-width: 1250px) {
+    .karma-wrapper {
+        width: 100%; 
+        padding-left: 20px !important; 
+        padding-right: 20px !important;
+    }
+
+    .kf-section {
+        width: auto; 
+        height: auto;
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .kf-left-side, .kf-right-side {
+        width: 100%;
+    }
+
+    .kf-title-container {
+        width: 100%;
+    }
+
+    .kf-desc-container {
+        width: 100%;
+        height: auto;
+    }
+
+    .kf-right-side {
+        height: 350px;
+    }
+}
+
+/* Large Mobiles (Less than 768px) */
+@media (max-width: 769px) {
+    .kf-top-line {
+        margin-top: 130px;
+        font-size: 16px;
+    }
+
+    .kf-main-title {
+        font-size: 32px;
+        line-height: 42px;
+    }
+
+    .kf-description {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .kf-right-side {
+        height: 280px;
+        margin-bottom: 20px;
+    }
+.impact-container {
+     
+        gap: 30px;
+    }
+
+}
+
+/* Small Mobiles (Less than 480px) */
+@media (max-width: 480px) {
+    .kf-main-title {
+        font-size: 28px;
+        line-height: 38px;
+    }
+    
+    .kf-title-container {
+        gap: 15px;
+    }
+
+    .kf-right-side {
+        height: 220px;
+    }
+}
+
+
+/* ================================================
+   CWS.life — why-it-matters.css
+   Layout: "Why It Matters" & "How We Help"
+   ================================================ */
+
+/* --- Total Container Layout --- */
+.wi-total-container {
+    width: 100%;
+    height: 743px; 
+    background: rgba(225, 242, 255, 1); 
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    padding-top: 20px; 
+    padding-bottom: 20px;
+}
+
+/* --- Inside Container --- */
+.wi-inside-container {
+    width: 1248px; 
+    height: 642.5px;
+    display: flex;
+    justify-content: space-between;
+    gap: 144px; 
+}
+
+/* --- Left Side Total Container --- */
+.wi-left-side {
+    width: 577.6px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px; 
+}
+
+/* =========================================
+   TOP BLOCK (Why It Matters)
+   ========================================= */
+.wi-top-block {
+    width: 100%;
+    /* Height auto based on content */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.wi-main-title {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-style: Light;
+    font-size: 40px;
+    line-height: 50px;
+    letter-spacing: 0%;
+    color: rgba(10, 37, 64, 1);
+    margin: 0;
+    width: 434px; 
+}
+
+.wi-underline {
+    width: 81.27px;
+    height: 9.5px;
+    background-color: rgba(7, 150, 254, 1);
+    margin-bottom: 30px;
+}
+
+.wi-desc {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: 0%;
+    color: rgba(121, 121, 121, 1);
+    margin: 0;
+    width: 527.8px;
+}
+
+/* =========================================
+   BOTTOM BLOCK (How Our Contribution Helps)
+   ========================================= */
+.wi-bottom-block {
+    width: 100%;
+    height: 418.5px; 
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Title & Desc Group */
+.wi-second-title-group {
+    width: 524px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+}
+
+.wi-second-title {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-style: Light;
+    font-size: 40px;
+    line-height: 46px; 
+    letter-spacing: 0%;
+    color: rgba(9, 42, 73, 1);
+    margin: 0;
+    margin-top: -20px; 
+    width: 486px;
+}
+
+.wi-second-underline {
+    width: 81.27px;
+    height: 9.5px;
+    background-color: rgba(7, 150, 254, 1);
+    margin-bottom: 0px; 
+}
+
+.wi-sub-desc {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: 0%;
+    color: rgba(121, 121, 121, 1);
+    margin: 0;
+    margin-bottom: 20px;
+    margin-top: -5px; 
+    width: 350px;
+}
+
+/* Below 4 Points Container */
+.wi-points-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+/* Point Item Layout */
+.wi-point-item {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    gap: 21px;
+    cursor: pointer; 
+    transition: transform 0.3s ease, gap 0.3s ease; 
+}
+
+.wi-point-item:hover {
+    transform: translateX(10px); 
+    gap: 25px; 
+}
+
+/* Icon Container Layout */
+.wi-icon-box {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    transition: background-color 0.3s ease; 
+}
+
+.wi-point-item:hover .wi-icon-box {
+    background-color: rgba(7, 150, 254, 1); 
+}
+
+/* Inside Icon Layout (Font Awesome Icon) */
+.wi-icon-box img {
+    width: 40px;
+    height: 40px;
+    font-size: 24px; 
+    line-height: 40px; 
+    text-align: center;
+    transition: filter 0.3s ease; 
+}
+
+.wi-point-item:hover .wi-icon-box img {
+    filter: brightness(0) invert(1); 
+}
+
+/* Point Text Container */
+.wi-point-text {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 24px;
+    line-height: 25px; 
+    letter-spacing: 0%;
+    vertical-align: middle;
+    color: rgba(9, 42, 73, 1);
+    margin: 0;
+    transition: color 0.3s ease; 
+}
+
+.wi-point-item:hover .wi-point-text {
+    color: rgba(7, 150, 254, 1);
+}
+
+/* =========================================
+   RIGHT SIDE IMAGE
+   ========================================= */
+.wi-right-side {
+    width: 526.4px;
+    height: 642.5px;
+    border-radius: 4px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.wi-right-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease; 
+}
+
+/* ADDED: Hover state for zoom effect */
+.wi-right-side img:hover {
+    transform: scale(1.05); 
+}
+
+
+/* =========================================
+   RESPONSIVE ADJUSTMENTS (UPDATED FOR ALL SCREENS)
+   ========================================= */
+
+/* Tablet & Small Laptops (Less than 1250px) */
+@media (max-width: 1250px) {
+    .wi-total-container {
+        height: auto; 
+        padding: 60px 20px; 
+    }
+
+    .wi-inside-container {
+        width: 95%; 
+        height: auto;
+        flex-direction: column; 
+        align-items: center; 
+        gap: 60px;
+    }
+
+    .wi-left-side, .wi-right-side {
+        width: 100%;
+        height: auto;
+    }
+    
+    .wi-right-side {
+        height: 450px; 
+    }
+
+    .wi-main-title, .wi-second-title, .wi-sub-desc, .wi-desc, .wi-second-title-group {
+        width: 100%;
+    }
+
+    .wi-second-title {
+        margin-top: 0; 
+    }
+}
+
+/* Large Mobiles (Less than 768px) */
+@media (max-width: 768px) {
+    .wi-total-container {
+        padding: 40px 15px; 
+    }
+
+    .wi-inside-container {
+        gap: 40px;
+    }
+
+    .wi-main-title, .wi-second-title {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .wi-desc, .wi-sub-desc {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .wi-point-text {
+        font-size: 20px;
+    }
+
+    .wi-points-container {
+        gap: 15px;
+    }
+
+    .wi-right-side {
+        height: 300px; 
+    }
+}
+
+
+/* =========================================
+   CARDS 
+   ========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.impact-section {
+  background: #ffffff;
+  padding: 80px 0;
+}
+
+
+.impact-container {
+  width: 1243px;              
+  margin: 0 auto;
+  display: flex;
+  gap: 19px;
+  justify-content: space-between; 
+}
+
+.impact-card {
+  width: 395px;
+  height: 258px;
+  background: #ffffff;
+  border: 1px solid #EEEEEE;
+  padding: 10px;
+
+  display: flex;
+  flex-direction: column;
+
+  flex-shrink: 0; 
+  box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+  
+  /* ADDED: Hover effect properties */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* ADDED: Hover state for the card */
+.impact-card:hover {
+  transform: translateY(-10px); 
+  box-shadow: 0px 10px 20px rgba(0,0,0,0.15); 
+}
+
+.card-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 300;
+  font-size: 32px;
+  line-height: 37px;
+  color: #092A49;
+
+  min-height: 82px;
+
+  display: flex;
+  align-items: flex-start;
+  
+  transition: color 0.3s ease;
+}
+
+.card-text {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  line-height: 25px;
+  color: #797979;
+  padding-right: 0px;
+  margin-top: 20px;
+  font-style: Regular;
+  width: 350px;
+}
+
+.impact-card:nth-child(1) .card-text {
+  max-width: 330px;
+}
+
+.impact-card:nth-child(2) .card-text {
+  max-width: 391px;
+}
+
+.impact-card:nth-child(3) .card-text {
+  max-width: 390px;
+}
+
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+   
+@media (max-width: 1200px) {
+  .impact-container {
+    width: 100%;
+    padding: 0 20px;
+
+    display: flex;
+    flex-direction: column;   
+    align-items: center;     
+    gap: 10px;                
+  }
+
+  .impact-card {
+    width: 100%;
+    max-width: 395px;         
+    }
+}
+
+@media (max-width: 1300px) and (min-width:1200px) {
+    .impact-container {
+        width: 100%;
+        padding: 0 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+    }
+    .impact-card {
+    width: 390px;
+    
+}
+}
+
+@media (max-width: 600px) {
+
+  .impact-section {
+    padding: 60px 0;
+  }
+
+  .impact-card {
+    padding: 16px;
+  }
+
+  .card-title {
+    font-size: 24px;
+    line-height: 30px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .card-text {
+    font-size: 16px;
+    line-height: 22px;
+
+    max-width: 280px;  
+    
+  }
+}
+
+@media (max-width:480px) {
+.kf-left-side {
+    width: 100%;
+    max-width: 100%;
+    gap: 15px;
+}
+.karma-wrapper {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 ;
+}
+    .wi-total-container {
+        padding: 15px;
+    }
+    .wi-left-side {
+    width: 100%;
+    gap: 20px;
+}
+.wi-underline {
+    margin-bottom: 10px;
+}
+.wi-bottom-block {
+    width: 100%;
+    height: auto;
+}
+    .impact-section {
+        padding: 30px 0;
+    }
+    .card-text {
+   
+    margin-top: 0px;
+}
+}
+
+
+/* ================================================
+   SCROLL NAVIGATION BUTTON
+   Bottom button → scrolls to top (up arrow)
+   Hidden at top, visible after scrolling past 1st section
+   ================================================ */
+
+/* Base style — hidden by default */
+.scroll-nav-btn {
+   position: fixed;
+   right: 20px;
+   /* CHANGED: adjusted base size */
+   width: 38px;
+   height: 38px;
+   background-color: #0796FE;
+   color: #ffffff;
+   border: none;
+   border-radius: 5%;
+   cursor: pointer;
+   z-index: 9999;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   opacity: 0;
+   visibility: hidden;
+   transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+   box-shadow: 0 4px 14px rgba(7, 150, 254, 0.35);
+   -webkit-tap-highlight-color: transparent;
+}
+
+/* Visible state — added via JS after scrolling past 1st section */
+.scroll-nav-btn.scroll-nav-visible {
+   opacity: 1;
+   visibility: visible;
+}
+
+/* Shared hover */
+.scroll-nav-btn:hover {
+   background-color: #0680db;
+   box-shadow: 0 6px 20px rgba(7, 150, 254, 0.45);
+}
+
+/* Shared active/press */
+.scroll-nav-btn:active {
+   transform: scale(0.92);
+   background-color: #056cbb;
+}
+
+/* Shared SVG icon style */
+.scroll-nav-btn svg {
+   width: 18px;
+   height: 18px;
+   fill: none;
+   stroke: #ffffff;
+   stroke-width: 2.5;
+   stroke-linecap: round;
+   stroke-linejoin: round;
+}
+
+/* Bottom button — fixed bottom-right — scrolls to page top */
+.scroll-to-top-btn {
+   bottom: 20px;
+}
+
+/* Responsive: tablet */
+@media (max-width: 1024px) {
+   .scroll-nav-btn {
+      right: 16px;
+      width: 36px;
+      height: 36px;
+   }
+   .scroll-nav-btn svg {
+      width: 16px;
+      height: 16px;
+   }
+   .scroll-to-top-btn {
+      bottom: 30px;
+   }
+}
+
+/* Responsive: mobile */
+@media (max-width: 768px) {
+   .scroll-nav-btn {
+      right: 16px;
+      width: 34px;
+      height: 34px;
+   }
+   .scroll-nav-btn svg {
+      width: 15px;
+      height: 15px;
+   }
+   .scroll-to-top-btn {
+      bottom: 24px;
+   }
+}
+
+/* Responsive: small mobile */
+@media (max-width: 480px) {
+   .scroll-nav-btn {
+      right: 12px;
+      width: 32px;
+      height: 32px;
+   }
+   .scroll-nav-btn svg {
+      width: 14px;
+      height: 14px;
+      stroke-width: 2.8;
+   }
+   .scroll-to-top-btn {
+      bottom: 20px;
+   }
+}

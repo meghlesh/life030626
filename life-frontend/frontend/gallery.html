@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Gallery — CWS.life</title>
+
+  <!-- GOOGLE FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=DM+Sans:wght@300;400;500&family=Oswald:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+  <!-- FONT AWESOME -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <!-- GLOBAL CSS -->
+  <link rel="stylesheet" href="css/global.css">
+
+  <!-- GALLERY CSS -->
+  <link rel="stylesheet" href="css/gallery.css">
+
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <div id="navbar-placeholder"></div>
+
+
+  <!-- HERO SECTION -->
+
+  <!-- Gallery Top Hero Section -->
+  <section class="gallery-hero">
+
+    <div class="gallery-hero-content">
+      <h1 class="gallery-hero-title">GALLERY</h1>
+      <p class="gallery-hero-subtitle">
+        <a href="index.html" class="breadcrumb-link">Home</a> >
+        <span class="breadcrumb-active">Gallery</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- Gallery Intro Section -->
+  <section class="gallery-intro">
+    <img src="assets\images\blogs1.JPG" alt="CWS Team" class="gallery-intro-bg" />
+    <div class="gallery-intro-overlay"></div>
+    <div class="gallery-intro-inner">
+    </div>
+  </section>
+
+  <!-- =========================================
+       GALLERY SECTION
+  ========================================= -->
+
+  <section class="gallery-section">
+
+    <!-- FILTER BUTTONS -->
+
+    <div class="gallery-filters">
+
+      <button class="filter-btn active" data-filter="all">All</button>
+
+      <button class="filter-btn" data-filter="team">Team</button>
+
+      <button class="filter-btn" data-filter="infrastructure">Infrastructure</button>
+      
+      <button class="filter-btn" data-filter="events">Events</button>
+
+      <button class="filter-btn" data-filter="birthday">Birthday Bash</button>
+
+      <button class="filter-btn" data-filter="work_anniversary">Work Anniversary</button>
+
+      <button class="filter-btn" id="video-toggle-btn">CWS Event Videos</button>
+
+    </div>
+
+
+    <!-- VIDEO GRID SECTION -->
+
+    <div class="video-gallery" id="videoGallery" style="display: none;">
+    <!--Keep above line only & remove the below static data for dynamic purpose.(jayashree)-->
+        <!-- <div class="video-card">
+            <video controls class="gallery-video">
+                <source src="./assets/images/newvideo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-overlay">
+                <h3>Event Highlight</h3>
+            </div>
+        </div>
+
+        <div class="video-card">
+            <video controls class="gallery-video">
+                <source src="./assets/images/event-video2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-overlay">
+                <h3>Event Highlight</h3>
+            </div>
+        </div>
+
+        <div class="video-card">
+            <video controls class="gallery-video">
+                <source src="./assets/images/event-video3.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-overlay">
+                <h3>Event Highlight</h3>
+            </div>
+        </div> -->
+
+    </div>
+
+
+    <!-- IMAGE GALLERY GRID -->
+
+    <div class="gallery-grid" id="imageGallery">
+    <!--Keep above line only & remove the below static data for dynamic purpose.(jayashree)-->
+    
+      <!-- TEAM -->
+
+      <!-- <div class="gallery-card team">
+
+        <img src="./assets/images/gallerytwo.png" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>Our Team</h3>
+
+          <p>TEAM</p>
+
+        </div>
+
+      </div>
+
+
+      <div class="gallery-card team">
+
+        <img src="./assets/images/team1.jpg" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>Our Team</h3>
+
+          <p>TEAM</p>
+
+        </div>
+
+      </div>
+
+
+      <div class="gallery-card team">
+
+        <img src="./assets/images/office.JPG" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>Our Team</h3>
+
+          <p>TEAM</p>
+
+        </div>
+
+      </div> -->
+
+      <!-- ADDED MORE TEAM IMAGES -->
+      <!-- <div class="gallery-card team">
+
+        <img src="./assets/images/pooja1.jpeg" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>Our Team</h3>
+
+          <p>TEAM</p>
+
+        </div>
+
+      </div>
+
+      <div class="gallery-card team">
+
+        <img src="./assets/images/pooja2.jpeg" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>Our Team</h3>
+
+          <p>TEAM</p>
+
+        </div>
+
+      </div>
+
+      <div class="gallery-card team">
+
+        <img src="./assets/images/pooja3.jpeg" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>Our Team</h3>
+
+          <p>TEAM</p>
+
+        </div>
+
+      </div>
+ -->
+
+
+      <!-- INFRASTRUCTURE -->
+
+      <!-- <div class="gallery-card infrastructure">
+
+        <img src="./assets/images/gallery3.jpg" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>Work Environment</h3>
+
+          <p>INFRASTRUCTURE</p>
+
+        </div>
+
+      </div>
+
+
+      <div class="gallery-card infrastructure">
+
+        <img src="./assets/images/gallery4.jpg" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>Work Environment</h3>
+
+          <p>INFRASTRUCTURE</p>
+
+        </div>
+
+      </div>
+
+
+      <div class="gallery-card infrastructure">
+
+        <img src="./assets/images/work5.jpg" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>Work Environment</h3>
+
+          <p>INFRASTRUCTURE</p>
+
+        </div>
+
+      </div> -->
+
+
+
+      <!-- EVENTS (Ye purane events hain) -->
+
+      <!-- <div class="gallery-card events">
+
+        <img src="./assets/images/pooja5.jpeg" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>Team Meetup</h3>
+
+          <p>EVENTS</p>
+
+        </div>
+
+      </div>
+
+
+      <div class="gallery-card events">
+
+        <img src="./assets/images/pooja6.jpeg" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>Team Meetup</h3>
+
+          <p>EVENTS</p>
+
+        </div>
+
+      </div>
+
+
+      <div class="gallery-card events">
+
+        <img src="./assets/images/pooja9.jpeg" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>Team Meetup</h3>
+
+          <p>EVENTS</p>
+
+        </div>
+
+      </div>
+
+ -->
+
+      <!-- BIRTHDAY -->
+
+      <!-- <div class="gallery-card birthday">
+
+        <img src="./assets/images/birthday1.jpeg" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>Birthday Celebration</h3>
+
+          <p>BIRTHDAY</p>
+
+        </div>
+
+      </div>
+
+
+      <div class="gallery-card birthday">
+
+        <img src="./assets/images/hrbirthday.jpeg" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>Birthday Celebration</h3>
+
+          <p>BIRTHDAY</p>
+
+        </div>
+
+      </div>
+
+
+      <div class="gallery-card birthday">
+
+        <img src="./assets/images/pranavbirthday.jpeg" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>Birthday Celebration</h3>
+
+          <p>BIRTHDAY</p>
+
+        </div>
+
+      </div> -->
+
+      <!-- ADDED MORE BIRTHDAY IMAGES -->
+      <!-- <div class="gallery-card birthday">
+
+        <img src="./assets/images/birthday2.jpeg" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>Birthday Celebration</h3>
+
+          <p>BIRTHDAY</p>
+
+        </div>
+
+      </div>
+
+      <div class="gallery-card birthday">
+
+        <img src="./assets/images/praveen1.jpeg" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>Birthday Celebration</h3>
+
+          <p>BIRTHDAY</p>
+
+        </div>
+
+      </div>
+
+      <div class="gallery-card birthday">
+
+        <img src="./assets/images/cake7.jpeg" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>Birthday Celebration</h3>
+
+          <p>BIRTHDAY</p>
+
+        </div>
+
+      </div>
+ -->
+
+
+      <!-- EXTRA INFRASTRUCTURE -->
+
+      <!-- <div class="gallery-card infrastructure">
+
+        <img src="./assets/images/office5.webp" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>OUR</h3>
+
+          <p>INFRASTRUCTURE</p>
+
+        </div>
+
+      </div>
+
+
+      <div class="gallery-card infrastructure">
+
+        <img src="./assets/images/officeimg3.jpg" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>OUR</h3>
+
+          <p>INFRASTRUCTURE</p>
+
+        </div>
+
+      </div>
+
+
+      <div class="gallery-card infrastructure">
+
+        <img src="./assets/images/officeimg4.png" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>OUR</h3>
+
+          <p>INFRASTRUCTURE</p>
+
+        </div>
+
+      </div> -->
+
+
+      <!-- =========================================
+           NEW ADDED IMAGES 
+      ========================================= -->
+
+
+      <!-- HOLI CELEBRATION -->
+
+      <!-- <div class="gallery-card events">
+
+        <img src="./assets/images/holi10.jpeg" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>Holi Celebration</h3>
+
+          <p>EVENTS</p>
+
+        </div>
+
+      </div>
+
+      <div class="gallery-card events">
+
+        <img src="./assets/images/holi4.jpeg" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>Holi Celebration</h3>
+
+          <p>EVENTS</p>
+
+        </div>
+
+      </div>
+
+      <div class="gallery-card events">
+
+        <img src="./assets/images/holicelebration.png" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>Holi Celebration</h3>
+
+          <p>EVENTS</p>
+
+        </div>
+
+      </div>
+
+ -->
+
+      <!-- MAKAR SANKRANTI -->
+<!-- 
+      <div class="gallery-card events">
+
+        <img src="./assets/images/sankrant1.jpeg" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>Makar Sankranti</h3>
+
+          <p>EVENTS</p>
+
+        </div>
+
+      </div>
+
+      <div class="gallery-card events">
+
+        <img src="./assets/images/sankrant2.jpeg" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>Makar Sankranti</h3>
+
+          <p>EVENTS</p>
+
+        </div>
+
+      </div>
+
+      <div class="gallery-card events">
+
+        <img src="./assets/images/sankrant3.jpeg" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>Makar Sankranti</h3>
+
+          <p>EVENTS</p>
+
+        </div>
+
+      </div>
+    -->
+
+
+      <!-- DIWALI CELEBRATION -->
+
+      <!-- <div class="gallery-card events">
+
+        <img src="./assets/images/admingallery7.png" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>Diwali Celebration</h3>
+
+          <p>EVENTS</p>
+
+        </div>
+
+      </div>
+
+      <div class="gallery-card events">
+
+        <img src="./assets/images/diwali91.jpg" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>Diwali Celebration</h3>
+
+          <p>EVENTS</p>
+
+        </div>
+
+      </div>
+
+      <div class="gallery-card events">
+
+        <img src="./assets/images/diwalinew51.jpg" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>Diwali Celebration</h3>
+
+          <p>EVENTS</p>
+
+        </div>
+
+      </div>
+  -->
+
+      <!-- GUDI PADWA -->
+
+      <!-- <div class="gallery-card events">
+
+        <img src="./assets/images/gudi.jpeg" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>Gudi Padwa</h3>
+
+          <p>EVENTS</p>
+
+        </div>
+
+      </div>
+
+      <div class="gallery-card events">
+
+        <img src="./assets/images/padwa006.jpeg" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>Gudi Padwa</h3>
+
+          <p>EVENTS</p>
+
+        </div>
+
+      </div>
+
+      <div class="gallery-card events">
+
+        <img src="./assets/images/padwa13.jpeg" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>Gudi Padwa</h3>
+
+          <p>EVENTS</p>
+
+        </div>
+
+      </div>
+ -->
+
+
+      <!-- National Day's Celebration -->
+
+      <!-- <div class="gallery-card events">
+
+        <img src="./assets/images/republic1.jpeg" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>Republic Day Celebrations</h3>
+
+          <p>EVENTS</p>
+
+        </div>
+
+      </div>
+
+      <div class="gallery-card events">
+
+        <img src="./assets/images/republic2.jpeg" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>Republic Day Celebrations</h3>
+
+          <p>EVENTS</p>
+
+        </div>
+
+      </div>
+
+      <div class="gallery-card events">
+
+        <img src="./assets/images/republic4.jpeg" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>Republic Day Celebrations</h3>
+
+          <p>EVENTS</p>
+
+        </div>
+
+      </div>
+
+ -->
+
+      <!-- DUSSHERA CELEBRATION -->
+
+      <!-- <div class="gallery-card events">
+
+        <img src="./assets/images/dusra10.jpg" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>Dusshera</h3>
+
+          <p>EVENTS</p>
+
+        </div>
+
+      </div>
+
+      <div class="gallery-card events">
+
+        <img src="./assets/images/dusra2.jpg" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>Dusshera</h3>
+
+          <p>EVENTS</p>
+
+        </div>
+
+      </div>
+
+      <div class="gallery-card events">
+
+        <img src="./assets/images/dusra6.jpg" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>Dusshera</h3>
+
+          <p>EVENTS</p>
+
+        </div>
+
+      </div>
+ -->
+
+      <!-- ADDED MORE EVENTS IMAGES (Team Outing/Fun) -->
+      <!-- <div class="gallery-card events">
+
+        <img src="./assets/images/pooja10.jpeg" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>Team Outing</h3>
+
+          <p>EVENTS</p>
+
+        </div>
+
+      </div>
+
+      <div class="gallery-card events">
+
+        <img src="./assets/images/pooja5.jpeg" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>Team Outing</h3>
+
+          <p>EVENTS</p>
+
+        </div>
+
+      </div>
+
+      <div class="gallery-card events">
+
+        <img src="./assets/images/pooja8.jpeg" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>Team Outing</h3>
+
+          <p>EVENTS</p>
+
+        </div>
+
+      </div>
+ -->
+
+      <!-- =========================================
+           WORK ANNIVERSARY
+      ========================================= -->
+
+      <!-- <div class="gallery-card anniversary">
+
+        <img src="./assets/images/anniversary1.jpg" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>Work Anniversary</h3>
+
+          <p>ANNIVERSARY</p>
+
+        </div>
+
+      </div>
+
+      <div class="gallery-card anniversary">
+
+        <img src="./assets/images/anniversary2.jpg" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>Work Anniversary</h3>
+
+          <p>ANNIVERSARY</p>
+
+        </div>
+
+      </div>
+
+      <div class="gallery-card anniversary">
+
+        <img src="./assets/images/anniversary3.jpg" alt="">
+
+        <div class="gallery-overlay-content">
+
+          <h3>Work Anniversary</h3>
+
+          <p>ANNIVERSARY</p>
+
+        </div>
+
+      </div> -->
+
+    </div>
+
+  </section>
+
+
+  <!-- IMAGE LIGHTBOX POPUP -->
+  <div class="gallery-lightbox">
+    <span class="close-lightbox">&times;</span>
+    <img class="lightbox-content" src="">
+  </div>
+
+  <!-- VIDEO LIGHTBOX POPUP (Added for Zoom Effect) -->
+  <div class="video-lightbox">
+    <span class="close-video-lightbox">&times;</span>
+    <video class="video-lightbox-content" controls>
+      <source src="" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+
+  <!-- FOOTER -->
+  <div id="footer-placeholder"></div>
+
+
+  <!-- JS -->
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+
+
+  <!-- FILTER JS (Updated for Video Toggle) -->
+
+  <!-- <script>
+   // remove this script when using dynamic images(jayashree)
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const videoToggleBtn = document.getElementById("video-toggle-btn");
+    const galleryCards = document.querySelectorAll(".gallery-card");
+    
+    // Selecting Image Gallery and Video Gallery
+    const imageGallery = document.getElementById("imageGallery");
+    const videoGallery = document.getElementById("videoGallery");
+
+
+    // Logic for Category Buttons (All, Team, Events...)
+    filterButtons.forEach(button => {
+
+      button.addEventListener("click", () => {
+
+        // Remove active from all buttons including Video Button
+        filterButtons.forEach(btn => {
+            btn.classList.remove("active");
+        });
+        videoToggleBtn.classList.remove("active");
+
+        // Add active to clicked button
+        button.classList.add("active");
+
+        const filterValue = button.getAttribute("data-filter");
+
+        // Show Images, Hide Videos
+        imageGallery.style.display = "grid";
+        videoGallery.style.display = "none";
+
+        galleryCards.forEach(card => {
+
+          if (filterValue === "all") {
+
+            card.style.display = "block";
+
+          } else {
+
+            if (card.classList.contains(filterValue)) {
+
+              card.style.display = "block";
+
+            } else {
+
+              card.style.display = "none";
+
+            }
+
+          }
+
+        });
+
+      });
+
+    }); -->
+
+    
+  <!-- // Logic for Video Toggle Button -->
+    <!-- videoToggleBtn.addEventListener("click", () => {
+        
+        // Remove active from other buttons
+        filterButtons.forEach(btn => {
+            btn.classList.remove("active");
+        });
+        
+        // Add active to Video Button
+        videoToggleBtn.classList.add("active");
+
+        // Hide Images, Show Videos
+        imageGallery.style.display = "none";
+        videoGallery.style.display = "grid";
+
+    });
+
+  </script> -->
+
+
+
+  <!-- IMAGE LIGHTBOX JS (Zoom effect logic) -->
+  <script>
+    const lightbox = document.querySelector('.gallery-lightbox');
+    const lightboxImg = lightbox.querySelector('.lightbox-content');
+    const closeBtn = lightbox.querySelector('.close-lightbox');
+    
+    // remove this part only & use below commented code whenever want dynamic image(jayashree)
+    // const allImages = document.querySelectorAll('.gallery-card img');
+
+    // // Open Lightbox on Image Click
+    // allImages.forEach(img => {
+    //     img.addEventListener('click', () => {
+    //         lightbox.classList.add('show');
+    //         lightboxImg.src = img.src;
+    //     });
+    // });
+
+    //!--use this code instead of above code(jayashree)-->
+    document.addEventListener("click", (e) => {
+
+        const img = e.target.closest(".gallery-card img");
+       if (!img) return;
+
+        lightbox.classList.add("show");
+        lightboxImg.src = img.src;
+     });
+
+
+    
+     // Close Lightbox on X click
+    closeBtn.addEventListener('click', () => {
+        lightbox.classList.remove('show');
+    });
+
+    // Close Lightbox on Background Click
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+            lightbox.classList.remove('show');
+        }
+    });
+  </script>
+
+
+  
+<!-- VIDEO LIGHTBOX JS (Zoom effect logic) -->
+  <script>
+    const videoLightbox = document.querySelector('.video-lightbox');
+    const videoLightboxContent = videoLightbox.querySelector('.video-lightbox-content');
+    const closeVideoBtn = videoLightbox.querySelector('.close-video-lightbox');
+    
+    // remove this part only & use below commented code whenever want dynamic image(jayashree)
+    // const allVideoCards = document.querySelectorAll('.video-card');
+
+    // // Open Video Lightbox on Card Click (excluding controls area)
+    // allVideoCards.forEach(card => {
+    //     card.addEventListener('click', () => {
+    //         const video = card.querySelector('video');
+    //         const videoSrc = video.querySelector('source').src;
+            
+    //         videoLightboxContent.querySelector('source').src = videoSrc;
+    //         videoLightboxContent.load(); 
+    //         videoLightboxContent.play(); 
+    //         videoLightbox.classList.add('show');
+    //     });
+    // });
+
+    //!--use this code instead of above code(jayashree)-->
+    document.addEventListener("click", (e) => {
+
+         const card = e.target.closest(".video-card");
+         if (!card) return;
+
+         const video = card.querySelector("video source");
+         if (!video) return;
+
+         const videoSrc = video.src;
+
+        // IMPORTANT FIX (correct way)
+        videoLightboxContent.querySelector("source").src = videoSrc;
+
+        videoLightboxContent.load();
+        videoLightboxContent.play();
+
+        videoLightbox.classList.add("show");
+     });
+
+    
+    
+     // Close Video Lightbox on X click
+    closeVideoBtn.addEventListener('click', () => {
+        videoLightboxContent.pause();
+        videoLightboxContent.currentTime = 0; 
+        videoLightbox.classList.remove('show');
+    });
+
+    // Close Video Lightbox on Background Click
+    videoLightbox.addEventListener('click', (e) => {
+        if (e.target === videoLightbox) {
+            videoLightboxContent.pause();
+            videoLightboxContent.currentTime = 0;
+            videoLightbox.classList.remove('show');
+        }
+    });
+  </script> 
+
+
+
+
+
+
+<!--Add this for dynamic use to fetch images (jayashree)-->
+  <script>
+    let allGalleryData = [];
+
+const filterButtons = document.querySelectorAll(".filter-btn");
+
+const videoToggleBtn = document.getElementById("video-toggle-btn");
+
+const imageGallery = document.getElementById("imageGallery");
+
+const videoGallery = document.getElementById("videoGallery");
+
+// =========================================
+// LOAD API
+// =========================================
+
+fetch("http://localhost:8080/api/gallery/all")
+
+  .then(response => response.json())
+
+  .then(data => {
+
+      allGalleryData = data;
+
+      renderGallery(data);
+
+  })
+
+  .catch(error => {
+
+      console.log("Error loading gallery:", error);
+
+  });
+
+// =========================================
+// RENDER GALLERY
+// =========================================
+
+function renderGallery(data) {
+
+    imageGallery.innerHTML = "";
+
+    videoGallery.innerHTML = "";
+
+    data.forEach(item => {
+
+        // VIDEO
+        if(item.category === "CWS_VIDEO") {
+
+            videoGallery.innerHTML += `
+
+                <div class="video-card">
+
+                    <video class="gallery-video" controls>
+
+                        <source
+                            src="http://localhost:8080${item.imagePath}"
+                            type="video/mp4">
+
+                    </video>
+
+                    <div class="video-overlay">
+
+                        <h3>${item.title}</h3>
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }
+
+        // IMAGE
+        else {
+              // CATEGORY FORMAT
+            let displayCategory = item.category;
+
+            if(item.category === "team") {
+                displayCategory = "TEAM";
+            }
+
+            else if(item.category === "infrastructure") {
+                displayCategory = "INFRASTRUCTURE";
+            }
+
+            else if(item.category === "events") {
+                displayCategory = "EVENTS";
+            }
+
+            else if(item.category === "birthday") {
+                displayCategory = "BIRTHDAY";
+            }
+
+            else if(item.category === "work_anniversary") {
+                displayCategory = "WORK ANNIVERSARY";
+            }
+
+            imageGallery.innerHTML += `
+
+                <div class="gallery-card ${item.category.toLowerCase()}">
+
+                    <img
+                        src="http://localhost:8080${item.imagePath}"
+                        alt="${item.title}">
+
+                    <div class="gallery-overlay-content">
+
+                        <h3>${item.title}</h3>
+
+                       <p>${displayCategory}</p>
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }
+
+    });
+
+}
+
+// =========================================
+// FILTER BUTTONS
+// =========================================
+
+filterButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const galleryCards =
+              document.querySelectorAll(".gallery-card");
+
+        filterButtons.forEach(btn => {
+
+            btn.classList.remove("active");
+
+        });
+
+        videoToggleBtn.classList.remove("active");
+
+        button.classList.add("active");
+
+        const filterValue =
+              button.getAttribute("data-filter");
+
+        // SHOW IMAGE SECTION
+        imageGallery.style.display = "grid";
+
+        // HIDE VIDEO SECTION
+        videoGallery.style.display = "none";
+
+        galleryCards.forEach(card => {
+
+            if(filterValue === "all") {
+
+                card.style.display = "block";
+
+            }
+
+            else {
+
+                if(card.classList.contains(filterValue)) {
+
+                    card.style.display = "block";
+
+                }
+
+                else {
+
+                    card.style.display = "none";
+
+                }
+
+            }
+
+        });
+
+    });
+
+});
+
+// =========================================
+// VIDEO BUTTON
+// =========================================
+
+videoToggleBtn.addEventListener("click", () => {
+
+    filterButtons.forEach(btn => {
+
+        btn.classList.remove("active");
+
+    });
+
+    videoToggleBtn.classList.add("active");
+
+    imageGallery.style.display = "none";
+
+    videoGallery.style.display = "grid";
+
+});
+</script>
+
+</body>
+</html>

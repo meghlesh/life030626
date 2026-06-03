@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin-Gallery</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+  <link rel="stylesheet" href="css/admin-gallery.css">
+</head>
+
+<body>
+
+<div class="dashboard-wrapper"> 
+
+  <!-- SIDEBAR (Independent) -->
+  <aside class="sidebar">
+    
+    <div class="logo">
+      <a class="nav-brand" href="index.html">
+        <img src="assets/images/CWS-LOGO1.png" alt="Creative Web Solution" class="nav-logo"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="brand-fallback" style="display:none;">
+          <span class="brand-box">CWS</span>
+          <span class="brand-tail">.<span>life</span></span>
+        </div>
+      </a>
+    </div>
+
+    <div class="close-btn">
+      <i class="fa-solid fa-xmark"></i>
+    </div>
+
+    <ul class="menu">
+      <!-- FIXED: Removed hardcoded 'active' class. JS will handle this now. -->
+      <li>
+        <!-- CHANGED: Added data-page="dashboard" to match admin-dashboard sidebar structure -->
+        <a href="admin-dashboard.html" data-page="dashboard">
+          <!-- CHANGED: Added class="icon" to img so CSS filter (white color) applies correctly like admin-dashboard -->
+          <img src="./assets/icons/DASHBOARD.png" class="icon" alt="">
+          <span class="menu-text">Dashboard</span>
+        </a>
+      </li>
+      
+      <!-- COMMENTED: BLOGS -->
+      <!-- <li>
+        <a href="#" class="nav-link">
+          <img src="assets/icons/BLOGS.png" class="icon">
+          <span class="menu-text">Blogs</span>
+        </a>
+      </li> -->
+      
+      <li>
+        <!-- CHANGED: Added class="icon" to img -->
+        <a href="admin-events.html">
+          <img src="./assets/icons/EVENTS.png" class="icon" alt="">
+          <span class="menu-text">Events</span>
+        </a>
+      </li>
+      <li>
+        <a href="admin-gallery.html" class="nav-link" data-page="gallery">
+          <!-- CHANGED: Added class="icon" to img -->
+          <img src="./assets/icons/GALLERY.png" class="icon" alt="">
+          <span class="menu-text">Gallery</span>
+        </a>
+      </li>
+      <li>
+        <a href="admin-socialservices.html" class="nav-link" data-page="social-service">
+          <!-- CHANGED: Added class="icon" to img -->
+          <img src="./assets/icons/SOCIAL SERVICE.png" class="icon" alt="">
+          <span class="menu-text">Social Service</span>
+        </a>
+      </li>
+      <li>
+        <a href="career-panel.html" class="nav-link" data-page="careers">
+          <!-- CHANGED: Added class="icon" to img -->
+          <img src="./assets/icons/CARRER.png" class="icon" alt="">
+          <span class="menu-text">Careers</span>
+        </a>
+      </li>
+      
+      <!-- COMMENTED: USERS & ROLES -->
+      <!-- <li>
+        <a href="#">
+          <img src="assets/icons/USER&ROLES.png" class="icon">
+          <span class="menu-text">Users & Roles</span>
+        </a>
+      </li> -->
+      
+      <!-- COMMENTED: ANALYTICS -->
+      <!-- <li>
+        <a href="#">
+          <img src="assets/icons/ANALYTICS.png" class="icon">
+          <span class="menu-text">Analytics</span>
+        </a>
+      </li> -->
+
+      <li>
+        <a href="admin-contact-us.html">
+          <i class="fa-regular fa-envelope sidebar-fa-icon"></i>
+          <span class="menu-text">Contact Us</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="admin-setting.html" class="nav-link" data-page="settings">
+          <!-- CHANGED: Added class="icon" to img -->
+          <img src="./assets/icons/SETTING.png" class="icon" alt="">
+          <span class="menu-text">Setting</span>
+        </a>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <div class="main">
+    
+    <div class="main-wrapper">
+      
+      <header class="top-navbar">
+        
+        <div class="hamburger">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass navbar-search-icon"></i>
+          <input type="text" id="searchInput" placeholder="Search...">
+        </div>
+
+        <div class="nav-right">
+
+          <!-- UPDATED: Notification Box with Dropdown Logic -->
+          <div class="notification-box" id="notificationBox">
+            <div class="notification">
+              <i class="fa-regular fa-bell notification-icon"></i>
+              <span class="dot" id="notifDot"></span>
+            </div>
+            <span class="menu-text notification-text">Notification</span>
+            
+            <!-- NEW: Notification Dropdown Structure -->
+            <div class="notification-dropdown" id="notificationDropdown">
+                <div class="notification-header">
+                    <span>Notifications</span>
+                    <span class="clear-notif-btn" id="clearNotif">Clear All</span>
+                </div>
+                <ul class="notification-list" id="notificationList">
+                    <li class="no-notif">No new notifications</li>
+                </ul>
+            </div>
+          </div>
+
+          <!-- UPDATED: Profile with Dropdown -->
+          <div class="profile-dropdown-wrapper">
+            <div class="profile" id="profileBtn">AS</div>
+            
+            <div class="dropdown-menu" id="logoutDropdown">
+              <ul>
+                <!-- My Profile Container -->
+                <li class="menu-item">
+                  <a href="#">
+                    <i class="fa-regular fa-user"></i> 
+                    <span>My Profile</span>
+                  </a>
+                </li>
+                
+                <li class="menu-item">
+                  <a href="#" onclick="handleLogout(); return false;">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span>Logout</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </header>
+
+
+      <div class="gallery-page-container">
+
+        <!-- Breadcrumb Container -->
+        <div class="breadcrumb-layout">
+          <a href="admin-dashboard.html" class="breadcrumb-home">Home</a>
+          <span class="separator"> > </span>
+          <span class="current">Gallery</span>
+        </div>
+
+        <!-- Top Row -->
+        <div class="gallery-top">
+
+          <h1>Gallery</h1>
+
+          <div class="gallery-actions">
+
+            <div class="gallery-search">
+              <i class="fa-solid fa-magnifying-glass gallery-search-icon"></i>
+              <input type="text" id="gallerySearchInput" placeholder="Search" oninput="checkAndRefresh(this)">
+            </div>
+
+            <button class="filter-btn" id="filterBtn">
+              <i class="fa-solid fa-sliders"></i>
+              Filter
+            </button>
+
+            <button class="add-btn" id="openAddPageBtn">
+              + Add New
+            </button>
+
+          </div>
+        </div>
+        <div class="gallery-layout-box">
+        
+        <!-- Tabs -->
+        <div class="gallery-tabs">
+
+          <button class="tab active" data-filter="all">
+            <i class="fa-solid fa-table-cells-large"></i>
+            All Images
+          </button>
+
+          <button class="tab" data-filter="Team">
+            <i class="fa-solid fa-user-group"></i>
+            Team
+          </button>
+
+          <button class="tab" data-filter="Infrastructure">
+            <i class="fa-solid fa-building"></i>
+            Infrastructure
+          </button>
+
+          <button class="tab" data-filter="Events">
+            <i class="fa-solid fa-calendar"></i>
+            Events
+          </button>
+
+          <button class="tab" data-filter="Birthday Bash">
+            <i class="fa-solid fa-cake-candles"></i>
+            Birthday Bash
+          </button>
+
+          <button class="tab" data-filter="Work Anniversary">
+            <i class="fa-solid fa-cake-candles"></i>
+            Work Anniversary
+          </button>
+
+          <!--Code added by jayshree-->
+          <button class="tab" data-filter="CWS_VIDEO">
+            <i class="fa-solid fa-cake-candles"></i>
+            Cws Event Videos
+          </button>
+
+          <div class="tabs-right-wrapper">
+            <div class="sort-wrapper">
+              <select class="sort-select" id="sortSelect">
+                <option value="newest">Sort by: Newest</option>
+                <option value="oldest">Oldest</option>
+              </select>
+              <i class="fa-solid fa-chevron-down custom-arrow"></i>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Gallery Grid -->
+         <!--Remove this whole code only while using dynamic api code(Jayashree)-->
+        <!-- <div class="gallery-grid"> -->
+
+          <!-- Team Images -->
+          <!-- <div class="gallery-card" data-category="Team">
+            <img src="./assets/images/admingallery1.png" alt="">
+          </div> -->
+
+          <!-- <div class="gallery-card" data-category="Team">
+            <img src="./assets/images/admingallery2.png" alt="">
+          </div> -->
+
+          <!-- <div class="gallery-card" data-category="Team">
+            <img src="./assets/images/admingallery3.png" alt="">
+          </div> -->
+
+          <!-- <div class="gallery-card" data-category="Team">
+            <img src="./assets/images/admingallery4.png" alt="">
+          </div> -->
+
+          <!-- Infrastructure Images -->
+          <!-- <div class="gallery-card" data-category="Infrastructure">
+            <img src="./assets/images/admingallery5.png" alt="">
+          </div> -->
+
+          <!-- <div class="gallery-card" data-category="Infrastructure">
+            <img src="./assets/images/admingallery6.png" alt="">
+          </div> -->
+
+          <!-- <div class="gallery-card" data-category="Infrastructure">
+            <img src="./assets/images/admingallery7.png" alt="">
+          </div> -->
+
+          <!-- <div class="gallery-card" data-category="Infrastructure">
+            <img src="./assets/images/admingallery8.jpg" alt="">
+          </div> -->
+
+          <!-- Events Images -->
+          <!-- <div class="gallery-card" data-category="Events">
+            <img src="./assets/images/admingallery9.jpg" alt="">
+          </div> -->
+
+          <!-- <div class="gallery-card" data-category="Events">
+            <img src="./assets/images/admingallery10.jpg" alt="">
+          </div> -->
+
+          <!-- <div class="gallery-card" data-category="Events">
+            <img src="./assets/images/admingallery11.png" alt="">
+          </div> -->
+
+          <!-- <div class="gallery-card" data-category="Events">
+            <img src="./assets/images/admingallery12.png" alt="">
+          </div> -->
+
+          <!-- Birthday Bash Images -->
+          <!-- <div class="gallery-card" data-category="Birthday Bash">
+            <img src="./assets/images/admingallery13.jpg" alt="">
+          </div> -->
+
+          <!-- <div class="gallery-card" data-category="Birthday Bash">
+            <img src="./assets/images/admingallery14.png" alt="">
+          </div> -->
+          
+          <!-- Work Anniversary Images -->
+          <!-- <div class="gallery-card" data-category="Work Anniversary">
+            <img src="./assets/images/admingallery15.jpg" alt="">
+          </div> -->
+
+          <!-- <div class="gallery-card" data-category="Work Anniversary">
+            <img src="./assets/images/admingallery16.png" alt="">
+          </div>
+
+        </div> -->
+
+        <!-- Dynamic Gallery(Keep this code for dynamic image) Jayshree -->
+       <div class="gallery-grid" id="galleryGrid">
+
+       </div>
+
+
+          <!-- Pagination -->
+          <div class="pagination" id="paginationContainer">
+            <button class="pagination-btn">
+              <i class="fa-solid fa-angle-left"></i>
+            </button>
+
+            <button class="pagination-btn active-page">1</button>
+
+            <button class="pagination-btn">2</button>
+
+            <button class="pagination-btn">...</button>
+
+            <button class="pagination-btn">3</button>
+
+            <button class="pagination-btn">
+              <i class="fa-solid fa-angle-right"></i>
+            </button>
+          </div>
+
+        </div> <!-- End gallery-layout-box -->
+      </div> 
+      
+    </div>
+
+      <!-- COPYRIGHT TEXT -->
+      <div class="copyright-section">
+            <p class="copyright-text">Copyright &copy; 2025 - 2026 <a href="https://www.creativewebsolution.in/" target="_blank" class="company-name"> Creative Web
+                    Solution</a>. ALL RIGHTS RESERVED</p>
+      </div>
+  </div>
+</div> 
+
+<!-- ======================================================= -->
+<!-- CHANGED: Popup - added popup-backdrop + popup-container wrapper, same inner content kept -->
+<!-- ======================================================= -->
+<!-- CHANGED: Added popup-backdrop div for click-outside-to-close -->
+<div class="popup-backdrop" id="popupBackdrop"></div>
+
+<!-- CHANGED: Wrapped in popup-container for centering as popup instead of full-screen overlay -->
+<div class="popup-container" id="popupContainer">
+  <div class="add-page-header">
+        
+        <!-- CHANGE 1: Logo code commented out as requested -->
+        <!-- <div class="header-logo">
+          <img src="./assets/images/CWS-LOGO1.png" alt="Company Logo">
+        </div> -->
+
+        <div class="header-title-left">
+            Add Image/Video
+        </div>
+
+        <!-- RIGHT: Close Button -->
+        <div class="header-actions">
+          <button class="close-add-page-btn" id="closeAddPageBtn">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+  </div>
+
+  <div class="add-page-content">
+    
+    <!-- STEP 1: Select Category -->
+    <div class="form-group">
+      <label class="form-label">Select Category</label>
+      <!-- CHANGED: Wrapped select in popup-select-wrapper to hide default icon and place custom icon inside -->
+      <div class="popup-select-wrapper">
+        <select class="custom-select" id="categorySelect">
+          <option value="">-- Choose a Category --</option>
+          <option value="team">Team</option>
+          <option value="infrastructure">Infrastructure</option>
+          <option value="events">Events</option>
+          <option value="birthday">Birthday Bash</option>
+          <option value="work_anniversary">Work Anniversary</option>
+          <option value="CWS_VIDEO">CWS Event Videos</option>
+        </select>
+        <!-- CHANGED: Custom dropdown icon placed inside the wrapper -->
+        <i class="fa-solid fa-chevron-down popup-select-arrow"></i>
+      </div>
+    </div>
+
+    <div class="image-title-container">
+        <div class="form-group">
+            <!-- Title Text -->
+            <label class="form-label">Enter Image/Videos Title</label>
+            <input type="text" id="manualImageTitle" class="custom-select" placeholder="Enter name here..." style="height: 50px;">
+        </div>
+    </div>
+
+
+    <!-- STEP 3: Select File Type (Images/Videos) -->
+    <div class="upload-options-container" id="uploadOptions">
+      <div class="options-title">What would you like to add?</div>
+      <div class="option-buttons">
+        
+        <!-- CHANGED: Added tabindex="0" so div can receive keyboard focus and tab works -->
+        <div class="upload-type-btn" id="btnAddImages" tabindex="0" role="button" aria-label="Add Images">
+          <i class="fa-regular fa-images"></i>
+          <span>Add Images</span>
+        </div>
+        
+        <!-- CHANGED: Added tabindex="0" so div can receive keyboard focus and tab works -->
+        <div class="upload-type-btn" id="btnAddVideos" tabindex="0" role="button" aria-label="Add Videos">
+          <i class="fa-solid fa-video"></i>
+          <span>Add Videos</span>
+        </div>
+
+      </div>
+
+      <!-- HIDDEN FILE INPUTS -->
+      <input type="file" id="fileInputImages" accept="image/*" multiple style="display: none;">
+      <input type="file" id="fileInputVideos" accept="video/*" multiple style="display: none;">
+    </div>
+
+    <!-- STEP 4: Add Button -->
+    <div class="add-button-container" id="addButtonContainer">
+      <button class="final-add-btn" id="finalAddBtn">
+        <i class="fa-solid fa-plus"></i> Add Item
+      </button>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ============================================ -->
+<!-- UPDATED: NEW SIDEBAR HIGHLIGHT SCRIPT -->
+<!-- ============================================ -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Get current page URL
+    const currentPath = window.location.pathname;
+
+    // Select all sidebar links
+    const menuLinks = document.querySelectorAll('.menu li');
+
+    menuLinks.forEach(li => {
+      const link = li.querySelector('a');
+      const pageName = link.getAttribute('data-page');
+
+      if (pageName) {
+        // Check if current URL contains the page name string
+        if (currentPath.includes(pageName)) {
+          li.classList.add('active');
+        } else {
+          li.classList.remove('active');
+        }
+      }
+    });
+  });
+</script>
+
+<!-- ============================================
+     NOTIFICATION SYSTEM SCRIPT (FIXED - PERSISTENCE ADDED)
+     ============================================ -->
+<script>
+    const notificationBox = document.getElementById('notificationBox');
+    const notificationDropdown = document.getElementById('notificationDropdown');
+    const notificationList = document.getElementById('notificationList');
+    const notifDot = document.getElementById('notifDot');
+    const clearNotifBtn = document.getElementById('clearNotif');
+
+    // Load notifications from localStorage when page loads
+    // CHANGED: Parse from local storage so notifications stay after refresh
+    let notifications = JSON.parse(localStorage.getItem('myNotifications')) || [];
+
+    // --- Function to Save Notifications to LocalStorage ---
+    function saveNotifications() {
+        localStorage.setItem('myNotifications', JSON.stringify(notifications));
+    }
+
+    // --- Render Notifications to HTML ---
+    function renderNotifications() {
+        notificationList.innerHTML = '';
+
+        if (notifications.length === 0) {
+            notificationList.innerHTML = '<li class="no-notif">No new notifications</li>';
+            notifDot.style.display = 'none';
+            return;
+        }
+
+        notifications.forEach(notif => {
+            const li = document.createElement('li');
+            li.className = 'notification-item';
+            li.innerHTML = `
+                <i class="fa-solid fa-circle-check"></i>
+                <span>${notif.message}</span>
+            `;
+            notificationList.appendChild(li);
+        });
+
+        // Show dot only if there are notifications
+        notifDot.style.display = 'block';
+    }
+
+    // --- Initial Render on Page Load ---
+    // CHANGED: Call render immediately so saved notifications show up
+    renderNotifications();
+
+    // --- Toggle Dropdown ---
+    if(notificationBox) {
+        notificationBox.addEventListener('click', (e) => {
+            e.stopPropagation(); 
+            notificationDropdown.classList.toggle('active');
+            // Hide dot when opened (optional UX)
+            notifDot.style.display = 'none';
+        });
+    }
+
+    // --- Close dropdown when clicking outside ---
+    document.addEventListener('click', (e) => {
+        if (!notificationBox.contains(e.target)) {
+            notificationDropdown.classList.remove('active');
+        }
+    });
+
+    // --- Function to Add Notification ---
+    function addNotification(message) {
+        // Add new notification to the beginning
+        notifications.unshift({ message: message, time: new Date() });
+
+        // Limit to 5 items only (remove the last one if more than 5)
+        if (notifications.length > 5) {
+            notifications.pop();
+        }
+
+        // CHANGED: Save to LocalStorage
+        saveNotifications();
+        
+        // Update UI
+        renderNotifications();
+    }
+
+    // --- Clear All Logic ---
+    if(clearNotifBtn) {
+        clearNotifBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            notifications = [];
+            // CHANGED: Clear from LocalStorage
+            saveNotifications();
+            renderNotifications();
+        });
+    }
+</script>
+
+
+<!-- ==========================================
+     CHANGED: Updated open/close logic for popup with tab trap
+     ========================================== -->
+<script>
+    const openAddBtn = document.getElementById('openAddPageBtn');
+    const closeAddBtn = document.getElementById('closeAddPageBtn');
+    // CHANGED: Now targets popup-container and popup-backdrop 
+    const popupContainer = document.getElementById('popupContainer');
+    const popupBackdrop = document.getElementById('popupBackdrop');
+    const categorySelect = document.getElementById('categorySelect');
+    const manualImageTitle = document.getElementById('manualImageTitle'); 
+    const uploadOptions = document.getElementById('uploadOptions');
+    const fileInputImages = document.getElementById('fileInputImages');
+    const fileInputVideos = document.getElementById('fileInputVideos');
+    const addButtonContainer = document.getElementById('addButtonContainer');
+    const finalAddBtn = document.getElementById('finalAddBtn');
+
+    // --- Open & Close Page ---
+    if(openAddBtn) {
+      openAddBtn.addEventListener('click', () => {
+        // CHANGED: Show popup container + backdrop 
+        popupContainer.classList.add('active');
+        popupBackdrop.classList.add('active');
+        // CHANGED: Lock background page scroll when popup opens
+        document.body.style.overflow = 'hidden';
+        // CHANGED: Set inert on background so tab key cannot reach it
+        document.querySelector('.dashboard-wrapper').setAttribute('inert', '');
+        // CHANGED: Focus the first element inside popup (category select)
+        categorySelect.focus();
+      });
+    }
+
+    if(closeAddBtn) {
+      closeAddBtn.addEventListener('click', () => {
+        // CHANGED: Hide popup container + backdrop 
+        popupContainer.classList.remove('active');
+        popupBackdrop.classList.remove('active');
+        // CHANGED: Unlock background page scroll when popup closes
+        document.body.style.overflow = '';
+        // CHANGED: Remove inert from background so tab key works normally again
+        document.querySelector('.dashboard-wrapper').removeAttribute('inert');
+        resetForm();
+      });
+    }
+
+    // CHANGED: Click on backdrop to close popup
+    if(popupBackdrop) {
+      popupBackdrop.addEventListener('click', () => {
+        popupContainer.classList.remove('active');
+        popupBackdrop.classList.remove('active');
+        // CHANGED: Unlock background page scroll when popup closes
+        document.body.style.overflow = '';
+        // CHANGED: Remove inert from background so tab key works normally again
+        document.querySelector('.dashboard-wrapper').removeAttribute('inert');
+        resetForm();
+      });
+    }
+
+    // --- UPDATED: RESET FORM LOGIC ---
+    function resetForm() {
+      // 1. Reset Dropdown
+      categorySelect.value = "";
+      
+      // 2. RESET INPUT BOX (Fixed the issue of old name showing)
+      if(manualImageTitle) {
+        manualImageTitle.value = "";
+      }
+
+      // 3. Reset File Inputs
+      fileInputImages.value = "";
+      fileInputVideos.value = "";
+
+       const btnAddImages = document.getElementById('btnAddImages');
+       const btnAddVideos = document.getElementById('btnAddVideos');
+
+       btnAddImages.innerHTML = `
+        <i class="fa-regular fa-images"></i>
+        <span>Add Images</span>
+       `;
+
+      btnAddVideos.innerHTML = `
+        <i class="fa-solid fa-video"></i>
+        <span>Add Videos</span>
+       `;
+
+      // 4. Reset Displays to Default
+      uploadOptions.style.display = 'block';
+      addButtonContainer.style.display = 'block';
+    }
+
+    // --- STEP 1: Category Selection Logic ---
+    if(categorySelect) {
+      categorySelect.addEventListener('change', function() {
+      });
+    }
+
+    // --- STEP 3: File Selection Logic ---
+    const btnAddImages = document.getElementById('btnAddImages');
+    const btnAddVideos = document.getElementById('btnAddVideos');
+
+    if(btnAddImages && fileInputImages){
+      btnAddImages.addEventListener('click', () => {
+        fileInputImages.click();
+      });
+
+      // CHANGED: Added keydown listener so Enter/Space key also triggers file upload on Add Images
+      btnAddImages.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          fileInputImages.click();
+        }
+      });
+
+      fileInputImages.addEventListener('change', function() {
+      if(this.files && this.files.length > 0) {
+        btnAddImages.innerHTML = `
+            <i class="fa-solid fa-check"></i>
+            <span>Added Images</span>
+        `;
+        addButtonContainer.style.display = 'block';
+      }
+     });
+    }
+
+    if(btnAddVideos && fileInputVideos){
+      btnAddVideos.addEventListener('click', () => {
+        fileInputVideos.click();
+      });
+
+      // CHANGED: Added keydown listener so Enter/Space key also triggers file upload on Add Videos
+      btnAddVideos.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          fileInputVideos.click();
+        }
+      });
+
+      fileInputVideos.addEventListener('change', function() {
+      if(this.files && this.files.length > 0) {
+         btnAddVideos.innerHTML = `
+            <i class="fa-solid fa-check"></i>
+            <span>Added Videos</span>
+        `;
+        addButtonContainer.style.display = 'block';
+       }
+     });
+    }
+
+    // --- STEP 4: Final Add Button Logic (UPDATED FOR NOTIFICATIONS) ---
+    if(finalAddBtn) {
+      finalAddBtn.addEventListener('click', async () => {
+      try {
+
+      // CATEGORY
+      const category = categorySelect.value;
+      // TITLE
+      const title = document.getElementById("manualImageTitle").value;
+      // FILE
+      let selectedFile = null;
+      if(fileInputImages.files.length > 0) {
+          selectedFile = fileInputImages.files[0];
+      } else if(fileInputVideos.files.length > 0) {
+           selectedFile = fileInputVideos.files[0];
+      }
+
+      // VALIDATION
+      if(!category || !title || !selectedFile) {
+         alert("Please fill all fields ❌");
+        return;
+      }
+
+      // DETERMINE TYPE (IMAGE OR VIDEO)
+      let typeText = "image";
+      if(category === "CWS_VIDEO" || selectedFile.type.startsWith("video")) {
+          typeText = "video";
+      }
+
+      // CREATE NOTIFICATION MESSAGE
+      const displayCategory = category.charAt(0).toUpperCase() + category.slice(1).replace('_', ' ');
+      const notificationMessage = `You added a ${typeText} in ${displayCategory}`;
+
+      // FORM DATA
+      const formData = new FormData();
+       formData.append("image", selectedFile);
+       formData.append("category", category);
+       formData.append("title", title);
+       
+
+      // API CALL
+      const response = await fetch(
+        "http://localhost:8080/api/gallery/add",
+        {
+          method: "POST",
+          body: formData
+        }
+      );
+      const result = await response.text();
+
+         if(response.ok) {
+          alert(result); // This is the "notification" message shown to user
+
+        // --- TRIGGER NOTIFICATION FUNCTION ---
+        addNotification(notificationMessage);
+
+        loadGallery();
+
+        popupContainer.classList.remove('active');
+        popupBackdrop.classList.remove('active');
+        document.body.style.overflow = '';
+
+        document
+         .querySelector('.dashboard-wrapper')
+         .removeAttribute('inert');
+          resetForm();
+          } else {
+          alert(result);
+         }
+        } catch(error) {
+          console.error(error);
+          alert("Upload failed ❌");
+        }
+    });
+
+}
+
+    // ==========================================
+    // 3. CLICKABLE PAGINATION LOGIC
+    // ==========================================
+    const paginationButtons = document.querySelectorAll('.pagination-btn');
+    
+    paginationButtons.forEach(btn => {
+      btn.addEventListener('click', function() {
+        // Remove active class from all
+        paginationButtons.forEach(b => b.classList.remove('active-page'));
+        // Add active class to clicked button (if it's a number)
+        if (!this.innerHTML.includes('fa-angle')) {
+          this.classList.add('active-page');
+        }
+      });
+    });
+  
+</script>
+
+<!-- JS Script (Updated: Click anywhere to close logic) -->
+<script>
+  const hamburger = document.querySelector('.hamburger');
+  const closeBtn = document.querySelector('.close-btn');
+  const sidebar = document.querySelector('.sidebar');
+
+  if(hamburger){
+    hamburger.addEventListener('click', () => {
+      sidebar.classList.add('active');
+    });
+  }
+
+  if(closeBtn){
+    closeBtn.addEventListener('click', () => {
+      sidebar.classList.remove('active');
+    });
+  }
+</script>
+
+<script>
+  // Profile Dropdown Logic
+  const profileBtn = document.getElementById('profileBtn');
+  const dropdownWrapper = document.querySelector('.profile-dropdown-wrapper');
+
+  // Toggle dropdown on click
+  profileBtn.addEventListener('click', (e) => {
+    e.stopPropagation(); // Prevent bubbling
+    dropdownWrapper.classList.toggle('active');
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!dropdownWrapper.contains(e.target)) {
+      dropdownWrapper.classList.remove('active');
+    }
+  });
+
+  if(hamburger) {
+    hamburger.addEventListener('click', () => {
+      sidebar.classList.add('active');
+    });
+  }
+
+  if(closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      sidebar.classList.remove('active');
+    });
+  }
+</script>
+
+<!-- ============================================ -->
+<!-- NEW: GALLERY TABS FILTERING LOGIC (FIX FOR BUTTONS NOT WORKING)
+<!-- ============================================ -->
+ <!--Remove this static code and use dynamic API data.(jayshree)-->
+<!-- <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // 1. Select all tabs
+    const tabs = document.querySelectorAll('.gallery-tabs .tab');
+    // 2. Select all gallery cards
+    const cards = document.querySelectorAll('.gallery-card');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // A. Remove active class from all tabs
+        tabs.forEach(t => t.classList.remove('active'));
+        // B. Add active class to clicked tab
+        tab.classList.add('active');
+
+        // C. Get the filter value (e.g., "Team", "all")
+        const filterValue = tab.getAttribute('data-filter');
+
+        // D. Loop through all images
+        cards.forEach(card => {
+          // Get the category of the current image
+          const cardCategory = card.getAttribute('data-category');
+
+          // Logic: If filter is 'all', show everything. 
+          // Otherwise, show only if categories match.
+          if (filterValue === 'all' || filterValue === cardCategory) {
+            card.classList.remove('hide');
+          } else {
+            card.classList.add('hide');
+          }
+        });
+      });
+    });
+  });
+  </script> -->
+
+<!-- INSTED OF ABOVE CODE USE THIS FOR DYNAMIC PURPOSE (UPDATED FOR PROPER FILTERING & PAGINATION) -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const tabs = document.querySelectorAll('.gallery-tabs .tab');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            // Update Active Class
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            
+            // Call Global Render Function with Page 1 Reset
+            renderGallery(1);
+        });
+    });
+});
+</script>
+
+<!-- Do not remove below commeted code -->
+<script>
+// ── Auth Check ──
+(function() {
+  var user = localStorage.getItem('user');
+  
+  if (!user) {
+    window.location.replace('Sign-In.html');
+    return;
+  }
+  
+  try {
+    var userData = JSON.parse(user);
+    if (!userData.token || userData.role !== 'SUPER_ADMIN') {
+      localStorage.removeItem('user');
+      window.location.replace('Sign-In.html');
+      return;
+    }
+    
+    // set admin details
+    var initials = userData.name
+      ? userData.name.trim().split(' ').map(function(n) { 
+          return n[0]; 
+        }).join('').substring(0, 2).toUpperCase()
+      : 'AD';
+    
+    var profileBtn = document.getElementById('profileBtn');
+    if (profileBtn) profileBtn.textContent = initials;
+    
+  } catch(e) {
+    localStorage.removeItem('user');
+    window.location.replace('Sign-In.html');
+  }
+})();
+
+// ── Logout ──
+function handleLogout() {
+  localStorage.removeItem('user');
+  localStorage.removeItem('creative_email');
+  localStorage.removeItem('creative_remember');
+  window.location.replace('Sign-In.html');
+}
+</script>
+
+<!--use this dynamic code to fetch images(Jayashree) (FIXED: PAGINATION ALWAYS VISIBLE) -->
+<script>
+  // Dynamic gallery
+
+const API_URL = "http://localhost:8080/api/gallery/all";
+
+let allGallery = [];
+
+// --- CONFIGURATION ---
+const ITEMS_PER_PAGE = 16; 
+
+let currentPage = 1;
+
+// LOAD GALLERY
+async function loadGallery() {
+    try {
+        const response = await fetch(API_URL);
+        const data = await response.json();
+        console.log("Gallery Data:", data);
+        allGallery = data;
+
+        // Default = Newest First
+        allGallery.sort(
+           (a, b) =>
+           new Date(b.uploadDate) -
+           new Date(a.uploadDate)
+          );
+
+        // Render first page by default
+        renderGallery(1);
+        
+        // By default hide videos in All Images tab
+        document.querySelector('[data-filter="all"]').click();
+
+    } catch (error) {
+        console.error("Error loading gallery:", error);
+    }
+}
+
+// RENDER GALLERY WITH PAGINATION & FILTER
+function renderGallery(pageNumber) {
+    currentPage = pageNumber;
+
+    const galleryGrid = document.getElementById("galleryGrid");
+    galleryGrid.innerHTML = "";
+
+    // 1. Get Active Filter
+    const activeTab = document.querySelector('.gallery-tabs .tab.active');
+    let filterValue = "all";
+    if(activeTab) {
+        filterValue = activeTab.getAttribute('data-filter');
+    }
+
+    // 2. Filter the Data First (Full List Filter)
+    let filteredData = allGallery.filter(item => {
+        let itemCat = item.category;
+        // Format backend category to match frontend display names
+        if(itemCat === "team") itemCat = "Team";
+        else if(itemCat === "infrastructure") itemCat = "Infrastructure";
+        else if(itemCat === "events") itemCat = "Events";
+        else if(itemCat === "birthday") itemCat = "Birthday Bash";
+        else if(itemCat === "work_anniversary") itemCat = "Work Anniversary";
+        else if(itemCat === "CWS_VIDEO") itemCat = "CWS_VIDEO";
+
+        // Filter Logic
+        if (filterValue === "all") {
+            return itemCat !== "CWS_VIDEO"; 
+        } else if (filterValue === "CWS_VIDEO") {
+            return itemCat === "CWS_VIDEO";
+        } else {
+            return itemCat === filterValue;
+        }
+    });
+
+    // 3. Apply Pagination to Filtered Data
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    const endIndex = startIndex + ITEMS_PER_PAGE;
+    const pageItems = filteredData.slice(startIndex, endIndex);
+
+    // 4. Render Items
+    pageItems.forEach(item => {
+        let category = item.category;
+        if(category === "team") category = "Team";
+        else if(category === "infrastructure") category = "Infrastructure";
+        else if(category === "events") category = "Events";
+        else if(category === "birthday") category = "Birthday Bash";
+        else if(category === "work_anniversary") category = "Work Anniversary";
+        else if(category === "CWS_VIDEO") category = "CWS_VIDEO";
+
+        const imageUrl = "http://localhost:8080" + item.imagePath;
+        let mediaTag = "";
+        
+        if(category === "CWS_VIDEO") {
+            mediaTag = `<video controls width="100%"><source src="${imageUrl}" type="video/mp4"></video>`;
+        } else {
+            mediaTag = `<img src="${imageUrl}" alt="gallery">`;
+        }
+
+        let cardHTML = `<div class="gallery-card" data-category="${category}">${mediaTag}</div>`;
+        galleryGrid.innerHTML += cardHTML;
+    });
+
+    // 5. Update Pagination Controls (Based on Filtered Count)
+    updatePaginationControls(filteredData.length);
+}
+
+// UPDATE PAGINATION CONTROLS (Numbers)
+function updatePaginationControls(totalItems) {
+    const paginationContainer = document.getElementById('paginationContainer');
+    
+    // IMPORTANT: Force remove the search-hidden class so pagination is always visible on tabs
+    paginationContainer.classList.remove('search-hidden');
+    
+    const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
+
+    
+    let html = `
+        <button class="pagination-btn" onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled style="opacity:0.5; cursor:not-allowed;"' : ''}>
+            <i class="fa-solid fa-angle-left"></i>
+        </button>
+    `;
+
+    // Only show page numbers if there is at least 1 page of items
+    if (totalPages >= 1) {
+        for (let i = 1; i <= totalPages; i++) {
+            html += `
+                <button class="pagination-btn ${i === currentPage ? 'active-page' : ''}" onclick="changePage(${i})">
+                    ${i}
+                </button>
+            `;
+        }
+    }
+
+    html += `
+        <button class="pagination-btn" onclick="changePage(${currentPage + 1})" ${currentPage >= totalPages ? 'disabled style="opacity:0.5; cursor:not-allowed;"' : ''}>
+            <i class="fa-solid fa-angle-right"></i>
+        </button>
+    `;
+
+    paginationContainer.innerHTML = html;
+}
+
+function changePage(page) {
+    renderGallery(page);
+    // Scroll to top
+    document.querySelector('.gallery-page-container').scrollIntoView({ behavior: 'smooth' });
+}
+
+// PAGE LOAD
+document.addEventListener("DOMContentLoaded", loadGallery);
+
+const navbarSearch = document.getElementById("searchInput");
+const gallerySearch = document.getElementById("gallerySearchInput");
+const filterBtn = document.getElementById("filterBtn");
+
+// SEARCH LOGIC (UPDATED: AUTO-SWITCH TAB ON SEARCH)
+function searchGallery(keyword) {
+    keyword = keyword.trim().toLowerCase();
+    
+    // Hide pagination when searching
+    document.getElementById('paginationContainer').classList.add('search-hidden');
+    
+    const galleryGrid = document.getElementById("galleryGrid");
+    galleryGrid.innerHTML = ""; 
+
+    if(!keyword) {
+        // If search cleared, remove class and reload current page state
+        document.getElementById('paginationContainer').classList.remove('search-hidden');
+        renderGallery(currentPage);
+        return;
+    }
+
+    // 1. Filter all items based on search keyword
+    const filteredData = allGallery.filter(item => {
+        const title = (item.title || "").toLowerCase();
+        const category = (item.category || "").toLowerCase();
+        return title.includes(keyword) || category.includes(keyword);
+    });
+
+    if (filteredData.length > 0) {
+        // 2. Determine which category the first found result belongs to
+        const firstResult = filteredData[0];
+        let resultCategory = firstResult.category;
+        
+        // Format category to match Tab data-filter value
+        let targetTabFilter = "all"; // Default
+        
+        if(resultCategory === "team") targetTabFilter = "Team";
+        else if(resultCategory === "infrastructure") targetTabFilter = "Infrastructure";
+        else if(resultCategory === "events") targetTabFilter = "Events";
+        else if(resultCategory === "birthday") targetTabFilter = "Birthday Bash";
+        else if(resultCategory === "work_anniversary") targetTabFilter = "Work Anniversary";
+        else if(resultCategory === "CWS_VIDEO") targetTabFilter = "CWS_VIDEO";
+
+        // 3. Switch to that tab
+        switchTab(targetTabFilter);
+    }
+
+    // 4. Render filtered results (Show all matches)
+    filteredData.forEach(item => {
+        let category = item.category;
+        if(category === "team") category = "Team";
+        else if(category === "infrastructure") category = "Infrastructure";
+        else if(category === "events") category = "Events";
+        else if(category === "birthday") category = "Birthday Bash";
+        else if(category === "work_anniversary") category = "Work Anniversary";
+        else if(category === "CWS_VIDEO") category = "CWS_VIDEO";
+
+        const imageUrl = "http://localhost:8080" + item.imagePath;
+        let mediaTag = category === "CWS_VIDEO" 
+            ? `<video controls width="100%"><source src="${imageUrl}" type="video/mp4"></video>` 
+            : `<img src="${imageUrl}" alt="gallery">`;
+        
+        let card = `<div class="gallery-card" data-category="${category}">${mediaTag}</div>`;
+        galleryGrid.innerHTML += card;
+    });
+}
+
+// Helper function to switch tabs programmatically
+function switchTab(filterValue) {
+    // Remove active class from all tabs
+    document.querySelectorAll('.gallery-tabs .tab').forEach(t => t.classList.remove('active'));
+    
+    // Add active class to the matching tab
+    const targetTab = document.querySelector(`.gallery-tabs .tab[data-filter="${filterValue}"]`);
+    if(targetTab) {
+        targetTab.classList.add('active');
+    } else {
+        // If category doesn't match any tab exactly (e.g. searching generic text), default to 'All Images'
+        const allTab = document.querySelector(`.gallery-tabs .tab[data-filter="all"]`);
+        allTab.classList.add('active');
+    }
+}
+
+if(navbarSearch){
+    navbarSearch.addEventListener("input", () => {
+        searchGallery(navbarSearch.value);
+    });
+}
+
+if(filterBtn && gallerySearch){
+    filterBtn.addEventListener("click", () => {
+        searchGallery(gallerySearch.value);
+    });
+}
+
+// SORT LOGIC
+const sortSelect = document.getElementById("sortSelect");
+if(sortSelect){
+    sortSelect.addEventListener("change", () => {
+        if(sortSelect.value === "newest"){
+            allGallery.sort((a, b) => new Date(b.uploadDate) - new Date(a.uploadDate));
+        } else {
+            allGallery.sort((a, b) => new Date(a.uploadDate) - new Date(b.uploadDate));
+        }
+        renderGallery(1); 
+    });
+}
+
+</script>
+
+<!-- CHANGED: New Script to Refresh Page on Input Clear -->
+<script>
+  function checkAndRefresh(inputElement) {
+    // If input is empty, refresh page
+    if (inputElement.value.trim() === "") {
+      window.location.reload();
+    }
+  }
+</script>
+
+</body>
+</html>

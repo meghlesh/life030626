@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+  <link rel="stylesheet" href="css/admin-events.css">
+</head>
+
+<body>
+
+<div class="dashboard-wrapper"> 
+
+  <!-- SIDEBAR (Independent) -->
+  <aside class="sidebar">
+    
+    <div class="logo">
+      <img src="assets/icons/Creative Web Logo.png" alt="logo">
+    </div>
+
+    <div class="close-btn">
+      <i class="fa-solid fa-xmark"></i>
+    </div>
+
+    <ul class="menu">
+      <li>
+        <a href="admin-dashboard.html">
+          <img src="assets/icons/dashboard.png" class="icon">
+          <span class="menu-text">Dashboard</span>
+        </a>
+      </li>
+      <!-- <li>
+        <a href="#">
+          <img src="assets/icons/BLOGS.png" class="icon">
+          <span class="menu-text">Blogs</span>
+        </a>
+      </li> -->
+      <li class="active">
+        <a href="admin-events.html">
+          <img src="assets/icons/EVENTS.png" class="icon">
+          <span class="menu-text">Events</span>
+        </a>
+      </li>
+      <li>
+        <a href="admin-gallery.html">
+          <img src="assets/icons/GALLERY.png" class="icon">
+          <span class="menu-text">Gallery</span>
+        </a>
+      </li>
+      <li>
+        <a href="admin-socialservices.html">
+          <img src="assets/icons/SOCIAL SERVICE.png" class="icon">
+          <span class="menu-text">Social Service</span>
+        </a>
+      </li>
+      <li>
+        <a href="career-panel.html">
+          <img src="assets/icons/CARRER.png" class="icon">
+          <span class="menu-text">Career</span>
+        </a>
+      </li>
+      <!-- <li>
+        <a href="#">
+          <img src="assets/icons/USER&ROLES.png" class="icon">
+          <span class="menu-text">Users & Roles</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="assets/icons/ANALYTICS.png" class="icon">
+          <span class="menu-text">Analytics</span>
+        </a>
+      </li> -->
+
+      <li>
+        <a href="admin-contact-us.html">
+          <i class="fa-regular fa-envelope sidebar-fa-icon"></i>
+          <span class="menu-text">Contact Us</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="admin-setting.html">
+          <img src="assets/icons/SETTING.png" class="icon">
+          <span class="menu-text">Setting</span>
+        </a>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <div class="main">
+    
+    <div class="main-wrapper">
+      
+      <header class="top-navbar">
+        
+        <div class="hamburger">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Search...">
+        </div>
+
+        <div class="nav-right">
+
+          <div class="notification-box">
+            <div class="notification">
+              <i class="fa-regular fa-bell"></i>
+            </div>
+            <span class="menu-text notification-text">Notification</span>
+          </div>
+
+          <!-- UPDATED: Profile with Dropdown -->
+          <div class="profile-dropdown-wrapper">
+            <div class="profile" id="profileBtn">AS</div>
+            
+            <div class="dropdown-menu" id="logoutDropdown">
+              <ul>
+                <!-- My Profile Container -->
+                <li class="menu-item">
+                  <a href="#">
+                    <i class="fa-regular fa-user"></i> 
+                    <span>My Profile</span>
+                  </a>
+                </li>
+                
+                <!-- Logout Container
+                <li class="menu-item">
+                  <a href="Sign-In.html"> 
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span>Logout</span>
+                  </a>
+                </li> -->
+                <li class="menu-item">
+                  <a href="#" onclick="handleLogout(); return false;">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span>Logout</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </header>
+
+      <!-- Dashboard Section Start -->
+      <div class="dashboard-container">
+        <nav class="breadcrumb">
+          <a href="admin-dashboard.html" class="breadcrumb-home">Home</a>
+          <span class="breadcrumb-separator"> > </span>
+          <span class="breadcrumb-active">Events</span>
+        </nav>
+        <!-- Title and Subtitle Section -->
+        <div class="dashboard-header">
+          <h1 class="dashboard-title">Events</h1>
+        </div>
+
+        <!-- Total Stats Container -->
+        <div class="stats-container">
+
+          <!-- Card 1: Events Added -->
+          <div class="stat-card">
+            <div class="card-content">
+              <div class="icon-text-wrapper">
+                <div class="icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M14 2V8H20" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M16 13H8" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M16 17H8" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M10 9H9H8" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <span class="card-title"  >Events Added</span>
+              </div>
+              <div class="card-number" id="statTotal">30</div>
+            </div>
+          </div>
+
+          <!-- Card 2: Events Updated -->
+          <div class="stat-card">
+            <div class="card-content">
+              <div class="icon-text-wrapper">
+                <div class="icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2" stroke="#6366F1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <line x1="16" y1="2" x2="16" y2="6" stroke="#6366F1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <line x1="8" y1="2" x2="8" y2="6" stroke="#6366F1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <line x1="3" y1="10" x2="21" y2="10" stroke="#6366F1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <span class="card-title">Events Updated</span>
+              </div>
+              <div class="card-number" id="statUpcoming">15</div>
+            </div>
+          </div>
+
+          <!-- Card 3: Events Deleted -->
+          <div class="stat-card">
+            <div class="card-content">
+              <div class="icon-text-wrapper">
+                <div class="icon-box">
+                  <!-- <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="#22C55E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <circle cx="12" cy="7" r="4" stroke="#22C55E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg> -->
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <polyline points="3 6 5 6 21 6" stroke="#22C55E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M19 6l-1 14H6L5 6" stroke="#22C55E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M10 11v6" stroke="#22C55E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 11v6" stroke="#22C55E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9 6V4h6v2" stroke="#22C55E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <span class="card-title">Events Deleted</span>
+              </div>
+              <div class="card-number" id="statPast">2</div>
+            </div>
+          </div>
+
+          <!-- Card 4: Media Uploads (Fixed: Image/Mountain) -->
+          <div class="stat-card">
+            <div class="card-content">
+              <div class="icon-text-wrapper">
+                <div class="icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <circle cx="8.5" cy="8.5" r="1.5" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <polyline points="21 15 16 10 5 21" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <span class="card-title">Media Uploads</span>
+              </div>
+              <div class="card-number" id="statMedia">12</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- Dashboard Section End -->
+
+        <!-- Upcoming Events Management Section -->
+        <div class="ue-section">
+
+          <!-- Section Title -->
+          <div class="ue-section-header">
+              <h2 class="ue-section-title">Upcoming Events</h2>
+              <div class="ue-title-line"></div>
+          </div>
+
+          <!-- Two Column Layout -->
+          <div class="ue-layout">
+
+              <!-- ========================
+                  LEFT: Card Viewer
+                  ======================== -->
+              <div class="ue-left">
+
+                <p class="ue-col-label">Event Preview</p>
+
+                <!-- Single Card Display -->
+                <div class="ue-card" id="ueCard">
+
+                    <div class="ue-card-top">
+                      <h3 class="ue-card-title" id="ueCardTitle">Independence Day</h3>
+                      <span class="ue-card-badge" id="ueCardBadge">Event</span>
+                    </div>
+
+                    <div class="ue-card-date">
+                      <img src="assets/icons/calender.png" alt="date" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+                      <i class="fa-regular fa-calendar" style="display:none; font-size:14px; color:#777;"></i>
+                      <span id="ueCardDate">15 August 2026</span>
+                    </div>
+
+                    <p class="ue-card-desc" id="ueCardDesc">
+                    Celebrate the spirit of unity and patriotism at our workplace.
+                    Join us for a flag hoisting ceremony, team activities, and a
+                    short cultural program honoring our nation's journey and values.
+                    </p>
+
+                </div>
+                <!-- End Card -->
+
+                <!-- Card Counter -->
+                <p class="ue-card-counter">
+                    <span id="ueCurrentIndex">1</span> / <span id="ueTotalCards">5</span>
+                </p>
+
+                <!-- Prev / Next Buttons -->
+                <div class="ue-nav-btns">
+                    <button class="ue-nav-btn" id="uePrevBtn" onclick="ueNavigate(-1)">&#10094;</button>
+                    <button class="ue-nav-btn" id="ueNextBtn" onclick="ueNavigate(1)">&#10095;</button>
+                </div>
+
+              </div>
+              <!-- END LEFT -->
+
+              <!-- ========================
+                  RIGHT: Edit Form
+                  ======================== -->
+              <div class="ue-right">
+
+                <p class="ue-col-label">Edit Upcoming Events</p>
+
+                <div class="ue-form-card">
+
+                    <div class="ue-form-group">
+                      <label class="ue-label" for="ueTitle">Event Title</label>
+                      <input class="ue-input" type="text" id="ueTitle" placeholder="e.g. Independence Day">
+                    </div>
+
+                    <div class="ue-form-group">
+                      <label class="ue-label" for="ueTag">Tag</label>
+                      <select class="ue-input ue-select" id="ueTag">
+                          <option value="" disabled selected>Select a tag</option>
+                          <option value="Event">Event</option>
+                          <option value="Festival">Festival</option>
+                      </select>
+                    </div>
+
+                    <div class="ue-form-group">
+                      <label class="ue-label" for="ueDate">Date</label>
+                      <input class="ue-input" type="date" id="ueDate">
+                    </div>
+
+                    <div class="ue-form-group">
+                      <label class="ue-label" for="ueDesc">Description</label>
+                      <textarea class="ue-input ue-textarea" id="ueDesc" placeholder="Write a short description of the event..."></textarea>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="ue-form-actions">
+                      <button class="ue-btn ue-btn-add">
+                          <i class="fa-solid fa-plus"></i> Add
+                      </button>
+                      <button class="ue-btn ue-btn-update">
+                          <i class="fa-solid fa-pen"></i> Update
+                      </button>
+                      <button class="ue-btn ue-btn-delete">
+                          <i class="fa-solid fa-trash"></i> Delete
+                      </button>
+                    </div>
+
+              </div>
+              <!-- End Form Card -->
+
+              </div>
+          </div>
+
+
+        </div>
+        <!-- End Upcoming Events Section -->
+
+
+        <!-- Past Events Management Section -->
+        <div class="pe-section">
+
+          <!-- Section Title -->
+          <div class="pe-section-header">
+              <h2 class="pe-section-title">Past Events</h2>
+              <div class="pe-title-line"></div>
+          </div>
+
+          <!-- Two Column Layout -->
+          <div class="pe-layout">
+
+              <!-- ========================
+                  LEFT: Card Viewer
+                  ======================== -->
+              <div class="pe-left">
+
+                <p class="pe-col-label">Event Preview</p>
+
+                <!-- Single Card Display -->
+                <div class="pe-card" id="peCard">
+
+                    <!-- Image -->
+                    <div class="pe-card-img-wrap">
+                      <img class="pe-card-img" id="peCardImg" src="../frontend/assets/images/gudi.jpeg" alt="Event Image"
+                          onerror="this.src=''; this.parentElement.classList.add('pe-img-broken');">
+                      <span class="pe-card-badge pe-badge-festival" id="peCardBadge">Festival</span>
+                    </div>
+
+                    <!-- Content -->
+                    <div class="pe-card-body">
+
+                      <h3 class="pe-card-title" id="peCardTitle">Gudi Padwa</h3>
+
+                      <div class="pe-card-date">
+                          <img src="assets/icons/calender.png" alt="date"
+                          onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+                          <i class="fa-regular fa-calendar" style="display:none; font-size:14px; color:#0796FE;"></i>
+                          <span id="peCardDate">19 March 2026</span>
+                      </div>
+
+                      <p class="pe-card-desc" id="peCardDesc">
+                          Mark the beginning of a new year with optimism and fresh energy.
+                          Join us for a simple celebration embracing tradition, new beginnings,
+                          and team bonding.
+                      </p>
+
+                    </div>
+
+                </div>
+                <!-- End Card -->
+
+                <!-- Card Counter -->
+                <p class="pe-card-counter">
+                    <span id="peCurrentIndex">1</span> / <span id="peTotalCards">6</span>
+                </p>
+
+                <!-- Prev / Next Buttons -->
+                <div class="pe-nav-btns">
+                    <button class="pe-nav-btn" onclick="peNavigate(-1)">&#10094;</button>
+                    <button class="pe-nav-btn" onclick="peNavigate(1)">&#10095;</button>
+                </div>
+
+              </div>
+              <!-- END LEFT -->
+
+              <!-- ========================
+                  RIGHT: Edit Form
+                  ======================== -->
+              <div class="pe-right">
+
+                <p class="pe-col-label">Edit Past Events</p>
+
+                <div class="pe-form-card">
+                    <div class="pe-form-group">
+                      <label class="pe-label" for="peTitle">Event Title</label>
+                      <input class="pe-input" type="text" id="peTitle" placeholder="e.g. Gudi Padwa">
+                    </div>
+
+                    <div class="pe-form-group">
+                      <label class="pe-label" for="peTag">Tag</label>
+                      <select class="pe-input pe-select" id="peTag">
+                          <option value="" disabled selected>Select a tag</option>
+                          <option value="Festival">Festival</option>
+                          <option value="Event">Event</option>
+                      </select>
+                    </div>
+
+                    <div class="pe-form-group">
+                      <label class="pe-label" for="peDate">Date</label>
+                      <input class="pe-input" type="date" id="peDate">
+                    </div>
+
+                    <div class="pe-form-group">
+                      <label class="pe-label" for="peDescInput">Description</label>
+                      <textarea class="pe-input pe-textarea" id="peDescInput"
+                          placeholder="Write a short description of the event..."></textarea>
+                    </div>
+
+                    <!-- Upload Zone -->
+                    <div class="pe-form-group">
+                      <label class="pe-label">Upload Image</label>
+                      <div class="pe-upload-zone" id="peUploadZone"
+                          onclick="document.getElementById('peFileInput').click()">
+                          <input type="file" id="peFileInput" accept="image/*,video/*" style="display:none;"
+                          onchange="peHandleUpload(event)">
+                          <i class="fa-solid fa-cloud-arrow-up"></i>
+                          <p>Drag & drop or <span>browse</span> to upload</p>
+                          <p class="pe-upload-hint">Supports: JPG, PNG, GIF, JPEG</p>
+                    </div>
+
+                    <!-- Preview -->
+                    <div class="pe-upload-preview" id="peUploadPreview" style="display:none;">
+                        <div class="pe-preview-wrap">
+                          <img id="pePreviewImg" src="" alt="Preview" class="pe-preview-thumb">
+                          <video id="pePreviewVid" src="" class="pe-preview-thumb" controls
+                              style="display:none;"></video>
+                          <button class="pe-remove-preview" onclick="peClearUpload()"
+                              title="Remove">&#10005;</button>
+                        </div>
+                        <p class="pe-preview-filename" id="pePreviewName"></p>
+                    </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="pe-form-actions">
+                    <button class="pe-btn pe-btn-add">
+                        <i class="fa-solid fa-plus"></i> Add
+                    </button>
+                    <button class="pe-btn pe-btn-update">
+                        <i class="fa-solid fa-pen"></i> Update
+                    </button>
+                    <button class="pe-btn pe-btn-delete">
+                        <i class="fa-solid fa-trash"></i> Delete
+                    </button>
+                    </div>
+
+                </div>
+                <!-- End Form Card -->
+
+              </div>
+              <!-- END RIGHT -->
+
+          </div>
+          <!-- End Layout -->
+
+        </div>
+        <!-- End Past Events Section -->
+
+
+      <!-- COPYRIGHT TEXT -->
+      <div class="copyright-section">
+            <p class="copyright-text">Copyright &copy; 2025 - 2026 <a href="https://www.creativewebsolution.in/" target="_blank" class="company-name"> Creative Web
+                    Solution</a>. ALL RIGHTS RESERVED</p>
+      </div>
+      
+    </div> <!-- MAIN WRAPPER ENDS -->
+
+  </div> 
+
+</div> 
+
+  <script>
+    // Profile Dropdown Logic
+    const profileBtn = document.getElementById('profileBtn');
+    const dropdownWrapper = document.querySelector('.profile-dropdown-wrapper');
+
+    // Toggle dropdown on click
+    profileBtn.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevent bubbling
+      dropdownWrapper.classList.toggle('active');
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!dropdownWrapper.contains(e.target)) {
+        dropdownWrapper.classList.remove('active');
+      }
+    });
+
+    if(hamburger) {
+      hamburger.addEventListener('click', () => {
+        sidebar.classList.add('active');
+      });
+    }
+
+    if(closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        sidebar.classList.remove('active');
+      });
+    }
+  </script>
+<script>
+// ── Events data store ──
+var upcomingEvents = [];
+var pastEvents     = [];
+var ueIndex        = 0;
+var peIndex        = 0;
+
+// ── Load Upcoming Events ──
+function loadAdminUpcomingEvents() {
+  fetch('http://localhost:8080/api/events/upcoming')
+  .then(function(res) { return res.json(); })
+  .then(function(data) {
+    upcomingEvents = data;
+    document.getElementById('ueTotalCards').textContent = data.length;
+    ueIndex = 0;
+    showUeCard(0);
+  })
+  .catch(function(e) { console.log('Error:', e); });
+
+  // Stats cards update 
+  fetch('http://localhost:8080/api/events/count')
+  .then(function(res) { return res.json(); })
+  .then(function(data) {
+    document.getElementById('statTotal').textContent    = data.total    || 0;
+    document.getElementById('statUpcoming').textContent = data.upcoming || 0;
+    document.getElementById('statPast').textContent     = data.past     || 0;
+  })
+  .catch(function(e) { console.log('Count error:', e); });
+
+    // Media count update karo
+  fetch('http://localhost:8080/api/events/media-count')
+  .then(function(res) { return res.json(); })
+  .then(function(data) {
+    document.getElementById('statMedia').textContent = data.mediaCount || 0;
+  })
+  .catch(function(e) { console.log('Media count error:', e); });
+}
+
+// ── Show Upcoming Card ──
+function showUeCard(index) {
+  if (upcomingEvents.length === 0) return;
+  var event = upcomingEvents[index];
+  document.getElementById('ueCardTitle').textContent   = event.title;
+  document.getElementById('ueCardBadge').textContent   = event.category || 'Event';
+  document.getElementById('ueCardDate').textContent    = event.eventDate;
+  document.getElementById('ueCardDesc').textContent    = event.description;
+  document.getElementById('ueCurrentIndex').textContent = index + 1;
+
+  // Form mein bhi fill karo
+  document.getElementById('ueTitle').value = event.title;
+  document.getElementById('ueTag').value   = event.category || 'Event';
+  document.getElementById('ueDate').value  = event.eventDate;
+  document.getElementById('ueDesc').value  = event.description;
+}
+
+// ── Navigate Upcoming ──
+window.ueNavigate = function(direction) {
+  ueIndex += direction;
+  if (ueIndex < 0) ueIndex = upcomingEvents.length - 1;
+  if (ueIndex >= upcomingEvents.length) ueIndex = 0;
+  showUeCard(ueIndex);
+};
+
+// ── Add Upcoming Event ──
+document.querySelector('.ue-btn-add').addEventListener('click', function() {
+  var title = document.getElementById('ueTitle').value.trim();
+  var tag   = document.getElementById('ueTag').value;
+  var date  = document.getElementById('ueDate').value;
+  var desc  = document.getElementById('ueDesc').value.trim();
+
+  if (!title || !date) {
+    alert('Title and Date are required.');
+    return;
+  }
+
+  fetch('http://localhost:8080/api/events/add', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      title:       title,
+      category:    tag,
+      eventDate:   date,
+      description: desc,
+      status:      'UPCOMING'
+    })
+  })
+  .then(function(res) { return res.json(); })
+  .then(function(data) {
+    alert(data.message);
+    loadAdminUpcomingEvents();
+  })
+  .catch(function() { alert('Cannot connect to server.'); });
+});
+
+// ── Update Upcoming Event ──
+document.querySelector('.ue-btn-update').addEventListener('click', function() {
+  if (upcomingEvents.length === 0) return;
+  var event = upcomingEvents[ueIndex];
+
+  fetch('http://localhost:8080/api/events/update/' + event.id, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      title:       document.getElementById('ueTitle').value.trim(),
+      category:    document.getElementById('ueTag').value,
+      eventDate:   document.getElementById('ueDate').value,
+      description: document.getElementById('ueDesc').value.trim(),
+      status:      'UPCOMING'
+    })
+  })
+  .then(function(res) { return res.json(); })
+  .then(function(data) {
+    alert(data.message);
+    loadAdminUpcomingEvents();
+  })
+  .catch(function() { alert('Cannot connect to server.'); });
+});
+
+// ── Delete Upcoming Event ──
+document.querySelector('.ue-btn-delete').addEventListener('click', function() {
+  if (upcomingEvents.length === 0) return;
+  var event = upcomingEvents[ueIndex];
+
+  if (!confirm('Are you sure you want to delete "' + event.title + '"?')) return;
+
+  fetch('http://localhost:8080/api/events/delete/' + event.id, {
+    method: 'DELETE'
+  })
+  .then(function(res) { return res.json(); })
+  .then(function(data) {
+    alert(data.message);
+    loadAdminUpcomingEvents();
+  })
+  .catch(function() { alert('Cannot connect to server.'); });
+});
+
+// ── Load Past Events ──
+function loadAdminPastEvents() {
+  fetch('http://localhost:8080/api/events/past')
+  .then(function(res) { return res.json(); })
+  .then(function(data) {
+    pastEvents = data;
+    document.getElementById('peTotalCards').textContent = data.length;
+    peIndex = 0;
+    showPeCard(0);
+  })
+  .catch(function(e) { console.log('Error:', e); });
+}
+
+// ── Show Past Card ──
+function showPeCard(index) {
+  if (pastEvents.length === 0) return;
+  var event = pastEvents[index];
+  document.getElementById('peCardTitle').textContent    = event.title;
+  document.getElementById('peCardBadge').textContent    = event.category || 'Event';
+  document.getElementById('peCardDate').textContent     = event.eventDate;
+  document.getElementById('peCardDesc').textContent     = event.description;
+  document.getElementById('peCurrentIndex').textContent = index + 1;
+
+  if (event.imageUrl) {
+  var img = document.getElementById('peCardImg');
+  // Full URL check karo
+  if (event.imageUrl.startsWith('http')) {
+    img.src = event.imageUrl;
+  } else {
+    img.src = 'http://localhost:8080' + event.imageUrl;
+  }
+}
+
+  // Form fill karo
+  document.getElementById('peTitle').value     = event.title;
+  document.getElementById('peTag').value       = event.category || 'Festival';
+  document.getElementById('peDate').value      = event.eventDate;
+  document.getElementById('peDescInput').value = event.description;
+}
+
+// ── Navigate Past ──
+window.peNavigate = function(direction) {
+  peIndex += direction;
+  if (peIndex < 0) peIndex = pastEvents.length - 1;
+  if (peIndex >= pastEvents.length) peIndex = 0;
+  showPeCard(peIndex);
+};
+
+// ── Add Past Event ──
+document.querySelector('.pe-btn-add').addEventListener('click', function() {
+  var title = document.getElementById('peTitle').value.trim();
+  var tag   = document.getElementById('peTag').value;
+  var date  = document.getElementById('peDate').value;
+  var desc  = document.getElementById('peDescInput').value.trim();
+
+  if (!title || !date) {
+    alert('Title and Date are required.');
+    return;
+  }
+
+  fetch('http://localhost:8080/api/events/add', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+    title:       title,
+    category:    tag,
+    eventDate:   date,
+    description: desc,
+    status:      'PAST',
+    imageUrl:    window.uploadedImageUrl || null
+  })
+  })
+  .then(function(res) { return res.json(); })
+  .then(function(data) {
+    alert(data.message);
+    loadAdminPastEvents();
+  })
+  .catch(function() { alert('Cannot connect to server.'); });
+});
+
+// ── Update Past Event ──
+document.querySelector('.pe-btn-update').addEventListener('click', function() {
+  if (pastEvents.length === 0) return;
+  var event = pastEvents[peIndex];
+
+  // upload new image via new url
+  // otherwise use old one
+  var imageUrl = window.uploadedImageUrl || event.imageUrl || null;
+
+  fetch('http://localhost:8080/api/events/update/' + event.id, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      title:       document.getElementById('peTitle').value.trim(),
+      category:    document.getElementById('peTag').value,
+      eventDate:   document.getElementById('peDate').value,
+      description: document.getElementById('peDescInput').value.trim(),
+      status:      'PAST',
+      imageUrl:    imageUrl
+    })
+  })
+  .then(function(res) { return res.json(); })
+  .then(function(data) {
+    alert(data.message);
+    // Upload clear karo
+    window.uploadedImageUrl = null;
+    peClearUpload();
+    loadAdminPastEvents();
+  })
+  .catch(function() { alert('Cannot connect to server.'); });
+});
+
+// ── Delete Past Event ──
+document.querySelector('.pe-btn-delete').addEventListener('click', function() {
+  if (pastEvents.length === 0) return;
+  var event = pastEvents[peIndex];
+
+  if (!confirm('Are you sure you want to delete "' + event.title + '"?')) return;
+
+  fetch('http://localhost:8080/api/events/delete/' + event.id, {
+    method: 'DELETE'
+  })
+  .then(function(res) { return res.json(); })
+  .then(function(data) {
+    alert(data.message);
+    loadAdminPastEvents();
+  })
+  .catch(function() { alert('Cannot connect to server.'); });
+});
+
+// ── Page load pe dono load karo ──
+document.addEventListener('DOMContentLoaded', function() {
+  loadAdminUpcomingEvents();
+  loadAdminPastEvents();
+});
+</script>
+<!-- Image Upload Script — YAHAN ADD KARO -->
+<script>
+// ── Image Upload Function ──
+window.peHandleUpload = function(event) {
+  var file = event.target.files[0];
+  if (!file) return;
+
+  // Preview dikhao
+  var previewDiv  = document.getElementById('peUploadPreview');
+  var previewImg  = document.getElementById('pePreviewImg');
+  var previewName = document.getElementById('pePreviewName');
+
+  previewDiv.style.display = 'block';
+  previewImg.src = URL.createObjectURL(file);
+  previewName.textContent = file.name;
+
+  // Upload zone hide karo
+  document.getElementById('peUploadZone').style.display = 'none';
+
+  // Backend pe upload karo
+  var formData = new FormData();
+  formData.append('file', file);
+
+  fetch('http://localhost:8080/api/upload/image', {
+    method: 'POST',
+    body: formData
+  })
+  .then(function(res) { return res.json(); })
+  .then(function(data) {
+    if (data.url) {
+      window.uploadedImageUrl = 'http://localhost:8080' + data.url;
+      console.log('Image uploaded:', window.uploadedImageUrl);
+    } else {
+      alert(data.message || 'Upload failed');
+    }
+  })
+  .catch(function() {
+    alert('Cannot connect to server.');
+  });
+};
+
+// ── Clear Upload ──
+window.peClearUpload = function() {
+  document.getElementById('peUploadPreview').style.display = 'none';
+  document.getElementById('peUploadZone').style.display    = 'block';
+  document.getElementById('peFileInput').value             = '';
+  document.getElementById('pePreviewImg').src              = '';
+  window.uploadedImageUrl = null;
+};
+</script>
+
+    <!-- JS Script (Updated: Click anywhere to close logic) -->
+    <script>
+      const hamburger = document.querySelector('.hamburger');
+      const closeBtn = document.querySelector('.close-btn');
+      const sidebar = document.querySelector('.sidebar');
+
+      if(hamburger){
+        hamburger.addEventListener('click', () => {
+          sidebar.classList.add('active');
+        });
+      }
+
+      if(closeBtn){
+        closeBtn.addEventListener('click', () => {
+          sidebar.classList.remove('active');
+        });
+      }
+    </script>
+    <!-- Do not remove below commented code -->
+<script>
+// ── Auth Check ──
+(function() {
+  var user = localStorage.getItem('user');
+  
+  if (!user) {
+    window.location.replace('Sign-In.html');
+    return;
+  }
+  
+  try {
+    var userData = JSON.parse(user);
+    if (!userData.token || userData.role !== 'SUPER_ADMIN') {
+      localStorage.removeItem('user');
+      window.location.replace('Sign-In.html');
+      return;
+    }
+    
+    // set admin details
+    var initials = userData.name
+      ? userData.name.trim().split(' ').map(function(n) { 
+          return n[0]; 
+        }).join('').substring(0, 2).toUpperCase()
+      : 'AD';
+    
+    var profileBtn = document.getElementById('profileBtn');
+    if (profileBtn) profileBtn.textContent = initials;
+    
+  } catch(e) {
+    localStorage.removeItem('user');
+    window.location.replace('Sign-In.html');
+  }
+})();
+
+// ── Logout ──
+function handleLogout() {
+  localStorage.removeItem('user');
+  localStorage.removeItem('creative_email');
+  localStorage.removeItem('creative_remember');
+  window.location.replace('Sign-In.html');
+}
+</script>
+</body>
+</html>
