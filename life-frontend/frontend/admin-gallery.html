@@ -786,7 +786,7 @@
 
       // API CALL
       const response = await fetch(
-        "http://localhost:8080/api/gallery/add",
+        "https://api-lifeqa-be.azurewebsites.net/api/gallery/add",
         {
           method: "POST",
           body: formData
@@ -994,7 +994,7 @@ function handleLogout() {
 <script>
   // Dynamic gallery
 
-const API_URL = "http://localhost:8080/api/gallery/all";
+const API_URL = "https://api-lifeqa-be.azurewebsites.net/api/gallery/all";
 
 let allGallery = [];
 
@@ -1079,7 +1079,7 @@ function renderGallery(pageNumber) {
         else if(category === "work_anniversary") category = "Work Anniversary";
         else if(category === "CWS_VIDEO") category = "CWS_VIDEO";
 
-        const imageUrl = "http://localhost:8080" + item.imagePath;
+        const imageUrl = "https://api-lifeqa-be.azurewebsites.net" + item.imagePath;
         let mediaTag = "";
         
         if(category === "CWS_VIDEO") {
@@ -1198,7 +1198,7 @@ function searchGallery(keyword) {
         else if(category === "work_anniversary") category = "Work Anniversary";
         else if(category === "CWS_VIDEO") category = "CWS_VIDEO";
 
-        const imageUrl = "http://localhost:8080" + item.imagePath;
+        const imageUrl = "https://api-lifeqa-be.azurewebsites.net" + item.imagePath;
         let mediaTag = category === "CWS_VIDEO" 
             ? `<video controls width="100%"><source src="${imageUrl}" type="video/mp4"></video>` 
             : `<img src="${imageUrl}" alt="gallery">`;

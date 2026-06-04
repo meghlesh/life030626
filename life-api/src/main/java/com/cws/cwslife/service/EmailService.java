@@ -113,7 +113,7 @@ public class EmailService {
                 "Phone   : " + (phone != null ? phone : "Not provided") + "\n" +
                 "Message : " + message + "\n\n" +
                 "View in admin panel:\n" +
-                "http://127.0.0.1:5501/frontend/admin-contact-us.html"
+                "https://proud-sea-0f095ec00.7.azurestaticapps.net/admin-contact-us.html"
             );
             mailSender.send(mail);
         } catch (Exception e) {

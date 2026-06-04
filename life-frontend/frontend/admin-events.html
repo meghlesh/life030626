@@ -563,7 +563,7 @@ var peIndex        = 0;
 
 // ── Load Upcoming Events ──
 function loadAdminUpcomingEvents() {
-  fetch('http://localhost:8080/api/events/upcoming')
+  fetch('https://api-lifeqa-be.azurewebsites.net/api/events/upcoming')
   .then(function(res) { return res.json(); })
   .then(function(data) {
     upcomingEvents = data;
@@ -574,7 +574,7 @@ function loadAdminUpcomingEvents() {
   .catch(function(e) { console.log('Error:', e); });
 
   // Stats cards update 
-  fetch('http://localhost:8080/api/events/count')
+  fetch('https://api-lifeqa-be.azurewebsites.net/api/events/count')
   .then(function(res) { return res.json(); })
   .then(function(data) {
     document.getElementById('statTotal').textContent    = data.total    || 0;
@@ -584,7 +584,7 @@ function loadAdminUpcomingEvents() {
   .catch(function(e) { console.log('Count error:', e); });
 
     // Media count update karo
-  fetch('http://localhost:8080/api/events/media-count')
+  fetch('https://api-lifeqa-be.azurewebsites.net/api/events/media-count')
   .then(function(res) { return res.json(); })
   .then(function(data) {
     document.getElementById('statMedia').textContent = data.mediaCount || 0;
@@ -629,7 +629,7 @@ document.querySelector('.ue-btn-add').addEventListener('click', function() {
     return;
   }
 
-  fetch('http://localhost:8080/api/events/add', {
+  fetch('https://api-lifeqa-be.azurewebsites.net/api/events/add', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -653,7 +653,7 @@ document.querySelector('.ue-btn-update').addEventListener('click', function() {
   if (upcomingEvents.length === 0) return;
   var event = upcomingEvents[ueIndex];
 
-  fetch('http://localhost:8080/api/events/update/' + event.id, {
+  fetch('https://api-lifeqa-be.azurewebsites.net/api/events/update/' + event.id, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -679,7 +679,7 @@ document.querySelector('.ue-btn-delete').addEventListener('click', function() {
 
   if (!confirm('Are you sure you want to delete "' + event.title + '"?')) return;
 
-  fetch('http://localhost:8080/api/events/delete/' + event.id, {
+  fetch('https://api-lifeqa-be.azurewebsites.net/api/events/delete/' + event.id, {
     method: 'DELETE'
   })
   .then(function(res) { return res.json(); })
@@ -692,7 +692,7 @@ document.querySelector('.ue-btn-delete').addEventListener('click', function() {
 
 // ── Load Past Events ──
 function loadAdminPastEvents() {
-  fetch('http://localhost:8080/api/events/past')
+  fetch('https://api-lifeqa-be.azurewebsites.net/api/events/past')
   .then(function(res) { return res.json(); })
   .then(function(data) {
     pastEvents = data;
@@ -719,7 +719,7 @@ function showPeCard(index) {
   if (event.imageUrl.startsWith('http')) {
     img.src = event.imageUrl;
   } else {
-    img.src = 'http://localhost:8080' + event.imageUrl;
+    img.src = 'https://api-lifeqa-be.azurewebsites.net' + event.imageUrl;
   }
 }
 
@@ -750,7 +750,7 @@ document.querySelector('.pe-btn-add').addEventListener('click', function() {
     return;
   }
 
-  fetch('http://localhost:8080/api/events/add', {
+  fetch('https://api-lifeqa-be.azurewebsites.net/api/events/add', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -779,7 +779,7 @@ document.querySelector('.pe-btn-update').addEventListener('click', function() {
   // otherwise use old one
   var imageUrl = window.uploadedImageUrl || event.imageUrl || null;
 
-  fetch('http://localhost:8080/api/events/update/' + event.id, {
+  fetch('https://api-lifeqa-be.azurewebsites.net/api/events/update/' + event.id, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -809,7 +809,7 @@ document.querySelector('.pe-btn-delete').addEventListener('click', function() {
 
   if (!confirm('Are you sure you want to delete "' + event.title + '"?')) return;
 
-  fetch('http://localhost:8080/api/events/delete/' + event.id, {
+  fetch('https://api-lifeqa-be.azurewebsites.net/api/events/delete/' + event.id, {
     method: 'DELETE'
   })
   .then(function(res) { return res.json(); })
@@ -849,14 +849,14 @@ window.peHandleUpload = function(event) {
   var formData = new FormData();
   formData.append('file', file);
 
-  fetch('http://localhost:8080/api/upload/image', {
+  fetch('https://api-lifeqa-be.azurewebsites.net/api/upload/image', {
     method: 'POST',
     body: formData
   })
   .then(function(res) { return res.json(); })
   .then(function(data) {
     if (data.url) {
-      window.uploadedImageUrl = 'http://localhost:8080' + data.url;
+      window.uploadedImageUrl = 'https://api-lifeqa-be.azurewebsites.net' + data.url;
       console.log('Image uploaded:', window.uploadedImageUrl);
     } else {
       alert(data.message || 'Upload failed');

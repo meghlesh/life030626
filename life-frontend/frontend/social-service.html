@@ -381,7 +381,7 @@ function prevImage() {
 
 //     const container = document.getElementById("contributionContainer");
 
-//     fetch("http://localhost:8080/api/contribution/getAll")
+//     fetch("https://api-lifeqa-be.azurewebsites.net/api/contribution/getAll")
 //         .then(res => res.json())
 //         .then(data => {
 
@@ -397,7 +397,7 @@ function prevImage() {
 //                     container.innerHTML += `
 //                         <div class="contribution-card">
 
-//                             <img src="http://localhost:8080${item.imageUrl}" />
+//                             <img src="https://api-lifeqa-be.azurewebsites.net${item.imageUrl}" />
 
 //                             <div class="card-content">
 
@@ -430,12 +430,12 @@ document.addEventListener("DOMContentLoaded", function() {
   // ── Gallery load from backend ──
   var galleryTrack = document.getElementById('socialGalleryTrack');
 
-  fetch("http://localhost:8080/api/social/getAll")
+  fetch("https://api-lifeqa-be.azurewebsites.net/api/social/getAll")
   .then(function(res) { return res.json(); })
   .then(function(data) {
     if (data && data.length > 0) {
       galleryTrack.innerHTML = data.map(function(item) {
-        return '<div class="gallery-item"><img src="http://localhost:8080' + item.imageUrl + '" alt=""></div>';
+        return '<div class="gallery-item"><img src="https://api-lifeqa-be.azurewebsites.net' + item.imageUrl + '" alt=""></div>';
       }).join('');
     }
     // 
@@ -447,7 +447,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // ── Contribution load from backend ──
   var container = document.getElementById('contributionContainer');
 
-  fetch("http://localhost:8080/api/contribution/getAll")
+  fetch("https://api-lifeqa-be.azurewebsites.net/api/contribution/getAll")
   .then(function(res) { return res.json(); })
   .then(function(data) {
     if (data && data.length > 0) {
@@ -459,7 +459,7 @@ document.addEventListener("DOMContentLoaded", function() {
       data.forEach(function(item) {
         container.innerHTML += 
           '<div class="contribution-card">' +
-            '<img src="http://localhost:8080' + item.imageUrl + '" />' +
+            '<img src="https://api-lifeqa-be.azurewebsites.net' + item.imageUrl + '" />' +
             '<div class="card-content">' +
               '<h3>' + item.title + '</h3>' +
               '<p>' + item.description + '</p>' +

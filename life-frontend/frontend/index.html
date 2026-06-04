@@ -767,7 +767,7 @@
         console.log("Email:", email);
 
        // Backend API call
-      fetch('http://localhost:8080/api/contact/submit', {
+      fetch('https://api-lifeqa-be.azurewebsites.net/api/contact/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -800,7 +800,7 @@
 
 window.onload = function () {
 
-    fetch('http://localhost:8080/api/visitors/increment', {
+    fetch('https://api-lifeqa-be.azurewebsites.net/api/visitors/increment', {
         method: 'POST'
     })
     .then(response => response.text())

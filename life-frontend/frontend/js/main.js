@@ -312,7 +312,7 @@ function initContactForm() {
         captchaToken:    grecaptcha.getResponse()     || ''
       };
 
-      fetch('http://localhost:8080/api/contact/submit', {
+      fetch('https://api-lifeqa-be.azurewebsites.net/api/contact/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
@@ -493,7 +493,7 @@ function initNewsletter() {
     msgDiv.innerHTML = '<div style="padding:10px; background:#d1ecf1; color:#0c5460; border-radius:5px;">⏳ Sending request...</div>';
     
     try {
-      const response = await fetch('http://localhost:8080/api/email/subscribe', {
+      const response = await fetch('https://api-lifeqa-be.azurewebsites.net/api/email/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: email })

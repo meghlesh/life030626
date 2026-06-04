@@ -628,7 +628,7 @@ function addGallery() {
   formData.append('title', title);
   formData.append('image', file);
 
-  fetch('http://localhost:8080/api/social/upload', {
+  fetch('https://api-lifeqa-be.azurewebsites.net/api/social/upload', {
     method: 'POST',
     body: formData
   })
@@ -657,7 +657,7 @@ function updateGallery() {
   formData.append('title', title);
   formData.append('image', file);
 
-  fetch('http://localhost:8080/api/social/updateByTitle', {
+  fetch('https://api-lifeqa-be.azurewebsites.net/api/social/updateByTitle', {
     method: 'PUT',
     body: formData
   })
@@ -682,7 +682,7 @@ function deleteGallery() {
 
   if (!confirm('Delete "' + title + '"?')) return;
 
-  fetch('http://localhost:8080/api/social/deleteByTitle/' + encodeURIComponent(title), {
+  fetch('https://api-lifeqa-be.azurewebsites.net/api/social/deleteByTitle/' + encodeURIComponent(title), {
     method: 'DELETE'
   })
   .then(function(res) { return res.text(); })
@@ -898,7 +898,7 @@ function addContribution(){
     );
 
     fetch(
-    "http://localhost:8080/api/contribution/add",
+    "https://api-lifeqa-be.azurewebsites.net/api/contribution/add",
     {
         method: "POST",
         body: formData
@@ -1000,7 +1000,7 @@ function updateContribution(){
     formData.append("image", image);
 
     fetch(
-    "http://localhost:8080/api/contribution/updateByTitle",
+    "https://api-lifeqa-be.azurewebsites.net/api/contribution/updateByTitle",
     {
         method: "PUT",
         body: formData
@@ -1041,7 +1041,7 @@ function deleteContribution(){
     }
 
     fetch(
-    `http://localhost:8080/api/contribution/deleteByTitle/${title}`,
+    `https://api-lifeqa-be.azurewebsites.net/api/contribution/deleteByTitle/${title}`,
     {
         method: "DELETE"
     })
@@ -1089,7 +1089,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    fetch("http://localhost:8080/api/social/getAll")
+    fetch("https://api-lifeqa-be.azurewebsites.net/api/social/getAll")
         .then(res => {
             if (!res.ok) throw new Error("API failed");
             return res.json();
@@ -1102,7 +1102,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 track.innerHTML = data.map(item => `
                     <div class="gallery-item">
-                        <img src="http://localhost:8080${item.imageUrl}">
+                        <img src="https://api-lifeqa-be.azurewebsites.net${item.imageUrl}">
                     </div>
                 `).join("");
 
@@ -1176,7 +1176,7 @@ var allContributions = [];
 var scIndex = 0;
 
 function loadContributions() {
-  fetch('http://localhost:8080/api/contribution/getAll')
+  fetch('https://api-lifeqa-be.azurewebsites.net/api/contribution/getAll')
   .then(function(res) { return res.json(); })
   .then(function(data) {
     if (data && data.length > 0) {
@@ -1191,7 +1191,7 @@ function loadContributions() {
         card.className = 'sc-card';
         card.style.cursor = 'pointer';
         card.innerHTML =
-            '<img src="http://localhost:8080' + item.imageUrl + '" onerror="this.src=\'assets/images/1 (2).png\'">' +
+            '<img src="https://api-lifeqa-be.azurewebsites.net' + item.imageUrl + '" onerror="this.src=\'assets/images/1 (2).png\'">' +
             '<div class="sc-card-content">' +
             '<h3>' + item.title + '</h3>' +
             '<p>' + item.description + '</p>' +
@@ -1226,7 +1226,7 @@ function loadGalleryFromBackend() {
   var track = document.querySelector('.gallery-slider-track');
   if (!track) return;
 
-  fetch('http://localhost:8080/api/social/getAll')
+  fetch('https://api-lifeqa-be.azurewebsites.net/api/social/getAll')
   .then(function(res) { return res.json(); })
   .then(function(data) {
     if (data && data.length > 0) {
@@ -1236,7 +1236,7 @@ function loadGalleryFromBackend() {
         var div = document.createElement('div');
         div.className = 'gallery-item';
         div.style.cursor = 'pointer';
-        div.innerHTML = '<img src="http://localhost:8080' + item.imageUrl + '" onerror="this.src=\'assets/images/2 (1).png\'">';
+        div.innerHTML = '<img src="https://api-lifeqa-be.azurewebsites.net' + item.imageUrl + '" onerror="this.src=\'assets/images/2 (1).png\'">';
 
         // by clicking on image title will be ther in the fome
         div.addEventListener('click', function() {

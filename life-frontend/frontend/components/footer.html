@@ -595,7 +595,7 @@
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Subscribing...';
             
             try {
-                const response = await fetch('http://localhost:8080/api/email/subscribe', {
+                const response = await fetch('https://api-lifeqa-be.azurewebsites.net/api/email/subscribe', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

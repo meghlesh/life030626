@@ -391,7 +391,7 @@
 <script>
 // ── Load Upcoming Events from Backend ──
 function loadUpcomingEvents() {
-  fetch('http://localhost:8080/api/events/upcoming')
+  fetch('https://api-lifeqa-be.azurewebsites.net/api/events/upcoming')
   .then(function(res) { return res.json(); })
   .then(function(events) {
 
@@ -436,7 +436,7 @@ function loadUpcomingEvents() {
 
 // // ── Load Past Events from Backend ──
 // function loadPastEvents() {
-//   fetch('http://localhost:8080/api/events/past')
+//   fetch('https://api-lifeqa-be.azurewebsites.net/api/events/past')
 //   .then(function(res) { return res.json(); })
 //   .then(function(events) {
 
@@ -464,7 +464,7 @@ function loadUpcomingEvents() {
 //         if (event.imageUrl.startsWith('http')) {
 //           imgSrc = event.imageUrl;
 //         } else {
-//           imgSrc = 'http://localhost:8080' + event.imageUrl;
+//           imgSrc = 'https://api-lifeqa-be.azurewebsites.net' + event.imageUrl;
 //         }
 //       } else {
 //         imgSrc = 'assets/images/placeholder.jpg';
@@ -496,7 +496,7 @@ function loadUpcomingEvents() {
 // }
 // ── Load Past Events from Backend ──
 function loadPastEvents() {
-  fetch('http://localhost:8080/api/events/past')
+  fetch('https://api-lifeqa-be.azurewebsites.net/api/events/past')
   .then(function(res) { return res.json(); })
   .then(function(events) {
 
@@ -527,7 +527,7 @@ function loadPastEvents() {
         if (event.imageUrl.startsWith('http')) {
           imgSrc = event.imageUrl;
         } else {
-          imgSrc = 'http://localhost:8080' + event.imageUrl;
+          imgSrc = 'https://api-lifeqa-be.azurewebsites.net' + event.imageUrl;
         }
       } else {
         imgSrc = 'assets/images/placeholder.jpg';
